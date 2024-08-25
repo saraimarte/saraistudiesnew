@@ -1,0 +1,45 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from '@scripts/utils';
+
+export async function getStaticPaths(){
+    const allCalcPosts: CollectionEntry<'calc1'>[] = await getCollection('calc1');
+
+    return  allCalcPosts.map(entry => ({
+        params:{
+            slug: entry.slug
+        },
+        props:{entry}
+    }));
+}
+
+const { entry } = Astro.props;
+const {Content} = await entry.render();
+
+---
+
+
+<MainLayout>
+
+    <div class = "container">
+        <h1 class = "title">{entry.data.title}</h1>
+        <h2 class = "date">{formatDate(entry.data.pubDate)}</h2>
+
+        <Content>
+        </Content>
+
+    </div>
+
+</MainLayout>
+
+<style>
+    .container{
+     height:100%;
+     width:100%;
+     height:min-content;
+    }
+
+   
+</style>

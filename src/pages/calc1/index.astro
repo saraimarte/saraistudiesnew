@@ -1,0 +1,63 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { formatDate } from '@scripts/utils';
+
+// Fetch all blog posts
+const allCalc1Posts: CollectionEntry<'calc1'>[] = (await getCollection('calc1')).sort((a, b) => {
+  // Assuming pubDate is a Date object or a string in ISO format
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+
+export async function getStaticPaths() {
+  const allCalc1Posts: CollectionEntry<'calc1'>[] = await getCollection('calc1');
+
+  return allCalc1Posts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allCalc1Posts;
+
+---
+
+<MainLayout pageTitle="Calc I Directory">
+  <div class="container">
+    <ol>
+      {allArticles.map(article => (
+        <li>
+          <a href={`/calc1/${article.slug}`}>{article.data.title}</a>
+        </li>
+      ))}
+    </ol>
+    
+  </div>
+</MainLayout>
+
+<style>
+
+    a{
+        color:black;
+        font-family: var(--primaryFont);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-size:20px;
+    }
+    ol{
+        margin:20px;
+        line-height: 2em;
+    }
+
+    
+
+    
+</style>
+
+<script define:vars={{}}>
+
+
+</script>
