@@ -1,0 +1,114 @@
+---
+import {Image} from "astro:assets";
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+//const pathHome = './';
+const pathHome = '/home/';
+
+import Home from '@assets/icons/Home.svg';
+import facc from '@assets/icons/facc.svg';
+import macc from '@assets/icons/macc.svg';
+import calc1 from '@assets/icons/calc1.svg';
+import calc2 from '@assets/icons/calc2.svg';
+import micro from '@assets/icons/micro.svg';
+import macro from '@assets/icons/macro.svg';
+import stats from '@assets/icons/stats.svg';
+import compsci from '@assets/icons/computer.svg';
+import mgmt from '@assets/icons/mgmt.svg';
+import stats4bizz from '@assets/icons/stats4bizz.svg';
+import supplyChain from '@assets/icons/bus.svg';
+import writingForTheMedia from '@assets/icons/writingForTheMedia.svg';
+import latinoWorkers from '@assets/icons/latinoWorkers.svg';
+
+const collectionImages = {
+  calc1,
+  calc2,
+  facc,
+  macc,
+  micro,
+  macro,
+  stats,
+  compsci,
+  mgmt,
+  stats4bizz,
+  supplyChain,
+  writingForTheMedia,
+  latinoWorkers};
+
+// There is no function that returns a list of all your collections so you have to manually keep a list of them
+// Make sure that slug in the index for each collection is the same as the collection name
+const collectionNames = ['calc1'];
+
+export async function getStaticPaths() {
+  // Define the collection names directly
+  const collectionNames = ['calc1', 'calc2']; // Add other collection names here
+
+  // Return paths for each collection
+  return collectionNames.map(name => ({
+    params: { slug: name },
+  }));
+}
+---
+
+<div class="bottomNav" id="bottomNav">
+    <div class="tab">
+
+        <a href={pathHome}}>
+            <Image src={Home} alt={`Go to home`} />
+        </a>
+    </div>
+  {collectionNames.map(name => (
+    <div class="tab">
+      <a href={`/${name}`}>
+        <Image src={collectionImages[name]} alt={`Go to ${name} directory`} />
+       
+      </a>
+    </div>
+  ))}
+</div>
+
+<style>
+
+    .bottomNav {
+        display: flex;
+        width: 100%;
+        background-color: white;
+        border-bottom:var(--border);
+        overflow-x: auto; /* Allow horizontal scrolling but w/o mouse*/
+        scrollbar-width:none; 
+    }
+   
+    .tab{
+        user-select: none;
+        border:var(--border);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:5px;
+        min-width:60px;
+        min-height:50px;
+        max-height:80px;
+
+    }
+    
+
+
+</style>
+<script>
+    /*Horizontal Scrolling on BottomNav with mouse*/
+    const container = document.getElementById("bottomNav");
+    //container.style.scrollBehavior = "smooth";
+    container.addEventListener("wheel", function (e) {
+        if (e.deltaY > 0) {
+        container.scrollLeft += 100;
+        e.preventDefault();
+        }
+        else {
+        container.scrollLeft -= 100;
+        e.preventDefault();
+        }
+    });
+
+    /*https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scroll-using-css*/
+</script>
