@@ -1,0 +1,79 @@
+
+/*@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root{
+    --border: 1px solid black;
+    /*--primaryFont:"Averia Serif Libre", serif;*/
+    --primaryFont: 'PT Serif', serif;
+    --secondaryFont: None;
+    --primaryColor: black;
+    --pColor:  rgb(145, 202, 204);
+    --pColorHover:#94bdbf; 
+    --secondaryColor: None;
+    --text-body-size: 1em;
+    /* type scale */
+    --text-scale-ratio: 1.2;
+    --text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
+    --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+    --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+    --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+    --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+    --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+    --text-title: min(10vmin, calc(6em + 6vmax));
+    --text-heading: min(6vmin, calc(6em + 6vmax));
+    --text-subheading: min(5vmin, calc(6em + 6vmax));
+}
+
+
+*{
+    margin:0;
+    padding:0; 
+    box-sizing:border-box;
+} 
+
+::selection {
+    /* Change highlight background color to black */
+    background:rgb(145, 202, 204);
+    /* Change highlight text color to red */
+    color: black;
+  }
+
+summary{
+    user-select: none;
+    color:black;
+}
+
+/*
+details[open] {
+    padding: 10px;
+    border:5px solid green;
+  }
+
+  */
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 0.5em 0.5em 0;
+    background-color: rgb(145, 202, 204);
+    padding:5px 10px;
+    color:black;
+    font-family: var(--primaryFont);
+
+}
+  
+
+:root{
+    font-family: var(--primaryFont);
+}
+/* Disable zooming */
+body {
+    touch-action: manipulation;
+    touch-action: none; /* For older browser compatibility */
+    -ms-touch-action: manipulation; /* For Internet Explorer */
+    -ms-touch-action: none; /* For older versions of Internet Explorer */
+    user-zoom: fixed; /* Prevent user-initiated zooming */
+    -ms-content-zooming: none; /* For Internet Explorer */
+    zoom: 1; /* For Internet Explorer */
+}

@@ -1,0 +1,127 @@
+---
+import Main from '@layouts/MainLayout.astro';
+import '@styles/Global.css';
+
+const pathHome =  './';
+const path1 = '/classes/financialAccounting/home';
+const path2 = '/classes/managerialAccounting/home';
+const path3 = '/classes/calc1/home';
+const path4 = '/classes/calc2/home';
+const path5 = '/classes/micro/home';
+const path6 = '/classes/macro/home';
+const path7 = '/classes/stats/home';
+const path8 = '/classes/compsci/home';
+const path9 = '/classes/mgmt/home';
+const path10 ='/classes/stats4bizz/home';
+const path11 ='/classes/supplyChain/home';
+const path12= '/classes/writingForTheMedia/home';
+const path13 = '/classes/latinoWorkers/home';
+
+//newPath
+
+const folderPath1 = "../../toolbox";
+const folderPath2 = "../../rankings";
+const folderPath3 = "../../ratings";
+
+---
+
+<!--newPath -->
+
+<Main  folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome} path1 = {path1} path2 = {path2} path3 = {path3} path4 = {path4} path5 = {path5} path6 = {path6} path7 = {path7} path8 = {path8}  path9 = {path9} path10 = {path10} path11 = {path11} path12 = {path12} path13 = {path13}>
+	<div class = 'post-content'>
+		<div class = 'box'>
+			<h1 class = 'title'>about</h1>
+			<br>
+			<p>hi! i'm sarai.</p>
+			<br>
+			<p>i study finance and computer science at rutgers. </p>
+			<br>
+			<p>i break down all the classes i take in a way that's easier to understand and i store my notes here. </p>
+		</div>
+		<div class = 'box'>
+			<h1 class = 'title'>how to navigate this site</h1>
+			<br>
+			<p> all the class tabs are at the bottom navigation bar. you can also use the search bar at top! </p>
+		</div>
+		<div class = 'box'>
+			<h1 class = 'title' >prefer video?</h1>
+			<br>
+			<p>i have most of my notes in video format aswell, you can check out the videos at <a href = "https://www.youtube.com/@saraimarte/videos"> saraimarte</a> on youtube.</p>
+			<br>
+			<p>have fun studying!</p>
+		</div>
+	</div>
+	
+	
+</Main>
+
+<style>
+	
+    .skip-circle { 
+		position: fixed;
+		top: 20px; 
+		left: 20px; 
+		cursor: pointer; 
+		color: white; 
+		font-size: 16px;
+	}
+
+	.skipBtn{
+		border-radius: 50%;
+		background: url('../../public/012024r2.png');
+		width:50px;
+		height:50px;
+		display: flex;
+		justify-content: center;
+		align-items: center		;
+		position: relative;		
+		bottom:-380px;																																																									;
+	}																																																																																																																																																																																																																																																																																																																																																																																																																																																																															
+	.box{
+		display: flex;
+		flex-direction: column;
+		gap:0.2em;
+		
+	}
+	.post-content{
+		width:90%;
+        display: flex;
+        flex-direction: column;
+        gap:48px;
+        width:100%;
+	}
+	
+	#logo, .title{
+        font-family: var(--primaryFont);
+        font-weight: 400;
+		font-size: 20px;
+
+    }
+
+    .title{
+        font-family: var(--primaryFont);
+		font-size: var(--text-lg);
+		text-decoration: underline;
+		text-underline-offset: 5px;
+
+	}
+
+	
+    p{
+        font-size: var(--text-lg);
+    }
+
+	/*until it reaches 768px desktop (for mobile)*/
+	@media only screen and (max-width:768px){
+		p{
+       		font-size: var(--text-lg);
+    	}
+		
+		#logo, .title{
+			font-size:var(--text-lg);
+		}
+			
+	}
+
+
+</style>

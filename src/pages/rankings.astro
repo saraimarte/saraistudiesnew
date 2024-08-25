@@ -1,0 +1,47 @@
+---
+import Main from '@layouts/MainLayout.astro';
+const pathHome =  './';
+
+const folderPath1 = "../../toolbox";
+const folderPath2 = "../../rankings";
+const folderPath3 = "../../ratings";
+
+---
+
+<Main  folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
+
+<h1 class = "title"> Class Rankings </h1>
+
+<p> As a double major, I was always taking max credits every semester, and I often found myself wanting to know out of three billion business core classes I was required to take- which one would be 'easy'. I define easy as 'I don't have to try at all because everything is just busy work'. Ranked from easiest (less work to put in) to more work to put in.</p>
+
+<br>
+
+<ul>
+
+    <li> <a href = ""> Intro To Management </a></li>
+    <li> <a href = ""> Management Skills </a></li>
+    <li> <a href = ""> Intro to Managerial Accounting </a></li>
+
+</ul>
+
+
+</Main>
+
+<style>
+    .title{
+        font-style: var(--primaryFont);
+        font-weight: 400;
+	    font-size:var(--text-heading);			
+    }
+
+    ul{
+        margin:0px 20px;
+    }
+
+    li{
+        margin-bottom:5px;
+    }
+    a{
+        color:black;
+    }
+</style>
