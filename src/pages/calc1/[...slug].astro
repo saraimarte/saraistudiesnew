@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { formatDate } from '@scripts/utils';
+import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
     const allCalcPosts: CollectionEntry<'calc1'>[] = await getCollection('calc1');
@@ -20,13 +21,23 @@ const {Content} = await entry.render();
 
 ---
 
-
 <MainLayout>
 
     <div class = "container">
-        <h1 class = "title">{entry.data.title}</h1>
-        <h2 class = "date">{formatDate(entry.data.pubDate)}</h2>
+        <!--Path -->
+        <BackBtn link = "/calc1"></BackBtn>
 
+        <div class = "postInfo">
+
+            <h1 class = "title">{entry.data.title}</h1>
+            <p class = "class">Calculus I for the Life and Social Sciences 01:301:135</p>
+            <div class = "dates">
+                <p class = "date">Published: {formatDate(entry.data.pubDate)}</p>
+                <p class = "date">Updated: {formatDate(entry.data.updatedDate)}</p>
+          </div>
+          
+        </div>
+       
         <Content>
         </Content>
 
@@ -35,11 +46,42 @@ const {Content} = await entry.render();
 </MainLayout>
 
 <style>
+
+    *{
+     font-family: "IBM Plex Mono", monospace;
+     line-height: 1.5;
+     letter-spacing: .2px;
+    }
+    
     .container{
      height:100%;
      width:100%;
      height:min-content;
     }
 
-   
+    .postInfo{
+        position:relative;
+        right:5px;
+    }
+
+    .dates{
+        display: flex;
+        width:100%;
+        gap:2em;
+    }
+
+    .title {
+        margin: 10px 5px;
+        font-size: 1.3rem;
+    }
+
+    .date , .class {
+        margin: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+ 
+  
+
 </style>
+

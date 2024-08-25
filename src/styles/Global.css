@@ -5,7 +5,8 @@
 :root{
     --border: 1px solid black;
     /*--primaryFont:"Averia Serif Libre", serif;*/
-    --primaryFont: 'PT Serif', serif;
+    
+    --primaryFont: 'IBM Plex Mono';
     --secondaryFont: None;
     --primaryColor: black;
     --pColor:  rgb(145, 202, 204);
@@ -24,13 +25,16 @@
     --text-title: min(10vmin, calc(6em + 6vmax));
     --text-heading: min(6vmin, calc(6em + 6vmax));
     --text-subheading: min(5vmin, calc(6em + 6vmax));
-}
+    font-family: var(--primaryFont);
 
+}
 
 *{
     margin:0;
     padding:0; 
     box-sizing:border-box;
+    line-height: 1.5;
+    letter-spacing: .2px;
 } 
 
 ::selection {
@@ -45,13 +49,6 @@ summary{
     color:black;
 }
 
-/*
-details[open] {
-    padding: 10px;
-    border:5px solid green;
-  }
-
-  */
 details {
     border: 1px solid #aaa;
     border-radius: 4px;
@@ -62,18 +59,13 @@ details {
     font-family: var(--primaryFont);
 
 }
-  
 
-:root{
-    font-family: var(--primaryFont);
-}
 /* Disable zooming */
 body {
     touch-action: manipulation;
     touch-action: none; /* For older browser compatibility */
     -ms-touch-action: manipulation; /* For Internet Explorer */
     -ms-touch-action: none; /* For older versions of Internet Explorer */
-    user-zoom: fixed; /* Prevent user-initiated zooming */
     -ms-content-zooming: none; /* For Internet Explorer */
     zoom: 1; /* For Internet Explorer */
 }
