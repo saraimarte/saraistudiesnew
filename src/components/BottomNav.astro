@@ -1,7 +1,5 @@
 ---
 import {Image} from "astro:assets";
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
 
 //const pathHome = './';
 const pathHome = '/home/';
@@ -20,6 +18,12 @@ import stats4bizz from '@assets/icons/stats4bizz.svg';
 import supplyChain from '@assets/icons/bus.svg';
 import writingForTheMedia from '@assets/icons/writingForTheMedia.svg';
 import latinoWorkers from '@assets/icons/latinoWorkers.svg';
+
+// Define the props interface (even if empty)
+interface Props {}
+
+// Destructure props (even if empty)
+const {} = Astro.props;
 
 const collectionImages = {
   calc1,
