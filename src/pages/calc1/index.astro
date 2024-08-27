@@ -1,5 +1,5 @@
 ---
-import MainLayout from '@layouts/MainLayout.astro';
+import ClassHomePage from '@layouts/ClassHomePage.astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
@@ -24,47 +24,9 @@ const allArticles = allCalc1Posts;
 
 ---
 
-<MainLayout pageTitle="Calc I Directory">
-  <div class="container">
-    <h1 class = "date">Calculus I for the Life and Social Sciences (Calc 1) 01:301:135</h1>
-
-    <ol>
-      {allArticles.map(article => (
-        <li>
-          <a href={`/calc1/${article.slug}`}>{article.data.title}</a>
-        </li>
-      ))}
-    </ol>
-    
-  </div>
-</MainLayout>
-
-<style>
-
-  *{
-     font-family: "IBM Plex Mono", monospace;
-     line-height: 1.5;
-     letter-spacing: .2px;
-     
-    }
-    a{
-        color:black;
-        font-family: var(--primaryFont);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-size:20px;
-    }
-    ol{
-        margin:20px;
-        line-height: 2em;
-    }
-
-    h1{
-      font-size: 1.5rem;
-      margin: 10px 0;
-
-    }
-
-</style>
-
-
+<ClassHomePage 
+  pageTitle="Calc I Directory" 
+  allArticles = {allArticles} 
+  className = "calc1" 
+  fullClassTitle = "Calculus I for the Life and Social Sciences (Calc 1) 01:301:135">
+</ClassHomePage>

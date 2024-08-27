@@ -1,0 +1,51 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const {pageTitle, allArticles, className, fullClassTitle} = Astro.props;
+---
+
+<MainLayout pageTitle= {pageTitle}>
+  <div class="container">
+    <h1 class = "date">{fullClassTitle}</h1>
+
+    <ol>
+      {allArticles.map(article => (
+        <li>
+          <a href={`/${className}/${article.slug}`}>{article.data.title}</a>
+        </li>
+      ))}
+    </ol>
+    
+  </div>
+</MainLayout>
+
+<style>
+
+  *{
+     font-family: "IBM Plex Mono", monospace;
+     line-height: 1.5;
+     letter-spacing: .2px;
+     
+    }
+    a{
+        color:black;
+        font-family: var(--primaryFont);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-size:20px;
+    }
+    ol{
+        margin:20px;
+        line-height: 2em;
+    }
+
+    h1{
+      font-size: 1.5rem;
+      margin: 10px 0;
+      font-weight: 200;
+
+    }
+
+</style>
+
+
