@@ -4,11 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
-const allCalc1Posts: CollectionEntry<'calc1'>[] = (await getCollection('calc1')).sort((a, b) => {
-  // Assuming pubDate is a Date object or a string in ISO format
-  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
-});
-
+const allCalc1Posts: CollectionEntry<'calc1'>[] = (await getCollection('calc1'));
 
 export async function getStaticPaths() {
   const allCalc1Posts: CollectionEntry<'calc1'>[] = await getCollection('calc1');

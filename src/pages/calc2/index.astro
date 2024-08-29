@@ -1,0 +1,29 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allCalc2Posts: CollectionEntry<'calc2'>[] = (await getCollection('calc2'));
+
+
+export async function getStaticPaths() {
+  const allCalc2Posts: CollectionEntry<'calc2'>[] = await getCollection('calc2');
+
+  return allCalc2Posts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allCalc2Posts;
+
+---
+
+<ClassHomePage 
+  pageTitle="Calc II Directory" 
+  allArticles = {allArticles} 
+  className = "calc2" 
+  fullClassTitle = "Calculus II for the Mathematical and Physical Sciences (Calc 2) 01:640:152">
+</ClassHomePage>
