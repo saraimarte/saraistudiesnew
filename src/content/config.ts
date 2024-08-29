@@ -21,8 +21,33 @@ const calc2Collection = defineCollection({
   }),
 });
 
+const maccCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string(),
+    chapter: z.string(),
+  }),
+});
+
+const statMethodsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string(),
+  }),
+});
+
 
 export const collections = {
   calc1: calc1Collection,
-  calc2: calc2Collection
+  calc2: calc2Collection,
+  macc: maccCollection,
+  statMethods: statMethodsCollection
 };

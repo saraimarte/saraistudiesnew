@@ -1,0 +1,32 @@
+---
+layout: "@layouts/Blog.astro"
+title: Arc Length
+pubDate: 2024-04-29T00:00:00Z
+updatedDate: 2000-01-01T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: arc-length
+---
+
+import ImageMd from "@components/ImageMd.astro";
+import Solution from '@components/Solution.astro';
+
+import img1 from "@images/152/56.svg";
+
+When you find arclength you're just finding the length of a curve.
+
+The types of problems you will see will give you a function and you basically have to plug it's derivative into this formula.
+
+<ImageMd img = {img1} alt = "Formula for arclength"/>
+
+So, the hard part is clearly not finding the arc length - it's finding the derivative and doing the algebra after plugging it into the formula.
+
+Also, you might ask why is arc length denoted as _s_? Shouldn't that be for surface area?
+
+I agree with you but that's how these math people decided to denote arc length. Okay, let's move on.
+
+**1**. Let K be the part of the curve y = x<sup>3/2</sup> between x = 0 and x = 4. Calculate the arclength of K.
+
+<Solution>
+8/27 (10√10 - 1)
+</Solution>

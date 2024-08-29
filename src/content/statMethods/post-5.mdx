@@ -1,0 +1,114 @@
+---
+layout: "@layouts/Blog.astro"
+title: Simple Linear Regression
+pubDate: 2024-06-06T00:00:00Z
+updatedDate: 2024-06-06T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: simple-linear-regression
+---
+
+# The Linear Regression Model
+
+**What we know:** y = mx + b
+
+Where,  
+y = dependent variable  
+x = independent variable  
+m = slope  
+b = y-intercept
+
+**What's New:** ŷ = b<sub>o</sub> + b<sub>i</sub>(x<sub>i</sub>)
+
+Think of b**a**by = b**o**bi = b<sub>o</sub> + b<sub>i</sub>
+
+Where,  
+ŷ = dependent variable  
+x<sub>i</sub> = independent variable  
+b<sub>i</sub> = slope  
+b<sub>o</sub> = y-intercept
+
+Goal: Given data, we want to come up with an equation in the form above that best represents the relationship between the two variables. If we have this equation, we will be able to use it to predict future y values for any x value we plug in.
+
+## Interpreting Model
+
+Let's say the following equation models a certain set of data where the x-values are number of kitkats and y-values are level of happiness.
+
+ŷ = 60 + 2x<sub>i</sub>
+
+Where,
+
+ŷ = level of happiness  
+x<sub>i</sub> = number of kitkats  
+b<sub>i</sub> = 2  
+b<sub>o</sub> = 60 (when x<sub>i</sub> = 0)
+
+b<sub>i</sub> Interpretation: For every kitkat you get, your level of happiness will increase (bc of the + sign) by 2 points.  
+b<sub>o</sub> Interpretation: With 0 kitkats, your level of happiness will be 60 points.
+
+## Using Model
+
+Using the informaiton above, what is the estimated level of happiness when the number of kitkats I give you is 40?
+
+Literally, just plug in 40.
+
+ŷ = 60 + 2(40)  
+ŷ = 140
+
+Answer: If I give you 40 kitkats, we estimate that your level of happiness will be 140.
+
+It's estimated and not the true level of happiness because this equation or model is not the actual line- it's just the line that best fits the data. The line that is closests to the actual line.
+
+Which is why the equation has ŷ ("y-hat") and not y. The hat in ŷ means "estimate". y would be the true level of happiness.
+
+Anyway, this can all be done in excel automatically...
+
+## Linear Regression Lesson in Excel
+
+The following video will cover...
+
+Given data, Find Linear Model  
+Line of Best Fit Scatter Plot  
+Use Model to Predict Values  
+Measures of Variance Variation SST, SSR, SSE  
+Coefficient of Determination (r<sup>2</sup>)  
+Standard Error of the Estimate (SYX)  
+Assumptions of Linear Regression  
+Residual Analysis
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/yYAIOK_SoJg?si=d2vs-xXD6BLx_ync"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+# Meausuring Autocorrelation: Durbin-Watson Statistic
+
+### What is Autocoorelation?
+
+It's when certain data points happen to be coorelated to a previous data point.
+
+### How can we measure how autocoorelated our residuals are?
+
+We need 2 things: (1) Durbin-Watson Statistic (DStat) and (2) the Durbin-Watson Table.
+
+**Rules:**
+
+If DStat < Lower Bound (dL) then there **is** evidence of positive autocorrelation among the residuals.
+
+If DStat > Upper Bound (dU) then there **is not** evidence of positive autocorrelation among the residuals.
+
+If DStat is between dL and dU then you can't conclude anything.
+
+So, for that we need to find DStat (Durbin-Watson Statistic) and our dL and dU.
+
+DStat = Σ(ei - ei-1)<sup>2</sup> / Σ(ei)<sup>2</sup>
+
+Once you have your Dstat, you can use n and k to determine what your dU and dL is using the Durbin-Watson table.
+
+### Inferences About Slope and Coorelation Coefficient

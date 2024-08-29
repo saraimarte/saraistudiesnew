@@ -25,3 +25,19 @@ Intro to Stat Methods for Business 33:136:385
 Intro to Supply Chain Management 29:799:301 
 
 Writing For the Media 04:567:200
+
+
+const pathHome =  './';
+const path1 = 'facc';
+const path2 = '/macc';
+const path3 = '/calc1';
+const path4 = '/calc2';
+const path5 = 'micro';
+const path6 = 'macro';
+const path7 = 'stats';
+const path8 = 'compsci';
+const path9 = 'mgmt';
+const path10 = 'statMethods';
+const path11 = 'supplyChain';
+const path12= 'writingForTheMedia';
+const path13 = 'latinoWorkers';

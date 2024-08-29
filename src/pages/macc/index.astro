@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allMaccPosts: CollectionEntry<'macc'>[] = (await getCollection('macc'));
+
+
+export async function getStaticPaths() {
+  const allMaccPosts: CollectionEntry<'macc'>[] = await getCollection('macc');
+
+  return allMaccPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allMaccPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage 
+ folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome}
+  pageTitle="Intro to Managerial Accounting Directory" 
+  allArticles = {allArticles} 
+  className = "macc" 
+  fullClassTitle = "Introduction to Managerial Accounting 33:010:275">
+</ClassHomePage>

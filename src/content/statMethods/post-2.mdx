@@ -1,0 +1,102 @@
+---
+layout: "@layouts/Blog.astro"
+title: Normal Distribution
+pubDate: 2024-05-30T00:00:00Z
+updatedDate: 2024-05-30T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: normal-distribution
+---
+
+import NormProb from "@components/calculators/statMethods/NormProb.astro";
+import Solution from "@components/Solution.astro";
+import  ImageMd from "@components/ImageMd.astro";
+
+import img1 from "@images/285/1.png";
+import img2 from "@images/285/2.png";
+import img3 from "@images/285/3.png";
+import img4 from "@images/285/4.png";
+
+
+## From Discrete to Continuous Data
+
+Discrete Data: Number of Students in the classroom  
+Continuous Data: Weight
+
+<ImageMd img={img1} alt = "" />
+
+## Evaluate Normality: Properties of a Normal Distribution
+
+The first property is shape.
+
+A normal distribution is a continuous distribution that has a symetrical shape.
+
+There are continuous distributions that are _not_ symetrically shaped- those are _not_ normal distributions.
+
+For example, below are all continuous distributions.
+
+<ImageMd img={img2} alt = "" />
+
+Notice that every continuous distribution has a curve that follows the data.
+
+Drawing it, helps you see the shape of the distribution better.
+
+Clearly, distribution A is the only one that is symmetrical and therefore we can say that distribution A is a normal distribution or data A is normally distributed while the other distributions are not.
+
+Okay, I know I said that if a cont.dist is symetrical then it's a normal distrution but...that's not always enough to confirm it's truly normal, which is why there are other properties of a normal distribution other than shape we can use to evaluate normality but for some reason the professor does that section _after_ showing you how to find probability using a normal distribution so I guess we'll do the same.
+
+## 2 Types of Normal distributions
+
+There is the standard normal distribution and then any other normal distribution which we call the 'general' normal distribution.
+
+The standard normal distribution has μ = 0 and σ = 1.
+
+A normal distribution that is _not_ standard, has other values for μ and σ.
+
+Despite μ and σ, all normal distributions look the same- symmetrical.
+
+For example,
+
+<ImageMd img={img4} alt = "" />
+
+The first distribution is a standard normal distribution because it has μ = 0 and σ = 1.
+
+The second distribution is a general distribution because it does not have both μ = 0 and σ = 1.
+
+Also Note: When we draw normal distributions you have to use proper notation to let the reader know what μ and σ are.
+
+<ImageMd img={img3} alt = "" />
+
+Basically, we can use these distributions to calculate probability. We will sometimes be given general distributions but we will always convert them into the standard normal distribution.
+
+## Find Probability
+
+Recall: every continuous distribution comes with a curve that follows the data.
+
+With this curve we can find the probability at an exact point (PDF Curve) and up until a certain point (CDF Curve).
+
+Unlike intro to stats for business, we only focus on finding the probability up until a certain point meaning we will only use the CDF curve.
+
+So, let's practice.
+
+**1.** What is the probability that z < 0?
+
+<Solution>
+
+</Solution>
+
+**2.** What is the probability that z < 2?
+
+<Solution>
+
+</Solution>
+
+**3.** What is the probability that z > 2.3 ?
+
+<Solution>
+
+</Solution>
+
+<NormProb></NormProb>
+
+## Other Properties to Evaluate Normality

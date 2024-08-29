@@ -1,0 +1,451 @@
+---
+layout: "@layouts/Blog.astro"
+title: ✅Make or Buy + Add or Drop + Special Orders + Constraint Decisions
+pubDate: 2024-04-16T00:00:00Z
+updatedDate: 2024-04-16T00:00:00Z
+draft: false
+author: Sarai Marte
+chapter: Chapter 12
+slug: make-or-buy-add-or-drop-special-orders-constraint-decisions
+---
+
+import Solution from "@components/Solution.astro";
+
+# The Idea
+
+This chapter is the last one. Thank God.
+
+Anyway, this chapter is all about making decisions. There are four types of decisions you will be tested on.
+
+<li style="list-style:none">(1) Add or Drop a Store </li>
+<li style="list-style:none">(2) Make or Buy</li>
+<li style="list-style:none">(3) Accept or Reject Special Order</li>
+<li style="list-style:none">(4) Constraints (shelf)</li>
+
+Honestly, let's not waste time with words. Let's learn by doing:
+
+# Add or Drop Decisions
+
+For these types of questions we are always talking about adding or dropping stores, segments or departments.
+
+We drop a store if we loose more money when keeping the store.
+
+We keep the store if we loose more money when dropping the store.
+
+## Example
+
+Rampant Groceries & Co runs two grocery stores, one in New Jersey and one in New York. The following is the cost data for the two stores in 2023:
+
+<table>
+  <tr>
+    <th style="padding-right: 85px;"></th>
+    <th style="text-align: start; padding-right: 20px;">New Jersey Store</th>
+    <th style="text-align: start; padding-right: 20px;">New York Store</th>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Revenues</td>
+    <td style="padding-left: 20px;">$90,000</td>
+    <td style="padding-left: 20px;">$105,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Cost of Goods Sold</td>
+    <td style="padding-left: 20px;">$40,000</td>
+    <td style="padding-left: 20px;">$60,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Lease Rent</td>
+    <td style="padding-left: 20px;">$5,000</td>
+    <td style="padding-left: 20px;">$7,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Labor Costs</td>
+    <td style="padding-left: 20px;">$25,000</td>
+    <td style="padding-left: 20px;">$30,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Depreciation of Equipment</td>
+    <td style="padding-left: 20px;">$4,000</td>
+    <td style="padding-left: 20px;">$2,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Utilities</td>
+    <td style="padding-left: 20px;">$1,500</td>
+    <td style="padding-left: 20px;">$3,400</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Allocated Corporate Overhead</td>
+    <td style="padding-left: 20px;">$2,000</td>
+    <td style="padding-left: 20px;">$6,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Total Operating Costs</td>
+    <td style="padding-left: 20px;">$77,500</td>
+    <td style="padding-left: 20px;">$108,400</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Operating Income</td>
+    <td style="padding-left: 20px;">$12,500.00</td>
+    <td style="padding-left: 20px;">($3,400.00)</td>
+  </tr>
+</table>
+
+Note: If Rampant Groceries & Co closes down the New York Store then they can decrease overall corporate overhead by $2,000.
+
+Should Rampant Groceries & Co close the New York store or not? If yes, how much are they saving if they close the store?
+
+<li style="list-style:none">A) $300 </li>
+
+<li style="list-style:none">B) $800 </li>
+
+<li style="list-style:none">C) $500 </li>
+
+<li style="list-style:none">D) $200 </li>
+
+<Solution>
+
+**Answer: B**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/Hx9aJBeOI4U?si=8SvOEZLjL66ybY9Q"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+# Keep or Replace Decisions
+
+Jackson's pizzeria has to decide whether or not they will replace their oven with a better one or keep it.
+
+The following is information concerning the current oven and the new one.
+
+<table>
+  <tr>
+    <th style="padding-right: 85px;"></th>
+    <th style="text-align: start; padding-right: 20px;">Old Oven</th>
+    <th style="text-align: start; padding-right: 20px;">New Oven</th>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Original Cost</td>
+    <td style="padding-left: 20px;">$15,000</td>
+    <td style="padding-left: 20px;">$25,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Accumulated Depreciation</td>
+    <td style="padding-left: 20px;">$6,100</td>
+    <td style="padding-left: 20px;">N/A</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Book Value</td>
+    <td style="padding-left: 20px;">$10,000</td>
+    <td style="padding-left: 20px;">N/A</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Current Disposal Value</td>
+    <td style="padding-left: 20px;">$9,000</td>
+    <td style="padding-left: 20px;">N/A</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Installation Cost</td>
+    <td style="padding-left: 20px;">N/A</td>
+    <td style="padding-left: 20px;">$1,500</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Annual Operating Cost</td>
+    <td style="padding-left: 20px;">$2,000</td>
+    <td style="padding-left: 20px;">$3,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Useful Life</td>
+    <td style="padding-left: 20px;">11 years</td>
+    <td style="padding-left: 20px;">10 years</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Current Age</td>
+    <td style="padding-left: 20px;">3 years</td>
+    <td style="padding-left: 20px;">0 years</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Remaining Useful Life</td>
+    <td style="padding-left: 20px;">8 years</td>
+    <td style="padding-left: 20px;">10 years</td>
+  </tr>
+</table>
+
+Is it cheaper or more expensive to replace the oven? By how much?
+
+<li style="list-style:none">A) Cheaper by $31,500 </li>
+
+<li style="list-style:none">B) Cheaper by $12,500 </li>
+
+<li style="list-style:none">C) Expensive by $12,500 </li>
+
+<li style="list-style:none">D) Expensive by $31,500 </li>
+
+<Solution>
+
+**Answer: D**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/7ZiwRhpSHhc?si=6Unl74z5IrcUaHGh"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+ 
+# Make or Buy Decisions
+
+To decide if we will make or buy something- we focus on the cost of doing so. Whichever decision requires less money is the one we choose.
+
+If it costs less money to buy then we buy it.
+
+If it costs less money to make then we make it.
+
+## Example
+
+Wonderland Corp. produces computers. They make their own hard drives for their computers. The following informtion represents the costs of making hard drives in 2022 and the expected costs in 2023.
+
+<table>
+  <tr>
+    <th style="padding-right: 85px;"></th>
+    <th style="text-align: start; padding-right: 20px;">
+      Current Costs in 2022
+    </th>
+    <th style="text-align: start; padding-right: 20px;">
+      Expected Costs in 2023
+    </th>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Variable Manufacturing Costs</td>
+    <td style="padding-left: 20px;"></td>
+    <td style="padding-left: 20px;"></td>
+  </tr>
+  <tr>
+    <td style="padding-left: 40px;">DM cost per hard drive</td>
+    <td style="padding-left: 20px;">$175</td>
+    <td style="padding-left: 20px;">$160</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 40px;">DL cost per hard drive</td>
+    <td style="padding-left: 20px;">$70</td>
+    <td style="padding-left: 20px;">$65</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 40px;">
+      Variable Manufacturing Cost per batch for quality control and materials
+      handling
+    </td>
+    <td style="padding-left: 20px;">$1,200</td>
+    <td style="padding-left: 20px;">$1,100</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Fixed Manufacturing Costs</td>
+    <td style="padding-left: 20px;"></td>
+    <td style="padding-left: 20px;"></td>
+  </tr>
+  <tr>
+    <td style="padding-left: 40px;">
+      Fixed Manufacturing Costs (Avoidable if hard drives are not made)
+    </td>
+    <td style="padding-left: 20px;">$250,000</td>
+    <td style="padding-left: 20px;">$300,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 40px;">
+      Fixed Manufacturing Costs of depreciation, admin, insurance (Not avoidable
+      even if hard drives are not made)
+    </td>
+    <td style="padding-left: 20px;">$400,000</td>
+    <td style="padding-left: 20px;">$400,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Total Cost</td>
+    <td style="padding-left: 20px;"></td>
+    <td style="padding-left: 20px;"></td>
+  </tr>
+</table>
+
+Wonderland produced 9,000 hard drives in 2022 in 50 batches of 180 each. In 2023, Wonderland's production budget is 10,000 hard drives. The hard drives would be produced in 100 batches of 100 each. Nwida Corp. has offered to supply Wonderland whatever amount of hard drives Wonderland wants at $200 per hard drive.
+
+In the next year, should Wonderland Corp. buy the hard drives from Nwida Corp. or keep making them themseleves? In whatever option you select, how much are they saving per hard drive?
+
+<li style="list-style:none">A) Buy; Saving $1155 </li>
+
+<li style="list-style:none">B) Buy; Saving $66 </li>
+
+<li style="list-style:none">C) Make; Saving $66 </li>
+
+<li style="list-style:none">D) Make; Saving $1155 </li>
+
+<Solution>
+
+**Answer: B**
+
+</Solution>
+# Accept or Reject Special Order
+
+The Sharp Pencil company manufactures packs of pencils and sells them for $5 a pack. Variable manufacturing costs is $2 a pack, and allocated fixed manufacturing cost is $1 a pair. It has enough idle capacity avaliable to accept a one time only special order of 15,000 packs of pencils at $3 a pack. Sharp Pencil company will not incur any marketing results as a result of the special order. What would the effect on operating income be if the special order could be accepted without affecting normal sales:
+
+<li style="list-style:none">A) $16,000 increase </li>
+
+<li style="list-style:none">B) $16,000 decrease </li>
+
+<li style="list-style:none">C) $15,000 increase </li>
+
+<li style="list-style:none">D) $15,000 decrease </li>
+
+<Solution>
+
+**Answer: C**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/n0Lb9pkAFa4?si=Dtcy85ZgNmQ2JJdU"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+## Example 2 (Capacity Exceeded)
+
+The Pretty Vase Company manufactures vases. It's manufacturing factory has the capacity to produce 5,000 vases each month. Current production and sales are 3,000 vases each month. The company normally charges $150 per vase. The following cost information is about costs for the current activity level:
+
+<table>
+  <tr>
+    <td style="padding-left: 20px;">Variable Costs that vary with number of units produced</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">DM (Direct Materials)</td>
+    <td style="padding-left: 20px;">$84,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">DL (Direct Labor)</td>
+    <td style="padding-left: 20px;">$90,000</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">VC (quality control, materials handling, etc.) that vary with number of batches, 50 x $480 per batch)</td>
+    <td style="padding-left: 20px;">$24,000</td>
+    <td style="padding-left: 20px;"></td>
+  </tr>
+
+    <tr>
+    <td style="padding-left: 20px;">Fixed Manufacturing Costs</td>
+    <td style="padding-left: 20px;">$150,000</td>
+
+   </tr>
+
+    <tr>
+    <td style="padding-left: 20px;">Fixed Marketing Costs</td>
+    <td style="padding-left: 20px;">$20,000</td>
+
+   </tr>
+    <tr>
+    
+    
+   </tr>
+
+ 
+<tr>
+  <td style="padding-left: 20px;">Total Costs</td>
+  <td style="padding-left: 20px;">$368,000</td>
+</tr>
+
+</table>
+
+Pretty Vase just received a one time order for 4000 vases at $100 per vase. Accepting the special order would not affect the company's regular business or its fixed costs. Pretty Vase makes vases for its existing customers in batch sizes of 50 (50 batches x 100 vases = 5000 vases). The special order requires Pretty Vase to make vases in 75 batches of 25 vases.
+
+Should Pretty Vase Company accept this special order? Yes or No? How much more profit or losses will they inccur if the company accepts the special order?
+
+<li style="list-style:none">A) No; Loose $120,000 </li>
+
+<li style="list-style:none">B) No; Loose $36,000 </li>
+
+<li style="list-style:none">C) No; Gain $36,000 </li>
+
+<li style="list-style:none">
+  D) No difference in accepting or rejecting special order.
+</li>
+
+<Solution>
+
+**Answer: B**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/OvOWPRDlhzs?si=aKuXcLu7j5vE7UDh"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+# Constraint Decisions
+
+Located in the lively downtown district, Deli Freshness is a bustling delicatessen known for its delectable offerings. Its owner, Emily Sanchez, is currently grappling with the allocation of refrigerator space for four unique beverages. Here's a snapshot of the beverages in question:
+
+<table>
+  <tr>
+    <th style="padding-right: 85px;"></th>
+    <th style="text-align: start; padding-right: 20px;">Water</th>
+    <th style="text-align: start; padding-right: 20px;">Fruit Punch</th>
+    <th style="text-align: start; padding-right: 20px;">Grape Juice</th>
+    <th style="text-align: start; padding-right: 20px;">Orange Juice</th>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Selling price per case</td>
+    <td style="padding-left: 20px;">$20</td>
+    <td style="padding-left: 20px;">$25.57</td>
+    <td style="padding-left: 20px;">$27.1</td>
+    <td style="padding-left: 20px;">$25.57</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Variable cost per case</td>
+    <td style="padding-left: 20px;">$12</td>
+    <td style="padding-left: 20px;">$13</td>
+    <td style="padding-left: 20px;">$15.4</td>
+    <td style="padding-left: 20px;">$11</td>
+  </tr>
+  <tr>
+    <td style="padding-left: 20px;">Cases sold</td>
+    <td style="padding-left: 20px;">8</td>
+    <td style="padding-left: 20px;">22</td>
+    <td style="padding-left: 20px;">15</td>
+    <td style="padding-left: 20px;">12</td>
+  </tr>
+</table>
+
+Emily has a total front shelf capacity of 12 feet allocated for the four beverages. They aim to allocate between 1 and 6 feet of front shelf space for each drink.
+
+What are the shelf-space allocation for water, fruit punch, grape juice and orange juice in feet respectively?
+
+<li style="list-style:none">A) 1ft, 1ft, 4ft, 6ft </li>
+
+<li style="list-style:none">B) 4ft, 6ft, 1ft, 1ft </li>
+
+<li style="list-style:none">C) 6ft, 1ft, 1ft, 4ft </li>
+
+<li style="list-style:none">D) 1ft, 6ft, 4ft, 1ft</li>
+
+<Solution>
+**Answer: D**
+</Solution>

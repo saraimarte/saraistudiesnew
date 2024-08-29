@@ -1,0 +1,360 @@
+---
+layout: "@layouts/Blog.astro"
+title: ✅ Flow of Inventory Costs
+pubDate: 2024-04-30T00:00:00Z
+updatedDate: 2024-04-30T00:00:00Z
+draft: false
+author: Sarai Marte
+chapter: Chapter 2
+slug: flow-of-inventory-costs
+---
+
+import Solution from "@components/Solution.astro";
+import imgurl5 from "@images/275/2755.png";
+import imgurl7 from "@images/275/2757.png";
+import vid1 from "@images/275/275v1.gif";
+import vid2 from "@images/275/275v2.gif";
+import vid3 from "@images/275/275v3.gif";
+
+<div style="object-fit:contain">
+  <img src={imgurl5.src} alt="img1" width="100%" height="auto" />
+</div>
+
+We already discussed the concept of taking the costs through the inventory system but you really want to know <i>how</i> to actually do it, so here we go.
+
+First you need to remember how to use a t-account.
+
+All the inventory accounts are asset accounts meaning that debits will increase the account and credits will decrease the account.
+
+<div style="object-fit:contain">
+  <img src={imgurl7.src} alt="img1" width="100%" height="auto" />
+</div>
+
+So let's set up the accounts.
+
+<div style="object-fit:contain">
+  <img src={vid1.src} alt="img1" width="100%" height="auto" />
+</div>
+
+Every inventory account starts with a beginning inventory and ending inventory. COGS is not an inventory account, I have it there because I want to show you where the costs go there after they leave the inventory system. It is also why COGS has BB (for beginning balance) because it has no beginning <i> inventory </i>.
+
+<div style="object-fit:contain">
+  <img src={vid2.src} alt="img1" width="100%" height="auto" />
+</div>
+
+Each account has 1 thing that increases it (on the left) and 1 thing that decreases it (on the right).
+
+<div style="object-fit:contain">
+  <img src={vid3.src} alt="img1" width="100%" height="auto" />
+</div>
+
+For example, purchases increases the DM acccount while usage decreases it.
+
+Think about it, when you purchase DM, you now quite literally have more DM hence you're increasing the DM account - that's why we put purchases on the left (the debit side) to increase the DM account.
+
+Then, the usage of that DM decreases the amount of DM hence we credit the DM acount to decrease it.
+
+That DM we used goes to the DM we're in the process of using. Get it? So the DM we used goes into the WIP (Work in Process) account as DM.
+
+The WIP account contains the costs that are inccured in the process of making a product which includes the manufacturing costs, DM + DL + MOH.
+What decreases WIP is goods that are no longer in the process of being made so they are now known as COGM - the cost of goods manufactured/completed/done.
+Then, COGM goes into finished goods account because the product is no longer being made- its done - finished - finito hence the Finished Goods account.
+The COGM now turn to GAS (Cost of goods avalible for sale) because they are finished goods that are waiting to be sold and once they're sold they leave the inventory system and into- you guessed it- COGS.
+
+## Practice
+
+**1.** The following data relates to Linderman's Company for the year 2024:
+
+<table>
+  <tr>
+    <td style="text-align: left;">Direct Materials Inventory 01/01/24</td>
+    <td style="text-align: right; padding-left: 40px;">$40,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials Inventory 12/31/24</td>
+    <td style="text-align: right; padding-left: 40px;">$60,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Material Purchases</td>
+    <td style="text-align: right; padding-left: 40px;">$50,000</td>
+  </tr>
+</table>
+
+How much worth of direct materials was used in the year 2024?
+
+<Solution>
+
+**Answer: $30,000**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/HcyVvGmedvY?si=jfAMXaG2mmQI1iuI"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**2.** The following data relates to Niki's Company for the year 2024:
+
+<table>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 01/01/24</td>
+    <td style="text-align: right; padding-left: 40px;">$5,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 12/31/24</td>
+    <td style="text-align: right; padding-left: 40px;">$25,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Total Manufacturing Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$80,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials used</td>
+    <td style="text-align: right; padding-left: 40px;">$30,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Manufacturing Overhead</td>
+    <td style="text-align: right; padding-left: 40px;">$40,000</td>
+  </tr>
+</table>
+
+What is the cost of the goods that were manufactured in this year?
+
+<Solution>
+
+**Answer: $60,000**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/q-nBJfYPsdw?si=-P4buYpcTaU_EDo9"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**3.** The following data relates to Peter's Company for the year 2021:
+
+<table>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$5,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 12/31/21</td>
+    <td style="text-align: right; padding-left: 40px;">$10,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Cost of Goods Manufactured</td>
+    <td style="text-align: right; padding-left: 40px;">$40,000</td>
+  </tr>
+</table>
+
+What is the cost of goods sold for the year?
+
+<Solution>
+
+**Answer: $35,000**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/4DlLo_uQD4s?si=qn6sD5EqYkxPcAmS"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**4.** The following data relates to Claire's Company for the year 2021:
+
+<table>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$50,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 12/31/21</td>
+    <td style="text-align: right; padding-left: 40px;">$60,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials Used</td>
+    <td style="text-align: right; padding-left: 40px;">$40,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Total Manufacturing Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$72,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Manufacturing Overhead</td>
+    <td style="text-align: right; padding-left: 40px;">$20,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$20,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 12/31/21</td>
+    <td style="text-align: right; padding-left: 40px;">$32,000</td>
+  </tr>
+</table>
+
+What is the cost of goods sold for the year?
+
+<Solution>
+
+**Answer: $50,000**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/btmf603dAq8?si=AlEL88sMd6ca2TlV"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**5.** The following data relates to Sarai's Company for the year 2021:
+
+<table>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$50,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 12/31/21</td>
+    <td style="text-align: right; padding-left: 40px;">$60,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials Used</td>
+    <td style="text-align: right; padding-left: 40px;">$40,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Total Manufacturing Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$72,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Manufacturing Overhead</td>
+    <td style="text-align: right; padding-left: 40px;">$20,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$20,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 12/31/21</td>
+    <td style="text-align: right; padding-left: 40px;">$32,000</td>
+  </tr>
+</table>
+
+What is the Finished Goods account's balance at the end of the year?
+
+<Solution>
+
+**Answer: $82,000**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/TLqTZaGdEy8?si=np96fG0xtONT9I__"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**6.** The following data relates to Jake From Statefarm's Company for the year 2021 (in thousands).
+
+<table>
+  <tr>
+    <td style="text-align: left;">Direct Materials Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$0</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials Purchased</td>
+    <td style="text-align: right; padding-left: 40px;">$200</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Direct Materials Used</td>
+    <td style="text-align: right; padding-left: 40px;">$100</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Total Manufacturing Overhead Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$800</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Fixed Overhead Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$500</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Total Manufacturing Costs</td>
+    <td style="text-align: right; padding-left: 40px;">$1,000</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Work In Process Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$0</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Cost of goods completed</td>
+    <td style="text-align: right; padding-left: 40px;">$200</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Finished Goods Inventory 01/01/21</td>
+    <td style="text-align: right; padding-left: 40px;">$0</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Cost of goods sold</td>
+    <td style="text-align: right; padding-left: 40px;">$100</td>
+  </tr>
+</table>
+
+Find the following:
+
+A. Ending Direct Materials 12/31/2021.  
+B. Variable Manufacturing Overhead Costs for the year.  
+C. Direct Manufacturing Labor Costs for the year.  
+D. Ending Work in process inventory 12/31/2021.  
+E. Cost of goods available for sale for the year.  
+F. Ending Finished Goods 12/31/2021.
+
+<Solution>
+
+**A.** $100  
+**B.** $300  
+**C.** $100  
+**D.** $800  
+**E.** $200  
+**F.** $100
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/FBv1lg3e9-0?si=aAQj4peQbe-tnLA_"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>

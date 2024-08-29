@@ -1,0 +1,732 @@
+---
+layout: "@layouts/Blog.astro"
+title: Time-Series Forecasting
+pubDate: 2024-06-13T00:00:00Z
+updatedDate: 2024-06-13T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: time-series-forecasting
+---
+
+import Solution from "@components/Solution.astro";
+import  ImageMd from "@components/ImageMd.astro";
+
+import img1 from "@images/285/5.png";
+import img2 from "@images/285/6.jpg";
+
+Time Series data is a special type of data- one that is collected over a period of time.
+
+The graph is just a plot of time and data.
+
+The x variable is always time.
+
+Also, when we predict values, we call Ŷ, the "fitted value" or the "forecast".
+
+# The Components of a Time Series Graph
+
+Time series graphs may have some of these components.
+
+<ImageMd img={img2} alt = ""  />
+
+# Smoothing Data
+
+We can smooth graphs so that they look <span style = "color:#E97132; font-weight:bold;"> more linear</span>, and we are able to see trends better.
+
+<ImageMd img={img1} alt = "" />
+
+## Moving Average Smoothing
+
+**1.** The following data represents the plantain imports from Dominican Republic from 2008 to 2020. Fit a three-year moving average to this data. What is the average in 2015? (Round to 2 decimal places)
+
+<table style="width: 20%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Year
+    </th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Imports
+    </th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2008
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      10219.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2009
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      10896.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2010
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      10969.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2011
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      11325.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2012
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      11110.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2013
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      7918.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2014
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      7846.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2015
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      7758.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2016
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      7195.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2017
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      9694.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2018
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      10979.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2019
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      12741.00
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2020
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      12891.00
+    </td>
+  </tr>
+</table>
+
+<Solution>
+
+**Answer: 7599.67**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/lGraU-EzgJE?si=3VUD-e6NFjpYZvYC"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**2.** For a time series with 10 observations, we can have 9 averages in moving averages with duration L = 3. True or False?
+
+<Solution>
+
+**Answer: False.**
+
+Number of averages = N - (L - 1)
+
+If N = 10 and L = 3 then
+
+10 - (3 - 1) = 8
+
+So, the number of averages is 8 not 9.
+
+</Solution>
+
+## Exponential Smoothing
+
+How much do we smooth it by? By w.
+
+w = smoothing coefficient
+
+How do we smooth it? Better shown than told...
+
+**1.** The data below represent the hours per day spent by doctors doing paper work from 2010 to 2019. Using a smoothing coefficient of W = 0.50, exponentially smooth the series. What is the smoothed value in 2014? (Round to 2 decimal places)
+
+<table style="width: 20%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      X
+    </th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Y
+    </th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2010
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2011
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.3
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2012
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.4
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2013
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.6
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2014
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2015
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.3
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2016
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2017
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2018
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2019
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+</table>
+
+<Solution>
+
+**Answer: 3.48**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/1xh1HWahqWY?si=t3M2SduUjMSGZ1N6"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+**2.** The data below represent the hours per day spent by doctors doing paper work from 2010 to 2019. Using a smoothing coefficient of W = 0.50, exponentially smooth the series. What is your exponentially smoothed forecast for 2020? (Round to 2 decimal places)
+
+<table style="width: 20%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      X
+    </th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Y
+    </th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2010
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2011
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.3
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2012
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.4
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2013
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.6
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2014
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2015
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.3
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2016
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2017
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2018
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2019
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.2
+    </td>
+  </tr>
+</table>
+
+<Solution>
+
+**Answer: 3.21**
+
+</Solution>
+
+# Fitting and Forecasting
+
+Just like we had the linear, quadratic and exponential models...we now have the linear, quadratic, exponential _trend_ models.
+
+They are the exact same thing except this time the years are recoded. As in, if we have years 2000, 2001 and 2002 then we will _recode_ those years to be 0, 1 and 2 and use those code names as our x-values instead of the given times.
+
+Why do we do this?
+
+Because if we use the regular x values (the years) we will get the wrong summary output and hence the wrong equation/model.
+
+## Linear Trend Model
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/eke0rwBhNuw?si=rsZkV3yrzcuoq0nv"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+**1.** The following is a linear trend equation:
+
+Ŷ<sub>i</sub> = 100 + 10X<sub>i</sub>
+
+The data used was from 2008 through 2017 coded 0 to 9. What is the forecast for 2018?
+
+<Solution>
+
+**Answer: 200**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/f0O4oywZzmE?si=C9HYiPHIQLohwdO7"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+## Quadratic Trend Model
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/W-HWkjXWivQ?si=4DgVqhf5muDO1uGr"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+**1.** The following is a quadratic trend equation:
+
+Ŷ<sub>i</sub> = 50 + 15X<sub>i</sub> + 10X<sub>i</sub><sup>2</sup>
+
+The data used was from 2014 through 2024 coded 0 to 10. What is the forecast for 2025?
+
+<Solution>
+
+**Answer: 1425**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/do-fqz49qHo?si=q_2DCzlirUIXnbwm"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+## Exponential Trend Model
+
+**1.** The following is an exponential trend equation:
+
+log(Ŷ<sub>i</sub>) = 2.24 + 0.03X<sub>i</sub>
+
+The data used was from 2002 through 2012 coded 0 to 10. What is the forecast for 2013? (Round 2 decimal places.)
+
+<Solution>
+
+**Answer: 371.54**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/w56xK5CWFdo?si=NIpCqOX03monQjY7"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+# How to choose the right model?
+
+Other than analysing the p-value and residuals how can I tell which model to use?
+
+We look at the differences...
+
+**1.** Using the following data, which model is the best to use to predict future revenues?
+
+<table style="width: 20%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Year
+    </th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Revenues
+    </th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2016
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      202.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2017
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      203.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2018
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      206
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2019
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      210
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2020
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      215.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2021
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      222.5
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2022
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      231
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2023
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      241
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2024
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      252.5
+    </td>
+  </tr>
+</table>
+
+<Solution>
+
+**Answer: The Quadratic Model**
+
+</Solution>
+
+**2.** Using the following data, what is the first difference for period 4, the second difference for period 4 and the percentage difference for period 6? (Round to 2 decimal places)
+
+<table style="width: 20%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Time Period
+    </th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; padding-left: 20px; padding-right: 20px;">
+      Data
+    </th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      0
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2.01
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      1
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2.4
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2.84
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2.9
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      4
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      2.42
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      5
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.02
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      6
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.29
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      7
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      3.4
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      8
+    </td>
+    <td style="border: 1px solid #ddd; padding: 8px; text-align: right; padding-left: 20px; padding-right: 20px;">
+      4.32
+    </td>
+  </tr>
+</table>
+
+<Solution>
+
+**Answer: -0.48, -0.54, 8.94%**
+
+</Solution>
+
+# Autoregressive Model
+
+We use this model for time series data that is autocorrelated- meaning it's data points are highly correlated or influenced by previous data points.
+
+We have three models to choose from.
+
+(1) **First-Order Model:** Ŷ<sub>i</sub> = A<sub>0</sub> + A<sub>1</sub>(Ŷ<sub>i</sub>-1)  
+(2) **Second-Order Model:** Ŷ<sub>i</sub> = A<sub>0</sub> + A<sub>1</sub>(Ŷ<sub>i</sub>-1) + A<sub>2</sub>(Ŷ<sub>i</sub>-2)  
+(3) **Third-Order Model:** Ŷ<sub>i</sub> = A<sub>0</sub> + A<sub>1</sub>(Ŷ<sub>i</sub>-1) + A<sub>2</sub>(Ŷ<sub>i</sub>-2) + A<sub>3</sub>(Ŷ<sub>i</sub>-3)
+
+(1) **First-Order Model:** A data point is highly influenced by it's previous data point (1st before it).  
+(2) **Second-Order Model:** A data point is highly influenced by it's 2nd previous data point (2nd before it).  
+(3) **Third-Order Model:** A data point is highly influenced by it's 3rd previous data point (3rd before it).
+
+Here, A<sub>0</sub>: intercept. (Ŷ<sub>i</sub>-1): x-value.
+
+We choose the model based on the better adj.R<sup>2</sup> and p-value.
+
+Better shown than told...
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/CWW1z_NrMBI?si=hAItYv8ZQxXRRTgb"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+# Forecasting with Seasonal Data

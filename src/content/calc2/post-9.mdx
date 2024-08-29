@@ -1,0 +1,157 @@
+---
+layout: "@layouts/Blog.astro"
+title: ✅ Trig Subtitution
+pubDate: 2024-05-19T00:00:00Z
+updatedDate: 2000-01-01T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: trig-substitution
+---
+
+import ImageMd from "@components/ImageMd.astro";
+import Solution from "@components/Solution.astro";
+import Problem from "@components/Problem.astro";
+import FAQ from "@components/FAQ.astro";
+
+import img1 from "@images/152/51.svg";
+import img2 from "@images/152/52.svg";
+import img3 from "@images/152/53.svg";
+import img4 from "@images/152/54.svg";
+import img5 from "@images/152/55.svg";
+
+ToDO- trig sub with completing the Square vid pt 2 the weird trig subs
+-trig sub video pt 1 three normal squares
+Trig Sub is another integration technique.
+
+# FAQ
+
+<FAQ question = "How do I know when to use trig sub?">
+
+We use trig sub on specific types of problems, most of the time the problems have a 'tell', it's what _tells_ you that 1. you can use trig sub and 2. which triangle you're going to use.
+
+The 'tell' or the 'main thing' as I call it sometimes is a **root that contains an x<sup>2</sup> and an a<sup>2</sup>.**
+
+</FAQ>
+
+<FAQ question = "How do I memorize the triangles? (You don't)">
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/EF3aSfW27rw?si=w1RYj6S9Fs97pbNY"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</FAQ>
+
+<FAQ question = "How do I know which triangle to use?">
+
+You pick the triangle that contains the form of your 'tell' or the 'main thing'. See the first FAQ.
+
+</FAQ>
+<FAQ question = "What other things do I need to be aware of to solve these problems?">
+**1.** Make sure your final answer does *not* contain a θ.   
+**2.** Recall that you can rewrite some trig functions in terms of sin and cos (See Practice #2 <a href = "https://youtu.be/DskUROMkPrg?t=442">7:22</a>  )  
+**3.** Know the unit circle.  
+**4.** Know your trig identities (See previous lesson).   
+**5.** Recall that if you have sin, the inverse of sin is csc but it can also be written as 1/sin.    
+**6.** How to complete the square.  
+**7.** Recall that just because you *can* doesn't mean you *should*. Sometimes you *can* use trig sub but you *should* use u-sub because it's easier and it...works.
+</FAQ>
+
+## Examples
+
+<ImageMd img={img1} alt="Example 1" />
+
+<Solution>
+
+**Answer: x/sqrt(4+x<sup>2</sup>) + C**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/OKBO3-1RzHc?si=jXIt1TZwNN4rfkaP"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+<ImageMd img={img5} alt="Example 2" />
+
+<Solution>
+
+**Answer: 9π**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/SxWTukBN4UA?si=cLHj4kCjGObqBElG"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+<div style="position: relative; padding-bottom: 100%; height: 0;">
+  <iframe
+    src="https://jumpshare.com/embed/YwX9C0xSWfmbYb5fAjWv"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
+
+</Solution>
+
+## Practice
+
+<Problem number="1" img={img4} alt="Problem 1" />
+
+<Solution>
+  **Answer: sqrt(x<sup>2</sup>-4) - 2 arcsec(x/2) + C** Use U Sub
+</Solution>
+
+<Problem number = "2" img = {img2} alt = "Problem 2"/>
+<Solution>
+**Answer: -ln|sqrt(3)| + ln|sqrt(2) + 1|**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/DskUROMkPrg?si=KkCSx2B6J5idFqkc"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>
+
+<Problem number = "3" img = {img3} alt = "Problem 3"/>
+<Solution>
+**Answer: sqrt(x<sup>2</sup>-4) - 2 arcsec(x/2) + C**
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/iVdXfL4Fnzk?si=HpqMNCtV1ZCMfXdk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+</Solution>

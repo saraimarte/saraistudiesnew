@@ -1,14 +1,12 @@
 ---
-
-
+const {number, img, alt} = Astro.props;
 ---
 
-<div style = "display:flex; gap:5px; align-items:center; margin-left:20px;">
-   <slot/>
+<div style = "display:flex; gap:5px; align-items:center;">
+   <p>{number}.</p>
+   <div style = "object-fit:contain;" > 
+       <img src={img.src} alt= {alt}  />
+   </div>
 </div>
     
   
-<style>
-    
-    
-</style>

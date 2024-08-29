@@ -1,10 +1,10 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 
-const {pageTitle, allArticles, className, fullClassTitle} = Astro.props;
+const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPath2, folderPath3, pathHome} = Astro.props;
 ---
 
-<MainLayout pageTitle= {pageTitle}>
+<MainLayout pageTitle = {pageTitle} folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
   <div class="container">
     <h1 class = "date">{fullClassTitle}</h1>
 
@@ -35,7 +35,7 @@ const {pageTitle, allArticles, className, fullClassTitle} = Astro.props;
         font-size:20px;
     }
     ol{
-        margin:20px;
+        margin:20px 40px;
         line-height: 2em;
     }
 

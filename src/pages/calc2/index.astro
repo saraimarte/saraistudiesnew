@@ -18,10 +18,18 @@ export async function getStaticPaths() {
 }
 
 const allArticles = allCalc2Posts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
 
 ---
 
 <ClassHomePage 
+ folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome}
   pageTitle="Calc II Directory" 
   allArticles = {allArticles} 
   className = "calc2" 

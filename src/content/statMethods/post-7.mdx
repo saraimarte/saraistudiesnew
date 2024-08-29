@@ -1,0 +1,96 @@
+---
+layout: "@layouts/Blog.astro"
+title: Modelling
+pubDate: 2024-06-13T00:00:00Z
+updatedDate: 2024-06-13T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: modelling
+---
+
+import Solution from "@components/Solution.astro";
+
+We will only cover the first 2 sections in the summer.
+
+# The Quadratic Regression Model
+
+We have learned to use the linear regression model but it only works best with _linear_ data. What if we have quadratic data? Then we use the quadratic model.
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/ctK9Y9JybVg?si=Z8vrM5XPiO7lKy_J"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+**1.** The following is the quadratic regression equation for a sample of n = 24.
+
+Ŷ<sub>i</sub> = 4 + 2X<sub>1</sub> + 2.3X<sub>1</sub><sup>2</sup>
+
+Predict Y for X<sub>1</sub> = 3.
+
+<Solution>
+
+**Answer: Ŷ = 30.7**
+
+</Solution>
+
+**2.** The following is the quadratic regression equation for a sample of n = 18.
+
+Ŷ<sub>i</sub> = 4496.36 + 63.01X<sub>1</sub> -0.88X<sub>1</sub><sup>2</sup>
+
+Predict Y for X<sub>1</sub> = 90.
+
+<Solution>
+
+**Answer: Ŷ = 3039.26**
+
+</Solution>
+
+## Hypothesis Test
+
+If looking at the data is not enough to tell that you should use the quadratic model... you can always test if using the quadratic model sigficantly improves the model/equation.
+
+**1.** The following is the quadratic regression equation for a sample of n = 24.
+
+Ŷ<sub>i</sub> = 4 + 2X<sub>1</sub> + 2.3X<sub>1</sub><sup>2</sup>
+
+Suppose that the computed t<sub>STAT</sub> test statistic for the quadratic regression coefficient is 1.95. At the 0.05 level of significance, is there evidence that the quadratic model is better than the linear model?
+
+Yes or no?
+
+<Solution>
+
+**Answer: No, there is not sufficient evidence that the quadratic effect improves the model.**
+
+</Solution>
+
+**2.** The following is the quadratic regression equation for a sample of n = 18.
+
+Ŷ<sub>i</sub> = 4496.36 + 63.01X<sub>1</sub> -0.88X<sub>1</sub><sup>2</sup>
+
+Suppose that the computed t<sub>STAT</sub> test statistic for the quadratic regression coefficient is 1.95. At the 0.05 level of significance, is there evidence that the quadratic model is better than the linear model?
+
+Yes or no?
+
+<Solution>
+
+**Answer: No, there is not sufficient evidence that the quadratic effect improves the model.**
+
+</Solution>
+
+Sometimes we will have data that is not linear _or_ quadratic so then we can transform some of the data so that it becomes more linear.
+
+# Transformations
+
+Recall that the data we are using needs to satisfy the assumptions: linearity, normality and equal variance.
+
+If either of the last two assumptions are violated then we can transform the **y** values either by doing a log or a square root transformation.
+
+## Logarithm Transformation
+
+## Square Root Transformation

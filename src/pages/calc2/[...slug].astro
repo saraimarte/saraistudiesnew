@@ -18,10 +18,14 @@ export async function getStaticPaths(){
 
 const { entry } = Astro.props;
 const {Content} = await entry.render();
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
 
 ---
 
-<MainLayout>
+<MainLayout  folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
 
     <div class = "container">
         <!--Path -->
