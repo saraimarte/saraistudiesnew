@@ -9,6 +9,7 @@
         "@styles/*": ["src/styles/*"],
         "@scripts/*": ["src/scripts/*"],
         "@images/*": ["src/images/*"],
+        "@data/*": ["src/data/*"],
 
       }
     }
