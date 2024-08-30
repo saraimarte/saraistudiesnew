@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = (await getCollection('writingForMedia'));
+
+
+export async function getStaticPaths() {
+  const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = await getCollection('writingForMedia');
+
+  return allWritingForMediaPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allWritingForMediaPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Writing For the Media Directory" 
+  allArticles = {allArticles} 
+  className = "writingForMedia" 
+  fullClassTitle = "Writing For the Media 04:567:200">
+</ClassHomePage>

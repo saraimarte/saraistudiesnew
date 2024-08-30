@@ -16,7 +16,7 @@ import compsci from '@assets/icons/computer.svg';
 import mgmt from '@assets/icons/mgmt.svg';
 import statMethods from '@assets/icons/stats4bizz.svg';
 import supplyChain from '@assets/icons/bus.svg';
-import writingForTheMedia from '@assets/icons/writingForTheMedia.svg';
+import writingForMedia from '@assets/icons/writingForTheMedia.svg';
 import latinoWorkers from '@assets/icons/latinoWorkers.svg';
 
 // Define the props interface (even if empty)
@@ -37,16 +37,16 @@ const collectionImages = {
   mgmt,
   statMethods,
   supplyChain,
-  writingForTheMedia,
+  writingForMedia,
   latinoWorkers};
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods'];
+const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia'];
 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods']; // Add other collection names here
+  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia']; // Add other collection names here
 
   // Return paths for each collection
   return collectionNames.map(name => ({
