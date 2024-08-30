@@ -1,0 +1,342 @@
+---
+layout: "@layouts/Blog.astro"
+title: ✅ Math Library
+pubDate: 2024-03-19T00:00:00Z
+updatedDate: 2024-03-19T00:00:00Z
+author: Sarai Marte
+chapter: Week 3
+draft: false
+slug: math-library
+---
+
+## Math Library
+
+### Introduction
+
+Have you ever asked yourself how to square a number in java?
+
+Well, you can multiply it by itself...
+
+```java
+
+   System.out.println(4*4); //same thing as 4^2 = 16
+
+
+```
+
+but what if you want to cube a number?
+
+Well, you can multiply it by itself 3 times...
+
+```java
+
+   System.out.println(4*4*4); //same thing as 4^3 = 64
+
+
+```
+
+But what if you want to raise a number to the 12th power?
+
+Will you multiply that number by itself 12 times?
+
+```java
+
+   System.out.println(4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4); //same thing as 4^12 = 16777216
+
+
+```
+
+...yeah no. We don't have all day.
+
+That's why the math library exists!
+
+The library comes with a bunch of pre built functions/methods you can use like the pow function (stands for power).
+
+So, using the power function from the Math library...
+
+```java
+
+   System.out.println(Math.pow(4, 12)); //same thing as 4^12 = 16777216 but much nicer :)
+
+
+```
+
+Note: I'm putting all these Math.methodName()'s inside System.out.println() method so you can copy and paste into your own file and see the result printed for yourself :)
+
+## Math.pow()
+
+Raises the first input to the power of the second input.
+
+Works with Integers
+
+```java
+
+   StdOut.println(Math.pow(5, 2)); //5^2 = 25.0
+
+
+```
+
+Works with Negative Integers
+
+```java
+
+   StdOut.println(Math.pow(-5, 3)); //-5^3 = 125.0
+
+
+```
+
+Works with Doubles
+
+```java
+
+   StdOut.println(Math.pow(2.4,2)); //5.76
+
+
+```
+
+Note: The Math.pow method returns only doubles no matter what you put in.
+
+## Math.min()
+
+Finds the lowest value out of the two inputs.
+
+Works with Integers
+
+```java
+
+   StdOut.println(Math.min(1,2)); //1
+
+
+```
+
+Works with Doubles
+
+```java
+
+   StdOut.println(Math.min(1.2,2.4)); //1.2
+
+
+```
+
+## Math.max()
+
+Finds the greatest value out of the two inputs.
+
+Works with Integers
+
+```java
+
+   StdOut.println(Math.max(1,2)); //2
+
+
+```
+
+Works with Doubles
+
+```java
+
+   StdOut.println(Math.max(1.2,2.4)); //2.4
+
+
+```
+
+## Math.abs()
+
+Takes absolute value of input.
+
+Works with Integers
+
+```java
+
+   StdOut.println(Math.abs(-1)); //1
+
+
+```
+
+Works with Doubles
+
+```java
+
+   StdOut.println(Math.max(-1.2)); //1.2
+
+```
+
+## Math.sqrt()
+
+Squares input.
+
+Works with Integers
+
+```java
+
+   StdOut.println(Math.sqrt(4)); //2.0
+
+
+```
+
+Does not work with negative Integers
+
+```java
+
+   StdOut.println(Math.sqrt(-4)); //NaN
+
+
+```
+
+Works with Doubles
+
+```java
+
+   StdOut.println(Math.sqrt(5.76)); //2.4
+
+
+```
+
+Note: Always returns doubles no matter what you put in.
+
+## Math.ceil()
+
+Rounds whatever you give it to the next whole number (it just rounds up).
+
+20.9 -> 21
+
+20.2 -> 21
+
+21 -> 21 (so, there is really no point in providing ints as input for ceil since it will give you the same thing you gave it.)
+
+Note: Always returns doubles no matter what you put in.
+
+Works with Integers (no point in this)
+
+```java
+
+   StdOut.println(Math.ceil(21)); //21
+
+
+```
+
+Works with Doubles Ex1
+
+```java
+
+   StdOut.println(Math.ceil(20.9)); //21
+
+
+```
+
+Works with Doubles Ex2
+
+```java
+
+   StdOut.println(Math.ceil(20.2)); //21
+
+
+```
+
+## Math.floor()
+
+Opposite of ceil(). This rounds down- to the FLOOR. Down. Floor. See the connection?
+
+Note: Always returns doubles no matter what you put in.
+
+Works with Integers (no point in this)
+
+```java
+
+   StdOut.println(Math.ceil(20)); //20
+
+
+```
+
+Works with Doubles Ex1
+
+```java
+
+   StdOut.println(Math.floor(20.2)); //20.0
+
+
+```
+
+Works with Doubles Ex2
+
+```java
+
+   StdOut.println(Math.floor(20.9)); //20.0
+
+
+```
+
+## Math.PI
+
+Math.PI gives you &#120645;
+
+```java
+
+   StdOut.println(Math.PI); //3.141592653589793
+
+
+```
+
+### Math.random()
+
+About:
+
+<li style="list-style:none"> (1) Generates a random **double** from 0 to 1.</li>
+<li style="list-style:none"> (2) It always includes the first number. </li>
+<li style="list-style:none">
+  {" "}
+  (3) It does not include the last number unless you add a +1.
+</li>
+<li style="list-style:none">
+  {" "}
+  (4) If you want it to be a number greater than 0 to 1 then just multiply by
+  the last number.{" "}
+</li>
+<li style="list-style:none">
+  {" "}
+  (5) Inclusive = number should be included. Exclusive = number should be
+  excluded.{" "}
+</li>
+
+### Example 1 | Generate a random _integer_ between 0 and 1 not including 1
+
+```java
+
+   int randomNum = (int) Math.random()
+   System.out.println(randomNum);
+
+
+```
+
+### Example 2 | Generate random _integer_ between 1 and 10 (both inclusive)
+
+```java
+
+   int randomNum = (int) (Math.random() * 10 + 1);
+   // OR int randomNum = (int) (Math.random() * 11);
+
+   System.out.println(randomNum);
+
+
+```
+
+### Example 3 | Generate random _integer_ between 0 and 5 (not including 5)
+
+```java
+
+   int randomNum = (int) (Math.random() * 5 );
+   System.out.println(randomNum);
+
+
+```
+
+<a href="https://rutgers.app.box.com/s/no7pcx03ikfh6ybm9fdu9kdw1zvrnjck">
+  {" "}
+  See Week 3 pg 61 for more functions{" "}
+</a>
+
+## Conclusion
+
+Only Math.pow(), Math.sqrt(), Math.ceil() and Math.floor() return _only_ doubles. As in no matter what you put in- in an integer or double- you will _only_ get a double back.
+
+Honestly, these are not too hard to remember but if this is what you're missing to study and your exam is in five minutes- do not bother memorizing these because these are on the cheat sheet they provide for you (they even include examples).

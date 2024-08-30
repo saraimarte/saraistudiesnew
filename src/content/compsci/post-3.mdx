@@ -1,0 +1,110 @@
+---
+layout: "@layouts/Blog.astro"
+title: ✅ Intro to Java
+pubDate: 2024-03-12T00:00:00Z
+updatedDate: 2024-03-12T00:00:00Z
+draft: false
+author: Sarai Marte
+chapter: Week 3
+slug: intro-to-java
+---
+
+## Installing Java and VS Code
+
+## The Template
+
+For now, in java we write everything in between these two curly brackets.
+
+```java
+
+    public static void Main (String[] args){
+        everything
+    }
+
+
+```
+
+I like to call it the template because it's the same thing you will use for every program you write in java.
+
+We also call this the "main method" hence the "Main" after the void. Around this main method however should be the following,
+
+```java
+
+    public class FileName {
+
+        public static void Main (String[] args){
+
+                everything
+
+            }
+    }
+
+```
+
+It is simply declaring the filename. It's like when you open a google doc and give the doc a title- that's all its doing. It's saying "Hey, I want this document to be named [insert fileName]"
+
+## Print Statements
+
+Let's write our first program! Print "Hello World!"
+
+```java
+
+    public class FileName {
+
+        public static void Main (String[] args){
+
+            System.out.println("Hello World!");
+
+            }
+    }
+
+```
+
+This can be read as we are contacting the **system** and we want it to **print** **out** **"Hello World!".**
+
+The print**ln** stands for print **line**, meaning "Hello World!" will be printed in a new line.
+
+You could have done
+
+```java
+
+     System.out.print("Hello World!");
+
+
+```
+
+and that would just print "Hello World!" on the same line.
+
+Here, there is no difference because we're only printing one thing but if we had more things to print we wouldn't want them to be all printed in one line but in differrent ones so we use println.
+
+Okay but you wrote it but nothing is happening. Why? Because you haven't ran it.
+
+It's like you thinking you want to say Hello to a person but not actually speaking it. You have to run your mouth to say something no?
+
+What's the equivalent of running your mouth in Java? Literally running your code.
+
+## Compiling and Running
+
+Before running we have to complie our code in our terminal.
+
+Click on CTRL + J or CMD + J to open it in VSCode.
+
+```java
+
+    javac fileName.java
+
+
+```
+
+java**c** -> the c stands for complile
+
+then to run the code write,
+
+```java
+
+    java fileName
+
+
+```
+
+great! now you should see your Hello World!

@@ -1,0 +1,24 @@
+---
+
+import { Prism } from '@astrojs/prism';
+const {lang, code, fileName} = Astro.props;
+
+---
+
+<p>{fileName}</p>
+
+<Prism lang= {lang} code={code} />
+
+<style>
+    p{
+        background: #030314;
+        color: rgb(189, 189, 189);
+        padding:5px 10px;
+        border-radius: 5px;
+        font-size:0.8rem;
+        width:max-content;
+        position: relative;
+        top:21px;
+        z-index:2;
+    }
+</style>

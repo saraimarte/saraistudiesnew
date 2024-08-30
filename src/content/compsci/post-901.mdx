@@ -1,0 +1,165 @@
+---
+layout: "@layouts/Blog.astro"
+title: 🟡 Arrays (2D)
+pubDate: 2024-05-05T00:00:00Z
+updatedDate: 2024-05-05T00:00:00Z
+draft: false
+author: Sarai Marte
+chapter: Week 5
+slug: arrays-2d
+---
+
+## What we know:
+
+```java
+
+    int[] arr = new int[2];
+
+
+```
+
+This gives us an array with 2 integers, with 0's by default: [0,0]
+
+## What's new:
+
+```java
+
+    int[][] arr = new int[2][2]; //[row][cols]
+
+
+```
+
+This gives us an array with 2 rows and 2 columns filled with integers (0's by default):
+
+[0,0]  
+[0,0]
+
+## Another way to look at this:
+
+## What we know:
+
+```java
+
+    int[] arr = {1, 2, 3, 4};
+
+
+```
+
+This gives us: [1, 2, 3, 4]
+
+## What's new:
+
+```java
+
+    int[][] arr = { {1, 2}, {3, 4} };
+                   //row 1  //row2
+
+
+```
+
+This gives us:  
+[1, 2]  
+[3, 4]
+
+Here, you can see what a 2D array is.
+
+It's literally an an array of arrays.
+
+You have an two arrays within one array. Those two arrays, you can visualize them stacked on top up of one another with each array being a row.
+
+## Getting Info from the array
+
+Let's start by printing out the values in the array like how we have them visualized.
+
+```java
+
+    int[][] numbers = new int[2][2];
+
+    for (int row = 0; row < numbers.length; row ++) {
+        StdOut.println(" "); //add an 'enter'/space after each row
+        for(int column = 0; column < numbers.length; column++){
+            //print out the value and a space after
+            System.out.print(numbers[row][column] + " ");
+        }
+    }
+
+    //Output:
+    // [0  0]
+    // [0  0]
+
+
+```
+
+## How many rows are there? Columns?
+
+Let's take this array:
+
+```java
+
+    int[][] arr = {{1, 2, 3}, {4, 5, 6}};
+
+
+```
+
+How many rows are there?
+
+```java
+
+    arr.length; //2
+
+
+```
+
+How many columns are there?
+
+```java
+
+    arr[0].length; //3
+
+
+```
+
+Above, you can take any row since all rows have the same amount of columns, and see how how long it is, aka count the columns. We took the first row (index 0) and found it's length.
+
+## Practice:
+
+**1.** Given a 2D integer array, change all the negative numbers to zero.
+
+<details>
+  <summary> Solution </summary>
+
+```java
+
+    public class fileName {
+
+        public static void main(String[] args){
+
+            int[][] arr = new int[2][2];
+            arr[0][0] = 1;
+            arr[0][1] = -2;
+            arr[1][0] = -3;
+            arr[1][1] = 4;
+
+            for (int row = 0; row < arr.length; row++){ //go through each row
+                for (int col = 0; col < arr.length; col ++){ //go through each column
+                    if(arr[row][col] < 0){ //if number is negative
+                        arr[row][col] = 0;
+                    }
+                }
+            }
+
+
+            //check your work
+            for (int row = 0; row < arr.length; row++){ //go through each row
+                for (int col = 0; col < arr.length; col ++){ //go through each column
+                    StdOut.println(arr[row][col]);
+                }
+            }
+        }
+
+    }
+
+
+```
+
+</details>

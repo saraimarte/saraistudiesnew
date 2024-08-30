@@ -1,0 +1,197 @@
+---
+layout: "@layouts/Blog.astro"
+title: 🟡 Redirecting and Piping
+pubDate: 2024-03-27T00:00:00Z
+updatedDate: 2024-03-27T00:00:00Z
+draft: false
+author: Sarai Marte
+chapter: Week 6
+slug: redirecting-and-piping
+---
+
+# Redirecting and Piping
+
+## Redirecting to a file
+
+```java
+
+    java fileName1 > data.txt
+
+
+```
+
+This is saying, "Hey, I want to store the output of this program in**to** data.txt"
+
+## Redirecting from a file
+
+```java
+
+    java fileName2 < data.txt
+
+
+```
+
+This is saying, "Hey, I want to use info from data.txt in**to** my program."
+
+OR
+
+This is saying, "Hey, I want to use the output of the program into fileName1 in this program
+fileName2"
+
+With piping you can do this in one go
+
+```java
+
+    java fileName1 | fileName2
+
+
+```
+
+This is saying, "Hey, I want to use the output from fileName1 as input in fileName2."
+
+## What is the difference between redirecting and piping?
+
+You might be like, well if piping can do the same thing and faster why use redirecting?
+
+Well, we don't. We don't use redirecting for taking output from one file as input to another
+because piping can do it faster. We can but we don't.
+
+Instead we use redirecting tools for their specific functionalities.
+
+Sometimes you don't want to use the output from one file in another, you just simply want to
+save the output as data you can look at later. Then you would just use redirecting to a file using,
+
+```java
+
+    fileName1 > data.txt
+
+```
+
+Sometimes, you download a file from the internet and want to use it as input in one of your files
+so you would use,
+
+```java
+
+     fileName1 < fileFromTheInterent.txt
+
+```
+
+<details>
+
+{" "}
+<summary>Another way to think of this </summary>
+
+    Step 1: We can take an output from file1 and save it in a text file called output.txt.
+
+
+
+    Step2: Later we can take that same output.txt file and use it's output as input for another program in file2.
+
+
+
+    But we can do this in one go with piping.
+
+
+
+    Step1: Piping takes the output of file1 straight as the input for file2.
+
+
+
+    Meaning that with piping we don't have to do 2 steps like we did in redirecting but only one step for when we want to use the output of one file in another.
+
+
+
+    So, piping only exists for that case scenario but redirecting can also be used to do the same
+    thing, it will just take an extra step.
+
+
+
+    However, redirecting doesn't just exist to take output from one file to another. They also exist to
+    do each individual part by itself.
+
+
+
+    Sometimes you don't want to use the output from one file in another, you just simply want to
+    save the output as data you can look at later. Then you would just use redirecting to a file using,
+    java fileName1 > data.txt.
+
+
+
+    Sometimes, you download a file from the internet and want to use it as input in one of your files
+    so you would use,
+    java fileName1 < fileFromTheInterent.txt
+
+</details>
+
+## Confused about the arrows?
+
+Note: Think of the pointy part of > or < as "**to**", so in
+
+```java
+
+    java fileName1 > data.txt
+
+
+```
+
+The pointy part is pointing **to** data.txt so the data is going in**to** **data.txt**.
+
+```java
+
+    java fileName1 < fileFromTheInterent.txt
+
+
+```
+
+the pointy part is pointing **to** fileName1 meaning the data from fileFromTheInterent is going in**to**
+**fileName1**.
+
+## Possible Errors
+
+<details>
+
+  <summary>
+  
+    The < operator is reserved for future use. Error when running java AirParticles < SmallerPM2.5.txt.
+
+    ``` java
+
+        At line:1 char:19
+        + java AirParticles < SmallerPM2.5.txt
+        +                   ~
+        The '<' operator is reserved for future use.
+            + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+            + FullyQualifiedErrorId : RedirectionNotSupported
+
+
+    ```
+
+   </summary>
+  
+
+
+    You are getting this error probably because you are using VS Code's Terminal.
+
+
+
+    Fact: VSCodes Terminal runs on powershell.
+
+
+
+    And Powershell does not support ```java java AirParticles < SmallerPM2.5.txt ``` so you have to use the command prompt.
+
+
+
+    Next to where it says "powershell" in the right corner of the terminal near the 'x' there should be a plus sign and a drop down arrow. Click on the drop down arrow and click "Command Prompt" should be the third option from the top. Now run the same line and it should work,
+
+
+
+    If you're on apple you wouldn't get this error because apple uses zsh (z-shell) not powershell.
+
+    Here is a video if you can't figure it out.
+
+
+
+    <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe width="100%" height="100%" style="position:absolute" allowFullScreen src="https://www.youtube.com/embed/3ZfEa2D-SYI?si=0XxHaFN5B1K_-fy1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe></div>
+
+</details>

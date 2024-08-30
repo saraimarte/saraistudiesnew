@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allCompsciPosts: CollectionEntry<'compsci'>[] = (await getCollection('compsci'));
+
+
+export async function getStaticPaths() {
+  const allCompsciPosts: CollectionEntry<'compsci'>[] = await getCollection('compsci');
+
+  return allCompsciPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allCompsciPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Introduction to Computer Science (CS111) Directory" 
+  allArticles = {allArticles} 
+  className = "compsci" 
+  fullClassTitle = "Introduction to Computer Science (CS111) 001:198:111">
+</ClassHomePage>

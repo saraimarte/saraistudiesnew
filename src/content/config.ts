@@ -67,11 +67,25 @@ const writingForMediaCollection = defineCollection({
   }),
 });
 
+const compsciCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string(),
+    chapter: z.string(),
+  }),
+});
+
+
 export const collections = {
   calc1: calc1Collection,
   calc2: calc2Collection,
   macc: maccCollection,
   statMethods: statMethodsCollection,
   supplyChain:supplyChainCollection,
-  writingForMedia: writingForMediaCollection
+  writingForMedia: writingForMediaCollection,
+  compsci:compsciCollection
 };

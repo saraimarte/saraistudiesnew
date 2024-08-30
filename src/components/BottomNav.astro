@@ -42,11 +42,11 @@ const collectionImages = {
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia'];
+const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci'];
 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia']; // Add other collection names here
+  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci']; // Add other collection names here
 
   // Return paths for each collection
   return collectionNames.map(name => ({
