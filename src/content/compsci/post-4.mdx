@@ -2,46 +2,42 @@
 layout: "@layouts/Blog.astro"
 title: 🟡 Data Types & Casting
 pubDate: 2024-03-12T00:00:00Z
-updatedDate: 2024-03-12T00:00:00Z
+updatedDate: 2024-08-31T00:00:00Z
 draft: false
 author: Sarai Marte
 chapter: Week 3
 slug: data-types-and-casting
 ---
 
+import Code from '@components/Code.astro';
 import Table6 from "@components/tableComponents/Table6.astro";
 
 Data types are types of...well data that we can perform operations on.
 
 There are 5 types of data we will deal with in Java.
 
-<li style="list-style:none"> (1) String (Text 'hello world')</li>
-<li style="list-style:none"> (2) Int (Integers 1, 4, -2, -20) </li>
-<li style="list-style:none"> (3) Double (Decimals 2.0 2.44) </li>
-<li style="list-style:none"> (4) Boolean (True or False) </li>
-<li style="list-style:none"> (5) Char (Chracters & or 'B') </li>
+<li style="list-style:none"> (1) String (Text: 'hello world')</li>
+<li style="list-style:none"> (2) int (Integers: 1, 4, -2, -20) </li>
+<li style="list-style:none"> (3) double (Decimals: 2.0 2.44) </li>
+<li style="list-style:none"> (4) boolean (True or False) </li>
+<li style="list-style:none"> (5) char (Characters: & or 'B') </li>
+## Initializing Data Types
 
-## Initializating Data Types
+Note: From now on assume that everything I show you is written inside the template as I explained in [post 4](http://localhost:4321/compsci/intro-to-java#:~:text=Aug%2030%2C%202024-,The%20Template,-For%20now%2C%20in).
 
-Note: From now on assume that everything I show you is written inside the main method - or the template as I like to call it.
+The format for initializing a variable with a certain data type is
 
-The format for Initializing a variable with a certain data types is
+`dataType variableName = value;`
 
-dataType variableName = value;
-
-```java
-
-    String name = "Sarai";  //String
-    int age = 102;          //Integer
-    double weight = 140.20; //Double
-    boolean isHappy = true; //Boolean
-    char b = 'b';           //Char
-
-```
+<Code lang="java" fileName="FileName.java" code={`String name = "Sarai";  //String
+int age = 102;          //Integer
+double weight = 140.20; //Double
+boolean isHappy = true; //Boolean
+char b = 'b';           //Char`} />
 
 ## Performing Operations on Data Types
 
-We can perform operations on these data types so let's practice.
+We can perform operations on these data types, so let's practice.
 
 Your operators consist of:
 
@@ -49,175 +45,116 @@ Your operators consist of:
 
 ### Example 1 | Initialize two integers, add them together and then display the result.
 
-```java
+<Code lang="java" fileName="Example1" code={`int num1 = 20;
+int num2 = 10;
 
-    int num1 = 20;
-    int num2 = 10;
+System.out.println(num1 + num2);
 
-    System.out.println(num1 + num2);
-
-    //30
-
-
-```
+//30`} />
 
 ### Example 2 | Initialize two integers, add them together and then display the result.
 
-```java
+<Code lang="java" fileName="Example2" code={`String name = "Sarai";
+String college = "Rutgers";
+int age = 103;
 
-    String name = "Sarai";
-    String college = "Rutgers";
-    int age = 103;
-
-    System.out.println("My name is " + name + ". I go to " + college + " and I am " + age + " years old.");
-
-```
+System.out.println("My name is " + name + ". I go to " + college + " and I am " + age + " years old.");`} />
 
 ### Example 3 |
 
 ### Example 4 | Initialize two doubles, subtract the second double from the other and then display the result.
 
-```java
+<Code lang="java" fileName="Example4" code={`double num1 = 20;
+double num2 = 10;
 
-    double num1 = 20;
-    double num2 = 10;
+System.out.println(num2 - num1);
 
-    System.out.println(num2 - num1);
-
-    //10
-
-
-```
+//10`} />
 
 ### Example 5 | What does this statement evaluate to?
 
-```java
+<Code lang="java" fileName="Example5" code={`System.out.println(2 + 4 + "3");
 
-    System.out.println(2 + 4 + "3");
-
-    // 63
-
-
-```
+// 63`} />
 
 ### Example 6 | What does this statement evaluate to?
 
-```java
+<Code lang="java" fileName="Example6" code={`System.out.println(2 + "4" + 3);
 
-    System.out.println(2 + "4" + 3);
+// 243`} />
 
-    // 243
+### Example 7 | What does this statement evaluate to?
 
+<Code lang="java" fileName="Example7" code={`System.out.println("4" + 2 + 3);
 
-```
+// 423
 
-### Example 7| What does this statement evaluate to?
-
-```java
-
-    System.out.println("4" + 2 + 3);
-
-    // 423
-
-    //Why not 45? Because we only add the integers next to eachother if they are before a character. Here, they are after the character. (Charcter or string?)
-
-
-```
+//Why not 45? Because we only add the integers next to each other if they are before a character. Here, they are after the character. (Character or string?)`} />
 
 ### Example 8 | What does this statement evaluate to?
 
-```java
+<Code lang="java" fileName="Example8" code={`String number = "String";
+System.out.println(number);
 
-    String number = "String";
-    System.out.println(number);
-
-    // "String"
-
-
-```
+// "String"`} />
 
 ### Example 9 | What does this statement evaluate to?
 
-```java
+<Code lang="java" fileName="Example9" code={`boolean x = true;
+boolean y = true;
 
-    boolean x = true;
-    boolean y = true;
+System.out.println((x && !y) || (x && y));
 
-    System.out.println( (x && !y) || (x && y) );
-
-    //true
-
-
-```
+//true`} />
 
 ### Example 10 | What does this statement evaluate to?
 
-```java
+<Code lang="java" fileName="Example10" code={`boolean x = true;
+boolean y = true;
 
-    boolean x = true;
-    boolean y = true;
+System.out.println((true) || (1 > 5));
 
-    System.out.println( (true) || (1 > 5) );
-
-    //true
-
-
-```
+//true`} />
 
 <hr />
 
 ## Casting
 
-Casting is all about changing a _numerical_ data type to another (so it doesn't work with strings bc a string is not numerical).
+Casting is all about changing a _numerical_ data type to another (so it doesn't work with strings because a string is not numerical).
 
-### Example 1| Integer to a Double
+### Example 1 | Integer to a Double
 
-```java
+<Code lang="java" fileName="CastingIntegerToDouble" code={`int num1 = 20;
 
-    int num1 = 20;
+double num2 = (double) num1;
 
-    double num2 = (double) num1;
+System.out.println(num2);
 
-    System.out.println(num2);
+// 20.0`} />
 
-    // 20.0
+### Example 2 | Double to an Integer
 
+<Code lang="java" fileName="CastingDoubleToInteger" code={`double weight = 140.20;
 
-```
+// here the (int) turns the weight which is a double into an integer
+int weightAsAnInteger = (int) weight;
 
-### Example 2| Double to an Integer
+System.out.println(weightAsAnInteger);
 
-```java
-
-    double weight = 140.20;
-
-    //here the (int) turns the age which is a double into an integer
-    int weightAsAnInteger = (int) weight;
-
-    System.out.println(weightAsAnInteger);
-
-    // 140
-    //Notice how it rounded down.
-    //(int) will always round down even if the double is 140.90
-
-
-```
+// 140
+// Notice how it rounded down.
+// (int) will always round down even if the double is 140.90`} />
 
 But what if we do want to turn a string into an integer?
 
-We can use what are called the system's version of casting or the systems method which use parsing.
+We can use what are called the system's version of casting or the system's method which uses parsing.
 
-### Example 3| String to an Integer
+### Example 3 | String to an Integer
 
-```java
+<Code lang="java" fileName="StringToInteger" code={`String ageAsString = "103"; //String
 
-    String ageAsString = "103"; //String
+int ageAsInteger = Integer.parseInt(ageAsString); // Turning String into Integer
 
-    int ageAsInteger = Integer.parseInt(ageAsString); // Turning String into Integer
+System.out.println(ageAsInteger);
 
-    System.out.println(ageAsInteger);
-
-    //103
-
-
-```
+//103`} />

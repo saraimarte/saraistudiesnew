@@ -9,39 +9,30 @@ chapter: Week 6
 slug: inputs-and-outputs-command-line
 ---
 
-Alrighty! We already know how to output things using `System.out.println()` but we can take in inputs from a user aswell.
+import Code from '@components/Code.astro';
 
-We know that to do this in pseudocode we just use READ but what is the equivalent in Java?
+Alrighty! We already know how to output things using `System.out.println()` but we can take in inputs from a user as well.
 
-### Example 1| Read in an Integer from a user (and display the integer +1)
+We know that to do this in pseudocode we just use READ, but what is the equivalent in Java?
 
-```java
+### Example 1 | Read in an Integer from a user (and display the integer +1)
 
-   int age = Integer.parseInt(args[0]);
+<Code lang="java" fileName = "Example" code={`int age = Integer.parseInt(args[0]);`} />
 
-
-```
-
-You might be asking what does args[0] mean?
+You might be asking what does `args[0]` mean?
 
 Well, let's look at the whole thing.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={`public class FileName {
 
-    public class fileName {
+    public static void Main (String[] args){
 
-        public static void Main (String[] args){
-
-            int age = Integer.parseInt(args[0]);
-
-        }
+        int age = Integer.parseInt(args[0]);
 
     }
+}`} />
 
-
-```
-
-Here, I explain what this part ` (String[] args)` of the Main method does.
+Here, I explain what this part ` (String[] args)` of the `Main` method does.
 
 The format is (datatypeofInput1, nameOfInput1)
 
@@ -50,90 +41,55 @@ In this case we are saying that,
 datatypeofInput1 is a String - specifically an array (list) of strings.  
 nameOfInput1 is args - which stands for arguments.
 
-We are taking in a bunch of string arguments (or inputs in this case) and putting them into a list called args.
+We are taking in a bunch of string arguments (or inputs in this case) and putting them into a list called `args`.
 
 So when we write this,
 
-```java
+<Code lang="java" fileName = "Example" code={`int age = Integer.parseInt(args[0]);
+System.out.println(age + 1);`} />
 
-   int age = Integer.parseInt(args[0]);
-   System.out.println(age + 1);
+we're really saying "hey, take in the first argument/input (argument 0) that we're given, make it into an integer, and then set it equal to a variable called `age` whose datatype is an integer."
 
-
-```
-
-we're really saying "hey, take in the first argument/input (argument 0) that we're given, make it into an integer, and then set it equal to a variable called age who's datatype is an integer."
-
-Note: Remember that in programming we start counting at 0 not at 1!
+**Note:** Remember that in programming we start counting at 0, not at 1!
 
 But how does the user actually input an argument?
 
-Through the command line in the terminal. Open up your terminal CTRL + J.
+Through the command line in the terminal. Open up your terminal with CTRL + J.
 
 We compile as usual,
 
-```java
-
-    javac fileName.java
-
-
-```
+<Code lang="" fileName = "terminal" code={`javac FileName.java`} />
 
 But this time when running the code, we will need to pass in the first argument.
 
-```java
+<Code lang="" fileName = "terminal" code={`java FileName 2`} />
 
-    java fileName 2
+and that's it! Once you run it you should get `3` out because we told the program to take in the first input, add 1 to it, and display the answer.
 
+**Note:** If you had not entered `2`, then you would get an Index Out of Bounds Error because you did not enter the required amount of values the program expects you to.
 
-```
+### Example 2 | Read in and Display a Double from a user
 
-and that's it! Once you run it you should get 3 out because we told the program to take in the first input, add 1 to it and display the answer.
-
-Note: If you had not entered 2 then you would get an Index Out of Bounds Error because you did not enter the required amount of values the program expects you to.
-
-### Example 2| Read in and Display a Double from a user
-
-```java
-
-    double weight = Double.parseDouble(args[0]);
-    System.out.println(weight);
-
-
-```
+<Code lang="java" fileName = "Example" code={`double weight = Double.parseDouble(args[0]);
+System.out.println(weight);`} />
 
 Compile and then run with,
 
-```java
+<Code lang="java" fileName = "Example" code={`java fileName 150.2`} />
 
-    java fileName 150.2
+and you should get `150.2` as an output.
 
+### Example 3 | Read in 1 integer and 1 double from the user, add them together and output the result.
 
-```
+<Code lang="java" fileName = "Example" code={`int num1 = Integer.parseInt(args[0]);
+double num2 = Double.parseDouble(args[1]);
 
-and you should get 150.2 as an output.
+double sum = num1 + num2;
 
-### Example 3| Read in 1 integer and 1 double from the user, add them together and output the result.
-
-```java
-
-    int num1 = Integer.parseInt(args[0]);
-    double num2 = Double.parseDouble(args[1]);
-
-    double sum = num1 + num2;
-
-    System.out.println(sum);
-
-
-```
+System.out.println(sum);`} />
 
 Compile and then run with,
 
-```java
+<Code lang="java" fileName = "Example" code={`java fileName 6 6.2`} />
 
-    java fileName 6 6.2
-
-
-```
-
-and you should get 12.2 as output!
+and you should get `12.2` as output!

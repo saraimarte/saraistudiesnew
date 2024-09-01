@@ -2,109 +2,85 @@
 layout: "@layouts/Blog.astro"
 title: ✅ Intro to Java
 pubDate: 2024-03-12T00:00:00Z
-updatedDate: 2024-03-12T00:00:00Z
+updatedDate: 2024-08-31T00:00:00Z
 draft: false
 author: Sarai Marte
 chapter: Week 3
 slug: intro-to-java
 ---
 
-## Installing Java and VS Code
+import Code from '@components/Code.astro';
+import DropDown from '@components/DropDown.astro';
 
-## The Template
+# The Template
 
-For now, in java we write everything in between these two curly brackets.
+For now, in Java, we write everything inside what I like to call the 'template.' 
 
-```java
+<Code lang="java" fileName="FileName.java" code={`public class FileName {
 
     public static void Main (String[] args){
         everything
     }
+}`} />
 
+I call it the 'template' because we start with this piece of code in *all* of the programs we will ever write in Java.
 
-```
+Inside the template we have the (1) FileName class and the (2) Main method. 
 
-I like to call it the template because it's the same thing you will use for every program you write in java.
+For now, think about them like this...
 
-We also call this the "main method" hence the "Main" after the void. Around this main method however should be the following,
+(1) think about the FileName class as telling Java "Hey, I want to write some code for this file called [insert fileName]"
 
-```java
+(2) think about the Main method as telling Java "Hey, anything I write inside the curly brackets is the code I want this file to run."
 
-    public class FileName {
-
-        public static void Main (String[] args){
-
-                everything
-
-            }
-    }
-
-```
-
-It is simply declaring the filename. It's like when you open a google doc and give the doc a title- that's all its doing. It's saying "Hey, I want this document to be named [insert fileName]"
+<DropDown title = "Tip">
+The way I memorized the template is by taking 5 minutes and attempting to do it. I would forget the first few times, I would take a peak and then start from scratch again until I could write the whole thing from memory. Then, to have it stay in your memory, write it from scratch every time you start a new java file instead of copying and pasting.
+</DropDown>
 
 ## Print Statements
 
-Let's write our first program! Print "Hello World!"
+Let's write our first program! Print "Hello World!" in a java file called HelloWorld.
 
-```java
+<Code lang="java" fileName="HelloWorld.java" code={`public class HelloWorld {
 
-    public class FileName {
+    public static void Main (String[] args){
 
-        public static void Main (String[] args){
+        System.out.println("Hello World!");
 
-            System.out.println("Hello World!");
-
-            }
     }
+}`} />
 
-```
+This can be read as we are contacting the **system** (think of it as the computer) and we want it to **print** **out** **"Hello World!"**.
 
-This can be read as we are contacting the **system** and we want it to **print** **out** **"Hello World!".**
+The print**ln** stands for print **line**, meaning whatever is being printed will be printed in a new line.
+You could have also done:
 
-The print**ln** stands for print **line**, meaning "Hello World!" will be printed in a new line.
+<Code lang="java" fileName="HelloWorld.java" code={`System.out.print("Hello World!");`} />
 
-You could have done
+and that would just print "Hello World!" on the same line as anything else you would have printed before.
 
-```java
+Here, there is no difference because we're only printing one thing, but if we had more things to print, we wouldn't want them to be all printed in one line but in different ones, so we use `println`.
 
-     System.out.print("Hello World!");
+Okay, but you wrote it but nothing is happening. Why? Because you haven't run it.
 
-
-```
-
-and that would just print "Hello World!" on the same line.
-
-Here, there is no difference because we're only printing one thing but if we had more things to print we wouldn't want them to be all printed in one line but in differrent ones so we use println.
-
-Okay but you wrote it but nothing is happening. Why? Because you haven't ran it.
-
-It's like you thinking you want to say Hello to a person but not actually speaking it. You have to run your mouth to say something no?
+It's like you thinking you want to say Hello to a person but not actually speaking it. You have to run your mouth to say something, no?
 
 What's the equivalent of running your mouth in Java? Literally running your code.
 
 ## Compiling and Running
 
-Before running we have to complie our code in our terminal.
+Before running, we have to compile our code in our terminal.
 
-Click on CTRL + J or CMD + J to open it in VSCode.
+Terminal: Click on CTRL + J or CMD + J to open it in VSCode.
 
-```java
+Think of compiling as preparing your code to be ran. All you have to do to compile your code is,
 
-    javac fileName.java
+<Code lang="" fileName="terminal" code={`javac HelloWorld.java`} />
 
+java**c** -> the c stands for compile
 
-```
+Then, to run the code, write,
 
-java**c** -> the c stands for complile
+<Code lang="" fileName="terminal" code={`java HelloWorld`} />
 
-then to run the code write,
-
-```java
-
-    java fileName
-
-
-```
-
-great! now you should see your Hello World!
+Great! Now you should see your Hello World printed in the terminal!

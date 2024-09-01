@@ -1,10 +1,10 @@
 ---
-
+const {title} = Astro.props;
 ---
 
 <details>
 
-    <summary> Example </summary>
+    <summary> {title} </summary>
     
     <slot/>
 
@@ -22,7 +22,7 @@
 summary{
     user-select: none;
     color:black;
-    height:20px;
+    height:min-content;
 }
 
 details {

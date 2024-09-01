@@ -79,6 +79,17 @@ const compsciCollection = defineCollection({
   }),
 });
 
+const latinoWorkersCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
+
 
 export const collections = {
   calc1: calc1Collection,
@@ -87,5 +98,6 @@ export const collections = {
   statMethods: statMethodsCollection,
   supplyChain:supplyChainCollection,
   writingForMedia: writingForMediaCollection,
-  compsci:compsciCollection
+  compsci:compsciCollection,
+  latinoWorkers: latinoWorkersCollection
 };

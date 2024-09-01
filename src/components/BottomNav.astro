@@ -42,11 +42,11 @@ const collectionImages = {
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci'];
+const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers'];
 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci']; // Add other collection names here
+  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers']; // Add other collection names here
 
   // Return paths for each collection
   return collectionNames.map(name => ({
@@ -57,7 +57,6 @@ export async function getStaticPaths() {
 
 <div class="bottomNav" id="bottomNav">
     <div class="tab">
-
         <a href={pathHome}}>
             <Image src={Home} alt={`Go to home`} />
         </a>
@@ -69,6 +68,90 @@ export async function getStaticPaths() {
       </a>
     </div>
   ))}
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
+
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
+
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
+
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
+    <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>   <div class="tab">
+      <a href={pathHome}}>
+      </a>
+    </div>
 </div>
 
 <style>
