@@ -6,7 +6,7 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
 
 <MainLayout pageTitle = {pageTitle} folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
   <div class="container">
-    <h1 class = "date">{fullClassTitle}</h1>
+    <h1 class = "title">{fullClassTitle}</h1>
 
     <ol>
       {allArticles.map(article => (
@@ -39,13 +39,12 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
         line-height: 2em;
     }
 
-    h1{
-      font-size: 1.5rem;
+    .title{
+      font-size: 1.3rem;
       margin: 10px 0;
       font-weight: 200;
-
     }
-
+   
  
 
 </style>

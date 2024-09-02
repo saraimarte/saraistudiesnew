@@ -9,9 +9,11 @@ chapter: Week
 slug: array-list-class
 ---
 
+import Code from '@components/Code.astro';
+
 **What you know:** arrays can hold any data type, both primitive (ints, doubles, chars) or abstract (Strings).
 
-**What's new:** array lists can hold _only_ objects.
+**What's new:** array lists can hold only objects.
 
 You're going to love these because this is how you wished arrays worked.
 
@@ -19,12 +21,7 @@ Let's start.
 
 First, make sure you import the class at the top of your file.
 
-```java
-
-    import java.util.ArrayList;
-
-
-```
+<Code lang="java" fileName="fileName.java" code={`import java.util.ArrayList;`}/>
 
 Why? Because ArrayList is not built into java like String is. ArrayList is like the Color class where you had to import it.
 
@@ -32,12 +29,7 @@ Why? Because ArrayList is not built into java like String is. ArrayList is like 
 
 Let's declare and initialize an arrayList that contains only String items.
 
-```java
-
-    ArrayList <String> names = new ArrayList <String> ();
-
-
-```
+<Code lang="java" fileName="fileName.java" code={`ArrayList<String> names = new ArrayList<String>();`}/>
 
 Always follow the same format:
 
@@ -268,7 +260,7 @@ Replaces the object at specified index.
 
 **1A.** Make and output a list that contains the following names: Sam, Cat, Selena, Miley, Demi, Mike.
 
-<details>
+<Solution>
   <summary> Solution </summary>
 
 ```java
@@ -287,12 +279,12 @@ Replaces the object at specified index.
 
 ```
 
-</details>
+</Solution>
 
 **1B.** Replace Mike with Demi and Austin with Ally without changing what you added to the array list. Output the changed array list.
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -313,7 +305,7 @@ Replaces the object at specified index.
 
 ```
 
-</details>
+</Solution>
 
 **2A.** Get and output the 4th name in the array list.
 
@@ -332,8 +324,8 @@ Use the following array list.
 
 ```
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -365,12 +357,12 @@ Use the following array list.
 
 ```
 
-</details>
+</Solution>
 
 **2B.** Remove Miley and replace Selena with Alex
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -393,12 +385,12 @@ Use the following array list.
 
 ```
 
-</details>
+</Solution>
 
 **2C.** Add Teddy as the second name in the array list.
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -413,12 +405,12 @@ Use the following array list.
 
 ```
 
-</details>
+</Solution>
 
 **2D.** Output how many items/names are in the arraylist?
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -429,12 +421,12 @@ Use the following array list.
 
 ```
 
-</details>
+</Solution>
 
 **3.** Write a method called 'populateArrayList' that takes in an empty arrayList called 'names' and adds other name String objects into the array by using the StdIn library.
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -471,7 +463,7 @@ Use the following array list.
 
 ```
 
-</details>
+</Solution>
 
 **4.** Write a method called 'getLongestString' that takes an ArrayList of whatever amount of strings and returns the string with the longest length assuming there is only one string that has the longest length.
 
@@ -488,8 +480,8 @@ Use the following arrayList.
 
 ```
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -528,7 +520,7 @@ Use the following arrayList.
 
 Hopefully, here you learned that to access an arrayList object in a for loop you can't do arrayList[i] instead you do arrayList.get(i).
 
-</details>
+</Solution>
 
 **5.** Write a method called 'averageLengthOfStrings' that takes an ArrayList of strings and returns the average length of the strings in the list.
 
@@ -545,8 +537,8 @@ Use the following arrayList.
 
 ```
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -591,7 +583,7 @@ Use the following arrayList.
 
 ```
 
-</details>
+</Solution>
 
 **6.** Write a method that takes an ArrayList of Strings and removes Strings shorter than 5 letters.
 
@@ -608,8 +600,8 @@ Use the following arrayList.
 
 ```
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -649,7 +641,7 @@ Use the following arrayList.
 
 ```
 
-</details>
+</Solution>
 
 **7.** Write a method called 'removeDuplicates' that takes an ArrayList of Strings and removes all duplicate elements, leaving only one occurrence of each String.
 
@@ -669,8 +661,8 @@ Use the following arrayList.
 
 ```
 
-<details>
-<summary>Solution</summary>
+<Solution>
+
 
 ```java
 
@@ -735,4 +727,4 @@ Use the following arrayList.
 
 ```
 
-</details>
+</Solution>

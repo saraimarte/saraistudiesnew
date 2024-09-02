@@ -9,6 +9,8 @@ chapter: Week 7
 slug: functions
 ---
 
+import Code from '@components/Code.astro';
+
 You have a body.
 
 Your body functions.
@@ -92,43 +94,35 @@ So, how do we write a function?
 
 ### How to write a function
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public static returnType nameOfFunction (dataTypeOfInput1 input1, dataTypeOfInput2 input2) {
+    // code goes here
+    return whateverYoureReturning;
+}`} />
 
-    public static returnType nameOfFunction (dataTypeOfInput1 input1, dataTypeOfInput2 input2) {
-        code goes here
-        return whatever youre returning
-    }
+**public** - everyone can access it as opposed to a private function
 
+**static** - we will use static for now in all our functions
 
-```
+**returnType** - this will always be the type of the data your function will return.
 
-public - everyone can acess it as opposed to a private function
+**nameOfFunction** - self-explanatory
 
-static - we will use static for now in all our functions
-
-returnType - this will always be the type of the data your function will return.
-
-nameOfFunction - self explanatory
-
-return - whatever youre returning (what you want your output to be)
+**return** - whatever you’re returning (what you want your output to be)
 
 ### Example 1 | Write a function that takes in two integers and returns their sum (2 Inputs; 1 Output.)
 
-```java
-
-    public static int sum (int num1, int num2) {
-        int sum = num1 + num2;
-        return sum;
-    }
-
-
-```
+<Code lang="java" fileName="fileName.java" code={
+`public static int sum (int num1, int num2) {
+    int sum = num1 + num2;
+    return sum;
+}`} />
 
 Okay, you wrote the function but you haven't called it yet.
 
 ### How and Where do you call a function?
 
-You call your function within the main function since that is where we write all our code in Java.
+You call your function within the `main` function since that is where we write all our code in Java.
 
 The function itself should be outside of the main function but within the class.
 
@@ -136,40 +130,33 @@ However, it does not matter if it's placed before or after the main function- th
 
 Here is how the function is placed.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
+    //main function starts
+    public static void main (String[] args){
+        //call the function here and input your arguments
+        sum(2,2);
+    }
+    //main function ends
 
-        //main function starts
-        public static void main (String[] args){
-            //call the function here and input your arguments
-            sum(2,2);
-        }
-        //main function ends
-
-        //notice how this function is outside of the main function but still within the class
-        public static int sum (int num1, int num2) {
-            int sum = num1 + num2;
-            return sum;
-        }
-
+    //notice how this function is outside of the main function but still within the class
+    public static int sum (int num1, int num2) {
+        int sum = num1 + num2;
+        return sum;
     }
 
-
-```
+}`} />
 
 Great! But if you compile and run nothing happens. Why? Well, your function is running. Java is adding 2 + 2 but you don't see the result because you never asked for it.
 
 So, print out the sum.
 
-```java
-
-    public static void main (String[] args){
-        //print out the output of your function
-        StdOut.println(sum(2,2));
-    }
-
-```
+<Code lang="java" fileName="fileName.java" code={
+`public static void main (String[] args){
+    //print out the output of your function
+    StdOut.println(sum(2,2));
+}`} />
 
 and you should get 4 in the terminal!
 
@@ -177,121 +164,90 @@ Now, this was a function that took in two inputs (two integers) and returned one
 
 Let's write a function that takes in 1 input and returns 1 output.
 
-### Example 2| Write a function that takes your age and returns how old you will be in 54 years (1 Input; 1 Output.)
+### Example 2 | Write a function that takes your age and returns how old you will be in 54 years (1 Input; 1 Output.)
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-
-            //print out how old I will be in 54 years.
-            StdOut.println("You will be " + ageCalculator(20) + " in 54 years.");
-
-        }
-
-        public static int ageCalculator (int age){
-            //compute newAge as my current age + 54 years
-            int newAge = age + 54;
-
-            return newAge;
-        }
-
+    public static void main (String[] args){
+        //print out how old I will be in 54 years.
+        StdOut.println("You will be " + ageCalculator(20) + " in 54 years.");
     }
 
-    //omg i'll be 74
+    public static int ageCalculator (int age){
+        //compute newAge as my current age + 54 years
+        int newAge = age + 54;
+        return newAge;
+    }
 
+ //omg i'll be 74
 
-```
+}`} />
+
+   
 
 If you compile and run you should get 74 (if you put 20 as your argument).
 
 Now, instead of manually putting in the argument within the code, you also can ask the user for their age directly- which we know how to do already.
 
-We can use our command line methods like Integer.parseInt() or we can use our standard library method like StdIn.readInt().
+We can use our command line methods like `Integer.parseInt()` or we can use our standard library method like `StdIn.readInt()`.
 
 Let's use the libraries to practice.
 
-### Example 3| Write a function that takes your age (not as an argument) and returns how old you will be in 54 years (0 Inputs; 1 Output.)
+### Example 3 | Write a function that takes your age (not as an argument) and returns how old you will be in 54 years (0 Inputs; 1 Output.)
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-
-            //print out how old I will be in 54 years.
-            StdOut.println("You will be " + ageCalculator() + " in 54 years.");
-
-        }
-
-        public static int ageCalculator (){
-
-            StdOut.println("Enter your age: "); //prompt user for their age
-            int age = StdIn.readInt(); //this will wait for the user to enter their age
-            int newAge = age + 54; //compute newAge as user's age + 54 years
-            return newAge; //returns the new age
-
-        }
-
+    public static void main (String[] args){
+        //print out how old I will be in 54 years.
+        StdOut.println("You will be " + ageCalculator() + " in 54 years.");
     }
 
+    public static int ageCalculator (){
+        StdOut.println("Enter your age: "); //prompt user for their age
+        int age = StdIn.readInt(); //this will wait for the user to enter their age
+        int newAge = age + 54; //compute newAge as user's age + 54 years
+        return newAge; //returns the new age
+    }
 
-```
+}`} />
 
 Hopefully, this specific problem establishes the fact what we mean by inputs- anything that goes within the parentheses when you call a function. If nothing goes in there, then there is no input. Even though technically we are asking for the user's age- we are not requesting it as a required input within the parentheses.
 
-### Example 4| Write a function that displays your age (1 input; 0 outputs).
+### Example 4 | Write a function that displays your age (1 input; 0 outputs).
 
 In the previous code we can replace this
 
-```java
+<Code lang="java" fileName="fileName.java" code={`StdOut.println("You will be " + ageCalculator() + " in 54 years.");`} />
 
-    StdOut.println("You will be " + ageCalculator() + " in 54 years.");
+with a function since we might need to display our `newAge` more times and we don't want to keep re-writing that same line.
 
-
-```
-
-with a function since we might need to display our newAge more times and we don't want to keep re-writing that same line.
-
-```java
-
-    public static void displayAgeIn54Years(int age) {
-        StdOut.println(age);
-    }
-
-
-```
+<Code lang="java" fileName="fileName.java" code={`public static void displayAgeIn54Years(int age) {
+    StdOut.println(age);
+}`} />
 
 Here, is the completed code,
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-
-            int newAge = ageCalculator(); //get the newAge
-            displayAgeIn54Years(newAge); //display the newAge
-
-        }
-
-        public static int ageCalculator (){
-
-            StdOut.println("Enter your age: "); //prompt user for their age
-            int age = StdIn.readInt(); //this will wait for the user to enter their age
-            int newAge = age + 54; //compute newAge as user's age + 54 years
-            return newAge; //returns the new age
-
-        }
-
-        public static void displayAgeIn54Years(int age) { //NOTE: Functions where we return nothing have a returnType of void because we are literally returning the void- nothing. darkness. nada.
-            StdOut.println(age);
-        }
+    public static void main (String[] args){
+        int newAge = ageCalculator(); //get the newAge
+        displayAgeIn54Years(newAge); //display the newAge
     }
 
+    public static int ageCalculator (){
+        StdOut.println("Enter your age: "); //prompt user for their age
+        int age = StdIn.readInt(); //this will wait for the user to enter their age
+        int newAge = age + 54; //compute newAge as user's age + 54 years
+        return newAge; //returns the new age
+    }
 
-```
+    public static void displayAgeIn54Years(int age) { //NOTE: Functions where we return nothing have a returnType of void because we are literally returning the void- nothing. darkness. nada.
+        StdOut.println(age);
+    }
+}`} />
 
 Hopefully, this specific problem establishes the fact what we mean by outputs- anything that we are returning. If we are not returning anything then there is no output.
 
@@ -299,128 +255,113 @@ Okay, let's practice!
 
 <hr />
 
-### Problem 1| Write a function that takes in two doubles as arguments and returns their difference. Display the difference. How many inputs and outputs does this function require?
+### Problem 1 | Write a function that takes in two doubles as arguments and returns their difference. Display the difference. How many inputs and outputs does this function require?
 
 Assume the first number is always bigger than the second number.
 
 Inputs: 2 doubles  
 Outputs: 1 (the difference)
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-            StdOut.print(difference(10.5,5.2));
-        }
-
-        public static double difference (double num1, double num2){
-            double difference = num1 - num2;
-            return difference;
-        }
-
+    public static void main (String[] args){
+        StdOut.print(difference(10.5,5.2));
     }
+
+    public static double difference (double num1, double num2){
+        double difference = num1 - num2;
+        return difference;
+    }
+
+}`} />
 
     //Output: 5.3
 
-
-```
-
-### Problem 2| Write the same function as above but without taking the two doubles as arguments. How many inputs and outputs does this function require?
+### Problem 2 | Write the same function as above but without taking the two doubles as arguments. How many inputs and outputs does this function require?
 
 Inputs: 0  
 Outputs: 1 (the difference)
 
 The only difference here is that we program the function to take in the two doubles from the user in the terminal instead of having the two numbers being taken as arguments.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+    
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-            StdOut.print(difference());
-        }
-
-        public static double difference (){
-            StdOut.print("Enter 2 decimals (When done click enter and then CTRL + Z for WIN CTRL+D for MAC): ");
-            double[] numbers = StdIn.readAllDoubles(); //read in all doubles
-            double difference = numbers[0] - numbers[1]; //compute the difference as the difference between the first number (0) and the second number (1)
-            return difference;
-        }
-
+    public static void main (String[] args){
+        StdOut.print(difference());
     }
 
+    public static double difference (){
+        StdOut.print("Enter 2 decimals (When done click enter and then CTRL + Z for WIN CTRL+D for MAC): ");
+        double[] numbers = StdIn.readAllDoubles(); //read in all doubles
+        double difference = numbers[0] - numbers[1]; //compute the difference as the difference between the first number (0) and the second number (1)
+        return difference;
+    }
     //Output: 5.3
+}`} />
 
+   
 
-```
+Because we're taking more than one number from the user we can't use `.readDouble()` to read in both of them at the same time. To do that, we can to use `.readAllDoubles()` which means we have to store all those doubles into an array- I called the array `numbers`.
 
-Because we're taking more than one number from the user we can't use .readDouble() to read in both of them at the same time. To do that, we can to use .readAllDoubles() which means we have to store all those doubles into an array- I called the array numbers.
-
-(We could have used .readDouble() to read the number and store them one at a time. See Problem 4.)
+(We could have used `.readDouble()` to read the number and store them one at a time. See Problem 4.)
 
 Now, because the numbers are in an array, we had to access them by indexing the array.
 
 The index of the first number in the array is 0 and the index of the second number is 1.
 
-### Problem 3| Write a function that takes in two names as arguments and _only_ displays those names together with a heart in between. How many inputs and outputs does this function require?
+### Problem 3 | Write a function that takes in two names as arguments and _only_ displays those names together with a heart in between. How many inputs and outputs does this function require?
 
-Here, copy this heart `<3` .
+Here, copy this heart `<3`.
 
-Example Output: "Sarai `<3` God"
+Example Output: `Sarai <3 God`
 
 Inputs: 2 (strings)  
 Outputs: 0
 
-````java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-            loveMessage("Sarai", "God");
-        }
-
-        public static void loveMessage (String name1, String name2){
-            StdOut.print(name1 + " <3 " + name2);
-        }
-
+    public static void main (String[] args){
+        loveMessage("Sarai", "God");
     }
 
-    //Output: "Sarai ```<3``` God"
+    public static void loveMessage (String name1, String name2){
+        StdOut.print(name1 + " <3 " + name2);
+    }
+    // Output: "Sarai <3 God"
 
-
-````
+}`} />
 
 ### Problem 4| Write the same function that takes in two names but NOT as arguments. How many inputs and outputs does this function require now?
 
 Inputs: 0  
 Outputs: 0
 
-````java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-            loveMessage(); //call the function
-        }
-
-        public static void loveMessage (){ //note: there are no arguments within the parentheses in loveMessage() hence no inputs.
-
-            StdOut.print("Enter name1: "); //ask user to enter first name
-            String name1 = StdIn.readString(); //read and store the first name
-
-            StdOut.print("Enter name2: "); //ask user to enter second name
-            String name2 = StdIn.readString(); //read and store the second name
-
-            StdOut.print(name1 + " <3 " + name2); //notice we are not returning anything hence the void returnType in the signature of the function
-        }
-
+    public static void main (String[] args){
+        loveMessage(); //call the function
     }
 
-    //Output: "Sarai ```<3``` God"
+    public static void loveMessage (){ //note: there are no arguments within the parentheses in loveMessage() hence no inputs.
+
+        StdOut.print("Enter name1: "); //ask user to enter first name
+        String name1 = StdIn.readString(); //read and store the first name
+
+        StdOut.print("Enter name2: "); //ask user to enter second name
+        String name2 = StdIn.readString(); //read and store the second name
+
+        StdOut.print(name1 + " <3 " + name2); //notice we are not returning anything hence the void returnType in the signature of the function
+    }
+    // Output: "Sarai <3 God"
+
+}`} />
 
 
-````
 
 Here, instead of using .readAllStrings() I read each name one at a time. I prompted the user for the first name and then waited, got it, stored it. Same for the second.
 
@@ -431,24 +372,21 @@ Here, instead of using .readAllStrings() I read each name one at a time. I promp
 Inputs: 2 (base and height)  
 Outputs: 1 (area)
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`public class fileName {
 
-    public class fileName {
-
-        public static void main (String[] args){
-            double area = triangleArea(10,5);
-            StdOut.print(area); //print the returning value of the function - that is the area
-        }
-
-        public static double triangleArea (double base, double height){
-
-            double area = ((double)1/2) * base * height;
-            return area;
-
-        }
+    public static void main (String[] args){
+        double area = triangleArea(10,5);
+        StdOut.print(area); //print the returning value of the function - that is the area
     }
 
+    public static double triangleArea (double base, double height){
 
-```
+        double area = ((double)1/2) * base * height;
+        return area;
+
+    }
+}`} />
+
 
 Here, we had to cast the (1/2) to a double because the 1 and 2 are integers. Remember, that our return type is double hence everything has to be a double.

@@ -9,25 +9,18 @@ chapter: Week 5
 slug: arrays-2d
 ---
 
+import Code from '@components/Code.astro';
+import Solution from '@components/Solution.astro';
+
 ## What we know:
 
-```java
-
-    int[] arr = new int[2];
-
-
-```
+<Code lang = "java" fileName = "What we know" code = {`int[] arr = new int[2];`}/>
 
 This gives us an array with 2 integers, with 0's by default: [0,0]
 
 ## What's new:
 
-```java
-
-    int[][] arr = new int[2][2]; //[row][cols]
-
-
-```
+<Code lang="java" fileName="What's new" code={`int[][] arr = new int[2][2]; //[row][cols]`} />
 
 This gives us an array with 2 rows and 2 columns filled with integers (0's by default):
 
@@ -38,24 +31,13 @@ This gives us an array with 2 rows and 2 columns filled with integers (0's by de
 
 ## What we know:
 
-```java
-
-    int[] arr = {1, 2, 3, 4};
-
-
-```
+<Code lang="java" fileName="What we know" code={`int[] arr = {1, 2, 3, 4};`} />
 
 This gives us: [1, 2, 3, 4]
 
 ## What's new:
 
-```java
-
-    int[][] arr = { {1, 2}, {3, 4} };
-                   //row 1  //row2
-
-
-```
+<Code lang="java" fileName="What's new" code={`int[][] arr = { {1, 2}, {3, 4} }; //row 1  //row2`} />
 
 This gives us:  
 [1, 2]  
@@ -71,53 +53,35 @@ You have an two arrays within one array. Those two arrays, you can visualize the
 
 Let's start by printing out the values in the array like how we have them visualized.
 
-```java
+<Code lang="java" fileName="What we know" code={`
+int[][] numbers = new int[2][2];
 
-    int[][] numbers = new int[2][2];
-
-    for (int row = 0; row < numbers.length; row ++) {
-        StdOut.println(" "); //add an 'enter'/space after each row
-        for(int column = 0; column < numbers.length; column++){
-            //print out the value and a space after
-            System.out.print(numbers[row][column] + " ");
-        }
+for (int row = 0; row < numbers.length; row++) {
+    StdOut.println(" "); // add an 'enter'/space after each row
+    for (int column = 0; column < numbers.length; column++) {
+        // print out the value and a space after
+        System.out.print(numbers[row][column] + " ");
     }
+}
 
-    //Output:
-    // [0  0]
-    // [0  0]
-
-
-```
+// Output:
+// [0  0]
+// [0  0]
+`} />
 
 ## How many rows are there? Columns?
 
 Let's take this array:
 
-```java
-
-    int[][] arr = {{1, 2, 3}, {4, 5, 6}};
-
-
-```
+<Code lang="java" fileName="What we know" code={`int[][] arr = {{1, 2, 3}, {4, 5, 6}};`} />
 
 How many rows are there?
 
-```java
-
-    arr.length; //2
-
-
-```
+<Code lang="java" fileName="What we know" code={`arr.length; //2`} />
 
 How many columns are there?
 
-```java
-
-    arr[0].length; //3
-
-
-```
+<Code lang="java" fileName="What we know" code={`arr[0].length; //3`} />
 
 Above, you can take any row since all rows have the same amount of columns, and see how how long it is, aka count the columns. We took the first row (index 0) and found it's length.
 
@@ -125,41 +89,36 @@ Above, you can take any row since all rows have the same amount of columns, and 
 
 **1.** Given a 2D integer array, change all the negative numbers to zero.
 
-<details>
-  <summary> Solution </summary>
+<Solution>
+<Code lang="java" fileName="Problem 1" code={`
+public class fileName {
 
-```java
+    public static void main(String[] args) {
 
-    public class fileName {
+        int[][] arr = new int[2][2];
+        arr[0][0] = 1;
+        arr[0][1] = -2;
+        arr[1][0] = -3;
+        arr[1][1] = 4;
 
-        public static void main(String[] args){
-
-            int[][] arr = new int[2][2];
-            arr[0][0] = 1;
-            arr[0][1] = -2;
-            arr[1][0] = -3;
-            arr[1][1] = 4;
-
-            for (int row = 0; row < arr.length; row++){ //go through each row
-                for (int col = 0; col < arr.length; col ++){ //go through each column
-                    if(arr[row][col] < 0){ //if number is negative
-                        arr[row][col] = 0;
-                    }
-                }
-            }
-
-
-            //check your work
-            for (int row = 0; row < arr.length; row++){ //go through each row
-                for (int col = 0; col < arr.length; col ++){ //go through each column
-                    StdOut.println(arr[row][col]);
+        for (int row = 0; row < arr.length; row++) { // go through each row
+            for (int col = 0; col < arr.length; col++) { // go through each column
+                if (arr[row][col] < 0) { // if number is negative
+                    arr[row][col] = 0;
                 }
             }
         }
 
+        // check your work
+        for (int row = 0; row < arr.length; row++) { // go through each row
+            for (int col = 0; col < arr.length; col++) { // go through each column
+                StdOut.println(arr[row][col]);
+            }
+        }
     }
 
+}
+`} />
 
-```
 
-</details>
+</Solution>

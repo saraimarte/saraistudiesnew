@@ -9,6 +9,8 @@ chapter: Week 5
 slug: arrays-1d
 ---
 
+import Code from '@components/Code.astro';
+
 There are data types and then there are data structures.
 
 Data structures are ways we can store or organize our data.
@@ -17,17 +19,16 @@ We can organize our data into a list or in Java we call it an array.
 
 You already have worked with an array- actually since the very first day you learned Java.
 
-```java
 
-    public class fileName {
+<Code lang="java" fileName = "FileName.java" code={
+`  
+public class fileName {
 
-        public static void Main (String[] args){
+    public static void Main (String[] args){
 
-        }
     }
+}`}/>
 
-
-```
 
 As explained previously, in `(String[] args)` we are initializing an array called args and declaring it's datatype to be a String.
 
@@ -41,28 +42,29 @@ Despite this knowledge, let's start from scratch!
 
 We declare an array reference variable using the following format: datatypeofArray[] arrayName;
 
-```java
 
-    int[] numbers; //declaration of numbers which is a reference variable to an array that can only hold integer values
-    boolean[] booleans; //declaration of booleans which is a reference variable to an array that can only hold boolean values
-    String[] args; //declaration of args -short for arguments- which is a reference variable to an array that hold any String values.
-    String[] names; //declaration of names which is a reference variable to an array that hold only String values.
-    double[] doubles; //declaration of doubles which is a reference variable to an array that hold only decimals.
+<Code lang="java" fileName = "FileName.java" code={
+`  
+public class fileName {
 
+  int[] numbers; //declaration of numbers which is a reference variable to an array that can only hold integer values
+  boolean[] booleans; //declaration of booleans which is a reference variable to an array that can only hold boolean values
+  String[] args; //declaration of args -short for arguments- which is a reference variable to an array that hold any String values.
+  String[] names; //declaration of names which is a reference variable to an array that hold only String values.
+  double[] doubles; //declaration of doubles which is a reference variable to an array that hold only decimals.
 
-```
+}`}/>
 
 By reference variable I mean that in `String[] names` names is literally a variable. It is not an array yet. It's simply a variable that references to an array once initialized.
 
 ## Initializing an Array
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] numbers; //declaring array reference variable numbers
+numbers = new int[10]; //initilizing the array numbers to have 10 values in it.
 
-    int[] numbers; //declaring array reference variable numbers
-    numbers = new int[10]; //initilizing the array numbers to have 10 values in it.
-
-
-```
+`}/>
 
 By default Java will fill in the arrays with 0's if you don't specify what to fill it with.
 
@@ -97,6 +99,13 @@ Well, if you did you would have done something like this
 
 
 ```
+
+
+<Code lang="java" fileName = "FileName.java" code={
+`      
+
+`}/>
+
 
 and you would have compiled it and ran it and then...get some weird thing like `[I@7344699f` maybe?
 
@@ -133,16 +142,16 @@ Yes, for loops.
 
 Iterating is just a fancy way of saying "going through". I'm going to show you how to go through an array using a for-loop and print out each data value.
 
-```java
 
-    int[] numbers;          //declaring array reference variable
-    numbers = new int[10]; //initilizing the array
-    for (int value = 0; value < numbers.length; value ++) {
-      System.out.println(numbers[value]);
-    }
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] numbers;          //declaring array reference variable
+numbers = new int[10]; //initilizing the array
+for (int value = 0; value < numbers.length; value ++) {
+  System.out.println(numbers[value]);
+}
+`}/>
 
-
-```
 
 `int value = 0`. Here, we are starting with a variable called value and it will be set to 0.
 
@@ -171,8 +180,8 @@ What if you want the array to hold values of 1, 2, 7, 8, 2?
 
 Well, let's do it.
 
-```java
-
+<Code lang="java" fileName = "FileName.java" code={
+`      
    int numbers [] = {1, 2, 7, 8, 2};
 
    for (int i = 0; i < numbers.length; i++){
@@ -180,9 +189,8 @@ Well, let's do it.
    }
 
   ///Output: 1 2 7 8 2
+`}/>
 
-
-```
 
 Here, I used i. It's another way to think about it. i stands for index but I like to think of it standing for an ID.
 
@@ -198,23 +206,20 @@ Because in the programming world we start counting at 0.
 
 So to select student #1 from Rutgers I would do,
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+Rutgers[0] //get me the first student at rutgers
 
-    Rutgers[0] //get me the first student at rutgers
-
-
-```
+`}/>
 
 but in this case,
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+numbers[0] //get me the first number
 
-    numbers[0] //get me the first number
-
-    //Output: 1
-
-
-```
+//Output: 1
+`}/>
 
 So, in the code above, i represents whatever index or ID we are currently at. As soon as we run out of ID's the loop breaks.
 
@@ -224,12 +229,11 @@ Regardless, if you compile and run your code you should get 1 2 7 8 2!
 
 Let's declare and initialize an array called `studentAges` that will hold the ages of 10 students.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
 
-    int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
-
-
-```
+`}/>
 
 Now, let's say that we jotted down a few of the student's ages wrong.
 
@@ -247,51 +251,48 @@ Remember, in the programming world we start counting at 0!
 
 So our first student has an index (or id) of 0.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
 
-    int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
+studentAges[0] = 23; //select first student and set their age equal to 23
 
-    studentAges[0] = 23; //select first student and set their age equal to 23
-
-
-```
+`}/>
 
 Now, output the first studen't age to see if it changed!
 
-```java
 
-    int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
 
-    studentAges[0] = 23; //select first student and set their age equal to 23
+studentAges[0] = 23; //select first student and set their age equal to 23
 
-    System.out.println(studentAges[0]); //print first student's age
+System.out.println(studentAges[0]); //print first student's age
 
-    //Output: 23
-
-
-```
+//Output: 23
+`}/>
 
 You should get 23! Let's change the other student's ages we got wrong.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`      
+int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
 
-    int[] studentAges = {24, 20, 18, 17, 19, 20, 21, 22, 23, 22};
+studentAges[0] = 23; //select first student and set their age equal to 23
 
-    studentAges[0] = 23; //select first student and set their age equal to 23
+studentAges[3] = 18; //select fourth student and set their age equal to 18
 
-    studentAges[3] = 18; //select fourth student and set their age equal to 18
+studentAges[8] = 22; //method 1 select second to last student and set their age equal to 22
+studentAges[studentAges.length - 2] = 22; // method 2
 
-    studentAges[8] = 22; //method 1 select second to last student and set their age equal to 22
-    studentAges[studentAges.length - 2] = 22; // method 2
+System.out.println(studentAges[0]); //print first student's age
+System.out.println(studentAges[3]); //print fourth's student's age
+System.out.println(studentAges[8]); //print second to last student's age
 
-    System.out.println(studentAges[0]); //print first student's age
-    System.out.println(studentAges[3]); //print fourth's student's age
-    System.out.println(studentAges[8]); //print second to last student's age
+//Output: 23 18 22
 
-    //Output: 23 18 22
-
-
-```
+`}/>
 
 Note: Sometimes we will have an array with a lot of values and we don't want to specify which exactly is the second to last one and we can get away without specifying by taking the length of the array and just saying yeah subtract 2 and that should be the second to last value.
 

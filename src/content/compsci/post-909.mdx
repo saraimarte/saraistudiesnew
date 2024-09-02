@@ -9,6 +9,8 @@ chapter: Week
 slug: object-oriented-programming-oop-creating-your-own-data-types
 ---
 
+import Code from '@components/Code.astro';
+
 ## The Idea
 
 So in the last lessons we have learned how to work with given class API's like String, Picture or Color.
@@ -19,37 +21,27 @@ Let's start by creating a person object.
 
 For this, make sure your file name is Demo.java. Here is what you should start with:
 
-```java
+<Code lang="java" fileName="Demo.java" code={
+`public class Demo {
 
-    public class Demo {
-
-        public static void main (String args[]){
-             StdOut.println("Hello World");
-        }
-
-        //rest of code will go here
+    public static void main (String args[]){
+        StdOut.println("Hello World");
     }
 
+    //rest of code will go here
+}`}/>
 
-```
 
 If you open the terminal (CTRL + J) in VSCode and run
 
-```java
+<Code lang="" fileName="terminal" code={
+`javac Demo.java`}/>
 
-    javac Demo.java
-
-
-```
 
 click enter and then run
 
-```java
-
-    java Demo
-
-
-```
+<Code lang="" fileName="terminal" code={
+`java Demo`}/>
 
 and enter again, you should see "Hello World" as output.
 
@@ -63,17 +55,12 @@ Okay, everything I write now can be after or before the main method does not mat
 
 First, if we want to create a person object- we have to create a person class.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`//object = Person
 
-     //object = Person
+public static class Person {
 
-     public static class Person {
-
-     }
-
-
-
-```
+}`}/>
 
 This says "hey! I want to invent a new data type called Person"
 
@@ -83,20 +70,16 @@ In Java we call those instance variables.
 
 Here, we will define some of those variables.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`//object = Person
+public static class Person {
 
-     //object = Person
-     public static class Person {
+    //1. attributes of the object
+    public String name;
+    private int age;
 
-        //1. attributes of the object
-        public String = name;
-        private int age;
+}`}/>
 
-     }
-
-
-
-```
 
 Here, we are saying "hey! make sure that all Persons have attributes of name and age"
 
@@ -106,63 +89,50 @@ I'm sure nobody cares who can see their name but maybe some people don't want th
 
 Third, we will set default values for these variables because sometimes people don't want to put in their ages in the first place.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`//object = Person
+public static class Person {
 
+    //1. attributes of the object
+    public String name;
+    private int age;
 
-     //object = Person
-     public static class Person {
+    //2. defaults
+    public Person(){
+        name = "defaultName";
+        age = 0; // Assuming default age should be 0, not null
+    }
 
-        //1. attributes of the object
-        public String = name;
-        private int age;
+}`}/>
 
-        //2. defaults
-        public Person(){
-            name = "defaultName";
-            age = null;
-        }
-
-
-     }
-
-
-
-```
 
 Fourth, you want to tell java that how to construct a new instance/version of the person object.
 
-```java
+<Code lang="java" fileName="fileName.java" code={
+`//object = Person
+public static class Person {
 
+    //1. attributes of the object
+    public String name;
+    private int age;
 
-     //object = Person
-     public static class Person {
+    //2. defaults
+    //this is also called a setter method
+    public Person(){
+        name = "defaultName";
+        age = 0; // Assuming default age should be 0, not null
+    }
 
-        //1. attributes of the object
-        public String = name;
-        private int age;
+    //3. tells java how to construct a new person
+    //this is called a constructor
+    //it should always have the same name as the class
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
 
-        //2. defaults
-        //this is also called a setter method
-        public Person(){
-            name = "defaultName";
-            age = null;
-        }
+}`}/>
 
-        //3. tells java how to contruct a new person
-        //this is called a constructor
-        //it should always have the same name as the class
-        public Person(String  name, int age){
-            this.name = name;
-            this.age = age;
-        }
-
-
-     }
-
-
-
-
-```
 
 The constructor tells java how to construct or create a new person.
 It tells java, "hey! when you want to create a new person- you need to take in their name and age".
@@ -174,8 +144,3 @@ This refers to whatever the new person is.
 This is used because when we make a new person we give that person it's own variable name but since we don't know what those variable names will be and each time we create a person the varaible name will be different- we refer to that variable as `this`.
 
 Now, putting it all together, we have:
-
-```java
-
-
-```

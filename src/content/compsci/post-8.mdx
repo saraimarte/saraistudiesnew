@@ -9,6 +9,8 @@ chapter: Week 4
 slug: if-statements-and-loops
 ---
 
+import Code from '@components/Code.astro';
+
 ## If Statements
 
 We are familiar with if statements from pseudocode but how do they look like in Java?
@@ -19,30 +21,23 @@ Note: We assume this number will be an integer.
 
 Hint: We use our input skills we learned in the last post!
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`  
+//take in number from user
+int number = Integer.parseInt(args[0]);
 
-   //take in number from user
-   int number = Integer.parseInt(args[0]);
+//see if number is even
+if (number % 2 == 0) {
+// if it's even then print out that the number is even
+  System.out.println("Number is even!");
+} else { //otherwise print out the number is false
+  System.out.println("Number is odd!");
+}`}/>
 
-   //see if number is even
-   if (number % 2 == 0) {
-   // if it's even then print out that the number is even
-     System.out.println("Number is even!");
-   } else { //otherwise print out the number is false
-     System.out.println("Number is odd!");
-   }
-
-
-```
 
 Compile and then run with,
 
-```java
-
-    java fileName 4
-
-
-```
+<Code lang="" fileName = "terminal" code={`java FileName 4`}/>
 
 the output should be "Number is even!" because 4 is even.
 
@@ -54,9 +49,9 @@ We use = to set something equal to something else.
 
 We use == to compare something to something else.
 
-x = y. Here, we are setting x equal to y.
+x = y. Here, we are setting x **equal** to y.
 
-x == y. Here we are asking if x is the same as y.
+x == y. Here we are asking if x **is the same as** y.
 
 (number % 2 = 0). Here, we are **setting** the remainder when the number is divided by 2 equal to 0. Which doesn't make sense because that it not a comparison.
 
@@ -71,36 +66,34 @@ The program should take in two numbers from the user and the operation they wish
 Hint: To compare a string to another you use .equals() method instead of ==.  
 Ex. `operator.equals("*")`
 
-```java
 
+<Code lang="java" fileName = "FileName.java" code={
+`  
+int num1 = Integer.parseInt(args[0]); //read in first argument, turn it into an int and store it as num1
+int num2 = Integer.parseInt(args[1]); //same thing ^ but for second number
 
-    int num1 = Integer.parseInt(args[0]); //read in first argument, turn it into an int and store it as num1
-    int num2 = Integer.parseInt(args[1]); //same thing ^ but for second number
-    String operation = args[2]; //read in third argument which is already a string
+String operation = args[2]; //read in third argument which is already a string
 
-    if (operation.equals("*")){ //if user wants to multiply the numbers then...
+if (operation.equals("*")){ //if user wants to multiply the numbers then...
 
-      int product = num1 * num2; //compute product as the product of the 2 numbers
-      System.out.println("Product " + product); //print out the product
+  int product = num1 * num2; //compute product as the product of the 2 numbers
+  System.out.println("Product " + product); //print out the product
 
-    } else if (operation.equals("/")){ //if user wants to divide the numbers then...
+} else if (operation.equals("/")){ //if user wants to divide the numbers then...
 
-        //NESTED IF STATEMENT BELOW
-        if (num2 == 0){ //first check if 2nd number is 0, if it is then...
+    //NESTED IF STATEMENT BELOW
+    if (num2 == 0){ //first check if 2nd number is 0, if it is then...
 
-          System.out.println("Error: Dividing by 0 is undefined."); //print out an error bc you can't divide by 0
+      System.out.println("Error: Dividing by 0 is undefined."); //print out an error bc you can't divide by 0
 
-        }else { //otherwise
+    }else { //otherwise
 
-            int quotient = num1/num2; // compute quotient as the quotient of the 2 numbers
-            System.out.println("Quotient: " + Quotient); //print out the quotient
-
-        }
+        int quotient = num1/num2; // compute quotient as the quotient of the 2 numbers
+        System.out.println("Quotient: " + Quotient); //print out the quotient
 
     }
 
-
-```
+}`}/>
 
 When the user says they want to divide the two numbers- that is a clear example of a nested if statement, because there is an if statement within another.
 
@@ -112,31 +105,31 @@ Otherwise, we can go on to compute the quotient.
 
 ### Create a program that prints out all the numbers from 0 to 5.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`  
+for (int count = 0; count < 6; count++) {
+  System.out.println(count);
+}
 
-    for (int count = 0; count < 6; count++) {
-      System.out.println(count);
-    }
+// 0 1 2 3 4 5
+`}/>
 
-   // 0 1 2 3 4 5
-
-
-```
 
 ## While Loops
 
 ### Create a program that prints out all the numbers from 0 to 5.
 
-```java
+<Code lang="java" fileName = "FileName.java" code={
+`  
+int count = 0;
+while (count < 6 ) {
+  System.out.println(count);
+  count = count + 1;
+}
 
-    int count = 0;
-    while (count < 6 ) {
-      System.out.println(count);
-      count = count + 1;
-    }
+// 0 1 2 3 4 5
 
-   // 0 1 2 3 4 5
+`}/>
 
-```
 
 Notice: we put 6 instead of 5 because remember that we start counting at 0 so we want it to include 5 so we add + 1.
