@@ -1,12 +1,9 @@
 
-/*@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root{
     --border: 1px solid black;
-    /*--primaryFont:"Averia Serif Libre", serif;*/
-    
-    --primaryFont: 'IBM Plex Mono';
+    --primaryFont: 'IBM Plex Mono, monospace';
     --secondaryFont: None;
     --primaryColor: black;
     --pColor:  rgb(145, 202, 204);
@@ -25,7 +22,6 @@
     --text-title: min(10vmin, calc(6em + 6vmax));
     --text-heading: min(6vmin, calc(6em + 6vmax));
     --text-subheading: min(5vmin, calc(6em + 6vmax));
-    font-family: var(--primaryFont);
 
 }
 iframe{
@@ -46,6 +42,8 @@ iframe{
     margin:0;
     padding:0; 
     box-sizing:border-box;
+    font-family: "IBM Plex Mono", monospace;
+
 } 
 
 ::selection {

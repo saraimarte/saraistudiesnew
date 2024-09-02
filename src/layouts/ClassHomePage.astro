@@ -21,12 +21,6 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
 
 <style>
 
-  *{
-     font-family: "IBM Plex Mono", monospace;
-     line-height: 1.5;
-     letter-spacing: .2px;
-     
-    }
     a{
         color:black;
         font-family: var(--primaryFont);
@@ -35,24 +29,36 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
         font-size:20px;
     }
     ol{
-        margin:20px 40px;
+        margin:20px 60px;
         line-height: 2em;
 
     }
 
     .title{
       font-size: 1.3rem;
-      margin: 10px 0;
-      font-weight: 200;
+      margin: 10px 20px;
     }
    
- 
+  
+  .title, ol, a{
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 
 @media (max-width: 768px) {
-  .title{
+  .title, ol, a{
       font-size: 1rem;
     }
-   
+  .title{
+    margin: 10px 0;
+
+  }
+  ol{
+    margin:20px 30px;
+
+  }
 
 }
 
