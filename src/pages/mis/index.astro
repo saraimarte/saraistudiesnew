@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allPosts: CollectionEntry<'mis'>[] = (await getCollection('mis'));
+
+
+export async function getStaticPaths() {
+  const allPosts: CollectionEntry<'mis'>[] = await getCollection('mis');
+
+  return allPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+  folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Management Information Systems Directory" 
+  allArticles = {allArticles} 
+  className = "mis" 
+  fullClassTitle = "Management Information Systems 33:136:370">
+</ClassHomePage>
