@@ -21,6 +21,7 @@ import latinoWorkers from '@assets/icons/latinoWorkers.svg';
 import foundations from '@assets/icons/foundations.svg';
 import fmanage from '@assets/icons/fmanage.svg';
 import mis from '@assets/icons/mis.svg';
+import dataStructures from '@assets/icons/dataStructures.svg';
 
 // Define the props interface (even if empty)
 interface Props {}
@@ -44,16 +45,17 @@ const collectionImages = {
   latinoWorkers,
   foundations,
   fmanage,
-  mis
+  mis,
+  dataStructures
 };
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers', 'foundations', 'fmanage', 'mis'];
+const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers', 'foundations', 'fmanage', 'mis','dataStructures'];
 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers', 'foundations', 'fmanage','mis']; // Add other collection names here
+  const collectionNames = ['calc1', 'calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'compsci', 'latinoWorkers', 'foundations', 'fmanage','mis', 'dataStructures']; // Add other collection names here
 
   // Return paths for each collection
   return collectionNames.map(name => ({
