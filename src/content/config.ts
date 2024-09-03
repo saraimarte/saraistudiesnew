@@ -90,6 +90,28 @@ const latinoWorkersCollection = defineCollection({
   }),
 });
 
+const foundationsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
+
+
+const fmanageCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
 
 export const collections = {
   calc1: calc1Collection,
@@ -99,5 +121,7 @@ export const collections = {
   supplyChain:supplyChainCollection,
   writingForMedia: writingForMediaCollection,
   compsci:compsciCollection,
-  latinoWorkers: latinoWorkersCollection
+  latinoWorkers: latinoWorkersCollection,
+  foundations: foundationsCollection,
+  fmanage:fmanageCollection
 };

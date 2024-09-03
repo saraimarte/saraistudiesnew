@@ -1,0 +1,92 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from '@scripts/utils';
+import BackBtn from '@components/BackBtn.astro';
+
+export async function getStaticPaths(){
+    const allPosts: CollectionEntry<'foundations'>[] = await getCollection('foundations');
+
+    return  allPosts.map(entry => ({
+        params:{
+            slug: entry.slug
+        },
+        props:{entry}
+    }));
+}
+
+const { entry } = Astro.props;
+const {Content} = await entry.render();
+
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<MainLayout  folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
+
+    <div class = "container">
+        <!--Path -->
+        <BackBtn link = "/foundations"></BackBtn>
+
+        <div class = "postInfo">
+
+            <h1 class = "title">{entry.data.title}</h1>
+            <p class = "class">Foundations for Your Career Journey 33:011:301 </p>
+            <div class = "dates">
+                <p class = "date">Published: {formatDate(entry.data.pubDate)}</p>
+                <p class = "date">Updated: {formatDate(entry.data.updatedDate)}</p>
+          </div>
+          
+        </div>
+       
+        <Content>
+        </Content>
+
+    </div>
+
+</MainLayout>
+
+<style>
+
+    *{
+     font-family: "IBM Plex Mono", monospace;
+     line-height: 1.5;
+     letter-spacing: .2px;
+    }
+    
+    .container{
+     height:100%;
+     width:100%;
+     height:min-content;
+     margin-top:20px; /*this along with the same for the blogContent class in Blog.astro is to fix the layout issue when making h1, h2 .. h6 all have top and botttom margins of 10px.*/
+    
+    }
+
+    .postInfo{
+        position:relative;
+        right:5px;
+        border-bottom:1px dashed gray;
+    }
+
+    .dates{
+        display: flex;
+        width:100%;
+        gap:2em;
+    }
+
+    .title {
+        margin: 10px 5px;
+        font-size: 1.3rem;
+    }
+
+    .date , .class {
+        margin: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+</style>
+
