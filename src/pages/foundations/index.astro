@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
-const allPosts: CollectionEntry<'fmanage'>[] = (await getCollection('foundations'));
+const allPosts: CollectionEntry<'foundations'>[] = (await getCollection('foundations'));
 
 
 export async function getStaticPaths() {
