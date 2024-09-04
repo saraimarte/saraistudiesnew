@@ -6,9 +6,9 @@ import { formatDate } from '@scripts/utils';
 import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
-    const allCalcPosts: CollectionEntry<'calc1'>[] = await getCollection('calc1');
+    const allPosts: CollectionEntry<'linearAlg'>[] = await getCollection('linearAlg');
 
-    return  allCalcPosts.map(entry => ({
+    return  allPosts.map(entry => ({
         params:{
             slug: entry.slug
         },
@@ -18,6 +18,7 @@ export async function getStaticPaths(){
 
 const { entry } = Astro.props;
 const {Content} = await entry.render();
+
 const folderPath1 = "../toolbox";
 const folderPath2 = "../rankings";
 const folderPath3 = "../ratings";
@@ -29,17 +30,20 @@ const pathHome =  './';
 
     <div class = "container">
         <!--Path -->
-        <BackBtn link = "/calc1"></BackBtn>
+        <BackBtn link = "/foundations"></BackBtn>
+          
 
-        <div class = "postInfo">
+          <div class = "postInfo">
 
             <h1 class = "title">{entry.data.title}</h1>
-            <p class = "class">Calculus I for the Life and Social Sciences 01:301:135</p>
+            <p class = "class">Introductory Linear Algebra 01:640:250</p>
             <div class = "dates">
                 <p class = "date">Published: {formatDate(entry.data.pubDate)}</p>
                 <p class = "date">Updated: {formatDate(entry.data.updatedDate)}</p>
           </div>
           
+        </div>
+
         </div>
        
         <Content>
@@ -61,13 +65,14 @@ const pathHome =  './';
      height:100%;
      width:100%;
      height:min-content;
-     margin-left:2px;
-
+     margin-top:20px; /*this along with the same for the blogContent class in Blog.astro is to fix the layout issue when making h1, h2 .. h6 all have top and botttom margins of 10px.*/
+    
     }
 
     .postInfo{
         position:relative;
         right:5px;
+        border-bottom:1px dashed gray;
     }
 
     .dates{

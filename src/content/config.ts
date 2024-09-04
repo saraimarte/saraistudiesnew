@@ -136,6 +136,17 @@ const dataStructuresCollection = defineCollection({
   }),
 });
 
+const linearAlgCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
+
 export const collections = {
   calc1: calc1Collection,
   calc2: calc2Collection,
@@ -148,5 +159,6 @@ export const collections = {
   foundations: foundationsCollection,
   fmanage:fmanageCollection,
   mis:misCollection,
-  dataStructures: dataStructuresCollection
+  dataStructures: dataStructuresCollection,
+  linearAlg: linearAlgCollection
 };

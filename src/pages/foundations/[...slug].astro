@@ -31,9 +31,8 @@ const pathHome =  './';
     <div class = "container">
         <!--Path -->
         <BackBtn link = "/foundations"></BackBtn>
-
+        
         <div class = "postInfo">
-
             <h1 class = "title">{entry.data.title}</h1>
             <p class = "class">Foundations for Your Career Journey 33:011:301</p>
             <div class = "dates">
@@ -63,13 +62,15 @@ const pathHome =  './';
      width:100%;
      height:min-content;
      margin-top:20px; /*this along with the same for the blogContent class in Blog.astro is to fix the layout issue when making h1, h2 .. h6 all have top and botttom margins of 10px.*/
-    
+     margin-left: 10px;
     }
+
 
     .postInfo{
         position:relative;
         right:5px;
         border-bottom:1px dashed gray;
+        border:5px solid red;
     }
 
     .dates{
