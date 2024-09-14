@@ -6,9 +6,9 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
 
 <MainLayout pageTitle = {pageTitle} folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome}>
   <div class="container">
-    <h1 class = "title">{fullClassTitle}</h1>
+    <h1 data-pagefind-meta="title" class = "title">{fullClassTitle}</h1>
 
-    <ol>
+    <ol data-pagefind-ignore >
       {allArticles.map(article => (
         <li>
           <a href={`/${className}/${article.slug}`}>{article.data.title}</a>

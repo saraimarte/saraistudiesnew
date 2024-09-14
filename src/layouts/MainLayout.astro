@@ -24,15 +24,15 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
     </head> 
 	<body>
         <div x-data="{closedScreen:false}" class="container" >
-            <a href = {folderPath1} id = "folder1" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
+            <a data-pagefind-ignore href = {folderPath1} id = "folder1" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
                 <img src = {folderIcon1.src} alt = "toolbox"></>
                 <p class = "label"> toolbox </p>
             </a>
-            <a href = {folderPath2} id = "folder2" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
+            <a  data-pagefind-ignore  href = {folderPath2} id = "folder2" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
                 <img src = {folderIcon2.src} alt = "ranks"></>
                 <p class = "label"> rankings </p>
             </a>
-            <a href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
+            <a  data-pagefind-ignore  href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
                 <img src = {folderIcon3.src} alt = "rating"></>
                 <p class = "label"> ratings </p>
             </a>
