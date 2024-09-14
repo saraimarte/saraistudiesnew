@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind dist/pagefind_copy",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,5 +17,8 @@
     "three": "^0.167.1",
     "typescript": "^5.5.4",
     "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "pagefind": "^1.1.1"
   }
 }
