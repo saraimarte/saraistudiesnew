@@ -1,25 +1,70 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Linked Lists
+title: Union Find
 pubDate: 2024-09-16T00:00:00Z 
 updatedDate: 2024-09-16T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: linked-lists
+slug: union-find
 ---
 
 import Code from '@components/Code.astro';
 
-# Intro
+Imagine you're in a Netflix competition.
 
-Do you remember in 111 where they had us insert an element at the beginning of an array?
+The current challenge is to get through a maze.
 
-We would have to access each element and move it down one. 
+This maze has a lot of entrances. One entrance has no way out. 
 
-If we had n elements then we would have to do that n times hence the time complexity is in order of n times or O(n).
+You were the winner of the last challenge so you're allowed to ask for one hint. 
 
-The question is, is there another data structure we can use where it will take less time to insert an element at the beginning of it?
+Your'e showed the entrances and you ask the host, "Which entrance has no way out?"
 
-The answer is, yes! It's called a linked list. 
+What's the host's answer?
 
-# Linked List: The Idea
+Well, first, they should already have the answer before the challenge even starts but what did they have to do beforehand to get that answer?
+
+Did they take 50 hours doing trial and error walking different ways to see if the path to the exit exists or... do they use the union-find algorithm???
+
+They use the union-find algorithm!
+
+This algorithm, tells the host if there's a connection from each entrance to the exit.
+
+So, the host would have had to run the algorithm for each entrance and it would tell the host if the path exists or not.
+
+The host would then know which path has no way out and would be able to tell you!
+
+Now, the host is a computer scientist by night so they would not have just used this algorithm, they would have written it from scratch.
+
+So, let's do the same. Let's rewrite this algorithm from scratch.
+
+There are three versions of the algorithm you will have to learn for the exam: (1) QuickFind, (2) QuickUnion and (3)QuickUnion with Weights
+
+First, let's watch us manually apply the algorithm and then we will translate these steps into code. 
+
+<Code lang = "java" fileName = "QuickFind.java" code = 
+{`public class QuickFind {
+
+    private int[]id;
+
+    public QuickFindUF(int n){
+        id = new int[n];
+
+        for(int i = 0; i < n; i++){
+            id[i] = i;
+        }
+        public int find(int p){
+            return id[p]
+        }
+
+        public void union(int p, int g){
+            pid = id[p];
+            gid = id[g];
+            
+            for(int i = 0; i < id.length; i++){
+                if(id[i] = pid) id[i] = gid;
+            }
+        }
+    }
+}`}>
+</Code>
