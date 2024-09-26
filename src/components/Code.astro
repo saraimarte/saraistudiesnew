@@ -5,11 +5,20 @@ const {lang, code, fileName} = Astro.props;
 
 ---
 
+<div>
+
 <p>{fileName}</p>
 
 <Prism lang= {lang} code={code} />
 
+</div>
+
 <style>
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     p{
         background: #030314;
         color: rgb(189, 189, 189);
@@ -18,6 +27,6 @@ const {lang, code, fileName} = Astro.props;
         font-size:0.8rem;
         width:max-content;
         position: relative;
-        top:21px;
+        top:30px;
     }
 </style>

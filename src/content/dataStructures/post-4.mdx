@@ -1,14 +1,24 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Linked Lists
+title: Linked Lists, Stacks & Queues
 pubDate: 2024-09-16T00:00:00Z 
 updatedDate: 2024-09-16T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: linked-lists
+slug: linked-lists-stacks-and-queues
 ---
 
+import ImageMd from "@components/ImageMd.astro";
+
 import Code from '@components/Code.astro';
+import img1 from '@images/112/1.svg';
+import img2 from '@images/112/2.svg';
+import img3 from '@images/112/3.svg';
+import img4 from '@images/112/4.svg';
+import img5 from '@images/112/5.svg';
+import img6 from '@images/112/6.svg';
+import img7 from '@images/112/7.svg';
+
 
 # Intro
 
@@ -23,3 +33,153 @@ The question is, is there another data structure we can use where it will take l
 The answer is, yes! It's called a linked list. 
 
 # Linked List: The Idea
+
+A linked list is made up of nodes linked to eachother.
+
+A **node** is just a box. This box contains two things- the data and a pointer which *points* to the next <s>box</s> node.
+
+Currently, since there is only one node in the linked list, the first one is pointing to <s>nothing</s> null.
+
+<ImageMd img = {img1} alt = ""/>
+
+Now, this box does not exist yet in our Java world but we can create this object. 
+
+Recall: classes can go above or below the main method but never inside. 
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{` private class Node { //create data type Node and tell it...
+    private String item;  //"You will have an item that will always be a String-this is your data"
+    private Node next; //"You will have a pointer called 'next' that will point to the next node"
+}`}>
+</Code>
+
+Now, that we created a Node object, we can use this in our linked list object. 
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`public class LinkedList{
+
+//(1) create a Node called first
+//this will create an empty Node with empty data/item and it will point to nothing
+
+private Node first;
+
+//have the linked list start with a size of 0
+private int size = 0;
+
+//so every time we want to add a new node...
+public void addFirst(String item){
+    Node temp = new Node; //(2) create new temporary node
+   
+    temp.item = item; //(2) add the item to it's data box
+ 
+    temp.next = first; //(3) make the temporary node's pointer point to the current first node that points to nothing right now
+  
+    first = node; //(4) then make the firstNode equal to the temporary node. Now, the node you wanted to add becomes the first node in the linked list.
+
+    size++; //add 1 to the size of the linkedlist since you added another node
+}
+}`}>
+</Code>
+
+<ImageMd img = {img7} alt = ""/>
+
+Now, let's finish some other methods. 
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`//check if linked list is empty method 
+public boolean isEmpty(){
+    return first == null; // will return true if first node does not exist; false if it does exist
+}
+
+//get size of the linked list method
+public int size(){
+    return size;
+}
+
+// delete node method
+public String deleteFirst(){
+
+String item = first.item; // get item I want to delete
+
+first = first.next; // first node will now refer to what the current first node is pointing to (that is, the second node.)
+
+size--; //since you deleted a node, the size of the linkedlist went down
+
+return item; //return what I deleted
+}`}>
+</Code>
+
+That's it! Now you can use this data type in your main method.
+
+Let's create our first linked list and have it hold the nodes Spongebob, Patrick, and Squidward. 
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`public static void main(String[] args){
+
+  // Create new linked list
+  String myList = new LinkedList();
+
+  // Check size of linked list - should be 0 since there are no nodes inside.
+  System.out.println("size=" + myList.size());
+
+  // Add 3 nodes
+  myList.addFirst("Spongebob");
+  myList.addFirst("Patrick");
+  myList.addFirst("Squidward");
+
+  //Check size of linked list now, should be 3
+  System.out.println("size=" + myList.size());
+
+}`}>
+</Code>
+
+<ImageMd img = {img5} alt = ""/>
+
+# Stacks 
+
+Stacks is another data structure- think about a stack of books.
+
+You can stack one book on top of another but when you want to remove one you have to start from the top. 
+
+There are only two methods we need to do for the stack data structure- push and pop aka add and delete. 
+
+Actually, we already built a stack. A linked list is a stack.
+
+It's a data structure where when we add a node, we add it to the top and when we want to delete a node we have to delete the first/top one. 
+
+Really, you can simply replace the addFirst() and delteFirst() names with push() and pop() because they're the exact same thing.
+
+Either way, let's go over a stack class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

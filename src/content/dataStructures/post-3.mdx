@@ -10,37 +10,26 @@ slug: union-find
 
 import Code from '@components/Code.astro';
 
-Imagine you're in a Netflix competition.
+https://www.youtube.com/watch?v=4gEaaTRz1h8
 
-The current challenge is to get through a maze.
+Let's play a game. It's called connect the dots. 
 
-This maze has a lot of entrances. One entrance has no way out. 
+I tell you which dots you want connected and you connect them. Ready?
 
-You were the winner of the last challenge so you're allowed to ask for one hint. 
+These dots are really called verticies and the lines you connect them with are called edges. 
 
-Your'e showed the entrances and you ask the host, "Which entrance has no way out?"
+But what if I give you a billion verticies and I ask you to connect them in the order I want? You don't have time for that so you let the computer do it. 
 
-What's the host's answer?
+But first, you have to tell the computer how to do it. 
 
-Well, first, they should already have the answer before the challenge even starts but what did they have to do beforehand to get that answer?
+So, how do we solve this problem? 
 
-Did they take 50 hours doing trial and error walking different ways to see if the path to the exit exists or... do they use the union-find algorithm???
+Using the union-find algorithm.
 
-They use the union-find algorithm!
 
-This algorithm, tells the host if there's a connection from each entrance to the exit.
 
-So, the host would have had to run the algorithm for each entrance and it would tell the host if the path exists or not.
 
-The host would then know which path has no way out and would be able to tell you!
 
-Now, the host is a computer scientist by night so they would not have just used this algorithm, they would have written it from scratch.
-
-So, let's do the same. Let's rewrite this algorithm from scratch.
-
-There are three versions of the algorithm you will have to learn for the exam: (1) QuickFind, (2) QuickUnion and (3)QuickUnion with Weights
-
-First, let's watch us manually apply the algorithm and then we will translate these steps into code. 
 
 <Code lang = "java" fileName = "QuickFind.java" code = 
 {`public class QuickFind {
@@ -68,3 +57,14 @@ First, let's watch us manually apply the algorithm and then we will translate th
     }
 }`}>
 </Code>
+
+# QuickFind 
+
+It's in the name. This is the quick find version of the algorithm. 
+
+# QuickUnion
+
+This is the quick union version of this algorithm. 
+
+# QuickUnion Weighted
+

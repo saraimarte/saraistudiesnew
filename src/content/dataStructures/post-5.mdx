@@ -1,0 +1,80 @@
+---
+layout: '@layouts/Blog.astro'
+title: other
+pubDate: 2024-09-16T00:00:00Z 
+updatedDate: 2024-09-16T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: other
+---
+
+import ImageMd from "@components/ImageMd.astro";
+
+import Code from '@components/Code.astro';
+import img1 from '@images/112/1.svg';
+import img2 from '@images/112/2.svg';
+import img3 from '@images/112/3.svg';
+import img4 from '@images/112/4.svg';
+import img5 from '@images/112/5.svg';
+import img6 from '@images/112/6.svg';
+import img7 from '@images/112/7.svg';
+
+Let's create our first node and have it hold the data type "Spongebob"
+
+
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`public static void main(String[] args){
+  
+//create your firstNode, call it firstNode, have it be of datatype Node, construct it by using new and then the constructor method Node()
+Node firstNode = new Node();
+
+//Have it hold the item "Spongebob"
+firstNode.item = "Spongebob";
+
+//Have it point to the next null -since this is the only node then it points to nothing hence null
+firstNode.next = null;
+}`}>
+</Code>
+
+
+<ImageMd img = {img3} alt = ""/>
+
+Now, let's add another node containing "Patrick."
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`//create your second node, call it node
+Node node = new Node();
+
+//Have it hold the item "Patrick"
+node.item = "Patrick";
+
+//Have the first node's next pointer point to the second node (see blue)
+firstNode.next = node; 
+`}>
+</Code>
+
+<ImageMd img = {img4} alt = ""/>
+
+Now, let's add another node containing Squidward.
+
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`//create your third node, call it node
+Node node = new Node();
+
+//Have it hold the item "Squidward"
+node.item = "Squidward";
+
+//Have the second node's pointer point to the third node (see red)
+firstNode.next.next = node; 
+
+//firstNode.next IS 2nd node (See blue.)
+//so firstNode.next.next = node really means 
+//2nd node.next = node;
+//so we're really saying "have the second node's next part point to the current node (3rd node)" (See red.)
+`}>
+</Code>
+
+
+
+<ImageMd img = {img2} alt = ""/>
