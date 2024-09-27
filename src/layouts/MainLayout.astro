@@ -2,6 +2,7 @@
 import '@styles/Global.css';
 import BottomNav from "@components/BottomNav.astro";
 import TopNav from '@components/TopNav.astro';
+import PowerOff from '@components/PowerOff.astro';
 
 const {folderPath1, folderPath2, folderPath3} = Astro.props;
 
@@ -48,7 +49,11 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
 		</div>
         <BottomNav></BottomNav>
 
+<PowerOff></PowerOff>
     </body>
+    
+
+
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
     <script type="module">

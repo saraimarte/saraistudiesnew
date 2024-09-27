@@ -1,231 +1,133 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-
-/*
-const gui = new GUI({
-    width: 400
-})
-*/
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // Canvas
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('canvas.webgl');
 
 // Scene
-const scene = new THREE.Scene()
-
-scene.background = new THREE.Color(0xF2F3F4); // Replace with your desired color
-
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xF2F3F4); // Scene background color
 
 // Clickable Webpage Plane
-const webpageWidth = 0.88; // Increase the width
-const webpageHeight = 0.64; // Increase the height
+const webpageWidth = 0.88; // Width of the plane
+const webpageHeight = 0.64; // Height of the plane
 const webpageGeometry = new THREE.PlaneGeometry(webpageWidth, webpageHeight);
-const webpageTexture = new THREE.TextureLoader().load('/website.png', function (texture) {
-    texture.encoding = THREE.sRGBEncoding; // Correct texture encoding
-});
-const webpageMaterial = new THREE.MeshBasicMaterial({ map: webpageTexture, side: THREE.DoubleSide });
-const webpagePlane = new THREE.Mesh(webpageGeometry, webpageMaterial);
+
+// Create a black texture for the initial screen
+const blackTexture = new THREE.TextureLoader().load('/path/to/black-image.png'); // Ensure this is a valid black image
+const blackMaterial = new THREE.MeshBasicMaterial({ map: blackTexture, side: THREE.DoubleSide });
+
+// Create the webpage plane with the black texture initially
+const webpagePlane = new THREE.Mesh(webpageGeometry, blackMaterial);
 scene.add(webpagePlane);
 webpagePlane.position.set(0.03, 0.29, 0.0550); // Set the position of the webpage plane
 
-/**
- * Loaders
- */
-// Texture loader
-const textureLoader = new THREE.TextureLoader()
+// Load the actual website texture for later use
+const webpageTexture = new THREE.TextureLoader().load('/website.png', function (texture) {
+    texture.encoding = THREE.sRGBEncoding; // Correct texture encoding
+});
 
-// Draco loader
-const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/') 
+// Models
+const gltfLoader = new GLTFLoader();
+const deskMaterial = new THREE.MeshBasicMaterial({ color: 0xf9f9f9 });
+const glassMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const mouseMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
-// GLTF loader
-const gltfLoader = new GLTFLoader()
-gltfLoader.setDRACOLoader(dracoLoader)
+// Load desk model
+gltfLoader.load('/desk.glb', (gltf) => {
+    gltf.scene.traverse((child) => {
+        child.material = deskMaterial;
+    });
+    scene.add(gltf.scene);
+});
 
+// Load computer model and apply materials
+gltfLoader.load('/computer.glb', (gltf) => {
+    gltf.scene.traverse((child) => {
+        child.material = glassMaterial;
+    });
+    scene.add(gltf.scene);
+});
 
-//Models 
+// Load mouse and power button models here (assuming you have their GLB files)
+// For example:
+gltfLoader.load('/mouse.glb', (gltf) => {
 
-//Desk
-const bakedTexture = textureLoader.load('/textures/desk8.png')
-bakedTexture.flipY = false
-bakedTexture.colorSpace = THREE.SRGBColorSpace
-const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
-const deskColor = 0xf9f9f9; 
-const stemColor = 0xffffff; 
-const glassColor = 0xffffff; 
-const mouseColor = 0xffffff; 
+    gltf.scene.traverse((child) => {
+        child.material = mouseMaterial;
+    });
+    scene.add(gltf.scene);
 
-const deskMaterial = new THREE.MeshBasicMaterial({ color: deskColor });
-const stemMaterial = new THREE.MeshBasicMaterial({ color: stemColor });
-const glassMaterial = new THREE.MeshBasicMaterial({ color: glassColor });
-const mouseMaterial = new THREE.MeshBasicMaterial({ color: mouseColor });
-
-gltfLoader.load(
-    '/desk.glb',
-    (gltf) =>
-    {
-        gltf.scene.traverse((child) =>
-        {
-            child.material = deskMaterial
-        })
-        scene.add(gltf.scene)
-    }
-)
-
-gltfLoader.load(
-    '/mouse.glb',
-    (gltf) =>
-    {
-        gltf.scene.traverse((child) =>
-        {
-            child.material = mouseMaterial
-        })
-        scene.add(gltf.scene)
-    }
-)
+});
 
 
-//Glass
-const bakedGlass = textureLoader.load('/textures/glassNew.png')
-
-//Computer
-const compTexture = textureLoader.load('/textures/comp.jpg')
-compTexture.flipY = false
-compTexture.colorSpace = THREE.SRGBColorSpace
-const compTextureMaterial = new THREE.MeshBasicMaterial({ map: compTexture })
-
-//Poweron
-const bakedPowerOn = textureLoader.load('/textures/poweron.jpg')
-bakedPowerOn.flipY = false
-bakedPowerOn.colorSpace = THREE.SRGBColorSpace
-const powerOnMaterial = new THREE.MeshBasicMaterial({ map: bakedPowerOn })
-
-
-
-gltfLoader.load(
-    '/computer.glb',
-    (gltf) =>
-    {
-        gltf.scene.traverse((child) =>
-        {
-            child.material = stemMaterial
-        })
-        scene.add(gltf.scene)
-        
-        // Get each object
-        const screen = gltf.scene.children.find((child) => child.name === 'screen' )
-        const powerbtn = gltf.scene.children.find((child) => child.name === 'powerbtn')
-        const glass = gltf.scene.children.find((child) => child.name === 'glass' )
-
-        // Apply materials
-        glass.material = glassMaterial
-        powerbtn.material = powerOnMaterial
-
-    }
-)
-
-
-
-/**
- * Sizes
- */
+// Sizes
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
-}
+};
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+window.addEventListener('resize', () => {
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(window.devicePixelRatio);
+});
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(window.devicePixelRatio)
-})
-
-/**
- * Camera/perspective
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(16, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = 0
-camera.position.z = 6
-scene.add(camera)
+// Camera/perspective
+const camera = new THREE.PerspectiveCamera(16, sizes.width / sizes.height, 0.1, 100);
+camera.position.set(0, 0, 0.01); // Start very close to the plane
+scene.add(camera);
 
 // Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
-controls.minDistance = 5; // Minimum zoom distance
-controls.maxDistance = 6; // Maximum zoom distance
-/**
- * Renderer
- */
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
+// Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(window.devicePixelRatio)
+});
+renderer.setSize(sizes.width, sizes.height);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-/**
- * Animate
- */
-const clock = new THREE.Clock()
+// Animate
+const clock = new THREE.Clock();
+let zoomOutStartTime = null;
 
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
+// Start the animation
+setTimeout(() => {
+    zoomOutStartTime = clock.getElapsedTime(); // Start the zoom out
+}, 10);
 
-    // Update controls
-    controls.update()
+const tick = () => {
+    const elapsedTime = clock.getElapsedTime();
 
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()
-
-// Raycaster and mouse
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-
-// Click event listener
-window.addEventListener('click', onClick);
-
-// Touch event listener
-window.addEventListener('touchstart', onTouchStart);
-
-function onClick(event) {
-    handleRaycast(event.clientX, event.clientY);
-}
-
-function onTouchStart(event) {
-    if (event.touches.length > 0) {
-        const touch = event.touches[0];
-        handleRaycast(touch.clientX, touch.clientY);
+    // If zooming out, interpolate the camera position
+    if (zoomOutStartTime !== null) {
+        const progress = (elapsedTime - zoomOutStartTime) / 1; // Duration of 1 second
+        if (progress < 1) {
+            camera.position.z = THREE.MathUtils.lerp(0.1, 6, progress); // Zoom out from 0.1 to 6
+        } else {
+            webpagePlane.material.map = webpageTexture; // Change to the actual image after zooming out
+            zoomOutStartTime = null; // Reset zoom out
+        }
     }
-}
 
-function handleRaycast(clientX, clientY) {
-    mouse.x = (clientX / window.innerWidth) * 2 - 1;
-    mouse.y = - (clientY / window.innerHeight) * 2 + 1;
+    controls.update();
+    renderer.render(scene, camera);
+    window.requestAnimationFrame(tick);
+};
 
-    raycaster.setFromCamera(mouse, camera);
-    var intersects = raycaster.intersectObject(webpagePlane);
+tick();
 
-    if (intersects.length > 0) {
-        window.location.href = '../home';
-    }
-}
+// Click event listener to redirect on the webpage plane
+window.addEventListener('click', (event) => {
+    window.location.href = '../home'; // Redirect to the desired page
+
+});
+
+  
