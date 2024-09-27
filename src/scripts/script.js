@@ -50,17 +50,13 @@ gltfLoader.load('/computer.glb', (gltf) => {
     scene.add(gltf.scene);
 });
 
-// Load mouse and power button models here (assuming you have their GLB files)
-// For example:
+// Load mouse model
 gltfLoader.load('/mouse.glb', (gltf) => {
-
     gltf.scene.traverse((child) => {
         child.material = mouseMaterial;
     });
     scene.add(gltf.scene);
-
 });
-
 
 // Sizes
 const sizes = {
@@ -124,13 +120,28 @@ const tick = () => {
 
 tick();
 
-// Use pointerdown event for better compatibility
-const redirectToHome = (event) => {
+// Function to handle zoom-in and redirect on click
+const zoomInAndRedirect = (event) => {
     event.preventDefault();
-    window.location.href = '../home'; // Redirect to the desired page
+
+    // Animate zooming into the webpage
+    let zoomInStartTime = clock.getElapsedTime();
+    const zoomInDuration = 1; // Duration of zoom-in animation
+
+    const zoomInTick = () => {
+        const elapsedTime = clock.getElapsedTime();
+        const progress = (elapsedTime - zoomInStartTime) / zoomInDuration;
+
+        if (progress < 1) {
+            camera.position.z = THREE.MathUtils.lerp(6, 0.1, progress); // Zoom into the webpage
+            requestAnimationFrame(zoomInTick);
+        } else {
+            window.location.href = '../home'; // Redirect to the desired page after zooming in
+        }
+    };
+
+    zoomInTick();
 };
 
-window.addEventListener('pointerdown', redirectToHome);
-
-
-  
+// Use pointerdown event for better compatibility
+window.addEventListener('pointerdown', zoomInAndRedirect);
