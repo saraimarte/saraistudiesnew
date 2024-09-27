@@ -124,10 +124,13 @@ const tick = () => {
 
 tick();
 
-// Click event listener to redirect on the webpage plane
-window.addEventListener('click', (event) => {
+// Use pointerdown event for better compatibility
+const redirectToHome = (event) => {
+    event.preventDefault();
     window.location.href = '../home'; // Redirect to the desired page
+};
 
-});
+window.addEventListener('pointerdown', redirectToHome);
+
 
   
