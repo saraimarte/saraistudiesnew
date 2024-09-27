@@ -8,63 +8,47 @@ author: Sarai Marte
 slug: union-find
 ---
 
+import F from '@components/F.astro';
 import Code from '@components/Code.astro';
 
-https://www.youtube.com/watch?v=4gEaaTRz1h8
+<F>
+  <p>Let's play a game. It's called connect the dots.</p>
+  <p>I tell you which dots you want connected and you connect them. Ready?</p>
+</F>
 
-Let's play a game. It's called connect the dots. 
+<F>
+  <p>These dots are really called vertices and the lines you connect them with are called edges.</p>
+</F>
 
-I tell you which dots you want connected and you connect them. Ready?
+<F>
+  <p>But what if I give you a billion vertices and ask you to connect them in the order I want? You don't have time for that, so you let the computer do it.</p>
+</F>
 
-These dots are really called verticies and the lines you connect them with are called edges. 
-
-But what if I give you a billion verticies and I ask you to connect them in the order I want? You don't have time for that so you let the computer do it. 
-
-But first, you have to tell the computer how to do it. 
-
-So, how do we solve this problem? 
-
-Using the union-find algorithm.
-
-
-
-
-
-
-<Code lang = "java" fileName = "QuickFind.java" code = 
-{`public class QuickFind {
-
-    private int[]id;
-
-    public QuickFindUF(int n){
-        id = new int[n];
-
-        for(int i = 0; i < n; i++){
-            id[i] = i;
-        }
-        public int find(int p){
-            return id[p]
-        }
-
-        public void union(int p, int g){
-            pid = id[p];
-            gid = id[g];
-            
-            for(int i = 0; i < id.length; i++){
-                if(id[i] = pid) id[i] = gid;
-            }
-        }
+<F>
+  <p>But first, you have to tell the computer how to do it.</p>
+  <p>So, how do we solve this problem?</p>
+  <p>Using the union-find algorithm.</p>
+</F>
+<F>
+  <Code lang="java" fileName="QuickFind.java" code={`
+    public class QuickFind {
+      private int[] id;
+      public QuickFindUF(int n) {
+          id = new int[n];
+          for(int i = 0; i < n; i++) {
+              id[i] = i;
+          }
+      }
+      public int find(int p) {
+          return id[p];
+      }
+      public void union(int p, int g) {
+          int pid = id[p];
+          int gid = id[g];
+          for(int i = 0; i < id.length; i++) {
+              if(id[i] == pid) id[i] = gid;
+          }
+      }
     }
-}`}>
-</Code>
-
-# QuickFind 
-
-It's in the name. This is the quick find version of the algorithm. 
-
-# QuickUnion
-
-This is the quick union version of this algorithm. 
-
-# QuickUnion Weighted
-
+  `}/>
+</F>

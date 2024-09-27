@@ -1,0 +1,27 @@
+---
+import '@styles/fadeIn.css';
+---
+
+<section class="fade-in-section">
+  <slot></slot>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.fade-in-section');
+  
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);  // Stop observing once it's visible
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
+</script>
