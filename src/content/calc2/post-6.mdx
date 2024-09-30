@@ -2,10 +2,62 @@
 layout: '@layouts/Blog.astro'
 title: Surface Area
 pubDate: 2024-01-05T00:00:00Z 
-updatedDate: 2000-01-01T00:00:00Z 
+updatedDate: 2024-09-28T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: surface-area
 ---
 
+import ImageMd from '@components/ImageMd.astro';
+import img1 from '@images/152/127.jpg';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
+import Latex from '@components/Latex.astro';
+
 This is the same as arclength where it's just a formula and you have to plug in stuff.
+
+
+<ImageMd>
+<Latex formula = "S = 2\pi \int_{a}^{b} R(x) \sqrt{1 + \left( f'(x) \right)^2} \, dx"/>
+Formula for surface area
+</ImageMd>
+
+The only difference is that R(x) changes depending on axis of rotation and terms of functions but luckily I figured out that part for you.
+
+<ImageMd img = {img1} alt = "T = Terms of"/>
+
+Let's see this in action.
+
+Find the areas of the surfaces generated when the given curves are revolved around the given axis.
+
+**1.** y = 3x + 4 for 0 ≤ x ≤ 6 around the x-axis.
+
+<Solution>
+
+<Latex formula = '156\pi \sqrt{10}'/>
+
+</Solution>
+
+**2.** y = 8√x for 9 ≤ x ≤ 20 around the x-axis.
+
+<Solution>
+
+<Latex formula = '\frac{2912\pi}{2}'/>
+
+</Solution>
+
+**3.** y = x<sup>2</sup>/4 for 2 ≤ x ≤ 4 around the y-axis.
+
+<Solution>
+
+<Latex formula = '\frac{8\pi}{3} \left( 5\sqrt{5} - 2\sqrt{2} \right)'/>
+
+</Solution>
+
+**4.** x = √(16y-y<sup>2</sup>) for 0 ≤ y ≤ 8 around the y-axis.
+
+<Solution>
+
+<Latex formula = '128\pi'/>
+
+</Solution>

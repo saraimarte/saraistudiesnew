@@ -1,27 +1,133 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Matrix Notation & Elementary Row Operations with Row Reduction
+title: Linear Systems, Matrix Notation & REF/RREF
 pubDate: 2024-09-04T00:00:00Z 
 updatedDate: 2024-09-17T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: matrix-notation
+slug: linear-sytems-matrix-notation-and-ref-rref
 ---
+
+import F from '@components/F.astro';
+
+# Motivation
+
+<F>
+**Recall:** Linear Equations like x + 3 = 4 (b/c x has exponent of 1.)
+</F>
+
+<F>
+NOT x<sup><b>2</b></sup> + 2 =0 (b/c of the exponent of 2.)
+</F>
+
+<F>
+**Recall:** A collection of linear equations is called a system of linear equations. 
+</F>
+
+<F>
+One problem we had in algebra was to find where 2 lines intersected.
+</F>
+
+<F>
+We call this intersection the solution to the system.
+</F>
+
+# Let's talk about solutions
+
+<F>
+Recall: When we're solving a system we're just finding **where these lines intersect.** 
+</F>
+
+<F>
+**1.** If the systems have **no solutions** then that means **they don't intersect**. 
+</F>
+
+<F>
+Think: How in the world wide web can two lines not intersect? 
+</F>
+
+<F> 
+If they are parallel. 
+</F>
+
+<F>
+So, if a system has no solution then they never intersect hence the lines have to be parallel.
+</F>
+
+<F>
+**2.** If the systems have **one solution** then that means **they do intersect at one point**.
+</F>
+
+<F>
+**3.** If the systems have **many solutions** then that means **they do intersect at every point**.
+</F>
+
+<F>
+Think: How in the world wide web can two lines intersect at the same points?
+</F>
+
+<F> 
+If they are the same lines. 
+</F>
+
+<F>
+So, if a system has infinitely many solutions then they intersect at all the same points hence the lines have to be the same.
+</F>
+
+# Back to Systems
+
+<F>
+**Q:** How did we solve systems?
+</F>
+
+<F>
+**A:** We either used the substitution or elimination method.
+</F>
+
+<F>
+What if I told you there is a faster way to do it?
+</F>
+
+<F>
+It's not a new method but a new form to write a system.
+</F>
+
+<F>
+Writing systems in this form can help us solve systems faster.
+</F>
+
+<F>
+This new form is called matrix notation.
+</F>
 
 # Matrix Notation  
 
-Let's start with a system of equations. 
+<F>
+Fact: Every linear system can be represented by a matrix.
+</F>
 
-x<sub>1</sub> + x<sub>2</sub> = 3
+<F>
+Let's practice rewriting systems using matrix notation. 
+</F>
 
-2x<sub>1</sub> + 5<sub>2</sub> = 9
+# Solving Systems of Equations Using the Matrix 
 
-Fact: Every linear system can be represented by a matrix- specifically an augmented matrix.
-
-How can we write that in matrix notation?
-
-Just take the coefficients and write them in order and then for the sums put those after a line. 
-
-# Solving Systems  of Equations Using the Matrix 
-
+## REF and RREF
+<F>
 There is an algorithm—or for those of you who aren't computer science folks, a recipe—that we can follow to solve systems of equations using matrices.
+</F>
+
+<F>
+The recipe consists of getting the matrix into Reduced Row Echelon Form (RREF) but to do that you need to get it in row echelon form first (REF.) 
+</F>
+
+<F>
+Let's go over what each form means.
+</F>
+
+Now, we know what REF and RREF look like but how do we get to it?
+
+## How to get matricies in REF/RREF?
+
+### Elementary Row Operations
+

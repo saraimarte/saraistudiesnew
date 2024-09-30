@@ -40,7 +40,6 @@
     height: 30px;
     color: white;
 }
-
 .black-overlay {
     position: fixed;
     top: 0;
@@ -49,9 +48,10 @@
     height: 100%;
     background-color: black;
     opacity: 0;
-    pointer-events: none;
+    visibility: hidden; /* Add this to hide the element completely */
+    pointer-events: none; /* Ensure it's not interactive */
     z-index: 9999;
-    transition: opacity 0.05s;
+    transition: opacity 0.05s, visibility 0s 0.05s; /* Delay visibility toggle until opacity transition ends */
 }
 
 .goodbye-message {
@@ -67,13 +67,15 @@
     font-weight: bold;
     color: white;
     opacity: 0;
+    visibility: hidden; /* Add this to hide the message */
     z-index: 10000;
-    transition: opacity 0.5s;
-    width:80%;
+    transition: opacity 0.5s, visibility 0s 0.5s; /* Ensure visibility syncs with opacity */
+    width: 80%;
 }
+
 </style>
 
-<script define:vars="">
+<script>
     document.addEventListener('DOMContentLoaded', () => {
         const powerOffButton = document.getElementById('power-off');
         const blackOverlay = document.getElementById('black-overlay');
@@ -83,29 +85,29 @@
 
         function handlePowerOff() {
             powerOffButton.disabled = true;
+            blackOverlay.style.visibility = 'visible'; // Show the overlay
 
             let flashCount = 0;
             const flashInterval = setInterval(() => {
                 blackOverlay.style.opacity = flashCount % 2 === 0 ? '1' : '0';
                 flashCount++;
 
-                showGoodbyeMessage();
-
                 if (flashCount >= 10) { // 5 on-off cycles (faster)
                     clearInterval(flashInterval);
                     blackOverlay.style.opacity = '1';
+                    showGoodbyeMessage();
                 }
-            }, 100); // Flash every 50ms (even faster)
+            }, 100); // Flash every 100ms
         }
 
         function showGoodbyeMessage() {
+            goodbyeMessage.style.visibility = 'visible'; // Show the goodbye message
             goodbyeMessage.style.opacity = '1';
-            
-            // Wait for 2 seconds, then redirect
+
+            // Wait for 1 second, then redirect
             setTimeout(() => {
                 window.location.href = '/';
             }, 1000);
         }
     });
-
 </script>

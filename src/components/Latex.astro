@@ -1,6 +1,6 @@
 ---
 import katex from 'katex';
-import 'katex/dist/katex.min.css'; // Import KaTeX CSS
+import 'katex/dist/katex.min.css'; 
 
 const { formula = '' } = Astro.props;
 const html = katex.renderToString(formula, { throwOnError: false });
@@ -16,3 +16,4 @@ const html = katex.renderToString(formula, { throwOnError: false });
   integrity="sha384-NFTC4wvyQKLwuJ8Ez9AvPNBv8zcC2XaQzXSMvtORKw28BdJbB2QE8Ka+OyrIHcQJ"
   crossorigin="anonymous"
 />
+

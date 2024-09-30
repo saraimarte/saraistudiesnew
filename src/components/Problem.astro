@@ -1,12 +1,39 @@
 ---
-const {number, img, alt} = Astro.props;
+import Latex from '../components/Latex.astro'; // Adjust the path as needed
+
+const { n, img } = Astro.props;
 ---
 
-<div style = "display:flex; gap:5px; align-items:center;">
-   <p>{number}.</p>
-   <div style = "object-fit:contain;" > 
-       <img src={img.src} alt= {alt}  />
-   </div>
+<div class="card">
+  <div class="content">
+    {img && <img src={img.src} alt= {'Problem ' + n} />}
+    <p>{n}.</p>
+    <slot></slot>
+  </div>
 </div>
-    
-  
+
+
+<style>
+  .card {
+  font-size:20px;
+}
+
+.content p{
+  font-size: 22px;
+}
+.problem{
+  display: flex;
+  gap:1em;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+</style>
