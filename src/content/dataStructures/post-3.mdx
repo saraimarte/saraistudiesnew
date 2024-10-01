@@ -8,31 +8,19 @@ author: Sarai Marte
 slug: union-find
 ---
 
-import Latex from '@components/Latex.astro';
 import F from '@components/F.astro';
 import Code from '@components/Code.astro';
+import ImageMd from '@components/ImageMd.astro';
+import Solution from '@components/Solution.astro';
+import Latex from '@components/Latex.astro';
 
-<F><Latex formula='E=mc^2'/></F>
 
+# QuickFind
 
-<F>
-  <p>Let's play a game. It's called connect the dots.</p>
-  <p>I tell you which dots you want connected and you connect them. Ready?</p>
-</F>
+## How to play
+<iframe src="https://www.youtube.com/embed/tQ-rMAdzyew?si=5TIL5XeIVCXAOWAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<F>
-  <p>These dots are really called vertices and the lines you connect them with are called edges.</p>
-</F>
-
-<F>
-  <p>But what if I give you a billion vertices and ask you to connect them in the order I want? You don't have time for that, so you let the computer do it.</p>
-</F>
-
-<F>
-  <p>But first, you have to tell the computer how to do it.</p>
-  <p>So, how do we solve this problem?</p>
-  <p>Using the union-find algorithm.</p>
-</F>
+## How to code
 <F>
   <Code lang="java" fileName="QuickFind.java" code={`
     public class QuickFind {
@@ -56,3 +44,50 @@ import Code from '@components/Code.astro';
     }
   `}/>
 </F>
+
+## Practice
+
+**1.** Given n = 5. Which sets are formed after performing Union(4,0) Union(2,3) and Union(3,1)?
+
+<Solution>
+**Answer:<Latex formula = "\{0,4\} \, \text{and} \, \{1,2,3\}"/>**
+
+<iframe src="https://www.youtube.com/embed/ZgD5dwsFIL4?si=o0o0epIhdl2VH0sc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</Solution>
+
+**2.** Given the following facts:  
+find(20) = 1  
+find(15) = 1   
+find(13) = 4  
+find(22) = 1  
+find(11) = 10  
+
+which verticies are in the same set?
+
+<Solution>
+**Answer:<Latex formula = "\{20, 15, 22\}"/>**
+</Solution>
+
+## QuickUnion
+
+
+## How to play
+
+## How to code
+
+## QuickWeightedUnion
+
+
+## How to play
+
+## How to code
+
+
+# Notes
+
+QuickFind 
+
+Find(p/q) - Finds the representative of the set a verticie is in  
+
+Union(p,q) - Wherever it sees the rep of verticie p, it will change that to whatever the rep of verticie q is.
