@@ -14,7 +14,7 @@ import Latex from '@components/Latex.astro';
 # Motivation
 
 <F>
-Remember linear equations like y = x + 2 or y = 2x + 2
+Remember linear equations like y = x + 2 or y = 2x + 2?
 </F> 
 
 <F>
@@ -49,9 +49,13 @@ Every linear system can be represented by a matrix.
 Let's practice rewriting systems using matrix notation. 
 </F>
 
+<F>
 Now that we're comfortable going from system -> matrix let us consider this idea:
+</F>
 
-Imagine you have a matrix where all the entries in a row are zero except for one 1 entry that is 1.
+<F>
+Imagine you have a matrix where all the entries in a row are zero except for one entry that is 1.
+</F>
 
 <Latex formula = '\begin{bmatrix}
     1 & 0 & 0 & | & 1 \\
@@ -79,9 +83,11 @@ and if we simplify and remove all jargon we get:
 
 So, what does this tell me? I want to get my matrix into a form where I have one 1 in each row (with zeros everywhere else in that row), or as close as possible to that form, so I can easily find the solutions to my system!
 
+# Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
+
 Now, there is a name for that form it's called reduced row echelon form (RREF.)
 
-In fact, our ultimate goal is to get every matrix we work with into RREF because it makes solving systems of equations simple and straightforward.
+**In fact, our ultimate goal is to get every matrix we work with into RREF because we'll be able to extract the solutions faster.**
 
 However, on the way to RREF, we often stop at an intermediate form called Row Echelon Form (REF).
 
@@ -93,8 +99,42 @@ You might be wondering, what's the point of learning REF if our goal is to get t
 
 **(2) Saves time:** Not all systems have solutions (like when two lines don’t intersect). REF helps us determine if there’s no solution early on. If we see a situation where the system has no solution, we can stop at REF and avoid wasting time continuing to RREF. But, if there is a solution, we can keep going to RREF to get the exact answer.
 
+Let's go over both forms, what they mean for the matrix and what they look like.
+
+* talk about case scenerios once you get to RREF either unique solution so every variable has a unique solution or some variables have many solutions. 
+Those are your only two case scenarios with RREF because you would have already figured out if it had no solution while on your way to RREF while in REF
+
+Now that we're familiar with REF and RREF and know that our goal is to get the matrix in that form, the question is: How can I get the matrix in those forms? I know what it needs to have but how do I get to that?
+
+# Elementary Row Operations.
+
+These are certain actions you can take on a matrix that *don't change the value* of the matrix- it simply changes the way it looks.
+
+We can use Elementary row operations to get our matrix to look like REF/RREF Form without changing the value of the matrix itself.
+
+Before we use them, let's actually go over what they are.
+
+Great! Now, that we know how to write a matrix, why we need to get it into REF or RREF form and what we need to do so (elementary row operations) we can go ahead and start. 
 
 
+But first a note: 
+
+Remember when I said that our goal is to get any matrix in a form where there is one 1 entry in a row and everything else is zero (meaning system has unique solutions for every variable) or something close to that (meaning system has many solutions for some variables)?
+
+When you're dealing with a system there are only three possible outcomes either you have a unique solution, so each variable is a fixed value or infinitely many solutions meaning some variables will be written in terms of others, or no solution. 
+
+What I want to make clear is that when you're done getting your matrix in RREF form just because a row does not have all zeros except for 1 entry, it does not mean it's not in RREF or that there aren't any solutions. When that happens that means the system has *many* solutions for each variable. You just have to describe the solutions parametrically.
+
+**These Gaussian Eliminations are just a faster and more organized way of solving systems.**
+
+In other words, performing Gauss-Jordan Elimination will get us RREF(A). Here matrix is reduced completely - as much as it can be. You can either see the solution straight forward or put the solution in terms of free variables (more on that in the video.)
+
+Performing just Gauss Elimination/row reduction will get us REF(A) where the matrix is reduced a bit but not completely.
+
+Let's do our first example. This example will also cover a discussion about solutions at the end.
+
+# Parametric Descriptions of solutions
 
 
+# Practice 
 
