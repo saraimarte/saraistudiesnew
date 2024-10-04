@@ -9,7 +9,453 @@ slug: database-design-basics
 ---
 
 
--entities
-- keys
-- database design goals
--joins 
+import Solution from '@components/Solution.astro';
+
+
+# Vocab 
+
+This section is all about going from a business problem to a good database design. 
+
+Why do we care to make a good database design?
+
+It saves us money. 
+
+There are companies will millions of data entries everyday and if that data is not properly organized or there is a bunch of repeated data it can cost us. 
+
+# Entities and Attributes
+
+Entities are places, persons or things we want to store information about. 
+
+In other words, they are your table names. 
+
+Attributes are well, the attributes of these entities. 
+
+In other words, the specific data you want to collect about that entitie. 
+
+Also, in other words, the names of your columns in your tables. 
+
+For example, if we want to collect data about students, specifically we want to collect their first name, last name, netID and major. 
+
+Here, 
+
+Entitie(s): Student 
+Attributes: first name, last name,netID, major
+
+**1.** A local library wants to keep track of its books, members, and loans. They need to store information about each book, including the title, author, ISBN, and genre. They also want to keep track of each member’s name, membership ID, and contact information, as well as the loans (which member has borrowed which book and when).
+What are the entities and attributes in this library system?
+
+<Solution>
+
+Entities: Book, Member, Loan.
+
+Entitie: Book 
+
+Attributes:  title, author, ISBN, genre
+
+Entitie: Member 
+
+Attributes:  name, membership ID, phoneNumber
+
+Entitie: Loan 
+
+Attributes: borrower, bookBorrowed loanDate
+
+</Solution>
+
+**2.** An event management company is planning to organize multiple events. They want to track information about each event, including its name, date, location, and the number of attendees. They also want to keep records of the vendors they work with, including their names, contact information, and the services they provide.
+What are the entities and attributes in this event management system?
+
+<Solution>
+
+Entities: Event, Vendor
+
+Entitie: Event 
+
+Attributes:  name, date, location, number of attendees
+
+Entitie: Vendor 
+
+Attributes: names, contact information, and the services they provide
+
+</Solution>
+
+**3.** An online store sells a variety of products and wants to manage its inventory, customer information, and orders. They need to keep track of each product's name, description, price, and stock level. They also want to store customer details, including their names, email addresses, and order history.
+What are the entities and attributes in this online store system?
+
+<Solution>
+Entities: Product, Customer
+
+Entitie: Product 
+
+Attributes: product's name, description, price, stock levels
+
+Entitie: Customer 
+
+Attributes: names, email addresses, order history
+
+</Solution>
+
+# Primary keys
+
+A unique identifier for a table. A column that will not repeat data entires. 
+
+For example, here, the primary key is the netID. As Rutgers students, we all have our own netID that nobody else does. Hence, we can use it to identify students. 
+
+Why wouldn't we use names as a unique identifier? Because different people can have the same names like the Liams so it's data that can be repeated hence not fit to be the primary key. Same thing with majors. Thousands of students have the same majors. So it would be hard to identify a student by just their major.
+<table style="width: 50%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">NetID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">First Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Last Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Major</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">AB1234</td>
+            <td style="border: 1px solid #000; padding: 10px;">Alice</td>
+            <td style="border: 1px solid #000; padding: 10px;">Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">Computer Science</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">JM5678</td>
+            <td style="border: 1px solid #000; padding: 10px;"><b>Liam</b></td>
+            <td style="border: 1px solid #000; padding: 10px;">Miller</td>
+            <td style="border: 1px solid #000; padding: 10px;">Finance</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">SG3456</td>
+            <td style="border: 1px solid #000; padding: 10px;">Sarah</td>
+            <td style="border: 1px solid #000; padding: 10px;">Green</td>
+            <td style="border: 1px solid #000; padding: 10px;">Computer Science</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">LW7890</td>
+            <td style="border: 1px solid #000; padding: 10px;"><b>Liam</b></td>
+            <td style="border: 1px solid #000; padding: 10px;">White</td>
+            <td style="border: 1px solid #000; padding: 10px;">Marketing</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">ER4321</td>
+            <td style="border: 1px solid #000; padding: 10px;">Emma</td>
+            <td style="border: 1px solid #000; padding: 10px;">Rogers</td>
+            <td style="border: 1px solid #000; padding: 10px;">Finance</td>
+        </tr>
+    </tbody>
+</table>
+
+Here, the primary key would be the productID.
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Product ID (Primary Key)</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Product Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Category</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Price ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">P001</td>
+            <td style="border: 1px solid #000; padding: 10px;">Laptop</td>
+            <td style="border: 1px solid #000; padding: 10px;">Electronics</td>
+            <td style="border: 1px solid #000; padding: 10px;">999.99</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">P002</td>
+            <td style="border: 1px solid #000; padding: 10px;">Smartphone</td>
+            <td style="border: 1px solid #000; padding: 10px;">Electronics</td>
+            <td style="border: 1px solid #000; padding: 10px;">699.99</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">P003</td>
+            <td style="border: 1px solid #000; padding: 10px;">Headphones</td>
+            <td style="border: 1px solid #000; padding: 10px;">Accessories</td>
+            <td style="border: 1px solid #000; padding: 10px;">199.99</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">P004</td>
+            <td style="border: 1px solid #000; padding: 10px;">Smartwatch</td>
+            <td style="border: 1px solid #000; padding: 10px;">Wearables</td>
+            <td style="border: 1px solid #000; padding: 10px;">299.99</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">P005</td>
+            <td style="border: 1px solid #000; padding: 10px;">Tablet</td>
+            <td style="border: 1px solid #000; padding: 10px;">Electronics</td>
+            <td style="border: 1px solid #000; padding: 10px;">499.99</td>
+        </tr>
+    </tbody>
+</table>
+
+
+# Candidate keys
+
+Assuming club names do not repeat in this school, then both clubID and Club Name are Candidate keys- as in they are candidates to be primary keys. In other words, they both can be chosen as a PK. I would still choose ClubID. I like numbers.
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Club ID (Candidate Key)</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Club Name (Candidate Key)</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Advisor Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Meeting Day</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">C001</td>
+            <td style="border: 1px solid #000; padding: 10px;">Science Club</td>
+            <td style="border: 1px solid #000; padding: 10px;">Dr. Smith</td>
+            <td style="border: 1px solid #000; padding: 10px;">Wednesday</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">C002</td>
+            <td style="border: 1px solid #000; padding: 10px;">Art Club</td>
+            <td style="border: 1px solid #000; padding: 10px;">Ms. Johnson</td>
+            <td style="border: 1px solid #000; padding: 10px;">Monday</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">C003</td>
+            <td style="border: 1px solid #000; padding: 10px;">Debate Club</td>
+            <td style="border: 1px solid #000; padding: 10px;">Mr. Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">Friday</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">C004</td>
+            <td style="border: 1px solid #000; padding: 10px;">Drama Club</td>
+            <td style="border: 1px solid #000; padding: 10px;">Ms. Davis</td>
+            <td style="border: 1px solid #000; padding: 10px;">Thursday</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">C005</td>
+            <td style="border: 1px solid #000; padding: 10px;">Music Club</td>
+            <td style="border: 1px solid #000; padding: 10px;">Mr. Wilson</td>
+            <td style="border: 1px solid #000; padding: 10px;">Tuesday</td>
+        </tr>
+    </tbody>
+</table>
+
+# Composite Key
+
+The primary key here would be both license-plate and state-registered together.
+
+Think about it, license plate is enough to identify the owner of a car because two people can have the same license plates because they live in different states. Hence, we would have to identify the car's owners by using both the license plate and state registered. 
+
+So because there is more than one primary key it's called a composite key. 
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">License Plate (Primary Key)</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">State</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">First Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;"><b>ABC1234</b></td>
+            <td style="border: 1px solid #000; padding: 10px;">**California**</td>
+            <td style="border: 1px solid #000; padding: 10px;">Alice</td>
+            <td style="border: 1px solid #000; padding: 10px;">Johnson</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">XYZ5678</td>
+            <td style="border: 1px solid #000; padding: 10px;">Texas</td>
+            <td style="border: 1px solid #000; padding: 10px;">John</td>
+            <td style="border: 1px solid #000; padding: 10px;">Smith</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">LMN9012</td>
+            <td style="border: 1px solid #000; padding: 10px;">Florida</td>
+            <td style="border: 1px solid #000; padding: 10px;">Sarah</td>
+            <td style="border: 1px solid #000; padding: 10px;">Williams</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;"><b>ABC1234</b></td>
+            <td style="border: 1px solid #000; padding: 10px;">**New York**</td>
+            <td style="border: 1px solid #000; padding: 10px;">Michael</td>
+            <td style="border: 1px solid #000; padding: 10px;">Brown</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">GHI7890</td>
+            <td style="border: 1px solid #000; padding: 10px;">Nevada</td>
+            <td style="border: 1px solid #000; padding: 10px;">Emily</td>
+            <td style="border: 1px solid #000; padding: 10px;">Davis</td>
+        </tr>
+    </tbody>
+</table>
+
+# Foreign Key
+
+A key that connects two databases or more.
+
+# Database Design Goals
+
+**1.** Remove Data Redundency
+
+**2.** Remove Functional Dependencies. 
+
+## Data Redundency
+
+Data Redundency is when data is repeated or stored in multiple places or multiple times in the same table. 
+
+For example, here, supply chain is repeated 3 times and this is only the first 5 rows. Imagine hundreds of stuents with supply chain major. That is "supply chain" repeated hundreds of times. That is a lot of space taken up. How can we fix this?
+
+<table style="width: 50%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">NetID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">First Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Last Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Major</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">ab124</td>
+            <td style="border: 1px solid #000; padding: 10px;">Alice</td>
+            <td style="border: 1px solid #000; padding: 10px;">Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">**Supply Chain**</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">jm578</td>
+            <td style="border: 1px solid #000; padding: 10px;">John</td>
+            <td style="border: 1px solid #000; padding: 10px;">Miller</td>
+            <td style="border: 1px solid #000; padding: 10px;">Finance</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">sgg456</td>
+            <td style="border: 1px solid #000; padding: 10px;">Sarah</td>
+            <td style="border: 1px solid #000; padding: 10px;">Green</td>
+            <td style="border: 1px solid #000; padding: 10px;">**Supply Chain**</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">lww890</td>
+            <td style="border: 1px solid #000; padding: 10px;">Liam</td>
+            <td style="border: 1px solid #000; padding: 10px;">White</td>
+            <td style="border: 1px solid #000; padding: 10px;">**Supply Chain**</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">smm321</td>
+            <td style="border: 1px solid #000; padding: 10px;">Sara</td>
+            <td style="border: 1px solid #000; padding: 10px;">Millrose</td>
+            <td style="border: 1px solid #000; padding: 10px;">Marketing</td>
+        </tr>
+    </tbody>
+</table>
+
+## Functional Dependencies
+
+There are two types of functional dependencies.
+
+### Transitive Dependency
+
+When one attribute is dependent on another attribute other than the PK.
+
+### Partial Dependency (Only occurs when you have a Composite Key)
+
+When one attribute is dependent on only **part** of the PK. 
+
+
+## Anomolies
+
+Why don't we like dependencies? Because they create anomolies in our data. 
+
+What are the types of anomolies? (**DUI**)
+
+**1.** Deletion  
+**2.** Updation   
+**3.** Insertion    
+
+Let's explain what they are through an example.
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Member ID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Course Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Instructor</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">101</td>
+            <td style="border: 1px solid #000; padding: 10px;">Yoga Basics</td>
+            <td style="border: 1px solid #000; padding: 10px;">Jane Doe</td>
+            <td style="border: 1px solid #000; padding: 10px;">$50</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">102</td>
+            <td style="border: 1px solid #000; padding: 10px;">Cooking for Beginners</td>
+            <td style="border: 1px solid #000; padding: 10px;">John Smith</td>
+            <td style="border: 1px solid #000; padding: 10px;">$75</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">103</td>
+            <td style="border: 1px solid #000; padding: 10px;">Photography 101</td>
+            <td style="border: 1px solid #000; padding: 10px;">Sarah Johnson</td>
+            <td style="border: 1px solid #000; padding: 10px;">$100</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">104</td>
+            <td style="border: 1px solid #000; padding: 10px;">Art for Everyone</td>
+            <td style="border: 1px solid #000; padding: 10px;">Emily Davis</td>
+            <td style="border: 1px solid #000; padding: 10px;">$60</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">105</td>
+            <td style="border: 1px solid #000; padding: 10px;">Intro to Computer Science</td>
+            <td style="border: 1px solid #000; padding: 10px;">Michael Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">$120</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">106</td>
+            <td style="border: 1px solid #000; padding: 10px;">Yoga Basics</td>
+            <td style="border: 1px solid #000; padding: 10px;">Jake Smith</td>
+            <td style="border: 1px solid #000; padding: 10px;">$50</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+**1. Deletion:** What if a member wants to leave a course? Then the whole row, the member and it's corresponding course and fee will have to be deleted too and now we won't have a record of that course or it's fee. 
+
+**2. Updation:** If we update price for the Yoga basics course from $50 to $60 we would have to do it for every member, for every entry which can lead to updation anamolies.
+
+**3. Insertion:** What if we want to insert a new course but no one has signed up for it yet? This creates an insertion anmoly because you would have to create a dummy variable for member so you're able to actually have the course name visible.
+
+
+Hence, the goal for database design is to remove data redundency and dependencies. 
+
+How do we do that?
+
+We normalize the database design. 
+
+Normalization is the process of removing data redundency and dependencies. 
+
+It's really a fancy way of just saying make more tables. 
+
+Before we practice database design, there is one more thing you need to know and that is relationships between tables (or entities).
+
+# Relationships
+
+
+
+# Practice 
+
+
+# Many to Many Relationships
+
+# Subtypes
+
+
+# Practice
+
+# Random Topic Joins
+
