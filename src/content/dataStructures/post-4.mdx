@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Stacks & Queues
+title: Linked Lists
 pubDate: 2024-09-16T00:00:00Z 
 updatedDate: 2024-09-16T00:00:00Z 
 draft: false
@@ -9,6 +9,7 @@ slug: stacks-and-queues
 ---
 
 import ImageMd from "@components/ImageMd.astro";
+import Solution from "@components/Solution.astro";
 
 import Code from '@components/Code.astro';
 import img1 from '@images/112/1.svg';
@@ -18,7 +19,7 @@ import img4 from '@images/112/4.svg';
 import img5 from '@images/112/5.svg';
 import img6 from '@images/112/6.svg';
 import img7 from '@images/112/7.svg';
-
+import img8 from '@images/112/10.svg';
 
 # Intro
 
@@ -32,51 +33,51 @@ The question is, is there another data structure we can use where it will take l
 
 The answer is, yes! It's called a linked list. 
 
+A linked list is a data structure where we can only add to the beginning of the list and only remove from the beginning of the list. 
+
+So we don't have to traverse the whole list like we do a list in order to move everything over. 
+
 # Linked List: The Idea
 
 A linked list is made up of nodes linked to eachother.
 
-A **node** is just a box. This box contains two things- the data and a pointer which *points* to the next <s>box</s> node.
+A **node** is just a box. 
 
-Currently, since there is only one node in the linked list, the first one is pointing to <s>nothing</s> null.
+This box contains two things **(1)** the **data** it will hold **(2)** and a pointer which *points* to the **next** <s>box</s> node.
+
+A linked list starts with an empty node that points to nothing- to null - like so, 
 
 <ImageMd img = {img1} alt = ""/>
 
-Now, this box does not exist yet in our Java world but we can create this object. 
+Now, this box (node) does not exist yet in our Java world but we can create this object. 
 
 Recall: classes can go above or below the main method but never inside. 
 
 <Code lang = "java" fileName = "LinkedList.java" code = 
-{` private class Node { //create data type Node and tell it...
+{` private static class Node { //create data type Node and tell it...
     private String item;  //"You will have an item that will always be a String-this is your data"
     private Node next; //"You will have a pointer called 'next' that will point to the next node"
 }`}>
 </Code>
 
-Now, that we created a Node object, we can use this in our linked list object. 
+Now, that we created a Node object, we can use this in our linked list object that we will create.
 
 <Code lang = "java" fileName = "LinkedList.java" code = 
-{`public class LinkedList{
+{`public static class LinkedList{
 
 //(1) create a Node called first
 //this will create an empty Node with empty data/item and it will point to nothing
+private Node first = null; // The first node in the list
 
-private Node first;
-
-//have the linked list start with a size of 0
-private int size = 0;
-
-//so every time we want to add a new node...
+// Adds a new node to the beginning of the list
 public void addFirst(String item){
-    Node temp = new Node; //(2) create new temporary node
+    Node temp = new Node(); //(2) create a temporary node (the new node we want to add)
    
     temp.item = item; //(2) add the item to it's data box
  
     temp.next = first; //(3) make the temporary node's pointer point to the current first node that points to nothing right now
   
-    first = node; //(4) then make the firstNode equal to the temporary node. Now, the node you wanted to add becomes the first node in the linked list.
-
-    size++; //add 1 to the size of the linkedlist since you added another node
+    first = temp; //(4) then make the firstNode equal to the temporary node. Now, the node you wanted to add becomes the first node in the linked list.
 }
 }`}>
 </Code>
@@ -101,17 +102,15 @@ public String deleteFirst(){
 
 String item = first.item; // get item I want to delete
 
-first = first.next; // first node will now refer to what the current first node is pointing to (that is, the second node.)
-
-size--; //since you deleted a node, the size of the linkedlist went down
+first = first.next; // first node will now refer to what the current first node is pointing to (that is, the second node.) In other words, we're making the second node the first node now.
 
 return item; //return what I deleted
 }`}>
 </Code>
 
-That's it! Now you can use this data type in your main method.
+That's it! Now you can use this data type and it's methods in your main method.
 
-Let's create our first linked list and have it hold the nodes Spongebob, Patrick, and Squidward. 
+Let's create our first linked list and have it hold the nodes Spongebob, Patrick, Squidward and Mary. Then delete Mary. 
 
 <Code lang = "java" fileName = "LinkedList.java" code = 
 {`public static void main(String[] args){
@@ -126,60 +125,54 @@ Let's create our first linked list and have it hold the nodes Spongebob, Patrick
   myList.addFirst("Spongebob");
   myList.addFirst("Patrick");
   myList.addFirst("Squidward");
+  myList.addFirst("Mary");
 
   //Check size of linked list now, should be 3
-  System.out.println("size=" + myList.size());
+  System.out.print(myList.deleteNode()); //Mary
 
 }`}>
 </Code>
 
+This is what your linked list looks like
+
 <ImageMd img = {img5} alt = ""/>
 
-# Stacks 
+# Practice
 
-Stacks is another data structure- think about a stack of books.
+First, I suggest attempting to write this code from scratch until you got it then feel free to attempt the following problems. 
 
-You can stack one book on top of another but when you want to remove one you have to start from the top. 
+**1.** Add an **isEmpty()** method that will return a boolean true if the linked list is empty, false when it is not empty.
 
-There are only two methods we need to do for the stack data structure- push and pop aka add and delete. 
+<Solution>
 
-Actually, we already built a stack. A linked list is a stack.
+First, you ask yourself "What does it mean for a linked list to be empty?" 
 
-It's a data structure where when we add a node, we add it to the top and when we want to delete a node we have to delete the first/top one. 
+Well, the only time the list is empty is when the First node is null. 
 
-Really, you can simply replace the addFirst() and delteFirst() names with push() and pop() because they're the exact same thing.
+In other words it's pointing to null- to nothing...to no other node.
 
-Either way, let's go over a stack class.
+And that only happens when there are nodes. 
 
+Even if we have a lot of nodes, if we pop all of them, the first node will end up pointing to null again. 
 
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`public boolean isEmpty(){
+    return first == null;
+}`}>
+</Code>
 
-
-
-
-
-
-
-
-
-
+</Solution>
 
 
+**2.** Add a **traverse()** method that will traverse through the linked list items and return them.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<Solution>
+<Code lang = "java" fileName = "LinkedList.java" code = 
+{`public void traverse(){
+    while(!isEmpty()){
+        System.out.println(first.item);
+        first = first.next;
+    }
+}`}>
+</Code>
+</Solution>

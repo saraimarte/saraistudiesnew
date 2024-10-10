@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Linked Lists
+title: Stacks & Queues
 pubDate: 2024-09-16T00:00:00Z 
 updatedDate: 2024-09-16T00:00:00Z 
 draft: false
@@ -9,72 +9,170 @@ slug: linked-lists
 ---
 
 import ImageMd from "@components/ImageMd.astro";
+import CI from '@components/CI.astro';
+
+import img1 from '@images/112/8.svg';
+import img2 from '@images/112/9.svg';
 
 import Code from '@components/Code.astro';
-import img1 from '@images/112/1.svg';
-import img2 from '@images/112/2.svg';
-import img3 from '@images/112/3.svg';
-import img4 from '@images/112/4.svg';
-import img5 from '@images/112/5.svg';
-import img6 from '@images/112/6.svg';
-import img7 from '@images/112/7.svg';
 
-Let's create our first node and have it hold the data type "Spongebob"
+# Stacks 
 
+Stacks is another data structure- think about a stack of books.
 
+You can stack one book on top of another but when you want to remove one you have to start from the top. 
 
-<Code lang = "java" fileName = "LinkedList.java" code = 
-{`public static void main(String[] args){
-  
-//create your firstNode, call it firstNode, have it be of datatype Node, construct it by using new and then the constructor method Node()
-Node firstNode = new Node();
+In other words, it's last in last out (LIFO) data structure.
 
-//Have it hold the item "Spongebob"
-firstNode.item = "Spongebob";
+There are only two methods we need to do for the stack data structure- push and pop aka add and delete. 
 
-//Have it point to the next null -since this is the only node then it points to nothing hence null
-firstNode.next = null;
+Actually, we already built a stack. A linked list is a stack.
+
+It's a data structure where when we add a node, we add it to the top and when we want to delete a node we have to delete the first/top one. 
+
+Really, you can simply replace the addFirst() and delteFirst() method names from <a href = "https://saraistudies.netlify.app/datastructures/linked-lists/">our linked list code</a> with push() and pop() because they're the exact same thing.
+
+It would look like so,
+
+<Code lang = "java" fileName = "StackOfStrings.java" code = 
+{`public class StackOfStrings {
+
+    // Static inner class for Node
+    private static class Node {
+        private String item; // Stores the value of the node
+        private Node next; // Points to the next node in the list
+    }
+
+    // Static inner class for LinkedList
+    public static class LinkedList {
+
+        private Node first = null; // The first node in the list
+
+        // Adds a new node to the beginning of the list
+        public void push(String item) {
+            Node temp = new Node(); // Create a new node
+            temp.item = item; // Set the value
+            temp.next = first; // Point new node to the current first node
+            first = temp; // Update first to point to the new node
+        }
+
+        // Deletes the first node and returns its value
+        public String pop() {
+            if (first == null) {
+                return null; // Handle empty list case
+            }
+            String item = first.item; // Get the value of the first node
+            first = first.next; // Update first to point to the next node
+            return item; // Return the value of the deleted node
+        }
+    }
 }`}>
 </Code>
 
+Now, create a stack, push (add) the items "Spongebob", "Patrick", "Squidward" and "Sarai" to the stack.
 
-<ImageMd img = {img3} alt = ""/>
+<CI img = {img1} alt = "" lang = "java" fileName = "StackOfStrings.java" code = 
+{`public static void main(String[] args){
 
-Now, let's add another node containing "Patrick."
+        // Create an instance of the LinkedList
+        LinkedList myList = new LinkedList();
 
-<Code lang = "java" fileName = "LinkedList.java" code = 
-{`//create your second node, call it node
-Node node = new Node();
+        myList.push("Spongebob");
+        myList.push("Patrick");
+        myList.push("Squidward"); 
+        myList.push("Sarai");
+    }
+`}></CI>
 
-//Have it hold the item "Patrick"
-node.item = "Patrick";
+Now, pop (remove) Spongebob from the stack.
 
-//Have the first node's next pointer point to the second node (see blue)
-firstNode.next = node; 
-`}>
+Oh wait... you can't. You don't choose what to remove.
+
+You can only choose what to add. 
+
+Since stacks are last in first out (LIFO) then only the last thing that was pushed into the stack is the one thing that can be popped.
+
+So, if you run this, 
+
+<CI img = {img2} alt = "" lang = "java" fileName = "StackOfStrings.java" code = 
+{`myList.pop();
+    System.out.print(myList.pop());
+}
+`}></CI>
+
+then what it popped from the stack is what was last added and that is "Sarai". Now, you no longer see "Sarai" anymore.
+
+Now, we went over stacks from a linked list approach but we can also write them using arrays so let's see what that looks like. 
+
+# ArrayStackOfStrings
+
+A problem with this approach is that the array has a fixed size. So once it fills up then no more items can be pushed into the stack but let's see it anyway.
+
+<Code lang = "java" fileName = "FixedCapacityStackOfStrings.java" code = 
+{`public class FixedCapacityStackOfStrings {
+ 
+    private String[] s;
+    private int n=0;
+
+    // notice that n points to the position
+    // where the next element
+    // will be added
+
+    public FixedCapacityStackOfStrings(int capacity){
+        s=new String[capacity];
+    }
+
+    public boolean isEmpty(){
+        return n==0;
+    }
+
+    public void push(String item){
+      s[n++]=item;
+    }
+
+    public String pop(){
+        String item=s[--n];
+        s[n]=null; // avoid memory leak
+        return item;
+    }
+
+    public int size(){
+        return n;
+    }
+
+    public void traverse(){
+        for (int i=0;i<n;i++){
+        System.out.println(s[i]);
+    }}
+
+}`}>
 </Code>
 
-<ImageMd img = {img4} alt = ""/>
+# ResizingArrayStackOfStrings
 
-Now, let's add another node containing Squidward.
+Now, how can we have the array resize itself.
 
-<Code lang = "java" fileName = "LinkedList.java" code = 
-{`//create your third node, call it node
-Node node = new Node();
-
-//Have it hold the item "Squidward"
-node.item = "Squidward";
-
-//Have the second node's pointer point to the third node (see red)
-firstNode.next.next = node; 
-
-//firstNode.next IS 2nd node (See blue.)
-//so firstNode.next.next = node really means 
-//2nd node.next = node;
-//so we're really saying "have the second node's next part point to the current node (3rd node)" (See red.)
-`}>
-</Code>
+Well, first, we have to keep track of size.
 
 
 
-<ImageMd img = {img2} alt = ""/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

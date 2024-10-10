@@ -1,0 +1,96 @@
+---
+layout: '@layouts/Blog.astro'
+title: 2.1 Matrix Operations
+pubDate: 2024-09-11T00:00:00Z 
+updatedDate: 2024-09-11T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: post10
+---
+
+import Latex from '@components/Latex.astro';
+
+# Vocab 
+
+**1. Square Matrix** is a matrix with the same number of rows and columns. For example, 
+
+<Latex formula = "\mathbf{A} = \begin{bmatrix} 
+2 & 1 \\ 
+7 & 4 
+\end{bmatrix} \text{ with dimensions } (2 \times 2)"/>
+
+Here, rows = 2, cols = 2.
+
+**2. Transpose** of any matrix is that same matrix but with rows and columns switched (so dimensions/size switch.)
+
+We call the transpose of matrix A, A<sup>T</sup>.
+
+For example, the transpose of the following matrix A,
+
+<Latex formula = "\mathbf{A} = \begin{bmatrix} 
+\textcolor{blue}{\mathbf{2}} & \textcolor{blue}{\mathbf{1}} \\ 
+7 & 4 \\ 
+5 & 9 
+\end{bmatrix}, \text{ with dimensions } (3 \times 2)"/>
+
+is 
+
+<Latex formula = "\mathbf{A^T} = \begin{bmatrix} 
+\textcolor{blue}{\mathbf{2}} & 7 & 5 \\ 
+\textcolor{blue}{\mathbf{1}} & 4 & 9 
+\end{bmatrix}, \text{ with dimensions } (2 \times 3)"/>
+
+We just take every row in matrix A and make it a column in matrix A<sup>T</sup>.
+
+# Matrix Operations 
+
+Before doing operations you want to save time by checking if you *can* do them in the first place. In other words if the operations are defined. 
+
+To know what is defined and what is not, here are the following rules:
+
+**Rule 1:** When you're adding or subtracting matricies, they have to have the same dimensions and it will result in a matrix with the same dimensions.  
+
+**Rule 2:** When you're multiplying matricies, the columns of the first matrix has to be equal to the rows of the second matrix. This will result in a matrix with the number of rows of the first matrix and number of columns of the second matrix. 
+
+
+
+
+
+
+
+
+
+For example, let A, B and C be matricies with the following sizes:
+
+A (3 x 4) and B (4 x 2) and C (4 x 2)
+
+Can we do B + C? Yes, because they both have (4 x 2) dimensions. 
+
+Can we do A + B? No, because they have different dimensions.
+
+**Rule:** When you're multiplying matricies, the columns of the first matrix has to be equal to the rows of the second matrix. This will result in a matrix with the number of rows of the first matrix and number of columns of the second matrix. 
+
+Can we do AB?
+
+Yes, because **number of columns = number of rows** 
+
+A (3 x **4**) and B (**4** x 2) this will result in a (3 x 2) matrix. **4 = 4**
+
+Can we do A<sup>T</sup>B?
+
+**Recall:** Transpose means just make rows the columns. That means dimensions switch.
+
+A<sup>T</sup> is (4 x 3) can we multiply that by B now? No. Because number of columns is not the same as number of rows. This operation is undefined. 
+
+A<sup>T</sup> (4 x **3**)  B (**4** x 2)  **3 ≠ 4**
+
+
+
+
+Quick Video on 
+
+adding and subtracting and multiplying by a scalar operations. 
+
+given a - e matricies perfrom list of operations check if defined first. include transpose.
+
+- properties of matricies like AB is not the same as BA 

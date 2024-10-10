@@ -1,12 +1,18 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Vector Equations, Linear Combinations and Matrix Vector Products
+title: 1.3 Vector Equations
 pubDate: 2024-09-17T00:00:00Z 
 updatedDate: 2024-09-17T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: vector-equations-linear-combinations-and-matrix-vector-products
 ---
+
+import Latex from '@components/Latex.astro';
+import ImageMd from '@components/ImageMd.astro';
+import img1 from '@images/250/1.png';
+import img2 from '@images/250/2.png';
+import img3 from '@images/250/3.png';
 
 Before, we looked at systems of equations from the point of view of a **matrix**.
 
@@ -15,6 +21,92 @@ Now, we will look at systems from the point of view of a **vector**.
 What is a vector?
 
 A **vector** is a special type of matrix. Simply, it is a matrix with one row or one column. 
+
+Something special about the matrix is that we can visualize it.
+
+For example take <Latex formula = "\overline{\textcolor{purple}{\mathbf{v}}} = \begin{bmatrix} \textcolor{red}{1} \\ \textcolor{green}{2} \end{bmatrix}"/>
+
+The way you can plot this is by thinking of the first entry of how far right you should go and the bottom how far up you should go. 
+
+<ImageMd img = {img1} alt = "Vector V"/>
+
+Now what's interesting is that you can multiply this vector by any number we call C. That will *scale* each entry. 
+
+Let's say I want to make the vector twice as long...then I will just multiply the vector by 2!
+
+<Latex formula = "2 \overline{\textcolor{purple}{\mathbf{v}}} = 2 \cdot \begin{bmatrix} \textcolor{red}{1} \\ \textcolor{green}{2} \end{bmatrix} = \begin{bmatrix} 2 \cdot \textcolor{red}{1} \\ 2 \cdot \textcolor{green}{2} \end{bmatrix} = \begin{bmatrix} \textcolor{red}{2} \\ \textcolor{green}{4} \end{bmatrix}"/>
+
+<ImageMd img = {img3} alt = "Vector 2V"/>
+
+Now, you can see 2 times the vector in orange. Literally. You can see that the orange vector is just 2 of the pink vectors. 
+
+This is what we call scaling. We scaled vector **v** to be *twice* as big and that vector became 
+
+<Latex formula = "2 \mathbf{v} = \begin{bmatrix} \textcolor{red}{2} \\ \textcolor{green}{4} \end{bmatrix}"/>
+
+So, we can say that this vector **2v** is a combination of the vector **v** and it's scalar(s) in this case 2. 
+
+Let's say we want to add two vectors together and scale them. 
+
+Notice, we can have our scalar be anything. I can scale vector **v** to be thrice as big, four times as big, five times as big and so on. 
+
+In other words, there are infinitely many combinations I can make with vector **v** to give me different vectors. 
+
+The collection of all vectors that are linear combinations of vector **v** and it's scalar is called the **span** of vector **v**. 
+
+So when we ask is vector **b** in the span of vector **v** and it's scalars, we're really asking if vector **b** is a linear combination of vector **v** and it's scalars. 
+
+In other words, it's equivalent to asking the question "is vector **b** a solution to the system of equations derived from the combination of vectors and scalars?"
+
+Take the following system: 
+
+3x<sub>1</sub> + x<sub>2</sub> = 7  
+x<sub>1</sub> + 2x<sub>2</sub> = 4
+
+When we were going from system to matrix, the matrix would look like so:
+
+<div style = "display:flex; width:100%; justify-content:center; align-items:center;">
+<Latex formula = "\begin{array}{c}
+3x_1 + x_2 = 7 \\
+x_1 + 2x_2 = 4 \\
+\downarrow \\
+\begin{bmatrix}
+3 & 1 & 7 \\
+1 & 2 & 4 \\
+\end{bmatrix}
+\end{array}"/>
+</div>
+
+<br/>
+Now, we go from system to column vector form. 
+<br/>
+<div style = "display:flex; width:100%; justify-content:center; align-items:center;">
+<Latex formula = "\begin{array}{c}
+3x_1 + x_2 = 7 \\
+x_1 + 2x_2 = 4 \\
+\downarrow \\
+\begin{bmatrix} 3 \\ 1 \end{bmatrix} x_1 + \begin{bmatrix} 1 \\ 2 \end{bmatrix} x_2 = \begin{bmatrix} 7 \\ 4 \end{bmatrix}
+\end{array}"/>
+</div>
+
+See, it's simply another way to write the system. This time, we are just treating the coefficients that were going to end up as columns in the matrix as...vectors. 
+
+Given that this is the general form of a linear equation where a<sub>1</sub>... a<sub>n</sub> are coefficients (that are real numbers) and  x<sub>1</sub>... x<sub>n</sub> are variables. 
+
+<Latex formula = "a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b"/>
+
+Now, all the a values are put together in an ā vector. 
+
+<Latex formula = "\textcolor{blue}{y} = c_1 \textcolor{blue}{v_1} + \cdots + c_p \textcolor{blue}{v_p}"/>
+
+
+
+
+
+
+
+
+
 
 Write a Vector Equation as a System of Equations
 
@@ -25,3 +117,11 @@ https://www.youtube.com/watch?v=OSn_7sx3x9o
 https://www.youtube.com/watch?v=BjuFafsw8yU
 
 https://www.youtube.com/watch?v=Bw0-UqZ_xnY
+
+ToDO
+
+transition from matrix to vector form
+vector operations 
+linear combinations
+
+

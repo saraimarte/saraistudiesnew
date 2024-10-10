@@ -8,9 +8,7 @@ author: Sarai Marte
 slug: database-design-basics
 ---
 
-
 import Solution from '@components/Solution.astro';
-
 
 # Vocab 
 
@@ -21,6 +19,10 @@ Why do we care to make a good database design?
 It saves us money. 
 
 There are companies will millions of data entries everyday and if that data is not properly organized or there is a bunch of repeated data it can cost us. 
+
+Good database design consists of data integrity(is explicit about datatypes for each attribute), scalability (can handle more or less data), and integration (integrates with other apps).
+
+Before practicing data design we need to be comfortable with it's components. Let's start.
 
 # Entities and Attributes
 
@@ -38,8 +40,8 @@ For example, if we want to collect data about students, specifically we want to 
 
 Here, 
 
-Entitie(s): Student 
-Attributes: first name, last name,netID, major
+**Entitie(s):** Student    
+**Attributes:** first name, last name,netID, major
 
 **1.** A local library wants to keep track of its books, members, and loans. They need to store information about each book, including the title, author, ISBN, and genre. They also want to keep track of each member’s name, membership ID, and contact information, as well as the loans (which member has borrowed which book and when).
 What are the entities and attributes in this library system?
@@ -98,6 +100,8 @@ Attributes: names, email addresses, order history
 # Primary keys
 
 A unique identifier for a table. A column that will not repeat data entires. 
+
+**There can only be ONE primary key per table.**
 
 For example, here, the primary key is the netID. As Rutgers students, we all have our own netID that nobody else does. Hence, we can use it to identify students. 
 
@@ -238,6 +242,62 @@ Assuming club names do not repeat in this school, then both clubID and Club Name
     </tbody>
 </table>
 
+
+**1.** Rutgers Library wants to store data about their books. Here is an example of the the data they hold.
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Author ID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Title of Book</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Genre</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">ISBN</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">A001</td>
+            <td style="border: 1px solid #000; padding: 10px;">The Art of Coding</td>
+            <td style="border: 1px solid #000; padding: 10px;">Technology</td>
+            <td style="border: 1px solid #000; padding: 10px;">978-1-234567-89-7</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">A002</td>
+            <td style="border: 1px solid #000; padding: 10px;">Cooking with Love</td>
+            <td style="border: 1px solid #000; padding: 10px;">Cooking</td>
+            <td style="border: 1px solid #000; padding: 10px;">978-1-987654-32-1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">A003</td>
+            <td style="border: 1px solid #000; padding: 10px;">Mystery of the Old House</td>
+            <td style="border: 1px solid #000; padding: 10px;">Mystery</td>
+            <td style="border: 1px solid #000; padding: 10px;">978-1-876543-21-0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">A004</td>
+            <td style="border: 1px solid #000; padding: 10px;">Space Adventures</td>
+            <td style="border: 1px solid #000; padding: 10px;">Science Fiction</td>
+            <td style="border: 1px solid #000; padding: 10px;">978-1-765432-10-9</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">A005</td>
+            <td style="border: 1px solid #000; padding: 10px;">The History of Art</td>
+            <td style="border: 1px solid #000; padding: 10px;">Art History</td>
+            <td style="border: 1px solid #000; padding: 10px;">978-1-543210-98-6</td>
+        </tr>
+    </tbody>
+</table>
+
+What are the candidate keys and out of each of them which is the best candidate to be the primary key?
+
+<Solution>
+
+Candidate Keys: BookID, ISBN because they're both unique.
+
+Primary Key:  ISBN. We know for sure the ISBN is unique to each book. Can never go wrong with being sure.
+
+</Solution>
+
 # Composite Key
 
 The primary key here would be both license-plate and state-registered together.
@@ -289,10 +349,135 @@ So because there is more than one primary key it's called a composite key.
     </tbody>
 </table>
 
+Note: Recall when I said "**There can only be ONE primary key per table.**". That's still true even if you have a composite key. A composite key is literally two combined into one. The attribute will be called key1_key2. That is still **one** key. 
+
 # Foreign Key
 
-A key that connects two databases or more.
+A key that connects two tables or more.
 
+For example, the following is a table of student information like first name, last name, zipcode, state and city they live in.
+
+Notice that most students have the same zipcode and hence the same city and state are repeated three times!
+
+**STUDENT** 
+
+<table style="width: 70%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">ID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">First Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Last Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Zipcode</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">State</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">1</td>
+            <td style="border: 1px solid #000; padding: 10px;">John</td>
+            <td style="border: 1px solid #000; padding: 10px;">Doe</td>
+            <td style="border: 1px solid #000; padding: 10px;">**12345**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**NY**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**New York**</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">2</td>
+            <td style="border: 1px solid #000; padding: 10px;">Jane</td>
+            <td style="border: 1px solid #000; padding: 10px;">Smith</td>
+            <td style="border: 1px solid #000; padding: 10px;">67890</td>
+            <td style="border: 1px solid #000; padding: 10px;">CA</td>
+            <td style="border: 1px solid #000; padding: 10px;">Los Angeles</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">3</td>
+            <td style="border: 1px solid #000; padding: 10px;">Alice</td>
+            <td style="border: 1px solid #000; padding: 10px;">Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">**12345**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**NY**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**New York**</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">4</td>
+            <td style="border: 1px solid #000; padding: 10px;">Liam</td>
+            <td style="border: 1px solid #000; padding: 10px;">White</td>
+            <td style="border: 1px solid #000; padding: 10px;">**12345**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**NY**</td>
+            <td style="border: 1px solid #000; padding: 10px;">**New York**</td>
+        </tr>
+    </tbody>
+</table>
+
+Assume that we have access to a zipcode table that has all zipcodes and their corresponding city and state. 
+
+What we can do is remove city and state from the original **STUDENT** table like so 
+
+<table style="width: 60%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">ID</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">First Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Last Name</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">Zipcode</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">1</td>
+            <td style="border: 1px solid #000; padding: 10px;">John</td>
+            <td style="border: 1px solid #000; padding: 10px;">Doe</td>
+            <td style="border: 1px solid #000; padding: 10px;">12345</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">2</td>
+            <td style="border: 1px solid #000; padding: 10px;">Jane</td>
+            <td style="border: 1px solid #000; padding: 10px;">Smith</td>
+            <td style="border: 1px solid #000; padding: 10px;">67890</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">3</td>
+            <td style="border: 1px solid #000; padding: 10px;">Alice</td>
+            <td style="border: 1px solid #000; padding: 10px;">Brown</td>
+            <td style="border: 1px solid #000; padding: 10px;">12345</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">4</td>
+            <td style="border: 1px solid #000; padding: 10px;">Liam</td>
+            <td style="border: 1px solid #000; padding: 10px;">White</td>
+            <td style="border: 1px solid #000; padding: 10px;">12345</td>
+        </tr>
+    </tbody>
+</table>
+
+and then add FK called STUDENT_zipcode and have that be a Foreign key that *refers* to the zipcode attribute in the **STUDENT** table like so, 
+
+**ZIPCODE**
+
+<table style="width: 50%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">STUDENT_zipcode</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">State</th>
+            <th style="border: 1px solid #000; padding: 10px; background-color: #f2f2f2; text-align: left;">City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">12345</td>
+            <td style="border: 1px solid #000; padding: 10px;">NY</td>
+            <td style="border: 1px solid #000; padding: 10px;">New York</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 10px;">67890</td>
+            <td style="border: 1px solid #000; padding: 10px;">CA</td>
+            <td style="border: 1px solid #000; padding: 10px;">Los Angeles</td>
+        </tr>
+    </tbody>
+</table>
+
+In other words, if someone wants to find where student 3 lives, they can lookup student 3's zipcode in the **STUDENT** table and then that we can use that zipcode to lookup the corresponding state and city. Because the zipcode in the **STUDENT** table is connected to the zipcode (**STUDENT**_zipcode) in the **ZIPCODE** table. 
+
+Note: we also got rid of redundent data because now "New York" is only in our database *one* time instead of three times in the beginning. 
 # Database Design Goals
 
 **1.** Remove Data Redundency
@@ -360,6 +545,27 @@ When one attribute is dependent on another attribute other than the PK.
 
 When one attribute is dependent on only **part** of the PK. 
 
+### Practice 
+
+**1.** In **COURSE**(CourseID, CourseName, ProfessorID) which is an example of a functional dependency? 
+
+**A.** CourseID -> CourseName  
+**B.** CourseID -> ProfessorID  
+**C.** ProfessorID -> CourseName  
+**D.** CourseName -> ProfessorID  
+
+<Solution>
+
+**D**
+
+Recall: a functional dependency is when one attribute depends on another attribute that is not it's primary key.  
+
+Here, CourseID should determine both CourseName and ProfessorID so A and B are eliminated. ProfessorID can't possibly determine CourseName so it doesn't make sense to say that CourseName could depend on ProfessorID so C is eliminated. 
+
+CourseName may determine ProfessorID. Some professors can only teach certain courses. Like a biology professor won't be teaching an english class. So the professorID that is attatched to the courseName does depend on what course it is.   
+
+That's bad. We don't want any attributes depending on any other attributes despite the primary key so D is an example of a functional dependency.   
+</Solution>
 
 ## Anomolies
 
@@ -367,9 +573,9 @@ Why don't we like dependencies? Because they create anomolies in our data.
 
 What are the types of anomolies? (**DUI**)
 
-**1.** Deletion  
-**2.** Updation   
-**3.** Insertion    
+**1.** **D**eletion  
+**2.** **U**pdation   
+**3.** **I**nsertion    
 
 Let's explain what they are through an example.
 
@@ -437,7 +643,7 @@ How do we do that?
 
 We normalize the database design. 
 
-Normalization is the process of removing data redundency and dependencies. 
+**Normalization is the process of removing data redundency and dependencies.**
 
 It's really a fancy way of just saying make more tables. 
 
@@ -451,6 +657,8 @@ Before we practice database design, there is one more thing you need to know and
 
 
 # Many to Many Relationships
+
+Any time you have a many to many relationship between tables (or between two entities) all you have to do is create a JOIN table that will only contain the primary keys of the two entites. 
 
 # Subtypes
 

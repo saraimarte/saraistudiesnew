@@ -2,7 +2,7 @@
 layout: '@layouts/Blog.astro'
 title: Union Find
 pubDate: 2024-09-16T00:00:00Z 
-updatedDate: 2024-09-16T00:00:00Z 
+updatedDate: 2024-10-05T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: union-find
@@ -13,7 +13,6 @@ import Code from '@components/Code.astro';
 import ImageMd from '@components/ImageMd.astro';
 import Solution from '@components/Solution.astro';
 import Latex from '@components/Latex.astro';
-
 
 # QuickFind
 
@@ -69,17 +68,45 @@ which verticies are in the same set?
 **Answer:<Latex formula = "\{20, 15, 22\}"/>**
 </Solution>
 
+**3.** What does find() do in QuickFind?
+
+<Solution>
+It finds the representative of the set that the verticie is in.
+</Solution>
+
+**4.** What does Union() do in QuickFind?
+
+<Solution>
+It takes the representative of verticie p, goes through the representative array and see if any other verticies have that same representative and change those to the representative of q.
+</Solution>
+
 ## QuickUnion
 
+First, let's explain the vocab needed for quickUnion in this quick 20 second video.
+
+<iframe src="https://www.youtube.com/embed/gHF7b7mrTj8?si=jUaEekrunk16pBz-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## How to play
+
+Union(p,q) means make the root of p, the child of the root of q. 
+
+The way I remember this is to make the root of the people the child of the root of the queen. 
+
+Since the 'people' are subjects of the 'queen'. The people's things should be below the queen's things. 
+
+In other words, we connect the root of P to the root of Q by putting the root of p below the root of Q so making it a child of rootQ.
+
+<iframe src="https://www.youtube.com/embed/QbrnfQ-tjL0?si=CAtSwwVxCT3vsSBj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## How to code
 
-## QuickWeightedUnion
+## Quick Weighted Union
 
+This version of the game is the same as Quick Union except we don't care about status anymore. Meaning the root of the 'people' doesn't always have to become the child of the root of the 'queen'. Status isn't everything. Now, we make the root of the **smaller** set be the child of the other root. You can see this in action once we get to Union(3,1) in the video below. 
 
 ## How to play
+
+<iframe src="https://www.youtube.com/embed/pvv7X_4VvXM?si=fe22DbFio69H_N-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## How to code
 

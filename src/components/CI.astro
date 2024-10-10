@@ -1,0 +1,115 @@
+---
+import { Prism } from '@astrojs/prism';
+
+const { img, alt, lang, code, fileName } = Astro.props;
+---
+
+<div class="container">
+  <!-- Code block with attached file name -->
+  <div class="code-wrapper">
+    <div class="code-content">
+      <p class="file-name">{fileName}</p>
+      <div class="prism-wrapper">
+        <Prism lang={lang} code={code} />
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side: image aligned with code -->
+  <div class="image-wrapper">
+    <div class="image-content">
+      {img && <img src={img.src} alt={alt} />}
+      {alt && <p class="alt-text">{alt}</p>}
+      <slot></slot>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .code-wrapper, .image-wrapper {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .code-content {
+    width: 100%;
+  }
+
+  .file-name {
+    margin-bottom: 0;
+    background: #030314;
+    color: rgb(189, 189, 189);
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 0.8rem;
+    width: fit-content;
+    min-width: min-content;
+    position: relative;
+    top:2px;
+  }
+
+  .prism-wrapper {
+    background: #030314;
+    border-radius: 5px;
+  }
+
+  .prism-wrapper :global(pre) {
+    margin: 0;
+    border-top-left-radius: 0;
+  }
+
+  .image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 300px; /* Adjust as needed */
+  }
+
+  .alt-text {
+    font-size: 0.85rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .code-wrapper, .image-wrapper {
+      max-width: 100%;
+    }
+
+    .code-wrapper {
+      order: 1;
+    }
+
+    .image-wrapper {
+      order: 2;
+    }
+  }
+</style>

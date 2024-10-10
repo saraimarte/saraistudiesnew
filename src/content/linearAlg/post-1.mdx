@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Linear Systems, Matrix Notation & REF/RREF
+title: 1.1|1.2 Linear Systems & Echelon Forms
 pubDate: 2024-09-04T00:00:00Z 
 updatedDate: 2024-10-01T00:00:00Z 
 draft: false
@@ -10,11 +10,13 @@ slug: linear-sytems-matrix-notation-and-ref-rref
 
 import F from '@components/F.astro';
 import Latex from '@components/Latex.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
 
 # Motivation
 
 <F>
-Remember linear equations like y = x + 2 or y = 2x + 2?
+Remember linear equations from algebra class?
 </F> 
 
 <F>
@@ -25,7 +27,7 @@ One problem we had in algebra was to find where 2 of these lines intersected.
 **Recall:** A collection of linear equations is called a system of linear equations. 
 </F>
 
-So, the problem really was solving a system of equations because where two lines meet is the solution to a system of equations.
+So, the problem really was solving a system of equations because where two lines meet *is* the solution to a system of equations.
 
 <F>
 **Q:** How did we solve these systems before?
@@ -116,7 +118,6 @@ Before we use them, let's actually go over what they are.
 
 Great! Now, that we know how to write a matrix, why we need to get it into REF or RREF form and what we need to do so (elementary row operations) we can go ahead and start. 
 
-
 But first a note: 
 
 Remember when I said that our goal is to get any matrix in a form where there is one 1 entry in a row and everything else is zero (meaning system has unique solutions for every variable) or something close to that (meaning system has many solutions for some variables)?
@@ -138,3 +139,165 @@ Let's do our first example. This example will also cover a discussion about solu
 
 # Practice 
 
+Solve the following systems of equations.
+
+<Problem n = "1">
+
+<p>
+x<sub>1</sub> + 5x<sub>2</sub> = 7  
+x<sub>1</sub> + 2x<sub>2</sub> = -2
+</p>
+
+</Problem>
+
+<Solution>
+**x<sub>1</sub> = -8  
+x<sub>2</sub> =  3**
+</Solution>
+
+<Problem n = "2">
+<p>
+x<sub>1</sub> + 5x<sub>2</sub> = 7  
+x<sub>1</sub> - 2x<sub>2</sub> = -2
+</p>
+</Problem>
+<Solution>
+**x<sub>1</sub> = 4/7   
+x<sub>2</sub> = 9/7**  
+</Solution>
+
+<Problem n = "3">
+<p>
+x<sub>1</sub> + 3x<sub>2</sub> - 6x<sub>3</sub> + 6x<sub>4</sub> = 4  
+3x<sub>1</sub> + -7x<sub>2</sub> + 8x<sub>3</sub> - 5x<sub>4</sub> = 8  
+3x<sub>1</sub> + -8x<sub>2</sub> +  10x<sub>3</sub> - 9x<sub>4</sub> = 9  
+
+</p>
+</Problem>
+<Solution>
+
+<Latex formula = "\begin{bmatrix}
+0 & 3  & -6  & 6  & 4 \\
+3 & -7 & 8  & -5 & 8 \\
+3 & -8 & 10 & -9 & 9 \\
+\end{bmatrix}"/>
+
+
+X<sub>1</sub> = 167/18 - 2**x<sub>3</sub>**  
+x<sub>2</sub> = 11/3 + 2**x<sub>3</sub>**  
+x<sub>3</sub> = **x<sub>3</sub>**    
+x<sub>4</sub> = -7/6 
+
+Recall:**x<sub>3</sub> is a free variable** since it is **not** a pivot column. That means we need to put our solutions in terms of x<sub>3</sub> aka **have every variable equal to something involving x<sub>3</sub> except variables who's solutions are constants like x<sub>4</sub>**.
+
+</Solution>
+
+For the following problems, the augmented matricies of a linear system have been reduced to the form shown below. For each of the problems, continue the row operations if possible and describe the solution set of the their respective original systems. 
+
+<Problem n = "4">
+
+<Latex formula = "\begin{bmatrix}
+1 & 7  & 3  & -4 \\
+0 & 1  & -1 & 3  \\
+0 & 0  & 1  & 0  \\
+0 & 0  & 1  & -2 \\
+\end{bmatrix}"/>
+
+</Problem>
+<Solution>
+
+**No Solution.** 
+
+You can see it once you get to REF(A) that 0 = 1 and that is not true. Anytime you see something that is not true **once in REF** then that means there is no solution to the system. 
+
+</Solution>
+
+<Problem n = "5">
+
+<Latex formula = "\begin{bmatrix}
+1 & 0  & 0  & 1 \\
+1 & 0  & 5  & 9 \\
+7 & 0  & 0  & -7 \\
+\end{bmatrix}"/>
+
+</Problem>
+<Solution>
+
+Notice, it's already in REF so just make it RREF form. 
+
+**x<sub>1</sub> = -4     
+x<sub>2</sub> = 9   
+x<sub>3</sub> = -1** 
+</Solution>
+
+For the following problems, determine an equation involving g, h, and k that makes the following augmented matricies the augmented matricies of a consistent system.
+
+<Problem n = "6">
+<Latex formula = "\begin{bmatrix}
+1  & -2 & 5  & g \\
+0  & 2  & -3 & h \\
+-3 & 5  & -9 & k \\
+\end{bmatrix}"/>
+</Problem>
+
+<Solution>
+
+**2h + 3g + k = 0**
+
+In other words, for this system to have a solution, 2h + 3g + k needs to be 0. If not, we will have 0 = n where n is some nonzero number and *that* is not true so it would be no solution.
+</Solution>
+
+<Problem n = "7">
+<Latex formula = "\begin{bmatrix}
+1  & -4 & 7  & g \\
+0  & 3  & -5 & h \\
+-2 & 5  & -9 & k \\
+\end{bmatrix}"/>
+</Problem>
+
+<Solution>
+**k + 2g + h = 0** 
+
+For the same reasons as problem 6.
+</Solution>
+
+Choose h and k so that the system has (a) no solution, (b) unique solution, (c) many solutions.
+<Problem n = "8">
+<p>
+x<sub>1</sub> + hx<sub>2</sub> = 2  
+4x<sub>1</sub> + 8x<sub>2</sub> = k
+</p>
+</Problem>
+
+<Solution>
+**No Solution:** h = 2 k ≠ 8   
+**Unique Solution:** h ≠ 2  
+**Many Solution:** h = 2 k = 8
+
+Here you have to use the defintion of a system of linear equation that is:  
+a<sub>1</sub>x<sub>1</sub> + b<sub>1</sub>x<sub>2</sub> = c<sub>1</sub>  
+a<sub>2</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> = c<sub>2</sub>  
+
+and it's following properties: 
+
+For **No Solution:** the following has to be true:
+
+a<sub>1</sub>x<sub>1</sub>/a<sub>2</sub>x<sub>1</sub> =  b<sub>1</sub>x<sub>2</sub>/b<sub>2</sub>x<sub>2</sub> ≠ c<sub>1</sub>/c<sub>2</sub>  
+
+For **Unique Solution:** the following has to be true:
+
+a<sub>1</sub>x<sub>1</sub>/a<sub>2</sub>x<sub>1</sub> ≠  b<sub>1</sub>x<sub>2</sub>/b<sub>2</sub>x<sub>2</sub> 
+
+For **Many Solutions:** the following has to be true:
+
+a<sub>1</sub>x<sub>1</sub>/a<sub>2</sub>x<sub>1</sub> =  b<sub>1</sub>x<sub>2</sub>/b<sub>2</sub>x<sub>2</sub> = c<sub>1</sub>/c<sub>2</sub>  
+
+</Solution>
+
+<Problem n = "9">
+<p>A system of linear equations with fewer equations than unknowns is sometimes called an underdetermined system. Say that the system is consistent. Why must there be an infinite number of solutions?</p>
+</Problem>
+
+<Solution>
+If there are not enough equations to solve for the unknowns then that means there must be a free variable that most of those unknowns will depend on. That free variable is *free* to be anything we want it to be so there will be infinitely many solutions.
+</Solution>

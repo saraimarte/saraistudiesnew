@@ -1,0 +1,43 @@
+---
+layout: '@layouts/Blog.astro'
+title: 1.4 The Matrix Equation Ax = b
+pubDate: 2024-09-11T00:00:00Z 
+updatedDate: 2024-09-11T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: post4
+---
+
+import Latex from '@components/Latex.astro';
+import Problem from '@components/Problem.astro';
+
+In this lesson, we will be learning how to multiply matricies (A) and vectors (**x**) together to give us another vector **b**.
+
+Hence A • **x** = A**x**=**b**
+
+Compute the following products. 
+
+<Problem n = "1">
+<Latex formula = "\begin{bmatrix} 8 & 3 & 1 \\ 5 & 1 & 2 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}"/>
+</Problem>
+
+<Problem n = "2">
+<Latex formula = "\begin{bmatrix} 2 \\ 6 \\ -1 \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix}"/>
+</Problem>
+
+Sometimes you will be given a matrix and the result but not the vector. You will have to find the vector.
+
+<Latex formula = "A = \begin{bmatrix} 1 & 2 & 4 \\ 0 & 1 & 5 \\ -2 & -4 & -3 \end{bmatrix}, \quad b = \begin{bmatrix} -2 \\ 2 \\ 9 \end{bmatrix}"/>
+
+Finally, you will be asked to find the solution (what the vector is) when vector **b** is equal to 0. 
+
+In other words, you have to learn how to solve for A**x** = **b**.
+
+Describe all solutions to A**x** = 0.
+
+<Latex formula = "\begin{bmatrix} 
+1 & -4 & -2 & 0 & 3 & -5 \\ 
+0 & 0 & 1 & 0 & 0 & -1 \\ 
+0 & 0 & 0 & 0 & 1 & -4 \\ 
+0 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix}"/>

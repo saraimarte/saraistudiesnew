@@ -1,0 +1,40 @@
+---
+layout: '@layouts/Blog.astro'
+title: 1.8 Intro to Linear Transformations 
+pubDate: 2024-09-11T00:00:00Z 
+updatedDate: 2024-09-11T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: post8
+---
+
+import Latex from '@components/Latex.astro';
+
+In this lesson, we will learn how to transform vectors to another dimension (or the same)!
+
+All we're doing is taking any vector **x** and transforming it so it turns to T(**x**).
+
+How do we transform it?
+
+We multiply by a matrtix like so A**x**.
+
+This matrix acts on the vector to transform it into T(**x**) read as the transformed version of vector **x**. 
+
+Sometimes, your given what we would like the transformation to be and you need to solve for what the martix should be in order to transform **x** to T(**x**).
+
+Think of T as a function! It takes in something and outputs something else.
+
+In this case, it takes in vector **x** and outputs the transformed version of vector **x** or in other words the **image** of **x**. 
+
+# Solve for the Image T(x)
+
+<Latex formula = "Let  \mathbf{A} = \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}. \text{ Find the images under T of the vector } \mathbf{u} = \begin{bmatrix} 1 \\ -3 \end{bmatrix}."/>
+
+# Solve for the Vector x
+
+Find a vector **x** whose image under T is **b**, and determine whether **x** is unique. 
+
+<Latex formula = "\mathbf{A} = \begin{bmatrix} 1 & -3 & 2 \\ 0 & 1 & -4 \\ 3 & -5 & -9 \end{bmatrix}, \mathbf{b} = \begin{bmatrix} 6 \\ -7 \\ -9 \end{bmatrix}."/>
+
+
+# Solve for the Matrix A

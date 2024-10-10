@@ -1,8 +1,8 @@
 ---
 layout: "@layouts/Blog.astro"
-title: ✅ Trig Subtitution
+title: 8.4 Trig Subtitution
 pubDate: 2024-05-19T00:00:00Z
-updatedDate: 2000-01-01T00:00:00Z
+updatedDate: 2024-10-09T00:00:00Z
 draft: false
 author: Sarai Marte
 slug: trig-substitution
@@ -12,16 +12,13 @@ import ImageMd from "@components/ImageMd.astro";
 import Solution from "@components/Solution.astro";
 import Problem from "@components/Problem.astro";
 import FAQ from "@components/FAQ.astro";
+import Latex from '@components/Latex.astro';
 
 import img1 from "@images/152/51.svg";
 import img2 from "@images/152/52.svg";
 import img3 from "@images/152/53.svg";
 import img4 from "@images/152/54.svg";
 import img5 from "@images/152/55.svg";
-
-ToDO- trig sub with completing the Square vid pt 2 the weird trig subs
--trig sub video pt 1 three normal squares
-Trig Sub is another integration technique.
 
 # FAQ
 
@@ -36,7 +33,6 @@ The 'tell' or the 'main thing' as I call it sometimes is a **root that contains 
 <FAQ question = "How do I memorize the triangles? (You don't)">
 
 <iframe
- 
   src="https://www.youtube.com/embed/EF3aSfW27rw?si=w1RYj6S9Fs97pbNY"
   title="YouTube video player"
   frameborder="0"
@@ -68,7 +64,7 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 <Solution>
 
-**Answer: x/sqrt(4+x<sup>2</sup>) + C**
+<Latex formula="\mathbf{\frac{x}{4\sqrt{4 + x^2}} + C}"/>
 
 <iframe
  
@@ -86,7 +82,7 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 <Solution>
 
-**Answer: 9π**
+**9π**
 
 <iframe
  
@@ -116,15 +112,15 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 <Problem number="1" img={img4} alt="Problem 1" />
 
 <Solution>
-  **Answer: sqrt(x<sup>2</sup>-4) - 2 arcsec(x/2) + C** Use U Sub
+<Latex formula="\frac{1}{2} \text{arcsec} \left( \frac{x}{2} \right) + C"/>
 </Solution>
 
 <Problem number = "2" img = {img2} alt = "Problem 2"/>
 <Solution>
-**Answer: -ln|sqrt(3)| + ln|sqrt(2) + 1|**
+<Latex formula="-\ln{\left| \sqrt{3} \right|} + \ln{\left| \sqrt{2} + 1 \right|}"/>
+
 
 <iframe
- 
   src="https://www.youtube.com/embed/DskUROMkPrg?si=KkCSx2B6J5idFqkc"
   title="YouTube video player"
   frameborder="0"
@@ -137,7 +133,7 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 <Problem number = "3" img = {img3} alt = "Problem 3"/>
 <Solution>
-**Answer: sqrt(x<sup>2</sup>-4) - 2 arcsec(x/2) + C**
+<Latex formula="\sqrt{x^2 - 4} - 2 \, \text{arcsec}\left(\frac{x}{2}\right) + C"/>
 
 <iframe
  
@@ -150,3 +146,14 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 ></iframe>
 
 </Solution>
+
+<Latex formula="\int_{1}^{\sqrt{2}} \frac{dx}{x^2 \sqrt{x^2 - 25}}"/>
+
+<Solution>
+<iframe src="https://www.youtube.com/embed/rFkb-KiEYRU?si=5Iit-MMnu6jV7S_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
+ToDO- trig sub with completing the Square vid pt 2 the weird trig subs
+-trig sub video pt 1 three normal squares
+Trig Sub is another integration technique.

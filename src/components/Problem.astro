@@ -4,6 +4,7 @@ import Latex from '../components/Latex.astro'; // Adjust the path as needed
 const { n, img } = Astro.props;
 ---
 
+
 <div class="card">
   <div class="content">
     {img && <img src={img.src} alt= {'Problem ' + n} />}
@@ -15,9 +16,10 @@ const { n, img } = Astro.props;
 
 <style>
 
-.problem{
+.card{
   display: flex;
-  gap:1em;
+  gap:2em;
+
 }
 .content {
   display: flex;
