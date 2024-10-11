@@ -15,9 +15,6 @@ import FAQ from "@components/FAQ.astro";
 import Latex from '@components/Latex.astro';
 
 import img1 from "@images/152/51.svg";
-import img2 from "@images/152/52.svg";
-import img3 from "@images/152/53.svg";
-import img4 from "@images/152/54.svg";
 import img5 from "@images/152/55.svg";
 
 # FAQ
@@ -109,16 +106,20 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 ## Practice
 
-<Problem number="1" img={img4} alt="Problem 1" />
+<Problem n="1">
+<Latex formula = "\int \frac{1}{x \sqrt{x^2 - 4}} \, dx" />
+</Problem>
 
 <Solution>
 <Latex formula="\frac{1}{2} \text{arcsec} \left( \frac{x}{2} \right) + C"/>
 </Solution>
 
-<Problem number = "2" img = {img2} alt = "Problem 2"/>
+<Problem n = "2">
+<Latex formula = "\int_{1}^{\sqrt{3}} \frac{1}{x \sqrt{x^2 + 1}} \, dx" />
+</Problem>
+
 <Solution>
 <Latex formula="-\ln{\left| \sqrt{3} \right|} + \ln{\left| \sqrt{2} + 1 \right|}"/>
-
 
 <iframe
   src="https://www.youtube.com/embed/DskUROMkPrg?si=KkCSx2B6J5idFqkc"
@@ -131,7 +132,10 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 </Solution>
 
-<Problem number = "3" img = {img3} alt = "Problem 3"/>
+<Problem n = "3" >
+<Latex formula = "\int \frac{\sqrt{x^2 - 4}}{x} \, dx" />
+</Problem>
+
 <Solution>
 <Latex formula="\sqrt{x^2 - 4} - 2 \, \text{arcsec}\left(\frac{x}{2}\right) + C"/>
 
@@ -147,13 +151,10 @@ You pick the triangle that contains the form of your 'tell' or the 'main thing'.
 
 </Solution>
 
+<Problem n = "4" >
 <Latex formula="\int_{1}^{\sqrt{2}} \frac{dx}{x^2 \sqrt{x^2 - 25}}"/>
+</Problem>
 
 <Solution>
 <iframe src="https://www.youtube.com/embed/rFkb-KiEYRU?si=5Iit-MMnu6jV7S_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
-
-
-ToDO- trig sub with completing the Square vid pt 2 the weird trig subs
--trig sub video pt 1 three normal squares
-Trig Sub is another integration technique.
