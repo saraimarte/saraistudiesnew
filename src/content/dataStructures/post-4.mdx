@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Linked Lists
+title: Linked Lists (Singly/Single)
 pubDate: 2024-09-16T00:00:00Z 
 updatedDate: 2024-09-16T00:00:00Z 
 draft: false
@@ -27,7 +27,7 @@ Do you remember in 111 where they had us insert an element at the beginning of a
 
 We would have to access each element and move it down one. 
 
-If we had n elements then we would have to do that n times hence the time complexity is in order of n times or O(n).
+If we had n elements then we would have to do that n times hence the complexity would be O(n).
 
 The question is, is there another data structure we can use where it will take less time to insert an element at the beginning of it?
 
@@ -35,7 +35,11 @@ The answer is, yes! It's called a linked list.
 
 A linked list is a data structure where we can only add to the beginning of the list and only remove from the beginning of the list. 
 
-So we don't have to traverse the whole list like we do a list in order to move everything over. 
+So we don't have to traverse the whole list like we do an array in order to move everything over. 
+
+Either watch the following video or just read!
+
+<iframe src="https://www.youtube.com/embed/j-XOjhz4mvI?si=dvpKToBJUzk98JNZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Linked List: The Idea
 
@@ -139,7 +143,7 @@ This is what your linked list looks like
 
 # Practice
 
-First, I suggest attempting to write this code from scratch until you got it then feel free to attempt the following problems. 
+First, I suggest attempting to write the code above from scratch until you got it then feel free to attempt the following problems. 
 
 **1.** Add an **isEmpty()** method that will return a boolean true if the linked list is empty, false when it is not empty.
 

@@ -16,11 +16,11 @@ import Solution from '@components/Solution.astro';
 # Motivation
 
 <F>
-Remember linear equations from algebra class?
+Remember linear equations from algebra class? These equations represented lines. 
 </F> 
 
 <F>
-One problem we had in algebra was to find where 2 of these lines intersected.
+One problem we had in algebra was to find where 2 lines intersected.
 </F>
 
 <F>
@@ -83,9 +83,41 @@ and if we simplify and remove all jargon we get:
 \end{aligned}
 "/>
 
-So, what does this tell me? I want to get my matrix into a form where I have one 1 in each row (with zeros everywhere else in that row), or as close as possible to that form, so I can easily find the solutions to my system!
+What is this?
+
+It's the unique solutions to this system!
+
+Unique because each variable has a unique value. 
+
+So, what does this tell me?
+
+It tells me that I *want* to get my matrix into a form where I have one 1 in each row (with zeros everywhere else in that row), or as close as possible to that form*, so I can easily find the solutions to my system!
 
 Now, there is a name for that form. It's called reduced row echelon form (RREF.)
+
+* But why did I say "as close as possible to that form"? Because there is another version of RREF and that is one that gives you many solutions. 
+
+For example, 
+
+<Latex formula = '\begin{bmatrix}
+    1 & 0 & 0 & | & 1 \\
+    0 & 1 & 2 & | & 2 \\
+\end{bmatrix}'/>
+
+
+<Latex formula = "\begin{aligned}
+1x_1 + 0x_2 + 0x_3 &= 1 \\
+0x_1 + 1x_2 + 2x_3 &= 2 \\
+\end{aligned}
+"/>
+
+<Latex formula = "\begin{aligned}
+    x_1 = 1 \\
+    x_2 = 2 - x_3 \\
+\end{aligned}
+"/>
+
+What does this tell me?
 
 # Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
 
