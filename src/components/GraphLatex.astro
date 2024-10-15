@@ -1,0 +1,21 @@
+---
+import tex2svg from 'node-tikzjax';
+const { source } = Astro.props;
+
+let svgOutput = '';
+
+async function renderTikZ() {
+  try {
+    svgOutput = await tex2svg(source);
+  } catch (error) {
+    console.error('Error rendering TikZ:', error.message || error);
+    svgOutput = '<p>Error rendering TikZ diagram.</p>';
+  }
+}
+
+renderTikZ();
+---
+
+<div>
+  <span set:html={svgOutput} />
+</div>

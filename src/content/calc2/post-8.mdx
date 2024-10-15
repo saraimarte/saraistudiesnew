@@ -7,3 +7,89 @@ draft: false
 author: Sarai Marte
 slug: trig-integrals
 ---
+
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+
+# Products of Powers of Sines and  Cosines
+
+<RuleBox>
+
+<Latex formula = "\int \sin^m(x) \cos^n(x) \, dx" />
+
+<p>With these types of problems you have 3 scenerios.</p>
+
+<p><b>Case 1 </b>If<b> m odd</b> → Rewrite using <b>sin<sup>2</sup>(x) = 1 -cos<sup>2</sup>(x)</b> then do u-Sub</p>
+
+<p><b>Case 2 </b>If<b> n odd </b> → Rewrite Using <b>cos<sup>2</sup>(x) = 1 -sin<sup>2</sup>(x)</b> then do u-Sub</p>
+
+<p><b>Case 3 </b>If <b> n & m both even </b> → we rewrite using either of the following</p> 
+
+<Latex formula = "\mathbf{\textcolor{red}{\boldsymbol{\sin}^2(x)}} = \frac{1 \mathbf{\textcolor{red}{\boldsymbol{-}}} \cos(2x)}{2}" />
+<Latex formula = "\cos^2(x) = \frac{1 + \cos(2x)}{2}" />
+
+<b> Tip! </b>
+<p> The formulas above are the same thing the only thing that is different are the signs. I remember sin<sup>2</sup>(x) as having the negative sign because <span style = "color:red; font-weight:bold"> sin is bad </span> so <span style = "color:red; font-weight:bold">sin means negative. </span></p>
+
+<p>These are called **half** angle formulas which makes sence because they both **halve** the 1 +/- cos(2x).</p>
+
+</RuleBox>
+
+
+## Case 1
+<Latex formula = "\int \sin^3(x) \cos^2(x) \, dx" />
+
+
+## Case 2
+
+<Latex formula="\int \cos^5(x) \, dx" />
+
+
+## Case 3
+
+<Latex formula = "\int \sin^2(x) \cos^4(x) \, dx"/>
+
+
+# Integrating Square Roots
+
+<RuleBox>
+
+We can use the following identity to eliminate a square root:
+
+<Latex formula = "\cos^2(\theta) = \frac{1 + \cos(2\theta)}{2} \, \text{ or } \, 1 + \cos(2\theta) = 2\cos^2(\theta)"/>
+
+</RuleBox>
+
+# Products of Powers of Tangents and Secants. 
+
+<RuleBox>
+
+We can use the following identities to simplify our integral.
+
+tan<sup>2</sup>x = sec<sup>2</sup> - 1 or sec<sup>2</sup>x = tan<sup>2</sup>x + 1
+
+Afterwards, if needed, do integration by parts. 
+
+</RuleBox>
+
+# Products of Sines and  Cosines
+
+These we can all solve with integration by parts but there are identities you can simply memorize to solve these faster. 
+
+<RuleBox>
+
+These we can all solve with integration by parts but there are identities you can simply memorize to solve these faster. 
+
+If you have the following integrands you can use rewrite them using their respective identities. 
+
+<Latex formula = "\sin(mx) \sin(nx) = \frac{1}{2}[\cos((m-n)x) - \cos((m+n)x)]"/>
+
+<Latex formula = "\sin(mx) \sin(nx) = \frac{1}{2}[\sin((m-n)x) + \sin((m+n)x)]"/>
+
+<Latex formula = "\cos(mx) \cos(nx) = \frac{1}{2}[\cos((m-n)x) + \cos((m+n)x)]"/>
+
+</RuleBox>
+
+# Review of Trig U-Sub
+
+# Review of Simplifying Trig Fractions 
