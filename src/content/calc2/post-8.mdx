@@ -2,7 +2,7 @@
 layout: '@layouts/Blog.astro'
 title: 8.3 Trig Integrals
 pubDate: 2024-01-05T00:00:00Z 
-updatedDate: 2000-01-01T00:00:00Z 
+updatedDate: 2024-10-15T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: trig-integrals
@@ -35,7 +35,6 @@ import RuleBox from '@components/Rule.astro';
 
 </RuleBox>
 
-
 ## Case 1
 <Latex formula = "\int \sin^3(x) \cos^2(x) \, dx" />
 
@@ -62,25 +61,31 @@ We can use the following identity to eliminate a square root:
 
 # Products of Powers of Tangents and Secants. 
 
+
 <RuleBox>
 
-We can use the following identities to simplify our integral.
+<Latex formula = "\int \tan^m(x) \sec^n(x) \, dx" />
 
-tan<sup>2</sup>x = sec<sup>2</sup> - 1 or sec<sup>2</sup>x = tan<sup>2</sup>x + 1
+<p>With these types of problems you have 3 scenerios.</p>
 
-Afterwards, if needed, do integration by parts. 
+<p><b>Case 1 </b>If<b> m odd</b> → Rewrite using <b>tan<sup>2</sup>(x) = sec<sup>2</sup>(x) -1</b> then do u-Sub</p>
 
+<p><b>Case 2 </b>If<b> n even </b> → Rewrite Using <b>sec<sup>2</sup>(x) = 1 + tan<sup>2</sup>(x)</b> then do u-Sub</p>
+
+<p><b>Case 3 </b>If<b> m even and n = 0 </b> → Rewrite Using <b>tan<sup>2</sup>(x) = sec<sup>2</sup>(x) -1</b> then do u-Sub</p>
+
+Afterwards, you may do integration by parts if needed.
+
+<p><b>Tip!</b> The way I remember these rules are mnm like the choclate m&m's and then tan sec tan=.</p>
 </RuleBox>
 
 # Products of Sines and  Cosines
 
-These we can all solve with integration by parts but there are identities you can simply memorize to solve these faster. 
-
 <RuleBox>
 
-These we can all solve with integration by parts but there are identities you can simply memorize to solve these faster. 
+<p>These we can all solve with integration by parts but there are identities you can simply memorize to solve these faster.</p> 
 
-If you have the following integrands you can use rewrite them using their respective identities. 
+<p>If you have the following integrands you can use rewrite them using their respective identities. </p>
 
 <Latex formula = "\sin(mx) \sin(nx) = \frac{1}{2}[\cos((m-n)x) - \cos((m+n)x)]"/>
 
