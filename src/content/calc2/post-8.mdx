@@ -10,6 +10,9 @@ slug: trig-integrals
 
 import Latex from '@components/Latex.astro';
 import RuleBox from '@components/Rule.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
+import ImageMd from '@components/ImageMd.astro';
 
 # Products of Powers of Sines and  Cosines
 
@@ -35,16 +38,18 @@ import RuleBox from '@components/Rule.astro';
 
 </RuleBox>
 
-## Case 1
+## Examples 
+
+### Case 1
 <Latex formula = "\int \sin^3(x) \cos^2(x) \, dx" />
 
 
-## Case 2
+### Case 2
 
 <Latex formula="\int \cos^5(x) \, dx" />
 
 
-## Case 3
+### Case 3
 
 <Latex formula = "\int \sin^2(x) \cos^4(x) \, dx"/>
 
@@ -56,11 +61,16 @@ import RuleBox from '@components/Rule.astro';
 We can use the following identity to eliminate a square root:
 
 <Latex formula = "\cos^2(\theta) = \frac{1 + \cos(2\theta)}{2} \, \text{ or } \, 1 + \cos(2\theta) = 2\cos^2(\theta)"/>
+<Latex formula = "\sin^2(\theta) = \frac{1 - \cos(2\theta)}{2} \, \text{ or } \, 1 - \cos(2\theta) = 2\sin^2(\theta)"/>
+
+These are the same as the first brainbox- they're the half angle identities. 
 
 </RuleBox>
 
-# Products of Powers of Tangents and Secants. 
+<Latex formula = "\int_0^{\frac{\pi}{2}} \sqrt{1 - \cos(2x)} \, dx"/>
 
+
+# Products of Powers of Tangents and Secants. 
 
 <RuleBox>
 
@@ -78,6 +88,29 @@ Afterwards, you may do integration by parts if needed.
 
 <p><b>Tip!</b> The way I remember these rules are mnm like the choclate m&m's and then tan sec tan=.</p>
 </RuleBox>
+
+## Examples
+
+### Case 1 
+
+<Latex formula = "\int \tan^3(\theta) \sec^5(\theta) \, d\theta" />
+
+
+### Case 2
+<Latex formula = "\int \sec^4(2x) \tan^6(2x) \, dx" />
+
+### Case 3
+<Latex formula = "\int_0^{\frac{\pi}{21}} \tan^3(7\theta) \, d\theta" />
+
+
+## Practice 
+
+<Problem n = "1">
+<Latex formula = "\int_0^{\frac{\pi}{21}} \tan^3(7\theta) \, d\theta"/>
+</Problem>
+<Solution>
+<Latex formula = "\frac{1 - \ln(2)}{7}" />
+</Solution>
 
 # Products of Sines and  Cosines
 
@@ -98,3 +131,7 @@ Afterwards, you may do integration by parts if needed.
 # Review of Trig U-Sub
 
 # Review of Simplifying Trig Fractions 
+
+
+
+

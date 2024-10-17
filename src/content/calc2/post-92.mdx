@@ -1,24 +1,82 @@
 ---
 layout: '@layouts/Blog.astro'
-title: 8.8 Improper Integrals
-pubDate: 2024-03-03T00:00:00Z 
-updatedDate: 2000-01-01T00:00:00Z 
+title: 10.1 Sequences
+pubDate: 2024-10-16T00:00:00Z 
+updatedDate: 2024-10-16T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: improper-integrals
+slug: sequences
 ---
 
-So far, we have only been given functions that are defined within the bounds but now we'll be dealing with the opposite.
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
+import ImageMd from '@components/ImageMd.astro';
 
-There are 2 types of improper integrals.
+A **sequence** is a list of numbers that never ends! 
 
-Type 1 : One of the bounds contain an infinity symbol
+A very cool fact: sometimes, as the list keep going, the numbers start to settle closer and closer to a specific value.
 
-Type 2 : All bounds are anything but infinity symbols- like numbers. But at least one of them OR a number in between the bounds have to make the function being integrated undefined.
+Isn't that interesting?
 
-# Type 1 
+When that happens we say that the sequence **converges** to that certain number. 
 
+Let's take a look at an example. 
 
+The following is a sequence ,
 
-# Type 2
+<Latex formula = "a_n = \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...\right\}" />
 
+Here, a<sub>n</sub> is just a fancy way of saying "sequence."
+
+Another way to think of a sequence is as a function a(**n**), read as "a of n". 
+
+This is a function where you input a number **n**  and get a value back for your sequence called a<sub>n</sub> read as "a sub n". 
+
+For example, for the first value of the sequence, we call that '1' a<sub>1</sub>. 
+
+Again, read as "a sub 1" or more intuitivley "a at n = 1." 
+
+It's what you get for your sequence when you plug in 1. 
+
+Here, you can see that each value is simply a of n. 
+
+<Latex formula = "a_n = \left\{ 
+\begin{array}{c} 
+1 \\ a_1 
+\end{array}, 
+\begin{array}{c} 
+\frac{1}{2} \\ a_2 
+\end{array}, 
+\begin{array}{c} 
+\frac{1}{3} \\ a_3 
+\end{array}, 
+\begin{array}{c} 
+\frac{1}{4} \\ a_4 
+\end{array}, 
+\dots \right\}" />
+
+If you look closely you can see that the numbers in the sequence follow a pattern. The 1's keep being divided by bigger and bigger numbers. 
+
+<Latex formula = "a_n = \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}, \frac{1}{7}, \frac{1}{8}, \frac{1}{9}, \frac{1}{10}, \frac{1}{11}, \frac{1}{12}, \dots \right\}" />
+
+If you think about it, if you keep dividing one whole infinity, that whole is going to get infinity smaller. So so small that it will end up just disappearing! (Think of cutting one whole pizza infinitly- the peices will get infinitly smaller.) It will be 0!
+
+So, **this sequence converges to 0**!
+
+Now, we say it converges to 0 just by looking at it but we could have just figured it out by using calculus.
+
+The question is: "What certain value are the numbers in this sequence getting closer and closer to as the sequence goes on forever?"
+
+Another way to ask that question: "What certain value are the numbers in this sequence being limited to as the sequence keeps going on infinitly?"
+
+That's calculus speak for "hey, just find the limit as the sequence approaches infinity."
+
+In other words,
+
+<Latex formula = "\lim\limits_{n \to \infty} \, a_n" />
+
+You can take the limit of any sequence as the values inside (the n values) approach infinity and if the limit exists then you say that the sequence converges to that value.
+
+If the limit does not exist, that intuitively means that the numbers in the sequence are not being limited to any value hence we say the sequence **diverges**. 
