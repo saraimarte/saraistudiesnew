@@ -36,9 +36,11 @@ This is a function where you input a number **n**  and get a value back for your
 
 For example, for the first value of the sequence, we call that '1' a<sub>1</sub>. 
 
-Again, read as "a sub 1" or more intuitivley "a at n = 1." 
+Again, read as "a sub 1" or more intuitivley "a at n = 1." where a is your function. 
 
 It's what you get for your sequence when you plug in 1. 
+
+Let's look at that result again:
 
 Here, you can see that each value is simply a of n. 
 
@@ -57,11 +59,11 @@ Here, you can see that each value is simply a of n.
 \end{array}, 
 \dots \right\}" />
 
-If you look closely you can see that the numbers in the sequence follow a pattern. The 1's keep being divided by bigger and bigger numbers. 
+Now, if you look closely you can see that the numbers in the sequence follow a pattern. The 1's keep being divided by bigger and bigger numbers. 
 
 <Latex formula = "a_n = \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}, \frac{1}{7}, \frac{1}{8}, \frac{1}{9}, \frac{1}{10}, \frac{1}{11}, \frac{1}{12}, \dots \right\}" />
 
-If you think about it, if you keep dividing one whole infinity, that whole is going to get infinity smaller. So so small that it will end up just disappearing! (Think of cutting one whole pizza infinitly- the peices will get infinitly smaller.) It will be 0!
+If you think about it, if you keep dividing one whole infinity, that whole is going to get infinity smaller. So so small that it will end up just disappearing! (Think of cutting one whole pizza infinitly- the pieces will get infinitly smaller.) It will be 0!
 
 So, **this sequence converges to 0**!
 
@@ -77,6 +79,88 @@ In other words,
 
 <Latex formula = "\lim\limits_{n \to \infty} \, a_n" />
 
-You can take the limit of any sequence as the values inside (the n values) approach infinity and if the limit exists then you say that the sequence converges to that value.
+You can take the limit of any sequence as the values inside (the n values) approach infinity and if the limit exists then you say that the sequence converges to that specific value.
 
 If the limit does not exist, that intuitively means that the numbers in the sequence are not being limited to any value hence we say the sequence **diverges**. 
+
+Now, let's say I wanted to prove this sequence converged to 0 with a limit. Well, I would have to take the limit of the sequence. 
+
+But as of now that just looks like this: 
+
+<Latex formula = "\lim\limits_{n \to \infty} \, \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...\right\}" />
+
+but taking the limit of that doesn't really make sense.
+
+We usually take a limit of a function that has variables and stuff. 
+
+This only has...well, stuff.
+
+However, here's another fact: every sequence has a formula/function *a* or a<sub>n</sub> that generates those values in the sequence. 
+
+In other words, these numbers actually come from plugging in stuff into a function (in this class.)
+
+So, the goal is to find the function that generated the numbers in this sequence!
+
+In other words, we have to go from sequence to function. 
+
+How can we do that?
+
+Now, don't worry we only have to do this in the beginning stages. 
+
+They always give you the actual function. 
+
+The function is a(n) = 1/n. So, now we can take the limit!
+
+<Latex formula = "\lim\limits_{n \to \infty} \, a_n = \frac{1}{n} = \frac{1}{\infty} = 0" />
+
+Woo! We proved this sequence converges to 0!
+
+# Formula to Sequence 
+
+# Sequence to Formula 
+
+# Does Sequence Converge or Diverge?
+
+
+# What if you can't find the limit?
+
+Sometimes, we can't find the limit! What other tools can we use to determine if a sequence converges or not?
+
+## Theorem 5
+
+<RuleBox>
+<p><b>Theorem 5</b></p>
+
+<Latex formula="
+\begin{aligned}
+&\text{(a)} \quad \lim\limits_{n \to \infty} \frac{\ln n}{n} = 0, \\
+&\text{(b)} \quad \lim\limits_{n \to \infty} \sqrt[n]{n} = 1, \\
+&\text{(c)} \quad \lim\limits_{n \to \infty} x^{1/n} = 1 \quad \text{if } x > 0, \\
+&\text{(d)} \quad \lim\limits_{n \to \infty} x^n = 0 \quad \text{if } |x| < 1, \\
+&\text{(e)} \quad \lim\limits_{n \to \infty} \left( 1 + \frac{x}{n} \right)^n = e^x, \\
+&\text{(f)} \quad \lim\limits_{n \to \infty} \frac{x^n}{n!} = 0.
+\end{aligned}
+"/>
+</RuleBox>
+
+## Squeeze Theorem 
+
+<RuleBox>
+
+<p><b>Squeeze Theorem</b></p>
+
+Let b<sub>n</sub> be the sequence we're trying to find the limit of. 
+
+Let a<sub>n</sub> and c<sub>n</sub> be other sequences where
+
+<Latex formula="a_n \leq b_n \leq c_n" />
+
+If
+
+<Latex formula="\lim\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} c_n = L" />
+
+is true then we can say that that because b<sub>n</sub> is between both a<sub>n</sub> and c<sub>n</sub> and the limits of a<sub>n</sub> and c<sub>n</sub> are the same then that means b<sub>n</sub> must also head in the same direction (be limited to the same value) since, again, it's between both of them. 
+
+</RuleBox>
+
+Now, let's do a mix of practice problems that involve these new tools in your toolbox! 

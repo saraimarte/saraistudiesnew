@@ -1,10 +1,39 @@
 ---
 layout: '@layouts/Blog.astro'
-title: L'Hopitals Rule
-pubDate: 2000-01-01T00:00:00Z 
-updatedDate: 2000-01-01T00:00:00Z
+title: 4.5 L'Hopitals Rule
+pubDate: 2024-10-17T00:00:00Z 
+updatedDate: 2024-10-17T00:00:00Z
 draft: true 
 author: Sarai Marte
 slug: l'hopitals-rule
 ---
 
+
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
+
+Sometimes, when solving limits we get indeterminte forms like so,
+
+∞ ⋅ 0, ∞-∞, 1<sup>∞</sup>, 0<sup>0</sup>, ∞<sup>0</sup> 
+
+Indeterminte form does not mean the limit doesn't exist, it means we simply are unable to determine it. 
+
+But it *can* be determined with a little cool trick.
+
+The trick is if we get the indeterminte form to look like a fraction like 0/0 or ∞/∞ then we can simply take the derivative of the top and bottom functions and find the limit of that result. That's called L'Hopitals Rule.  
+
+Let's try it out!
+
+<Latex formula="\lim\limits_{n \to \infty} \frac{\frac{1}{n}}{e^n}" />
+
+<Latex formula="\lim\limits_{x \to \infty} \quad x \ln\left(1 - \frac{5}{x^2}\right)" />
+
+<Latex formula="\lim\limits_{x \to \infty} \quad \frac{\ln(x)}{\ln(\ln(x))}" />
+
+# The log trick
+
+<Latex formula="\lim\limits_{x \to \infty} \left(1 - \frac{1}{x^2}\right)^x" />
+
+Sol: 1
