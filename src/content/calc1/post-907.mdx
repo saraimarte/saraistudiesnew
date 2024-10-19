@@ -8,7 +8,6 @@ author: Sarai Marte
 slug: l'hopitals-rule
 ---
 
-
 import Latex from '@components/Latex.astro';
 import RuleBox from '@components/Rule.astro';
 import Problem from '@components/Problem.astro';
@@ -26,11 +25,15 @@ The trick is if we get the indeterminte form to look like a fraction like 0/0 or
 
 Let's try it out!
 
-<Latex formula="\lim\limits_{n \to \infty} \frac{\frac{1}{n}}{e^n}" />
+<Latex formula="\lim\limits_{x\to \infty} \frac{\frac{1}{x}}{e^x}" />
 
 <Latex formula="\lim\limits_{x \to \infty} \quad x \ln\left(1 - \frac{5}{x^2}\right)" />
 
 <Latex formula="\lim\limits_{x \to \infty} \quad \frac{\ln(x)}{\ln(\ln(x))}" />
+
+<Latex formula="\lim\limits_{x \to \infty} \frac{8x}{8x + 1}" />
+
+Sol: 1 
 
 # The log trick
 
