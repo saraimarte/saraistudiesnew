@@ -2,7 +2,7 @@
 layout: '@layouts/Blog.astro'
 title: 1.1|1.2 Linear Systems & Echelon Forms
 pubDate: 2024-09-04T00:00:00Z 
-updatedDate: 2024-10-01T00:00:00Z 
+updatedDate: 2024-10-20T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: linear-sytems-matrix-notation-and-ref-rref
@@ -48,99 +48,39 @@ Every linear system can be represented by a matrix.
 </F>
 
 <F>
-Let's practice rewriting systems using matrix notation. 
+Let's practice rewriting systems as a matrix and cover some vocabulary.
 </F>
 
+<iframe src="https://www.youtube.com/embed/CHOt0AV2ibY?si=OcOzl1R4zW0KSNbH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Transition from Matrix to Echelon Forms
 <F>
-Now that we're comfortable going from system -> matrix let us consider this idea:
+Now that we're comfortable going from system to matrix let us consider this idea:
 </F>
 
-<F>
-Imagine you have a matrix where all the entries in a row are zero except for one entry that is 1.
-</F>
+<iframe src="https://www.youtube.com/embed/7lNaXnUupms?si=7AsBljy15M2PDlFl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<Latex formula = '\begin{bmatrix}
-    1 & 0 & 0 & | & 1 \\
-    0 & 1 & 0 & | & 2 \\
-    0 & 0 & 1 & | & 3 \\
-\end{bmatrix}'/>
-
-When we translate this matrix back into it's system we get this:
-
-<Latex formula = "\begin{aligned}
-1x_1 + 0x_2 + 0x_3 &= 1 \\
-0x_1 + 1x_2 + 0x_3 &= 2 \\
-0x_1 + 0x_2 + 1x_3 &= 3
-\end{aligned}
-"/>
-
-and if we simplify and remove all jargon we get:
-
-<Latex formula = "\begin{aligned}
-    x_1 = 1 \\
-    x_2 = 2 \\
-    x_3 = 3
-\end{aligned}
-"/>
-
-What is this?
-
-It's the unique solutions to this system!
-
-Unique because each variable has a unique value. 
-
-So, what does this tell me?
-
-It tells me that I *want* to get my matrix into a form where I have one 1 in each row (with zeros everywhere else in that row), or as close as possible to that form*, so I can easily find the solutions to my system!
-
-Now, there is a name for that form. It's called reduced row echelon form (RREF.)
-
-* But why did I say "as close as possible to that form"? Because there is another version of RREF and that is one that gives you many solutions. 
-
-For example, 
-
-<Latex formula = '\begin{bmatrix}
-    1 & 0 & 0 & | & 1 \\
-    0 & 1 & 2 & | & 2 \\
-\end{bmatrix}'/>
-
-
-<Latex formula = "\begin{aligned}
-1x_1 + 0x_2 + 0x_3 &= 1 \\
-0x_1 + 1x_2 + 2x_3 &= 2 \\
-\end{aligned}
-"/>
-
-<Latex formula = "\begin{aligned}
-    x_1 = 1 \\
-    x_2 = 2 - x_3 \\
-\end{aligned}
-"/>
-
-What does this tell me?
-
-# Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
+# Echelon Forms 
 
 **Our ultimate goal is to get every matrix we work with into RREF because we'll be able to easily extract the solutions.**
 
-However, on the way to RREF, we often stop at an intermediate form called Row Echelon Form (REF).
-
-You might be wondering, what's the point of learning REF if our goal is to get the matrix into RREF?
-
-**Why stop at REF?**
-
-**(1) RREF builds on REF:** Both forms follow similar rules, so understanding REF helps us get to RREF.
-
-**(2) Saves time:** Not all systems have solutions (like when two lines don’t intersect). REF helps us determine if there’s no solution early on. If we see a situation where the system has no solution, we can stop at REF and avoid wasting time continuing to RREF. But, if there is a solution, we can keep going to RREF to get the exact answer.
+However, on the way to RREF, we often stop at an intermediate form called Row Echelon Form (REF) as we discussed in the last video. 
 
 Let's go over both forms, what they mean for the matrix and what they look like.
 
-* talk about case scenerios once you get to RREF either unique solution so every variable has a unique solution or some variables have many solutions. 
-Those are your only two case scenarios with RREF because you would have already figured out if it had no solution while on your way to RREF while in REF
+## Row Echelon Form (REF)
 
-Now that we're familiar with REF and RREF and know that our goal is to get the matrix in that form, the question is: How can I get the matrix in those forms? I know what it needs to have but how do I get to that?
+<iframe src="https://www.youtube.com/embed/mnNulGjmDe4?si=JVBpqGT_rKrMspJe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# Elementary Row Operations.
+## Reduced Row Echelon Form (RREF)
+
+<iframe src="https://www.youtube.com/embed/7y56TPzxNwo?si=xpZ80V1CiUO_K3Yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Now that we're familiar with REF and RREF and know that our goal is to get the matrix in RREF, the question is: How can I get the matrix in those forms? I know what it needs to look like but *how* do I get matricies to look like that? 
+
+Well there are algorithms (recipies) that we can follow that get us to those forms (which we will talk about later) but what tools can we use to follow those recipies?
+
+# Elementary Row Operations
 
 These are certain actions you can take on a matrix that *don't change the value* of the matrix- it simply changes the way it looks.
 
