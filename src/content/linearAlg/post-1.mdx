@@ -15,48 +15,35 @@ import Solution from '@components/Solution.astro';
 
 # Motivation
 
-<F>
+ 
 Remember linear equations from algebra class? These equations represented lines. 
-</F> 
 
-<F>
 One problem we had in algebra was to find where 2 lines intersected.
-</F>
-
-<F>
+ 
 **Recall:** A collection of linear equations is called a system of linear equations. 
-</F>
 
 So, the problem really was solving a system of equations because where two lines meet *is* the solution to a system of equations.
 
-<F>
 **Q:** How did we solve these systems before?
-</F>
-
-<F>
+ 
 **A:** By using the substitution or elimination method.
-</F>
 
 What if I told you there is a faster way to solve these systems?
 
 This way requires us to write the system in a different form- a matrix- so before anything else let's make sure we know how to do that. 
 
-# Matrix Notation  
-
-<F>
+# Matrix Notation 
+ 
 Every linear system can be represented by a matrix.
-</F>
 
-<F>
 Let's practice rewriting systems as a matrix and cover some vocabulary.
-</F>
 
 <iframe src="https://www.youtube.com/embed/CHOt0AV2ibY?si=OcOzl1R4zW0KSNbH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Transition from Matrix to Echelon Forms
-<F>
+ 
 Now that we're comfortable going from system to matrix let us consider this idea:
-</F>
+ 
 
 <iframe src="https://www.youtube.com/embed/7lNaXnUupms?si=7AsBljy15M2PDlFl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -76,38 +63,41 @@ Let's go over both forms, what they mean for the matrix and what they look like.
 
 <iframe src="https://www.youtube.com/embed/7y56TPzxNwo?si=xpZ80V1CiUO_K3Yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Now that we're familiar with REF and RREF and know that our goal is to get the matrix in RREF, the question is: How can I get the matrix in those forms? I know what it needs to look like but *how* do I get matricies to look like that? 
+Now that we know what a matrix in REF or RREF looks like, how do we actually get matrices to look like those forms?
 
-Well there are algorithms (recipies) that we can follow that get us to those forms (which we will talk about later) but what tools can we use to follow those recipies?
+There are algorithms (or recipes) we can follow which we will go over in an upcoming video.
 
-# Elementary Row Operations
+But, just like any recipe we follow in real life, we need tools like utensils or pots and pans. 
 
-These are certain actions you can take on a matrix that *don't change the value* of the matrix- it simply changes the way it looks.
+So to follow these recipes we will need our own tools called elementary row operations.
 
-We can use Elementary row operations to get our matrix to look like REF/RREF Form without changing the value of the matrix itself.
+## Elementary Row Operations
+
+These are certain <s>actions</s> operations you can take on a matrix that *don't change the value* of the matrix- it simply changes the way it looks.
 
 Before we use them, let's actually go over what they are.
 
+<iframe src="https://www.youtube.com/embed/y4bddelddNg?si=5eTNxhvrZLKDm63y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Great! Now, that we know how to write a matrix, why we need to get it into REF or RREF form and what we need to do so (elementary row operations) we can go ahead and start. 
 
-But first a note: 
+## Peforming Gauss Elimination to get Matrix Into REF
 
-Remember when I said that our goal is to get any matrix in a form where there is one 1 entry in a row and everything else is zero (meaning system has unique solutions for every variable) or something close to that (meaning system has many solutions for some variables)?
+<iframe src="https://www.youtube.com/embed/_9KY4dZck5Y?si=f0qU4eiak6c2XY3-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-When you're dealing with a system there are only three possible outcomes either you have a unique solution, so each variable is a fixed value or infinitely many solutions meaning some variables will be written in terms of others, or no solution. 
+## Peforming Gauss-Jordan Elimination to get Matrix Into RREF
 
-What I want to make clear is that when you're done getting your matrix in RREF form just because a row does not have all zeros except for 1 entry, it does not mean it's not in RREF or that there aren't any solutions. When that happens that means the system has *many* solutions for each variable. You just have to describe the solutions parametrically.
+<iframe src="https://www.youtube.com/embed/smigDTO1zF0?si=BQgrPrwBeLJNYT4R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**These Gaussian Eliminations are just a faster and more organized way of solving systems.**
+# No Solution  
 
-In other words, performing Gauss-Jordan Elimination will get us RREF(A). Here matrix is reduced completely - as much as it can be. You can either see the solution straight forward or put the solution in terms of free variables (more on that in the video.)
+<iframe src="https://www.youtube.com/embed/yr6-gbI41_k?si=RKIta-zQCUbRECiK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Performing just Gauss Elimination/row reduction will get us REF(A) where the matrix is reduced a bit but not completely.
+# Unique Solution
 
-Let's do our first example. This example will also cover a discussion about solutions at the end.
+<iframe src="https://www.youtube.com/embed/_S75rOEAPq8?si=3HadT2v74taW8JjH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# Parametric Descriptions of solutions
-
+# Many Solutions (+ Intro to Parametric Form)
 
 # Practice 
 
