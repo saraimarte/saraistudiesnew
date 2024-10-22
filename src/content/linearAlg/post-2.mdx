@@ -14,97 +14,47 @@ import img1 from '@images/250/1.png';
 import img2 from '@images/250/2.png';
 import img3 from '@images/250/3.png';
 
-Before, we looked at systems of equations from the point of view of a **matrix**.
+Up until now, we've been plotting points on ℝ², which is the same coordinate plane you've been using since 8th grade.
 
-Now, we will look at systems from the point of view of a **vector**.
+Just as a coordinate point (x₁, x₂) is a pair or *list* of numbers, a vector is also a list of numbers. Another way to represent points on a graph is through vectors.
 
-What is a vector?
+See how I do so in the following video, 
 
-A **vector** is a special type of matrix. Simply, it is a matrix with one row or one column. 
+<iframe src="https://www.youtube.com/embed/0gr9of8I8Qk?si=SWsUMr7GdxCaLzTX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Something special about the matrix is that we can visualize it.
+Now, let's practice adding, subtracting and scaling vectors (aka multiplying by any real number *c*.) 
 
-For example take <Latex formula = "\overline{\textcolor{purple}{\mathbf{v}}} = \begin{bmatrix} \textcolor{red}{1} \\ \textcolor{green}{2} \end{bmatrix}"/>
+<iframe src="https://www.youtube.com/embed/X0Sj3acZkkA?si=TZCAdba2bPtMn8yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The way you can plot this is by thinking of the first entry of how far right you should go and the bottom how far up you should go. 
+We learned above that we can add vectors together and not only can we add them, but we can also scale them before adding.
 
-<ImageMd img = {img1} alt = "Vector V"/>
+This gives us countless combinations, each resulting in different vectors. So the question becomes: given any vector, can we determine if it is a linear combination of two other vectors that have been added and possibly scaled?
 
-Now what's interesting is that you can multiply this vector by any number we call C. That will *scale* each entry. 
+Note that all the possible linear combinations (all possible resulting vectors) of two vectors is called the **span** of those two vectors. 
 
-Let's say I want to make the vector twice as long...then I will just multiply the vector by 2!
+<iframe src="https://www.youtube.com/embed/5WJkiBfvit8?si=-oiwfB_zIzLCqGNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<Latex formula = "2 \overline{\textcolor{purple}{\mathbf{v}}} = 2 \cdot \begin{bmatrix} \textcolor{red}{1} \\ \textcolor{green}{2} \end{bmatrix} = \begin{bmatrix} 2 \cdot \textcolor{red}{1} \\ 2 \cdot \textcolor{green}{2} \end{bmatrix} = \begin{bmatrix} \textcolor{red}{2} \\ \textcolor{green}{4} \end{bmatrix}"/>
+Let's see if we can answer that question but before, here is a quick lesson on how to write systems in a new form-column vector form!
 
-<ImageMd img = {img3} alt = "Vector 2V"/>
+<iframe src="https://www.youtube.com/embed/Ify8DWOUbjg?si=ihQbdn6L-n1fuwND" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Now, you can see 2 times the vector in orange. Literally. You can see that the orange vector is just 2 of the pink vectors. 
+# Example 1 
 
-This is what we call scaling. We scaled vector **v** to be *twice* as big and that vector became 
+<iframe src="https://www.youtube.com/embed/N7MKuQlZZCk?si=PGFOyLH8W8mFWFXo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<Latex formula = "2 \mathbf{v} = \begin{bmatrix} \textcolor{red}{2} \\ \textcolor{green}{4} \end{bmatrix}"/>
+# Example 2
 
-So, we can say that this vector **2v** is a combination of the vector **v** and it's scalar(s) in this case 2. 
+<iframe src="https://www.youtube.com/embed/cxpH0uajJtA?si=MKI7nBP7hIH-9wUV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Let's say we want to add two vectors together and scale them. 
+Now, we know how to check if a vector is a linear combination of other vectors. 
 
-Notice, we can have our scalar be anything. I can scale vector **v** to be thrice as big, four times as big, five times as big and so on. 
+If you have two vectors, multiplying them by any scalars gives infinitely many possible combinations. 
 
-In other words, there are infinitely many combinations I can make with vector **v** to give me different vectors. 
+The set of all these combinations is called the **span** of the two vectors. 
 
-The collection of all vectors that are linear combinations of vector **v** and it's scalar is called the **span** of vector **v**. 
+So, asking if vector b is a linear combination of two vectors is the same as asking if it's in their span.
 
-So when we ask is vector **b** in the span of vector **v** and it's scalars, we're really asking if vector **b** is a linear combination of vector **v** and it's scalars. 
-
-In other words, it's equivalent to asking the question "is vector **b** a solution to the system of equations derived from the combination of vectors and scalars?"
-
-Take the following system: 
-
-3x<sub>1</sub> + x<sub>2</sub> = 7  
-x<sub>1</sub> + 2x<sub>2</sub> = 4
-
-When we were going from system to matrix, the matrix would look like so:
-
-<div style = "display:flex; width:100%; justify-content:center; align-items:center;">
-<Latex formula = "\begin{array}{c}
-3x_1 + x_2 = 7 \\
-x_1 + 2x_2 = 4 \\
-\downarrow \\
-\begin{bmatrix}
-3 & 1 & 7 \\
-1 & 2 & 4 \\
-\end{bmatrix}
-\end{array}"/>
-</div>
-
-<br/>
-Now, we go from system to column vector form. 
-<br/>
-<div style = "display:flex; width:100%; justify-content:center; align-items:center;">
-<Latex formula = "\begin{array}{c}
-3x_1 + x_2 = 7 \\
-x_1 + 2x_2 = 4 \\
-\downarrow \\
-\begin{bmatrix} 3 \\ 1 \end{bmatrix} x_1 + \begin{bmatrix} 1 \\ 2 \end{bmatrix} x_2 = \begin{bmatrix} 7 \\ 4 \end{bmatrix}
-\end{array}"/>
-</div>
-
-See, it's simply another way to write the system. This time, we are just treating the coefficients that were going to end up as columns in the matrix as...vectors. 
-
-Given that this is the general form of a linear equation where a<sub>1</sub>... a<sub>n</sub> are coefficients (that are real numbers) and  x<sub>1</sub>... x<sub>n</sub> are variables. 
-
-<Latex formula = "a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b"/>
-
-Now, all the a values are put together in an ā vector. 
-
-<Latex formula = "\textcolor{blue}{y} = c_1 \textcolor{blue}{v_1} + \cdots + c_p \textcolor{blue}{v_p}"/>
-
-
-
-
-
-
-
+Let's see an example of such question.
 
 
 

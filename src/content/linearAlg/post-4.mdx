@@ -11,7 +11,79 @@ slug: post4
 import Latex from '@components/Latex.astro';
 import Problem from '@components/Problem.astro';
 
-In this lesson, we will be learning how to multiply matricies (A) and vectors (**x**) together to give us another vector **b**.
+Recall that a **vector** is just a list of numbers. 
+
+Recall when we were solving systems of equations we were solving for unknown list of numbers. 
+
+Take this system of equations, 
+
+<p>
+x<sub>1</sub> + 5x<sub>2</sub> = 7  
+x<sub>1</sub> - 2x<sub>2</sub> = -2
+</p>
+
+What are we trying to solve for here? x<sub>1</sub> and x<sub>2</sub>
+
+In other words, we have a list of unkown numbers (or variables) which we need to solve for. 
+
+But what else is a list of numbers? A vector!
+
+So, we can reframe this as everytime we solved a system of equations we were really solving for a vector- a list of unknown numbers like so,
+
+<Latex formula = "\overline{\mathbf{x}} = \begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}" />
+
+Which introduces the need for a new form of writing systems (yay!)
+
+First, let's recall the forms we have right now.
+
+**1.** We can write the system as an augmented matrix. 
+
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+<Latex formula="\begin{array}{c}
+x_1 + 5x_2 = 7 \\
+x_1 - 2x_2 = -2 \\
+\downarrow \\
+\begin{bmatrix}
+1 & 5 & 7 \\
+1 & -2 & -2 \\
+\end{bmatrix}
+\end{array}" />
+</div>
+
+**2.** We can write the system in column vector form. 
+
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+<Latex formula="\begin{array}{c}
+x_1 + 5x_2 = 7 \\
+x_1 - 2x_2 = -2 \\
+\downarrow \\
+\begin{bmatrix} 1 \\ 1 \end{bmatrix} \textcolor{red}{x_1} + \begin{bmatrix} 5 \\ -2 \end{bmatrix} \textcolor{blue}{x_2} = \begin{bmatrix} 7 \\ -2 \end{bmatrix}
+\end{array}" />
+</div>
+
+**3.** Now, we can write the system as a matrix equation!
+
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+<Latex formula="\begin{array}{c}
+x_1 + 5x_2 = 7 \\
+x_1 - 2x_2 = -2 \\
+\downarrow \\
+\underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} \underbrace{\begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}}_{\vec{x}} = \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
+\end{array}" />
+</div>
+
+Then, we can rewrite it as such where our vector is now the column of unknown variables. This is called the matrix equation. 
+
+where we are solving for a vector **x** which represents a list of unknowns, 
+
+<Latex formula="
+\begin{array}{c}
+\underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} \vec{x} = \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
+\end{array}" />
+
+and where your A is your coefficient matrix and **b** is another vector that we *know* the values of!
+
+In this lesson, we will be solving for vector **x** as we spent all of 1.1 and 1.2 doing **and** we will be learning how to multiply matricies (A) and vectors (**x**) together to give us another vector **b**.
 
 Hence A • **x** = A**x**=**b**
 
