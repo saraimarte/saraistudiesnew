@@ -11,105 +11,150 @@ slug: post4
 import Latex from '@components/Latex.astro';
 import Problem from '@components/Problem.astro';
 
-Recall that a **vector** is just a list of numbers. 
+# From Vectors to the Matrix Equation 
 
-Recall when we were solving systems of equations we were solving for unknown list of numbers. 
+In the previous lesson, we explored how combining vectors with scalar multiples results in new vectors. We can call one of those combinations or one of those vectors **𝑏**. 
 
-Take this system of equations, 
+In other words, **𝑏** can be expressed as a linear combination of those vectors and their scalars, C:
 
-<p>
-x<sub>1</sub> + 5x<sub>2</sub> = 7  
-x<sub>1</sub> - 2x<sub>2</sub> = -2
-</p>
+**𝑏** = C<sub>1</sub>**V<sub>1</sub>**  +  C<sub>2</sub>**V<sub>2</sub>**
+
+What’s new is that b can also be represented as the product of a matrix and a vector:
+
+**𝑏** = A**𝑥**
+
+Here, b is simply the result of multiplying a matrix of coefficients by a vector.
+
+# How do we go from **𝑏** = C<sub>1</sub>**V<sub>1</sub>**  +  C<sub>2</sub>**V<sub>2</sub>** to **𝑏** = A**𝑥**
+
+Let's try to make the connection from systems of equations to vectors and then from vectors to the matrix equation. 
+
+In the last lesson we learned that a **vector is just a list of numbers**. 
+
+Now, take this system of equations, 
+
+<Latex formula="
+x_1 + 5x_2 = 7 \\
+x_1 - 2x_2 = -2 \\
+"/>
 
 What are we trying to solve for here? x<sub>1</sub> and x<sub>2</sub>
 
-In other words, we have a list of unkown numbers (or variables) which we need to solve for. 
+In other words, we have a list of unkown numbers x<sub>1</sub> and x<sub>2</sub> which we need to solve for. 
 
 But what else is a list of numbers? A vector!
 
-So, we can reframe this as everytime we solved a system of equations we were really solving for a vector- a list of unknown numbers like so,
+This perspective reveals that whenever we solved a system of equations in 1.1/1.2, we were, in fact, solving for a vector—a list of unknown numbers!
+
+We can have x<sub>1</sub> and x<sub>2</sub> be components- the unknowns- of a vector **x** like so,
 
 <Latex formula = "\overline{\mathbf{x}} = \begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}" />
 
-Which introduces the need for a new form of writing systems (yay!)
-
-First, let's recall the forms we have right now.
+With this understanding, we can now introduce a more efficient way-or form- to express systems of equations: the matrix equation. Before diving into the matrix equation, let’s recall the forms we have been using:
 
 **1.** We can write the system as an augmented matrix. 
 
-<div style="display:flex; width:100%; justify-content:center; align-items:center;">
-<Latex formula="\begin{array}{c}
-x_1 + 5x_2 = 7 \\
-x_1 - 2x_2 = -2 \\
-\downarrow \\
-\begin{bmatrix}
-1 & 5 & 7 \\
-1 & -2 & -2 \\
-\end{bmatrix}
-\end{array}" />
-</div>
-
 **2.** We can write the system in column vector form. 
 
-<div style="display:flex; width:100%; justify-content:center; align-items:center;">
-<Latex formula="\begin{array}{c}
-x_1 + 5x_2 = 7 \\
-x_1 - 2x_2 = -2 \\
-\downarrow \\
-\begin{bmatrix} 1 \\ 1 \end{bmatrix} \textcolor{red}{x_1} + \begin{bmatrix} 5 \\ -2 \end{bmatrix} \textcolor{blue}{x_2} = \begin{bmatrix} 7 \\ -2 \end{bmatrix}
-\end{array}" />
-</div>
-
-**3.** Now, we can write the system as a matrix equation!
+**3.** Now, we can write the system as a matrix equation where we have a list (vector) of unknowns!
 
 <div style="display:flex; width:100%; justify-content:center; align-items:center;">
-<Latex formula="\begin{array}{c}
-x_1 + 5x_2 = 7 \\
-x_1 - 2x_2 = -2 \\
-\downarrow \\
-\underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} \underbrace{\begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}}_{\vec{x}} = \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
-\end{array}" />
+    <Latex formula="
+    \begin{array}{c}
+    \textcolor{red}{x_1} + 5\textcolor{blue}{x_2} = 7 \\
+    \textcolor{red}{x_1} - 2\textcolor{blue}{x_2} = -2 \\
+    \\
+    \downarrow \\
+    \text{Augmented Matrix} \\
+    \\
+    \begin{bmatrix} 1 & 5 & \vert & 7 \\ 1 & -2 & \vert & -2 \end{bmatrix} \\
+    \\
+    \downarrow \\
+    \text{Vector Form} \\
+    \\
+    \begin{bmatrix} 1 \\ 1 \end{bmatrix} \textcolor{red}{x_1} + \begin{bmatrix} 5 \\ -2 \end{bmatrix} \textcolor{blue}{x_2} = \begin{bmatrix} 7 \\ -2 \end{bmatrix} \\
+    \\
+    \downarrow \\
+    \text{Matrix Equation} \\
+    \\
+    \underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} 
+    \underbrace{\begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}}_{\vec{x}} = 
+    \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
+    \end{array}" />
 </div>
 
-Then, we can rewrite it as such where our vector is now the column of unknown variables. This is called the matrix equation. 
+But now, we get the idea of system of equations -> vector -> matrix eqution but how do we ✨literally✨ or mathematically go from vector form to matrix equation?  [insert video]
 
-where we are solving for a vector **x** which represents a list of unknowns, 
+Well, through the rules we learned about scalar multiplicationn and vector addition [insert video.]
 
-<Latex formula="
-\begin{array}{c}
-\underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} \vec{x} = \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
-\end{array}" />
+We can further emphasize the idea of this being an equation by having something be missing, then we can solve for it.
 
-and where your A is your coefficient matrix and **b** is another vector that we *know* the values of!
+**1.** Solving for **x** when A and **b** are given. 
 
-In this lesson, we will be solving for vector **x** as we spent all of 1.1 and 1.2 doing **and** we will be learning how to multiply matricies (A) and vectors (**x**) together to give us another vector **b**.
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+    <Latex formula="
+    \begin{array}{c}
+    \underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} 
+    \vec{x} = 
+    \underbrace{\begin{bmatrix} 7 \\ -2 \end{bmatrix}}_{\vec{b}}
+    \end{array}" />
+</div>
 
-Hence A • **x** = A**x**=**b**
+This is the problem we have above, we are trying to find these unknown components given the matrix A and the resulting vector **b**. 
 
-Compute the following products. 
+This, is ✨literally✨, you guessed it, just an augmented matrix [A|b] because... you know... your given A and **b**, so to find the unknown values x<sub>1</sub> and x<sub>2</sub> aka the solutions, just put the coefficient matrix in RREF. 
+
+**2.** Solving for **b** when A and **x** are given.
+
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+    <Latex formula="
+    \begin{array}{c}
+    \underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} 
+    \underbrace{\begin{bmatrix} \textcolor{red}{4/7} \\ \textcolor{blue}{9/7} \end{bmatrix}}_{\vec{x}} = \vec{b}
+    \end{array}" />
+</div>
+
+This is easier because all you have to do is multiply a matrix and a vector which I will show you how to do. 
+
+<iframe src="https://www.youtube.com/embed/nQlIfp92acs?si=pZFH_nHIu0Mc2uq-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**3.** Solving for **x** when A and **b** are given but **b** is the 0 vector.
+
+<div style="display:flex; width:100%; justify-content:center; align-items:center;">
+    <Latex formula="
+    \begin{array}{c}
+    \underbrace{\begin{bmatrix} 1 & 5 \\ 1 & -2 \end{bmatrix}}_{A} 
+    \underbrace{\begin{bmatrix} \textcolor{red}{x_1} \\ \textcolor{blue}{x_2} \end{bmatrix}}_{\vec{x}} = 
+    \underbrace{\begin{bmatrix} 0 \\ 0 \end{bmatrix}}_{\vec{0}}
+    \end{array}" />
+</div>
+
+
+# Practice
+
+Find the vector **x** that was multiplied by A to get **b**. 
 
 <Problem n = "1">
+<Latex formula = "A = \begin{bmatrix} 1 & 2 & 4 \\ 0 & 1 & 5 \\ -2 & -4 & -3 \end{bmatrix}, \quad b = \begin{bmatrix} -2 \\ 2 \\ 9 \end{bmatrix}"/>
+</Problem>
+
+Compute the following products (Find **b**)
+
+<Problem n = "2">
 <Latex formula = "\begin{bmatrix} 8 & 3 & 1 \\ 5 & 1 & 2 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}"/>
 </Problem>
 
-<Problem n = "2">
+<Problem n = "3">
 <Latex formula = "\begin{bmatrix} 2 \\ 6 \\ -1 \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix}"/>
 </Problem>
 
-Sometimes you will be given a matrix and the result but not the vector. You will have to find the vector.
-
-<Latex formula = "A = \begin{bmatrix} 1 & 2 & 4 \\ 0 & 1 & 5 \\ -2 & -4 & -3 \end{bmatrix}, \quad b = \begin{bmatrix} -2 \\ 2 \\ 9 \end{bmatrix}"/>
-
-Finally, you will be asked to find the solution (what the vector is) when vector **b** is equal to 0. 
-
-In other words, you have to learn how to solve for A**x** = **b**.
-
 Describe all solutions to A**x** = 0.
 
+<Problem n = "4">
 <Latex formula = "\begin{bmatrix} 
 1 & -4 & -2 & 0 & 3 & -5 \\ 
 0 & 0 & 1 & 0 & 0 & -1 \\ 
 0 & 0 & 0 & 0 & 1 & -4 \\ 
 0 & 0 & 0 & 0 & 0 & 0 
 \end{bmatrix}"/>
+</Problem>

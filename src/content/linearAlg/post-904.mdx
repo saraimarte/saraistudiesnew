@@ -1,0 +1,82 @@
+---
+layout: '@layouts/Blog.astro'
+title: 4.1|4.2 Vector Spaces, Subspaces and Subsets
+pubDate: 2024-10-22T00:00:00Z 
+updatedDate: 2024-10-24T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: post14
+---
+import Latex from '@components/Latex.astro';
+
+# What is a Vector Space, Subset, and Subspace + Conditions for a Vector Space 
+
+<iframe src="https://www.youtube.com/embed/S9N0vH5Y6BA?si=7moGeYC2tmiaFBUB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In the video above, we learned about a subspace and how it's just a subset that satisfies the condtions for a vector space. 
+
+We also learned about the conditions for a vector space but we concluded that it's unrealistic to check those conditions since we don't have forever, so what good is it to have those conditions and what tool can we use to prove that something is a subspace?
+
+# The Big Question In this Lesson: "Is a subset H a subspace of vector space V?"
+
+## Type 1| Using Vector Space conditions to Prove Subset is Not a Subspace of V.
+
+<iframe src="https://www.youtube.com/embed/VMZEZeC5Ja8?si=L5efQ8vHVJuUQZu6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Type 2| Using Span is a Subspace Theorem to Prove Subset is Subspace of V.
+
+<iframe src="https://www.youtube.com/embed/Lefgvz-TyMg?si=fTMJTx1QhKTqKTnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Subspaces Assosiated With a Matrix
+
+If you have a matrix A, then there are a few subspaces that exist. 
+
+<Latex formula="\text{Nullspace}(A) = \left\{ \vec{v} \in \mathbb{R}^m \mid A\vec{v} = \vec{0} \right\}" />
+<Latex formula="\text{Columnspace}(A) = \text{span}(\text{columns of } A)" />
+<Latex formula="\text{Rowspace}(A) = \text{span}(\text{rows of } A)" />
+
+Just like a vector space has it's conditions that need to be satisfied for something to be a vector space, we also have conditions for something to be a nullspace, columnspace or rowspace.
+
+# Null Space
+
+All vectors that A kills. Because if A sends something to 0 then that something is now in the nullspace.  
+
+It's just set (list) of vectors that your matrix A sent to 0 or killed.
+
+# Column Space  
+
+**1.** What is the generating set for col(A)?
+
+<Latex formula="\begin{bmatrix} 
+\textcolor{red}{1} & \textcolor{blue}{2} & \textcolor{green}{0} & \textcolor{orange}{3} \\
+\textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{green}{1} & \textcolor{orange}{2} \\
+\textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{green}{0} & \textcolor{orange}{0} 
+\end{bmatrix}" />
+
+It's ✨literally✨ the span of the columns!
+
+<Latex formula="\text{span}\left( 
+\begin{bmatrix} \textcolor{red}{1} \\ \textcolor{red}{0} \\ \textcolor{red}{0} \end{bmatrix}, 
+\begin{bmatrix} \textcolor{blue}{2} \\ \textcolor{blue}{0} \\ \textcolor{blue}{0} \end{bmatrix}, 
+\begin{bmatrix} \textcolor{green}{0} \\ \textcolor{green}{1} \\ \textcolor{green}{0} \end{bmatrix}, 
+\begin{bmatrix} \textcolor{orange}{3} \\ \textcolor{orange}{2} \\ \textcolor{orange}{0} \end{bmatrix} 
+\right)" />
+
+# Row Space 
+
+**2.** What is the generating set for row(A)?
+
+<Latex formula="\begin{bmatrix} 
+\textcolor{red}{1} & \textcolor{red}{2} & \textcolor{red}{0} & \textcolor{red}{3} \\
+\textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{1} & \textcolor{blue}{2} \\
+\textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} 
+\end{bmatrix}" />
+
+
+It's ✨literally✨ the span of the rows!
+
+<Latex formula="\text{span}\left( 
+\begin{bmatrix} \textcolor{red}{1} \\ \textcolor{red}{2} \\ \textcolor{red}{0} \\ \textcolor{red}{3} \end{bmatrix}, 
+\begin{bmatrix} \textcolor{blue}{0} \\ \textcolor{blue}{0} \\ \textcolor{blue}{1} \\ \textcolor{blue}{2} \end{bmatrix}, 
+\begin{bmatrix} \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \end{bmatrix}
+\right)" />
