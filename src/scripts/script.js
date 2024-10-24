@@ -64,13 +64,26 @@ const sizes = {
     height: window.innerHeight
 };
 
-window.addEventListener('resize', () => {
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
-    camera.aspect = sizes.width / sizes.height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(window.devicePixelRatio);
+// Raycaster for click detection
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+// Event listener for mouse movement
+window.addEventListener('mousemove', (event) => {
+    // Convert mouse position to normalized device coordinates
+    mouse.x = (event.clientX / sizes.width) * 2 - 1;
+    mouse.y = - (event.clientY / sizes.height) * 2 + 1;
+});
+
+// Event listener for pointer down
+window.addEventListener('pointerdown', (event) => {
+    // Check if the webpage plane was clicked
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObject(webpagePlane);
+
+    if (intersects.length > 0) {
+        zoomInAndRedirect();
+    }
 });
 
 // Camera/perspective
@@ -119,11 +132,8 @@ const tick = () => {
 };
 
 tick();
-
 // Function to handle zoom-in and redirect on click
-const zoomInAndRedirect = (event) => {
-    event.preventDefault();
-
+const zoomInAndRedirect = () => {
     // Animate zooming into the webpage
     let zoomInStartTime = clock.getElapsedTime();
     const zoomInDuration = 1; // Duration of zoom-in animation
@@ -143,5 +153,14 @@ const zoomInAndRedirect = (event) => {
     zoomInTick();
 };
 
-// Use pointerdown event for better compatibility
-window.addEventListener('pointerdown', zoomInAndRedirect);
+// Event listener for pointer up to check for clicks
+window.addEventListener('pointerup', (event) => {
+    // Check if the webpage plane was clicked
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObject(webpagePlane);
+
+    if (intersects.length > 0) {
+        // Only trigger zoom-in and redirect if the webpage plane was clicked
+        zoomInAndRedirect();
+    }
+});
