@@ -1,9 +1,83 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Balanced Search Trees
-pubDate: 2024-09-16T00:00:00Z 
-updatedDate: 2024-09-16T00:00:00Z 
+title: Balanced Search Trees (2-3 Trees & Red-Black Trees)
+pubDate: 2024-10-28T00:00:00Z 
+updatedDate: 2024-10-29T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: balanced-search-trees
+slug: balanced-search-trees-2-3-trees-red-black-trees
 ---
+
+import Rulebox from "@components/Rule.astro";
+import ImageMd from "@components/ImageMd.astro";
+import img1 from '@images/112/11.svg';
+import img2 from '@images/112/12.svg';
+
+# 2-3 Trees
+
+## Concept & Vocabulary 
+
+The problem with binary search trees is that they can become unbalanced, leading to long, 'linky' chains of nodes. 
+
+This unbalancing makes the tree expensive for searching. 
+
+The goal of 2-3 trees is to maintain balance, ensuring that all paths from the root to a null link (leaf) are the same length. This keeps the tree height balanced, making search, insertion, and deletion operations more efficient (cheaper.)
+
+<ImageMd img = {img2} alt = "2-3 Tree Vocabulary"/>
+
+<iframe src="https://www.youtube.com/embed/XMG17J0rO58?si=WpEK5KoF_7UHHLbK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Numbers to Tree (Constructing a 2-3 Search Tree)
+
+<Rulebox>
+
+**1.** Insertion happens from the bottom.
+
+**2.** A 2-node needs to have 2 children.
+
+**3.** A 3-node needs to have 3 children. 
+
+So, every time you add a number make sure you did it from the bottom and that both **2** and **3** are still true.  
+
+</Rulebox>
+
+### Example 1 
+
+<iframe src="https://www.youtube.com/embed/7HojT2k_Svc?si=mHFSmA1qFYOhpMUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example 2
+
+<iframe src="https://www.youtube.com/embed/lxkXUlYvSNk?si=2py1y_o6zAJQEiqF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example 3
+
+<iframe src="https://www.youtube.com/embed/36RXamgYqNA?si=Ec7Sf7OvfGdguT2P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Corrections
+
+<iframe src="https://www.youtube.com/embed/QmxQ1zexET4?si=lKu8SQ3EpUZiKymB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Red Black Trees
+
+The idea is that we want to represent 2-3 trees as binary trees. 
+
+We can represent a 2-node (1 key inside a node) in binary...because that's all binary is. 
+
+The problem is we have no way to represent a 3-node (2 keys inside the node) in binary. 
+
+The solution we came up with is to represent a 3-node with a red link. 
+
+Let's see this in action.
+
+## Concept & Vocabulary 
+
+<iframe src="https://www.youtube.com/embed/xvFk_4mguAs?si=xVMqulsv9uOPN-bZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Converting 2-3 Tree into Binary Tree 
+
+
+## Inserting into a Red-Black Tree 
+
+<ImageMd img={img1} alt = "Cases for Red-Black Trees"> </ImageMd>
+
+<iframe src="https://www.youtube.com/embed/qpihXltSHoY?si=Fia_HXK-TqU_gMXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

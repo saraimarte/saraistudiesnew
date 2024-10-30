@@ -1,9 +1,57 @@
 ---
 layout: '@layouts/Blog.astro'
 title: Binary Search Trees
-pubDate: 2024-09-16T00:00:00Z 
-updatedDate: 2024-09-16T00:00:00Z 
+pubDate: 2024-10-29T00:00:00Z 
+updatedDate: 2024-10-29T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: binary-search-trees
 ---
+
+import Rulebox from "@components/Rule.astro";
+
+# Concept & Vocabulary 
+
+# Constructing a Binary Search Tree
+
+<iframe src="https://www.youtube.com/embed/m7Irkh3RpMo?si=qjk0WUUU4Bpef1Ni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+https://www.cs.usfca.edu/~galles/visualization/BST.html
+
+# Node 
+
+# Insert Method 
+
+# Get/Search Method 
+
+# Delete Method 
+
+# Traversing Methods (Preorder, Inorder, PostOrder)
+
+<Rulebox>
+
+**Outline of Steps**
+
+**Step 1:** Define your Null Links. Every node has a left and right link. Some of those links have nodes, some don't so those links are null. Write **N** for those nodes who's links have no nodes. 
+
+**Step 2:** Label each vertex/node with 1(on the left), 2(in between links) and 3 (on the right).  
+
+**Step 3:** Start at the root and go to the left no matter what traversal method your doing. Always continue path to the next node directly connected to it **without crossing links**. Depending on your method, write the key(the number in the node) when you pass the number 1, 2, or 3 label associated with that node.   
+
+</Rulebox>
+
+See how I implement the steps below. 
+
+## Example 1 
+
+<iframe src="https://www.youtube.com/embed/lCKcCT_Dze8?si=jR5XoFQqnGWO9zkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Example 2 
+
+<iframe src="https://www.youtube.com/embed/NSACM7NxZDE?si=AFV3q5KXSt4pLGRB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Example 3 
+
+<iframe src="https://www.youtube.com/embed/hzGjLD64GzY?si=AOJ-_lKDAG07_EvX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+https://yongdanielliang.github.io/animation/web/BST.html

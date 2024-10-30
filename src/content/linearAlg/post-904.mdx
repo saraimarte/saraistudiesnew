@@ -7,7 +7,10 @@ draft: false
 author: Sarai Marte
 slug: post14
 ---
+
 import Latex from '@components/Latex.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
 
 # What is a Vector Space, Subset, and Subspace + Conditions for a Vector Space 
 
@@ -29,19 +32,15 @@ We also learned about the conditions for a vector space but we concluded that it
 
 # Subspaces Assosiated With a Matrix
 
-If you have a matrix A, then there are a few subspaces that exist. 
+If you have a matrix A, then there are a few subspaces that exist related to that matrix. 
 
-<Latex formula="\text{Nullspace}(A) = \left\{ \vec{v} \in \mathbb{R}^m \mid A\vec{v} = \vec{0} \right\}" />
 <Latex formula="\text{Columnspace}(A) = \text{span}(\text{columns of } A)" />
 <Latex formula="\text{Rowspace}(A) = \text{span}(\text{rows of } A)" />
+<Latex formula="\text{Nullspace}(A) = \left\{ \vec{v} \in \mathbb{R}^m \mid A\vec{v} = \vec{0} \right\}" />
 
-Just like a vector space has it's conditions that need to be satisfied for something to be a vector space, we also have conditions for something to be a nullspace, columnspace or rowspace.
+Just like a vector space has it's conditions that need to be satisfied for something to be a vector space, we also have conditions for something to be a nullspace.
 
-# Null Space
-
-All vectors that A kills. Because if A sends something to 0 then that something is now in the nullspace.  
-
-It's just set (list) of vectors that your matrix A sent to 0 or killed.
+<iframe src="https://www.youtube.com/embed/d7tPnQAfOv4?si=xTF9KkJGA6hbSGrf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Column Space  
 
@@ -55,12 +54,10 @@ It's just set (list) of vectors that your matrix A sent to 0 or killed.
 
 It's ✨literally✨ the span of the columns!
 
-<Latex formula="\text{span}\left( 
-\begin{bmatrix} \textcolor{red}{1} \\ \textcolor{red}{0} \\ \textcolor{red}{0} \end{bmatrix}, 
-\begin{bmatrix} \textcolor{blue}{2} \\ \textcolor{blue}{0} \\ \textcolor{blue}{0} \end{bmatrix}, 
-\begin{bmatrix} \textcolor{green}{0} \\ \textcolor{green}{1} \\ \textcolor{green}{0} \end{bmatrix}, 
-\begin{bmatrix} \textcolor{orange}{3} \\ \textcolor{orange}{2} \\ \textcolor{orange}{0} \end{bmatrix} 
-\right)" />
+**1b.** Is **x** = [ 7 3 0 ] in col(A)?
+
+Just find if there is a solution to A**x** = [ 7 3 0].
+
 
 # Row Space 
 
@@ -80,3 +77,28 @@ It's ✨literally✨ the span of the rows!
 \begin{bmatrix} \textcolor{blue}{0} \\ \textcolor{blue}{0} \\ \textcolor{blue}{1} \\ \textcolor{blue}{2} \end{bmatrix}, 
 \begin{bmatrix} \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \end{bmatrix}
 \right)" />
+
+
+# Null Space
+
+All vectors that A kills. Because if A sends something to 0 then that something is now in the nullspace.  
+
+It's just set (list) of vectors that your matrix A sent to 0 or killed.
+
+# Practice
+
+Find an explicit description of Null A by listing vectors that span the null space. 
+
+<Problem n = "1">
+<Latex formula="A = \begin{bmatrix} 1 & -6 & 4 & 0 \\ 0 & 0 & 2 & 0 \end{bmatrix}" />
+</Problem>
+
+<Solution>
+
+A vector being in the null space is becuse the matrix when multiplied to it sent it to 0. 
+
+So we are looking for vectors who multiplied by the matrix gives us 0 aka A**x** = **0**.
+
+The nullspace is the set of solutions for A**x** = 0.
+
+</Solution>
