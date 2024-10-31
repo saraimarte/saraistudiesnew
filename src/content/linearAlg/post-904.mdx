@@ -2,7 +2,7 @@
 layout: '@layouts/Blog.astro'
 title: 4.1|4.2 Vector Spaces, Subspaces and Subsets
 pubDate: 2024-10-22T00:00:00Z 
-updatedDate: 2024-10-24T00:00:00Z 
+updatedDate: 2024-10-31T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: post14
@@ -24,7 +24,7 @@ We also learned about the conditions for a vector space but we concluded that it
 
 # The Big Question In this Lesson: "Is a subset H a subspace of vector space V?"
 
-## Type 1| Using Vector Space conditions to Prove Subset is Not a Subspace of V.
+### Type 1| Using Vector Space conditions to Prove Subset is Not a Subspace of V.
 
 <iframe src="https://www.youtube.com/embed/VMZEZeC5Ja8?si=L5efQ8vHVJuUQZu6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -58,26 +58,27 @@ H = \left\{ \begin{bmatrix} x \\ y \end{bmatrix} : x^2 + y^2 \leq 1 \right\}
 </WP>
 
 <Solution>
+<iframe src="https://www.youtube.com/embed/Vi6CiTaRYI4?si=KG_TAh4dvc8U7jhb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
 
 ## Type 2| Using Span is a Subspace Theorem to Prove Subset is Subspace of V.
 
 <iframe src="https://www.youtube.com/embed/Lefgvz-TyMg?si=fTMJTx1QhKTqKTnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<WP n = "1">
 
-<Problem n = "1">
+<p>Let H be the set of all vectors of the following form,</p>
 
-</Problem>
+<Latex formula="
+\begin{bmatrix} t \\ 3t \\ 2t \end{bmatrix}
+"/>
+
+<p>Find a vector **v** in R<sup>3</sup> such that H = Span (**v**). Why does this shhow</p>
+
+</WP>
 
 <Solution>
-</Solution>
-
-
-<Problem n = "2">
-
-</Problem>
-
-<Solution>
+<iframe src="https://www.youtube.com/embed/K6scAM_hcfE?si=JNPdNaW9a8kdZtHl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
 
 # Subspaces Assosiated With a Matrix
@@ -88,52 +89,13 @@ If you have a matrix A, then there are a few subspaces that exist related to tha
 <Latex formula="\text{Rowspace}(A) = \text{span}(\text{rows of } A)" />
 <Latex formula="\text{Nullspace}(A) = \left\{ \vec{v} \in \mathbb{R}^m \mid A\vec{v} = \vec{0} \right\}" />
 
-Just like a vector space has it's conditions that need to be satisfied for something to be a vector space, we also have conditions for something to be a nullspace.
+I introduce what they are in the following video, 
 
 <iframe src="https://www.youtube.com/embed/d7tPnQAfOv4?si=xTF9KkJGA6hbSGrf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# Column Space  
+## A little bit more on column spaces...
 
-**1.** What is the generating set for col(A)?
-
-<Latex formula="\begin{bmatrix} 
-\textcolor{red}{1} & \textcolor{blue}{2} & \textcolor{green}{0} & \textcolor{orange}{3} \\
-\textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{green}{1} & \textcolor{orange}{2} \\
-\textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{green}{0} & \textcolor{orange}{0} 
-\end{bmatrix}" />
-
-It's ✨literally✨ the span of the columns!
-
-**1b.** Is **x** = [ 7 3 0 ] in col(A)?
-
-Just find if there is a solution to A**x** = [ 7 3 0].
-
-
-# Row Space 
-
-**2.** What is the generating set for row(A)?
-
-<Latex formula="\begin{bmatrix} 
-\textcolor{red}{1} & \textcolor{red}{2} & \textcolor{red}{0} & \textcolor{red}{3} \\
-\textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{1} & \textcolor{blue}{2} \\
-\textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} 
-\end{bmatrix}" />
-
-
-It's ✨literally✨ the span of the rows!
-
-<Latex formula="\text{span}\left( 
-\begin{bmatrix} \textcolor{red}{1} \\ \textcolor{red}{2} \\ \textcolor{red}{0} \\ \textcolor{red}{3} \end{bmatrix}, 
-\begin{bmatrix} \textcolor{blue}{0} \\ \textcolor{blue}{0} \\ \textcolor{blue}{1} \\ \textcolor{blue}{2} \end{bmatrix}, 
-\begin{bmatrix} \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \\ \textcolor{green}{0} \end{bmatrix}
-\right)" />
-
-
-# Null Space
-
-All vectors that A kills. Because if A sends something to 0 then that something is now in the nullspace.  
-
-It's just set (list) of vectors that your matrix A sent to 0 or killed.
+<iframe src="https://www.youtube.com/embed/yjjxhnuEp-g?si=94NSSZoYvyDlzIJf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Practice
 
