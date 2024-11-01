@@ -2,7 +2,7 @@
 layout: "@layouts/Blog.astro"
 title: 10.2-10.6 Infinite Series
 pubDate: 2024-05-07T00:00:00Z
-updatedDate: 2000-01-01T00:00:00Z
+updatedDate: 2024-10-31T00:00:00Z
 draft: false
 author: Sarai Marte
 slug: infinite-series
@@ -143,7 +143,6 @@ So, instead of finding the sum of the sequence from one point to another finite 
 We can find the sum of the sequence from one point to infinity.
 
 <div style="object-fit:contain;">
-  
   <img src={img3.src} alt="" />
 </div>
 
@@ -159,11 +158,10 @@ but remember infinity is not a number, so we're really trying to find the sum of
 and so another way to write that is, 
 
 <div style="object-fit:contain;">
-  
-  <img src={img25.src} alt="" />
+<img src={img25.src} alt="" />
 </div>
 
-and _that_ is the sum of the sequence of partial sums as n gets infinitely bigger... aka the series.
+and that is the sum of the sequence of partial sums as n gets infinitely bigger... aka the series.
 
 So, if the sequence of partial sum (S<sub>n</sub>) converges then the series converges (because the "series" is the same as the "sum of the sequence of partial sums (S<sub>n</sub>) as n (the sums) go to infinity").
 
@@ -195,7 +193,17 @@ Usually, we cover special stuff at the end of the chapter. This time, we'll cove
 
 Do the following series converge of diverge? If they converge, what do they converge to?
 
-<Problem n = "1" img = {img19} alt = "Problem 1"/>
+<Problem n = "1" img = {img37} alt = "Problem 1"/>
+ 
+<Solution>
+
+**Answer: Converges to 3/2.**
+
+<iframe src="https://www.youtube.com/embed/upA3kpO7pNs?si=Jo1s-Mq34i1Us0Un" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</Solution>
+
+<Problem n = "2" img = {img19} alt = "Problem 2"/>
 
 <Solution>
 
@@ -214,19 +222,11 @@ Do the following series converge of diverge? If they converge, what do they conv
 
 <ImageMd img={img42} alt = ""> </ImageMd>
 
-Note on a mistake I made: I wrote S<sub>n</sub> as `{S1 + S2 + S3 + ... }`
+Note on notation in top left corner of video: I wrote S<sub>n</sub> as `{S1 + S2 + S3 + ... }`
 
 when it's really suppose to be `{S1, S2, S3, ...}`
 
 so, commas not plus signs because the sequence of partial sums is a sequence not a series. Series means sum (+). Sequence means list (,).
-
-</Solution>
-
-<Problem n = "2" img = {img37} alt = "Problem 2"/>
- 
-<Solution>
-
-con to 3/2
 
 </Solution>
 
@@ -1353,18 +1353,65 @@ Here is a collection of problems you can try using any of the tests we have lear
 
 <Solution>
 
-**Answer: Converges**
+**Answer: DCT Converges**
 <iframe src="https://www.youtube.com/embed/M0ScoG7b9NM?si=RuBeU8CdlNNR3wNX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </Solution>
 
-<Problem  n="2" alt="Problem 2                         ">
-<Latex formula="\sum\limits_{n=2}^{\infty} \frac{1}{\ln(\ln(n))}" />
+
+<Problem n="2" alt="Problem 2">
+<Latex formula="
+\sum_{n=1}^{\infty} \frac{5^n}{n^n}
+"/>
 </Problem>
-                                                
 
 <Solution>
+**Answer: Root Test Converges**
+<iframe src="https://www.youtube.com/embed/7GbSxMY9jok?si=3M0FT8DAOFyFATUG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
 
-**Answer: **
+<Problem  n="3" alt="Problem 3">
+<Latex formula="
+\sum\limits_{n=2}^{\infty} \frac{1}{\ln(\ln(n))}
+"/>
+</Problem>
 
+<Solution>
+**Answer: LCT Diverges**
+<iframe src="https://www.youtube.com/embed/4smfbFcyy_w?si=E1PnD-fq4MASt9FT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+<Problem  n="4" alt="Problem 4">
+<Latex formula="
+\sum_{n=0}^{\infty} \frac{1}{2^n + \sqrt{n}}
+"/>
+</Problem>
+
+<Solution>
+**Answer: DCT Converges**
+<iframe src="https://www.youtube.com/embed/ZypmjwEW0hY?si=r5thge0NgBXYwwTh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
+
+<Problem n="5" alt="Problem 5">
+<Latex formula="
+\sum_{n=1}^{\infty} \frac{5^n}{n^n} \text{ converges by the Ratio Test.}
+"/>
+</Problem>
+
+<Solution>
+**Answer: Telescoping. Converges to 16/3.**
+</Solution>
+
+
+<Problem n="6" alt="Problem 6">
+<Latex formula="
+\sum\limits_{n=1}^{\infty} \frac{n^2 + 1}{\sqrt{n^7 + 3n^5 + 1}}
+"/>
+</Problem>
+
+<Solution>
+**Answer: DCT Converges**
+<iframe src="https://www.youtube.com/embed/43n0LXaZVmE?si=040W9EDAinfOXPKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
