@@ -98,6 +98,12 @@ In other words, you are adding up all the terms in a sequence.
 
 ## Notation
 
+To understand where a sequence is heading- where it's being limited to- we take its limit as the numbers in the sequence go on forever, checking if they settle around a particular value.
+
+When we look at a series—meaning the sum of a sequence—we want to see where the sums are heading-what they are being limited to. To do this, we add the terms of the sequence **one by one, little by little**, creating a new sequence of these **partial** sums called S<sub>n</sub>.
+
+Then, we find the limit of this sequence of partial sums to see if it’s approaching a specific value- a specific sum.
+
 So, if a sequence is: a<sub>n</sub> = `{1, 2, 3...}`
 
 To find the series you take the partial sum at every n and dump that into the sequence of partial sums called s<sub>n</sub>.
@@ -1414,3 +1420,14 @@ Here is a collection of problems you can try using any of the tests we have lear
 **Answer: DCT Converges**
 <iframe src="https://www.youtube.com/embed/43n0LXaZVmE?si=040W9EDAinfOXPKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
+
+<Problem n="7" alt="Problem 7">
+<Latex formula="
+\sum\limits_{n=1}^{\infty} \left(5^{\frac{1}{n}} - 5^{\frac{1}{n+1}}\right)
+"/>
+</Problem>
+
+<Solution>
+**Answer: Telescoping. Converges to 4.**
+</Solution>
+
