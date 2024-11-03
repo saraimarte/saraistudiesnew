@@ -12,6 +12,7 @@ import F from '@components/F.astro';
 import Latex from '@components/Latex.astro';
 import Problem from '@components/Problem.astro';
 import Solution from '@components/Solution.astro';
+import WP from '@components/WordProblem.astro';
 
 # Motivation
 
@@ -44,7 +45,6 @@ Let's practice rewriting systems as a matrix and cover some vocabulary.
  
 Now that we're comfortable going from system to matrix let us consider this idea:
  
-
 <iframe src="https://www.youtube.com/embed/7lNaXnUupms?si=7AsBljy15M2PDlFl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Echelon Forms 
@@ -269,3 +269,47 @@ a<sub>1</sub>x<sub>1</sub>/a<sub>2</sub>x<sub>1</sub> =  b<sub>1</sub>x<sub>2</s
 <Solution>
 If there are not enough equations to solve for the unknowns then that means there must be a free variable that most of those unknowns will depend on. That free variable is *free* to be anything we want it to be so there will be infinitely many solutions.
 </Solution>
+
+<p>Put the following matricies in RREF.</p>
+
+<Problem n = "10">
+<Latex formula="
+A = \begin{bmatrix}
+1 & 2 & 0 & 3 \\
+1 & 2 & 0 & 3 \\
+0 & 0 & 1 & 2 \\
+\end{bmatrix}
+"/>
+</Problem>
+<Solution>
+<iframe src="https://www.youtube.com/embed/9TkAlwSLHAw?si=xQeGMXRtkrrnZ9qw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
+<Problem n = "11">
+<Latex formula="
+A = \begin{bmatrix}
+-2 & 6 & 4 \\
+3 & -1 & 5 \\
+0 & 5 & 6 \\
+\end{bmatrix}
+"/>
+</Problem>
+<Solution>
+<iframe src="https://www.youtube.com/embed/GJZVrOLsDro?si=V1qmu7uKCc6TK2P8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+<Problem n = "12">
+<Latex formula="
+A = \begin{bmatrix}
+1 & 0 & 3 & 0 \\
+-4 & 3 & -5 & 2 \\
+3 & -1 & 4 & -2 \\
+\end{bmatrix}
+"/>
+</Problem>
+<Solution>
+<iframe src="https://www.youtube.com/embed/m4EFGBF0mng?si=Q4vVk11koTPUHIKO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
