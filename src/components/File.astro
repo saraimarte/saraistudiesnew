@@ -1,0 +1,21 @@
+---
+
+const {link,title} = Astro.props;
+---
+
+<a href = {link}>{title}</a>
+
+
+<style>
+    a{
+        background:rgb(145, 202, 204);
+        border-radius: 5px;
+        padding:5px 10px;
+        text-decoration: none;
+        color:black;
+        font-size:0.8em;
+    }
+    a:hover{
+        background-color: rgb(128, 195, 198);
+    }
+</style>

@@ -1,18 +1,23 @@
 ---
 layout: '@layouts/Blog.astro'
 title: Analysis of Data With Excel
-pubDate: 2024-10-18T00:00:00Z 
-updatedDate: 2024-10-18T00:00:00Z 
+pubDate: 2024-11-05T00:00:00Z 
+updatedDate: 2024-11-05T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: anlysis-of-data-with-excel
 ---
 
 import Solution from '@components/Solution.astro';
+import File from '@components/File.astro';
 
-**Task:** Show the revenues by region.
- 
-**Pivot Tables**
+# Pivot Table Basics, Charts, Top 10 Filter
+
+**Task 1:** Show the revenues by region.
+
+<File title = "Task 1 Excel File" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/EZp2KKbuyTpKqZ2Dqv4kltMB0Y-FRH4OXCbtMCNpqmAWkQ?e=cOdjZE"/>
+
+**With Pivot Tables**
 
 <iframe src="https://www.youtube.com/embed/E44bFNkoubk?si=K8WcEX8LGkiA5J3H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -20,9 +25,51 @@ import Solution from '@components/Solution.astro';
 
 <iframe src="https://www.youtube.com/embed/a3U-DTPqk_Q?si=9Un-c3i9y-j5MUYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**Task:** Show the revenues by category of product.
+**Task 2:** Show sales by top 10 categories of products.
 
-**Pivot Tables**
+<File title = "Task 2 Excel File" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/EaONUAmBW3dJvSuGICBbFRIBfgd08SnlXcVL0c2E_JW3lw?e=jGpCgy"/>
 
+**With Pivot Tables**
+
+<iframe src="https://www.youtube.com/embed/d-CkNOdxv0g?si=-Xeii1M_iSJ6JlHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **With Formulas**
+
+<iframe src="https://www.youtube.com/embed/iQIiRcvQEKE?si=lFnHTpBR37hGG-un" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+#  Calculations Using AVERAGEIFS(), IFERROR(), SUMIF(), COUNTIFS()
+
+<File title = "Excel File For Task 1 & 2" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/EUdhzUjwKDBIl2707IEsAbMB8gkUqX2BBxlCzuK_eUUV4A?e=H1JaiP"/>
+
+**Task 1:** Find the average price of a product in each category. 
+
+**With Pivot Tables**
+
+<iframe src="https://www.youtube.com/embed/Tm5CGcOejmc?si=62D917FveFsnQ7Bo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**With Formulas**
+
+<iframe src="https://www.youtube.com/embed/G9MpNh98sWg?si=PVNGC4BZOZPFYT81" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+What if you had #DIV/0! Error when using AVERAGEIFS()?  
+
+<iframe src="https://www.youtube.com/embed/j7MUvUcz6xI?si=yL4b0b34v7X-Lt5t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Task 2:** Find the sum and count of quantity of products ordered for each category. 
+
+**With Pivot Tables** + Intro to Slicers! (aka those interactive things you see next to charts)
+
+<iframe src="https://www.youtube.com/embed/CRVLp-uz6uI?si=vTciGb8IQzEGGukw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**With Formulas**
+
+<iframe src="https://www.youtube.com/embed/SNrpAkOqxFM?si=igUbFMbKVeM5jQjv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Multiple Criteria so sumifs() not sumif()
+
+**Task 1:** For every category, find how much each salesperson is generating in revenue. 
+
+<File title = "Excel File For Task 1" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/EcsyHq-W6t5Mu2gCtN4qi-0BbbDGifxFY912HW-qDL-Acg?e=ngQVng"/>
+
+<iframe src="https://www.youtube.com/embed/NTWYAMDsLK8?si=TL3THKqzdnwLZxoK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
