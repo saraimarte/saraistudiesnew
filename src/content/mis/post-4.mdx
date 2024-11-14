@@ -69,6 +69,8 @@ What if you had #DIV/0! Error when using AVERAGEIFS()?
 
 **Task 1:** For every category, find how much each salesperson is generating in revenue. 
 
+**With Pivot Table**
+
 <File title = "Excel File For Task 1" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/ET0t1HTFmVdBqKBCOWYhRsEBUaxj6k5AiifgMPh9EIsTXQ?e=YEhjrd"/>
 
 <iframe src="https://www.youtube.com/embed/JChxSxnWQdY?si=Ho2HXHzx5ftZ-wsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -76,4 +78,34 @@ What if you had #DIV/0! Error when using AVERAGEIFS()?
 **With Formulas**
 
 <iframe src="https://www.youtube.com/embed/DQhYyVoybOs?si=ibC8knGRIuSAfUwW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+**Task 2:**
+
+**With Pivot Table**
+
+<File title = "Excel File For Task 1" link = ""/>
+
+
+**With Formulas**
+
+
+# VLOOKUP(), 
+
+<File title = "Excel File For Task 1" link = "https://rutgersconnect-my.sharepoint.com/:x:/g/personal/smm651_scarletmail_rutgers_edu/EUtGvD90CCNHtB7A5PuIcGgBrDkigFLc9Z3mzda4Wq5mGQ?e=2KVe0m"/>
+
+
+Whatever value you're trying to look up has to be on the left. So here we are looking up id so id should be on the left. 
+
+Also, ascending order.
+
+What happens if it's not a table?
+
+Then when you add new rows to the table, your VLOOKUP  will stop working. 
+because the function only has the array, table you chose in the beinning so you would have to adjust table size everytime.  
+
+What happens when we search up a customer id outside of the range of id's? 
+It automatically moves to the last value that we had if range lookup is true.
+
+We can handle this error by just setting range lookup to false and handle error say iferror function and rreturn "Not Found."
 

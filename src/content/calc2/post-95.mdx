@@ -1,11 +1,28 @@
 ---
 layout: '@layouts/Blog.astro'
-title: 10.8 Taylor Series
-pubDate: 2000-01-01T00:00:00Z
-updatedDate: 2000-01-01T00:00:00Z 
+title: 10.8/10.9 Taylor Series and Convergence of Taylor Series
+pubDate: 2024-11-13T00:00:00Z 
+updatedDate: 2024-11-13T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: taylor-series
+slug: taylor-series-and-convergence-of-taylor-series
 ---
 
-Okay, so this is a draft that hopefully one day I update but to be honest, I did not 'learn' Taylor Series because I ran out of time. I just went to the practice review questions before the second midterm- learned the pattern of how to solve the problems and then got it right on the test- well almost right, I forgot to write the number 2 so I got 2 points off but let's pretend that didn't happen. 
+They will ask you to find the Taylor Polynomials for a given function at a given order and center.
+
+import Latex from '@components/Latex.astro';
+import Problem from '@components/Problem.astro';
+import Solution from '@components/Solution.astro';
+
+<Problem n = "1">
+<Latex formula="
+f(x) = (1+x)^{\frac{2}{3}}, \quad T_3(x) \text{ at } a = 0
+"/>
+</Problem>
+
+
+<Solution>
+
+T<sub>3</sub>(x) = 1 + 2/3x - (2/9)/2!x<sup>2</sup> + (8/27)/3! x<sup>3</sup>
+
+</Solution>
