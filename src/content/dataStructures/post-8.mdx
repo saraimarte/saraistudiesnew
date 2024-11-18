@@ -9,11 +9,14 @@ slug: balanced-search-trees-2-3-trees-red-black-trees
 ---
 
 import Rulebox from "@components/Rule.astro";
+import Solution from "@components/Solution.astro";
+
 import ImageMd from "@components/ImageMd.astro";
 import img1 from '@images/112/11.svg';
 import img2 from '@images/112/12.svg';
 import img3 from '@images/112/13.svg';
 import img4 from '@images/112/14.svg';
+import img5 from '@images/112/15.svg';
 
 import WP from '@components/WordProblem.astro';
 
@@ -41,7 +44,7 @@ The goal of 2-3 trees is to maintain balance, ensuring that all paths from the r
 
 **3.** A 3-node needs to have 3 children. 
 
-So, every time you add a number make sure you did it from the bottom and that both **2** and **3** are still true.  
+So, every time you add a number make sure you did it from the bottom and that both conditions **2** and **3** are still true.  
 
 </Rulebox>
 
@@ -77,16 +80,38 @@ Let's see this in action.
 
 <iframe src="https://www.youtube.com/embed/xvFk_4mguAs?si=xVMqulsv9uOPN-bZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Converting 2-3 Tree into Binary Tree 
+## Converting 2-3 Tree into Left Leaning Red Black Trees (LLRB) 
 
 <WP n = "1" img = {img3}/>
 
+<Solution>
+<iframe src="https://www.youtube.com/embed/8nIP9Jd5vhY?si=84oh81MT4yrn_jCR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
 <WP n = "2" img = {img4}/>
+
+<Solution>
+<iframe src="https://www.youtube.com/embed/TiwnUHMv6Tc?si=GiV9eM257ZCqwAY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+<WP n = "3" img = {img5}/>
+
+<Solution>
+<iframe src="https://www.youtube.com/embed/S5OojYJkfXI?si=QPTDdVDyL_SxE4vd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
 
 ## Inserting into a Red-Black Tree 
 
-<ImageMd img={img1} alt = "Cases for Red-Black Trees"> </ImageMd>
-
 <iframe src="https://www.youtube.com/embed/qpihXltSHoY?si=Fia_HXK-TqU_gMXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<ImageMd img={img1} alt = "Cases for Red-Black Trees"> </ImageMd>
 
+### Basic Examples
+<iframe src="https://www.youtube.com/embed/Yxlh5VpYR18?si=_-fLcrjexiUPdti6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example 1
+<iframe src="https://www.youtube.com/embed/THOSdxKiufA?si=l1TPk5lKkQv7fDfr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example 2 
+
+<iframe src="https://www.youtube.com/embed/ppOeepyOWdA?si=E7WkvYPAPr7j1yKd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
