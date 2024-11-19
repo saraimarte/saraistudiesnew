@@ -4,31 +4,32 @@ import Latex from '../components/Latex.astro'; // Adjust the path as needed
 const { n, img } = Astro.props;
 ---
 
-
 <div class="card">
-  <div class="content">
+  <div class={`content ${img ? '' : 'no-img'}`}>
     <p>{n}.</p>
-    {img && <img src={img.src} alt= {'Problem ' + n} />}
+    {img && <img src={img.src} alt={'Problem ' + n} />}
     <slot></slot>
   </div>
 </div>
 
-
 <style>
-
-.card{
+.card {
   display: flex;
-  gap:2em;
+  gap: 2em;
 }
 .content {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; /* Default alignment */
+}
+
+.content.no-img {
+  align-items: start; /* Start alignment */
+  gap:1em;
 }
 
 img {
   max-width: 100%;
   height: auto;
 }
-
 </style>
