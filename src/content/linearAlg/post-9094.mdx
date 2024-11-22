@@ -2,9 +2,9 @@
 layout: '@layouts/Blog.astro'
 title: 6.1|6.2 Inner Products and Orthogonality 
 pubDate: 2024-11-21T00:00:00Z 
-updatedDate: 2024-11-21T00:00:00Z 
+updatedDate: 2024-11-22T00:00:00Z 
 draft: false
-author: Sarai Marte
+author: Sarai MSarte
 slug:  inner-products-and-orthogonality 
 ---
 import Latex from '@components/Latex.astro';
@@ -18,8 +18,48 @@ import Rulebox from '@components/Rule.astro';
 
 # Find Length of a Vector 
 
+<Rulebox>
+If you have a vector **v**, then the length of the vector is denoted by ||**v**||.
+
+||**v**|| is calculated simply by taking all the entries in the vector, squaring them, adding them together, and taking the square root of the sum like so,
+
+<Latex formula=" \mathbf{v} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \quad ||\mathbf{v}|| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{14}" />
+</Rulebox>
+
 <iframe src="https://www.youtube.com/embed/hJuHhha9AT0?si=ZHD7jY-8Pv4eFBqu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Find Distance Between 2 Vectors 
 
+<Rulebox>
+If you have vectors **u** and **v**, then the distance between them is simply the length of the vector that connects them that is **u**-**v**, that is, ||**u**-**v**||. 
+</Rulebox>
+
 <iframe src="https://www.youtube.com/embed/Ufo7OobRUXY?si=2vbuLww82z8b3FcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Orthogonal Vectors and Sets 
+
+<iframe src="https://www.youtube.com/embed/WaCymxXWXdc?si=7OyatdELPClSfDzN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Is the following set an orthogonal set?
+
+<Problem n = "1">
+<Latex formula=" \left\{ \begin{bmatrix} -1 \\ 4 \\ 3 \end{bmatrix}, \begin{bmatrix} 5 \\ 2 \\ 1 \end{bmatrix}, \begin{bmatrix} 3 \\ -4 \\ 7 \end{bmatrix} \right\} " />
+</Problem>
+
+<Solution>
+**Answer: No.**
+<iframe src="https://www.youtube.com/embed/FnEXwo_N6-0?si=dMFz04nGr1lSVMHr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+# Show that the set of vectors u<sub>1</sub>,  u<sub>2</sub>,  u<sub>3</sub> is an Orthogonal Basis
+
+<Rulebox>
+**Theorem**
+Any orthogonal set of vectors is linearly independent.
+</Rulebox>
+
+<iframe src="https://www.youtube.com/embed/ETZ12sOZ-KM?si=uhGJeI0a8XDtKKbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Express Given **x** as a linear combination of **u**'s that are part of an orthogonal basis. 
+
+<iframe src="https://www.youtube.com/embed/iuIHNLb14fM?si=e06BOozKAdTNoDA-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
