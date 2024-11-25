@@ -10,6 +10,7 @@ slug: arc-length
 
 import ImageMd from "@components/ImageMd.astro";
 import Solution from '@components/Solution.astro';
+import Latex from '@components/Latex.astro';
 
 import img1 from "@images/152/56.svg";
 
@@ -32,7 +33,18 @@ Also, arc length can be denoted by S or L. It doesn't really matter as long as t
 <iframe src="https://www.youtube.com/embed/8skzHUMGIMg?si=FMvK9I0EDguS6VUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Special Trick (Saves you some algebra!)
-[video to be added]
+
+Recall the formula for arc length: 
+
+<ImageMd img = {img1} alt = "Formula for arclength"/>
+
+Do you see the stuff inside the square root? This stuff:
+
+<Latex formula="1 + f'(x)^2" />
+
+Yeah, cool thing is- we can sometimes rewrite it as a perfect square and then be able to cancel the root out leaving us with a root free integrand!
+
+For some arc length problems where 
 
 # Practice
 
