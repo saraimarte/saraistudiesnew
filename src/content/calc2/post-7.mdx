@@ -2,7 +2,7 @@
 layout: "@layouts/Blog.astro"
 title: 8.2 Integration By Parts (IBP)
 pubDate: 2024-04-27T00:00:00Z
-updatedDate: 2024-11-24T00:00:00Z
+updatedDate: 2024-11-26T00:00:00Z
 draft: false
 author: Sarai Marte
 slug: integration-by-parts
@@ -25,6 +25,38 @@ It's just that a lot of people struggle because things can get too messy on thei
 
 <iframe src="https://www.youtube.com/embed/M1RolHxBNl8?si=NLaJupGzrU6LcomR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+
+<Problem n = "1">
+<Latex formula = "\int \ln(x) \, dx"/>
+</Problem>
+<Solution>
+<Latex formula = "x \ln(x) - x + C"/>
+<iframe src="https://www.youtube.com/embed/Qg7yT94MJzU?si=G4Z06YzInJBWA0mV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+<Problem n = "2">
+<Latex formula = "\int \tan^{-1}(x) \, dx"/>
+</Problem>
+<Solution>
+<Latex formula = "\tan^{-1}(x) x - \frac{1}{2} \ln|1+x^2| + C"/>
+<iframe src="https://www.youtube.com/embed/gDPHD69imMY?si=CzTWy_CdbQuUEj81" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Don't know the derivative of arctan(x)? Watch the video below.
+
+<iframe src="https://www.youtube.com/embed/n_nnlZalj1w?si=zrh5FwUHLnCc_Qcd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
+<Problem n = "3">
+<Latex formula = "\int x \cos(2x) \, dx"/>
+</Problem>
+<Solution>
+<Latex formula = "\frac{1}{2} x \sin(2x) + \frac{1}{4} \cos(2x) + C"/>
+<iframe src="https://www.youtube.com/embed/IsOOklPXenk?si=hAUrZLwSXb51IlBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
+
+
 ## Definite Integral 
 
 <iframe src="https://www.youtube.com/embed/sfiwErP5Jn0?si=zw6LJ2M7eIFE01A3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -41,37 +73,24 @@ It's just that a lot of people struggle because things can get too messy on thei
 
 <iframe src="https://www.youtube.com/embed/KPHXKkxIMh8?si=Hg4HgxMn0z69t5-Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<Problem n = "1">
+<Latex formula = "\int e^{x} cos(x) \, dx"/>
+</Problem>
+<Solution>
+<Latex formula="\frac{e^x \sin(x) + e^x \cos(x)}{2} + C" />
+<iframe src="https://www.youtube.com/embed/zksg_L6yaYs?si=uu9fhYUOqVAsgsx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Solution>
+
 # Practice
 
 <Problem n = "1">
-<Latex formula = "\int x \cos(2x) \, dx"/>
+<Latex formula="\int x \csc^2(6x) \, dx"/>
 </Problem>
 <Solution>
-<Latex formula = "\frac{1}{2} x \sin(2x) + \frac{1}{4} \cos(2x) + C"/>
-<iframe src="https://www.youtube.com/embed/IsOOklPXenk?si=hAUrZLwSXb51IlBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<Latex formula="-\frac{x}{6} \cot(6x) + \frac{1}{36} \ln|\sin(6x)| + C"/>
+<iframe src="https://www.youtube.com/embed/8jHxKaYficc?si=kdq5FUzSqCuAecCb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
 
-
-<Problem n = "2">
-<Latex formula = "\int \tan^{-1}(x) \, dx"/>
-</Problem>
-<Solution>
-<Latex formula = "\tan^{-1}(x) x - \frac{1}{2} \ln|1+x^2| + C"/>
-<iframe src="https://www.youtube.com/embed/gDPHD69imMY?si=CzTWy_CdbQuUEj81" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-Don't know the derivative of arctan(x)? Watch the video below.
-
-<iframe src="https://www.youtube.com/embed/n_nnlZalj1w?si=zrh5FwUHLnCc_Qcd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</Solution>
-
-
-<Problem n = "3">
-<Latex formula = "\int \ln(x) \, dx"/>
-</Problem>
-<Solution>
-<Latex formula = "x \ln(x) - x + C"/>
-<iframe src="https://www.youtube.com/embed/Qg7yT94MJzU?si=G4Z06YzInJBWA0mV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</Solution>
 
 <Problem n = "4">
 <Latex formula = "\int \ln(x) \sqrt{x} \, dx"/>
@@ -129,9 +148,3 @@ Don't know the derivative of arctan(x)? Watch the video below.
 </Solution>
 
 
-<Problem n = "11">
-<Latex formula = "\int e^{x} cos(x) \, dx"/>
-</Problem>
-<Solution>
-<Latex formula="\frac{e^x \sin(x) + e^x \cos(x)}{2} + C" />
-</Solution>
