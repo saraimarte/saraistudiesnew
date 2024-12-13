@@ -20,16 +20,22 @@ const { n, img } = Astro.props;
 .content {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Default alignment */
+  align-items: center;
+
 }
 
 .content.no-img {
-  align-items: start; /* Start alignment */
+  align-items: start; 
   gap:1em;
 }
 
 img {
   max-width: 100%;
   height: auto;
+} 
+
+p{
+  position: relative;
+  bottom:4px;
 }
 </style>

@@ -11,6 +11,7 @@ slug: polar-stuff
 import ImageMd from "@components/ImageMd.astro";
 import Solution from '@components/Solution.astro';
 import RuleBox from '@components/Rule.astro';
+import Latex from '@components/Latex.astro';
 
 import img1 from "@images/152/47.png";
 import img2 from "@images/152/48.svg";
@@ -210,13 +211,23 @@ r<sup>2</sup>cosθsinθ = 11
 (rcosθ - 3)<sup>2</sup> + (rsinθ + 2)<sup>2</sup> = 16
 </Solution>
 
+
+**6.** x<sup>2</sup> + (y-2)<sup>2</sup> = 4
+
+<Solution>
+
+r = 4sinθ
+
+</Solution>
+
+
 ## 11.3.3 Graphing polar curves and identifying symmetries  
 
 The types of polar curves we will cover are cardioids, lemniscates, limacons, rose curves, and spirals. 
 
-## Cardioids
-
 ## Lemniscates
+
+## Cardioids
 
 ## Limacons
 
@@ -228,4 +239,16 @@ The types of polar curves we will cover are cardioids, lemniscates, limacons, ro
 
 # 11.5.1  Find the area of a region bounded by either a polar curve or part of it
 
+<RuleBox>
+
+<Latex formula="A = \int_\alpha^\beta \frac{1}{2} \left(f(\theta)\right)^2 \, d\theta" />
+<Latex formula="A = \int_\alpha^\beta \frac{1}{2} \left(f_2(\theta)^2 - f_1(\theta)^2\right) \, d\theta" />
+
+</RuleBox>
+
 # 11.5.2 Find the arc length of a polar curve 
+
+<RuleBox>
+<Latex formula="A = \int_\alpha^\beta \frac{1}{2} \left(f_2(\theta)^2 - f_1(\theta)^2\right) \, d\theta" />
+</RuleBox>
+

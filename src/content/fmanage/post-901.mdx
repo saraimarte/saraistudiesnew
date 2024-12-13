@@ -8,3 +8,100 @@ author: Sarai Marte
 slug: topic-10
 ---
 
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+import  Problem from '@components/Problem.astro';
+import  Solution from '@components/Solution.astro';
+
+In the last lesson, we learned how to budget our capital, such as investing in projects.
+
+In this lesson, we will focus on where the capital comes from.
+
+Remember 'capital' is just a fancy way of saying 'money.'
+
+**Questions to Consider:**
+
+What is the structure of our capital?
+
+Does your capital come from borrowing?
+
+Does it come from raising money?
+
+Does it come from a combination, like 50% borrowing and 50% raising money?
+
+**Key Fact:**
+
+There is a cost to capital. Where you get it from impacts that cost.
+
+If you borrow all your capital, there are costs associated with borrowing.  
+
+If you raise all your capital from shareholders, there are costs to that too.  
+
+# How much does your capital cost?
+
+## If you borrowed all your capital...
+
+Then your cost are your interest payments which is just a percentage out of the amount of money you borrowed. That percentage is the yield to maturity (YTM<sub>D</sub>.) 
+
+So the cost of borrowing money is just 
+
+<Latex formula="\text{YTM}_D \times \text{Amount borrowed}" />
+
+But here's a fun fact! 
+
+Interest payments are tax-deductible. 
+
+Meaning to get the *true* cost of borrowing money you need to account for the taxes (τ<sub>c</sub>) you're not paying. 
+
+So, we take the current cost of borrowing and simply subtract our taxes τ<sub>c</sub>.
+
+<RuleBox>
+<Latex formula="(1 - \tau_c) \times \text{ytm}_D \times \text{Amount borrowed}" />
+</RuleBox>
+
+Suppose a firm issues a corporate bond with a yield to maturity of 7.5%. What is the cost of capital for debt for the firm, if the tax rate is 30%?
+
+<Solution>
+
+5.25% 
+
+</Solution>
+
+## If you raised all your capital...
+
+<RuleBox>
+<Latex formula="R_E = r_F + \beta_E \left(E[R_M] - r_F\right)" />
+**r<sub>F</sub>** is the risk-free rate.  
+
+**β<sub>E</sub>** is the beta for stock or firm E.
+
+**R<sub>M</sub>** is the expected return on the market.
+
+</RuleBox>
+
+Suppose XYZ Corp has an equity beta of 1.25. The current risk-free rate is 4.5%, and the expected return on the market is 10.2%. What is the cost of capital for equity for this company?
+
+<Solution>
+
+11.63% 
+
+Interpretation: Investors expect a return of 11.63% annually on the money they invest in your company.  
+
+</Solution>
+
+## If you borrowed and raise capital...
+
+<RuleBox>
+<Latex formula="\omega_E \times R_E + \omega_D \times \text{ytm}_D \times (1 - \tau)" />
+</RuleBox>
+
+A firm is funded with $300 million in equity and $200 million in debt. The yield to maturity on bonds issued by the firm is 6.5%. The tax rate is 35%. The firm has a beta of 1.25. The risk-free rate is 4%, and the market risk premium is 8%. What is the cost of capital for this firm?
+
+<Solution>
+
+10.09% 
+
+</Solution>
+
+# How much of your capital should come from debt and equity?
+

@@ -1,18 +1,22 @@
 ---
 layout: '@layouts/Blog.astro'
-title: 10.8/10.9 Taylor Series and Convergence of Taylor Series
+title: 10.8-10.10 Taylor and Maclaurin Series
 pubDate: 2024-11-13T00:00:00Z 
 updatedDate: 2024-11-13T00:00:00Z 
 draft: false
 author: Sarai Marte
-slug: taylor-series-and-convergence-of-taylor-series
+slug: taylor-series-maclaurin-series
 ---
-
-They will ask you to find the Taylor Polynomials for a given function at a given order and center.
 
 import Latex from '@components/Latex.astro';
 import Problem from '@components/Problem.astro';
 import Solution from '@components/Solution.astro';
+import RuleBox from '@components/Rule.astro';
+
+
+# 10.8 Taylor Series 
+
+They will ask you to find the Taylor Polynomials for a given function at a given order and center.
 
 <Problem n = "1">
 <Latex formula="
@@ -26,3 +30,48 @@ f(x) = (1+x)^{\frac{2}{3}}, \quad T_3(x) \text{ at } a = 0
 T<sub>3</sub>(x) = 1 + 2/3x - (2/9)/2!x<sup>2</sup> + (8/27)/3! x<sup>3</sup>
 
 </Solution>
+
+# 10.8 Maclaurin Series
+
+<RuleBox>
+<h1> Maclaurin Series</h1>
+
+<Latex formula=" e^x = \sum\limits_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dots " />
+
+<Latex formula=" \sin(x) = \sum\limits_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots " />
+
+<Latex formula=" \cos(x) = \sum\limits_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots " />
+
+<Latex formula=" \arctan(x) = \sum\limits_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots " />
+
+<Latex formula=" \frac{1}{1 - x} = \sum\limits_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + x^4 + \dots \quad \text{for } |x| < 1 " />
+
+<iframe src="https://www.youtube.com/embed/SapeR4q-jUc?si=0D8yoyhCu_1Ckn5F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</RuleBox>
+
+Use the reference Maclaurin series above and power series operations to find the Maclaurin series of the following functions. 
+
+<Problem n = "1">
+
+<Latex formula="f(x) = x \cos(x) - \sin(2x)" />
+</Problem>
+
+<Problem n = "2">
+<Latex formula="f(x) = e^{-x^3} - 1 + x^3" />
+</Problem>
+
+<Problem n = "3">
+<Latex formula="f(x) = x^5 \cos(3x^7)" />
+</Problem>
+
+
+<Problem n = "4">
+<Latex formula="f(x) = \frac{5}{3} + 7x" />
+</Problem>
+
+# 10.9 Convergence of Taylor Series  
+
+# 10.10 Applications of Taylor Series
+
+
