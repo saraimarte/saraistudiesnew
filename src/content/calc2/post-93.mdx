@@ -91,13 +91,13 @@ import img70 from "@images/152/118.svg";
 import img71 from "@images/152/119.svg";
 import img72 from "@images/152/130.svg";
 
-## What is a series
+# What is a series
 
 A series is just the sum of a sequence.
 
 In other words, you are adding up all the terms in a sequence.
 
-## Notation
+# Notation
 
 To understand where a sequence is heading- where it's being limited to- we take its limit as the numbers in the sequence go on forever, checking if they settle around a particular value.
 
@@ -241,6 +241,18 @@ Do the following series converge of diverge? If they converge, what do they conv
 
 ## 10.2 Geometric Series
 
+<Rulebox>
+
+**Rule:**
+
+If |r| < 1 CON  
+If |r| ≥ 1 DIV
+
+The way I remember the rules for the <span style = "color:orange; font-weight:bold">geomet</span>ric test is, personally, I like <span style = "color:orange; font-weight:bold">geomet</span>ry <span style = "color:purple; font-weight:bold">less</span> than <span style = "color:green; font-weight:bold">c</span>alc so I think |r| <span style = "color:purple; font-weight:bold"> < </span> 1 <span style = "color:green; font-weight:bold">C</span>ON and then the opposite is true: |r| ≥ 1 DIV.
+
+</Rulebox>
+
+
 <iframe loading="lazy"
  
   src="https://www.youtube.com/embed/jhr5szmUqts?si=Sv2_1Kbl1CaqwdOf"
@@ -251,7 +263,7 @@ Do the following series converge of diverge? If they converge, what do they conv
   allowfullscreen
 ></iframe>
 
-Series where every term contains a common ratio r.
+In a geometric series, every term contains a common ratio r.
 
 So Σa<sub>n</sub> = `{2 + 4 + 8   + ...}`
 
@@ -277,19 +289,6 @@ a is the first term of the series (when n = 1, 4/2 = 2)
 r is the second term divided by the first (when n = 2, 16/4 = 4 so 4(2nd term)/2(1st term) = 2)
 
 Just by knowing what r is we can find out if the series converges.
-
-<Rulebox>
-
-**Rule:**
-
-If |r| < 1 CON  
-If |r| ≥ 1 DIV
-
-The way I remember the rules for the <span style = "color:orange; font-weight:bold">geomet</span>ric test is, personally, I like <span style = "color:orange; font-weight:bold">geomet</span>ry <span style = "color:purple; font-weight:bold">less</span> than <span style = "color:green; font-weight:bold">c</span>alc so I think |r| <span style = "color:purple; font-weight:bold"> < </span> 1 <span style = "color:green; font-weight:bold">C</span>ON and then the opposite is true: |r| ≥ 1 DIV.
-
-</Rulebox>
-
-I explain it in the video below so check it out :)
 
 Here, because |2| ≥ 1, the series diverges.
 
@@ -328,96 +327,26 @@ Let's practice,
   Geometric Series Solutions
 </a>
 
-<Problem n = "1" img = {img21} alt = "Problem 1"/>
-
-<Solution>
-
-**Answer: |r| = 1/10 < 1 so the series Converges to 1/9. a = 1/10**
-
-</Solution>
-
-<Problem n = "2" img = {img23} alt = "Problem 2"/>
-   
-<Solution>
-
-**Answer: |r| = 1/2 < 1 so the series Converges to 1. a = 1/2**
-
-</Solution>
-
-<Problem n = "3" img = {img45} alt = "Problem 3"/>
-
-<Solution>
-
-**Answer: |r| = 2 > 1 so the series Diverges.**
-
-</Solution>
-
-<Problem n = "4" img = {img47} alt = "Problem 4"/>
-
-<Solution>
-
-**Answer: |r| = 1/5 < 1 so the series Converges to 5/4. a = 1.**
-
-</Solution>
-
-<Problem n = "5" img = {img48} alt = "Problem 5"/>
-
-<Solution>
-
-**Answer: |r| = 3/4 < 1 so the series Converges to -27/6. a = -189/64.**
-
-</Solution>
-
-<Problem n="6" img={img36} alt="Problem 6"/>
-
-<Solution>
-
-**Answer: r<sub>1</sub> = 5/6, r<sub>2</sub> = 1/3, both < 1, a<sub>1</sub> = 5/6, a<sub>2</sub> = 1/3, sum<sub>1</sub> = 5, sum<sub>2</sub> = 1/2 so 5 - 1/2 = 9/2. So the series Converges to 9/2.**
-
-</Solution>
-
-<Problem n="7" img={img38} alt="Problem 7"/>
-
-<Solution>
-
-**Answer: |r| = 1/9 < 1 so the series Converges 9/10. a = 1.**
-
-</Solution>
-
-<Problem n="8" img={img49} alt="Problem 8"/>
-
-<Solution>
-
-**Answer: r<sub>1</sub> = 3/7, r<sub>2</sub> = 5/7, both < 1, a<sub>1</sub> = 9/49, a<sub>2</sub> = 25/49 Sum = -41/28. So the series Converges to -41/28.**
-
-</Solution>
-
 # Tests
 
 Again, besides telescoping and geometric series, for all other series we will deal with, we will only be able to find if they converge or not, not what they converge to. We will also have to use tests to prove convergence kind of like we did with geometric series- we used the geometric test.
 
 Telescoping series are really the only ones we do manually. For geometric series, we use the geometric test (similar to the p-test below) but it is still considered a special series because we can find the sum using a formula.
 
-## 10.2 P-series (Harmonic Series/P-Test)
+# 10.2 P-series (Harmonic Series/P-Test)
+These are like the easiest series ever.
 
-<a href="https://rutgersconnect-my.sharepoint.com/:b:/g/personal/smm651_scarletmail_rutgers_edu/EbtFGRrqYJ5OjzMANGGeS2YB4q2wWD-zH73DdauvcqaXEw?e=ZISeRX">
-  
-  P-Series Solutions
-</a>
+<Rulebox>
 
-Omg I love these. These are like the easiest series ever.
+**Rules for the P-Test:**
 
-<div style="display:flex; justif-content:center;align-items:center; gap: 10px;">
+<div style="display:flex; justify-content:center;align-items:center; gap: 10px;">
   These are series of the form
   <div style="object-fit:contain;">
     
     <img loading="lazy" src={img28.src} alt="" />
   </div>
 </div>
-
-<Rulebox>
-
-**Rules for the P-Test:**
 
 If p > 1 CON  
 If p ≤ 1 DIV
@@ -432,13 +361,11 @@ Use the movie rating <span style ="color:purple; font-weight:bold">P</span><span
 
 (always start with CON like the geometric test) and then the opposite is true: p ≤ 1 DIV.
 
-
-
-
 I explain it in the video below aswell.
+
 </Rulebox>
+
 <iframe loading="lazy"
- 
   src="https://www.youtube.com/embed/prmK7nijHqw?si=aDE7Zh49vv94kS8t"
   title="YouTube video player"
   frameborder="0"
@@ -446,40 +373,21 @@ I explain it in the video below aswell.
   referrerpolicy="strict-origin-when-cross-origin"
   allowfullscreen
 ></iframe>
+<a href="https://rutgersconnect-my.sharepoint.com/:b:/g/personal/smm651_scarletmail_rutgers_edu/EbtFGRrqYJ5OjzMANGGeS2YB4q2wWD-zH73DdauvcqaXEw?e=ZISeRX">
+  P-Series Solutions
+</a>
 
-<Problem  n="1" img={img29} alt="Problem 1"/>
+# 10.2 Divergence Test (nth term test)
 
-<Solution>
+<Rulebox>
+<div style = "display:flex; justif-content:center;align-items:center; gap: 10px;"> 
+If 
+<div style = "object-fit:contain;" > <img loading="lazy" src={img24.src} alt=""  /> </div>
+ 
+is true then the series Σa<sub>n</sub> diverges.
 
-**Answer: p = 1 Div**
-
-</Solution>
-
-<Problem n="2" img={img30} alt="Problem 2"/>
-
-<Solution>
-
-**Answer: p = 2 Con**
-
-</Solution>
-
-<Problem n="3" img={img31} alt="Problem 3"/>
-
-<Solution>
-
-**Answer: p = 1 Div**
-
-</Solution>
-
-<Problem n="4" img={img32} alt="Problem 4"/>
-
-<Solution>
-
-**Answer: p = 3/2 Con**
-
-</Solution>
-
-## 10.2 Divergence Test (nth term test)
+</div>
+</Rulebox>
 
 <iframe loading="lazy"
  
@@ -496,16 +404,6 @@ I explain it in the video below aswell.
   Divergence Test Solutions
 </a>
 
-<Rulebox>
-<div style = "display:flex; justif-content:center;align-items:center; gap: 10px;"> 
-If 
-<div style = "object-fit:contain;" > <img loading="lazy" src={img24.src} alt=""  /> </div>
- 
-is true then the series Σa<sub>n</sub> diverges.
-
-</div>
-</Rulebox>
-
 <Alert>
 
 The divergence test does NOT work the opposite way.
@@ -518,43 +416,10 @@ If it's 0 then we don't know anything about the series. We have to try other tes
 
 Also, if you know a series diverges, you DON'T automatically know that the limit of the sequence is not 0. It only works in one direction.
 
-If the limit of the sequnce is not 0 then the series is divergent. It does not say that if the series is divergent then the limit of the sequence is not 0.
+If the limit of the sequence is not 0 then the series is divergent. It does not say that if the series is divergent then the limit of the sequence is not 0.
 
 </Alert>
 
-Do the following series converge or diverge?
-
-<Problem n="1" img={img26} alt="Problem 1"/>
-
-<Solution>
-
-**Answer: Diverges by the divergence test. Limit is ∞.**
-
-</Solution>
-
-<Problem n="2" img={img27} alt="Problem 2"/>
-
-<Solution>
-
-**Answer: Diverges by the divergence test. Limit is 1.**
-
-</Solution>
-
-<Problem n="3" img={img50} alt="Problem 3"/>
-
-<Solution>
-
-**Answer: Diverges by the divergence test. Limit is 1/4.**
-
-</Solution>
-
-<Problem n="4" img={img29} alt="Problem 4"/>
-
-<Solution>
-
-**Answer: Divergence Test does not apply because limit is 0. So we try another test, like p-test works here. The series converges by the p-test where p = 1.**
-
-</Solution>
 
 Okay, so now when the series is not a special series like geometric, telescoping, or harmonic _and_ the divergence test does not tell you if it diverges, then we have the integral test.
 
@@ -568,7 +433,7 @@ Note for the future: We can make negative series positive, so you _will_ be able
 
 </Note>
 
-## 10.3 Integral Test
+# 10.3 Integral Test
 
 <Rulebox>
 Only works with series with positive terms or eventually all positive terms.
@@ -688,9 +553,9 @@ Do the following series converge or diverge?
 
 </Solution>
 
-## 10.4 Comparison Tests
+# 10.4 Comparison Tests
 
-### Direct Comparison Test (DCT)
+# Direct Comparison Test (DCT)
 
 <iframe loading="lazy"
   src="https://www.youtube.com/embed/sokeDxEze6E?si=QtHOumtaHZDQz9Sp"
@@ -776,7 +641,7 @@ Here it is done using LCT.
 
 </Solution>
 
-### Limit Comparison Test (LCT)
+# Limit Comparison Test (LCT)
 
 <Rulebox>
 Only works with series with positive terms or eventually all positive terms.
@@ -798,6 +663,7 @@ If p = 0 and Σb<sub>n</sub> converges then Σa<sub>n</sub> will also converge.
 
 If p = ∞ and Σb<sub>n</sub> diverges then Σa<sub>n</sub> will also diverge.
 </Rulebox>
+
 Do the following series converge or diverge?
 
 <Problem  n="1" img={img9} alt="Problem 1"/>
@@ -876,7 +742,7 @@ Do the following series converge or diverge?
 
 # Negative Series
 
-## 10.5 Testing for Absolute Convergence & Using the Absolute Convergence Theorem (ACT)
+# 10.5 Testing for Absolute Convergence & Using the Absolute Convergence Theorem (ACT)
 
 What happens when we have series that includes negative terms?
 
@@ -925,7 +791,7 @@ So, we can get info about the <span style = "color:red"><b> given series</b> </s
 
 <Note>
 
-### Intuition on the Absolute Convergence Theorem
+# Intuition on the Absolute Convergence Theorem
 
 The idea is that when you add absolute value to something, the worst you can do is make that something bigger.
 
@@ -967,7 +833,7 @@ Okay! That is how the absolute convergence theorem works.
 
 </Solution>
 
-## Absolute Convergence Tests (Ratio and Root)
+# Absolute Convergence Tests (Ratio and Root)
 
 **So far:** if we see a negative series, we make it positive, test the corsp. positive series, use our 2 tools to prove the given series converges.
 
@@ -985,7 +851,7 @@ Personally, I treat ratio and root as any other test. I just think of it like th
 
 </Note>
 
-## Ratio Test
+# Ratio Test
 
 When to use: factorials (n!) and exponentials (2<sup>n</sup>)
 
@@ -993,7 +859,7 @@ With factorial ratio problems, they're easy, it's just some simplification and s
 
 With exponential ratio problems, you will often have to use ln() to cancel stuff out.
 
-### Factorials
+## Factorials
 
 You use ratio test mostly on problems that contain factorials so you need to be able to simplify expressions containing factorials.
 
@@ -1180,7 +1046,7 @@ Do the following series converge or diverge?
 
 </Solution>
 
-## Root Test
+# Root Test
 
 When to use: expressions raised to the power of n (n<sup>n</sup>, (1-2/n)<sup>n<sup>2</sup></sup>)
 
@@ -1261,7 +1127,7 @@ Do the following series converge or diverge?
 
 </Solution>
 
-## 10.6 Alternating Series Test
+# 10.6 Alternating Series Test
 
 **What we know:**
 
