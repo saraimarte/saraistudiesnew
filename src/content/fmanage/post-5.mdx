@@ -1,17 +1,22 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Topic 5 | Bond Valuation  
-pubDate: 2024-10-10T00:00:00Z 
-updatedDate: 2024-10-10T00:00:00Z 
+title: Topic 5 | Bond Valuation (Annuity)
+pubDate: 2024-12-19T00:00:00Z 
+updatedDate: 2024-12-19T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: topic-5
 ---
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+import  Problem from '@components/Problem.astro';
+import  Solution from '@components/Solution.astro';
+
+# What are bonds?
 
 When you buy a bond you're just buying a contract- a piece of paper that says when you will be paid back. 
 
 With bonds, you always get paid back the principle, the amount you bought it for.  
-
 
 # Relationship between bond prices and interest rates
 
@@ -31,6 +36,83 @@ A bond contains 4 items.
 
 Every year you get C% of FV and then at the last year you get your FV back. 
 
-# How do we value bonds?
+# How do we value/price bonds?
 
+
+A bond is issued by TechCorp that pays you a coupon of 5%. The par or face value of the bond is $1,500, and the bond has 6 years to maturity. If the yield to maturity is 7%, what is the value of the bond?
+
+(A) $1,357.30  
+(B) $357.49      
+(C) $1652.27     
+
+<iframe src="https://www.youtube.com/embed/EYO8dxoZZKM?si=zIJr-OJvEfXbHmT2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Toyota issues a bond with a face value of $1,000. It pays a coupon rate of 6%. The coupon payments are semi-annual (i.e., every 6 months). The yield to maturity on the bond is 8%. The bond matures in 5 years. The price of this bond is:
+
+(A) $920.146 //if you forget to adjust for semi-annual   
+(B) $1085.30 //if you switch coupon rate and ytm   
+**(C) $918.89**  
+
+# How do we find the coupon rate of a bond? (Plug and See)  
+
+A bond trades for $4,800 today. It has a face value of $5,200, and the yield to maturity for the bond is 8.45%. The bond matures in 12 years. The coupon rate for this bond is:
+
+(A) 5.2341%  
+**(B) 7.9068%**  
+(C) 2.2341%  
+
+# Relationships
+
+<RuleBox>
+If ytm increases then price of bond decreases.  
+
+If Tesla promises a **10%** coupon rate but the market interest rate is **5%**
+&nbsp;&nbsp; &nbsp;Then they are issuing this bond at a **discount** or in other words, you're buying this bond at a discount because the market rate is actually higher and your're getting it for less.  
+
+If Tesla promises a **10%** coupon rate but the market interest rate is **10%**
+&nbsp; Then they are issuing this bond at **par-value**/face-value.   
+
+If Tesla promises a **10%** coupon rate but the market interest rate is **20%**
+&nbsp; Then they are issuing this bond at a **premium**.   
+</RuleBox>
+
+# Types of bonds
+
+There are multiple ways to classify bonds. 
+
+## High grade vs low grade. 
+
+A bond is **high grade** if they are more likely to pay you back.
+
+**Low grade** if they are more likely to file for bankruptcy. 
+
+## Who is borrowing 
+
+Borrower can be the **U.S Federal government**-this is what we call a **treasury security**. 
+
+Borrower can be **state or local government or school district** like Rutgers- this is what we call a **Municipal security**.  
+
+## What interest do they pay?
+
+**Zero coupon bonds (ZCBs)** are when coupon rate is 0%.  
+
+They always sell less than face value.  
+
+**Floating Rate Bonds** are where the rate changes over time.     
+
+
+# Practice 
+
+**1.** Smithson Enterprises issued a 25-year bond with a coupon rate of 6% and a face value of $1,200. The yield-to-maturity on the bond is 5.5%. What is the price of the bond?
+
+**(A) $1,280.48**      
+(B) $1,150.45      
+(C) $1,050.45       
+
+
+**2.** Chevrolet issues a bond with a face value of $5,000. It pays a coupon rate of 4%. The coupon payments are quarterly (i.e., every 3 months). The yield to maturity on the bond is 9%. The price of this bond is:
+
+(A) $4,367.18  // not taking into account time period of payments  
+(B) $5,650.92       
+**(C) $4,349.08**       
 
