@@ -6,7 +6,7 @@ import { formatDate } from '@scripts/utils';
 import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
-    const allPosts: CollectionEntry<'foundations'>[] = await getCollection('foundations');
+    const allPosts: CollectionEntry<'discreteStructures1'>[] = await getCollection('discreteStructures1');
 
     return  allPosts.map(entry => ({
         params:{
@@ -30,11 +30,12 @@ const pathHome =  './';
 
     <div class = "container">
         <!--Path -->
-        <BackBtn link = "/foundations"></BackBtn>
-        
+        <BackBtn link = "/discreteStructures1"></BackBtn>
+
         <div class = "postInfo">
+
             <h1   data-pagefind-meta="title" class = "title">{entry.data.title}</h1>
-            <p class = "class">Foundations for Your Career Journey 33:011:301</p>
+            <p class = "class">Discrete Structures 1 01:198:205</p>
             <div class = "dates">
                 <p class = "date">Published: {formatDate(entry.data.pubDate)}</p>
                 <p class = "date">Updated: {formatDate(entry.data.updatedDate)}</p>
@@ -62,9 +63,8 @@ const pathHome =  './';
      width:100%;
      height:min-content;
      margin-top:20px; /*this along with the same for the blogContent class in Blog.astro is to fix the layout issue when making h1, h2 .. h6 all have top and botttom margins of 10px.*/
-     margin-left: 10px;
+    
     }
-
 
     .postInfo{
         position:relative;

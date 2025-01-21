@@ -4,20 +4,20 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
-const allPosts: CollectionEntry<'foundations'>[] = (await getCollection('foundations'));
+const allCalc2Posts: CollectionEntry<'computerArchitecture'>[] = (await getCollection('computerArchitecture'));
 
 
 export async function getStaticPaths() {
-  const allPosts: CollectionEntry<'foundations'>[] = await getCollection('foundations');
+  const allCalc2Posts: CollectionEntry<'computerArchitecture'>[] = await getCollection('computerArchitecture');
 
-  return allPosts.map(entry => ({
+  return allCalc2Posts.map(entry => ({
     params: {
       slug: entry.slug
     }
   }));
 }
 
-const allArticles = allPosts;
+const allArticles = allCalc2Posts;
 const folderPath1 = "../toolbox";
 const folderPath2 = "../rankings";
 const folderPath3 = "../ratings";
@@ -25,13 +25,13 @@ const pathHome =  './';
 
 ---
 
-<ClassHomePage
-  folderPath1= {folderPath1} 
+<ClassHomePage 
+ folderPath1= {folderPath1} 
   folderPath2 = {folderPath2} 
   folderPath3 = {folderPath3} 
-  pathHome = {pathHome} 
-  pageTitle="Foundations for Your Career Journey Directory" 
+  pathHome = {pathHome}
+  pageTitle="Computer Architecture Directory" 
   allArticles = {allArticles} 
-  className = "foundations" 
-  fullClassTitle = "Foundations for Your Career Journey 33:011:301">
+  className = "computerArchitecture" 
+  fullClassTitle = "Computer Architecture 01:198:211">
 </ClassHomePage>

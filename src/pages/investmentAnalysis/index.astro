@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allPosts: CollectionEntry<'investmentAnalysis'>[] = (await getCollection('investmentAnalysis'));
+
+
+export async function getStaticPaths() {
+  const allPosts: CollectionEntry<'investmentAnalysis'>[] = await getCollection('investmentAnalysis');
+
+  return allPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+  folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Investment Analysis Directory" 
+  allArticles = {allArticles} 
+  className = "investmentAnalysis" 
+  fullClassTitle = "Investment Analysis 33:390:380">
+</ClassHomePage>
