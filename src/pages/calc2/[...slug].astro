@@ -6,7 +6,7 @@ import { formatDate } from '@scripts/utils';
 import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
-    const allCalcPosts: CollectionEntry<'calc2'>[] = await getCollection('calc2');
+    const allCalcPosts: CollectionEntry<'calc2'>[] = (await getCollection('calc2')).filter((post) => post.data.draft === false);
 
     return  allCalcPosts.map(entry => ({
         params:{

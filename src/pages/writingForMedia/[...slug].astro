@@ -6,7 +6,7 @@ import { formatDate } from '@scripts/utils';
 import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
-    const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = await getCollection('writingForMedia');
+    const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = (await getCollection('writingForMedia')).filter((post) => post.data.draft === false);
 
     return  allWritingForMediaPosts.map(entry => ({
         params:{

@@ -4,11 +4,11 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
-const allCalc2Posts: CollectionEntry<'calc2'>[] = (await getCollection('calc2'));
+const allCalc2Posts: CollectionEntry<'calc2'>[] = (await getCollection('calc2')).filter((post) => post.data.draft === false);
 
 
 export async function getStaticPaths() {
-  const allCalc2Posts: CollectionEntry<'calc2'>[] = await getCollection('calc2');
+  const allCalc2Posts: CollectionEntry<'calc2'>[] = (await getCollection('calc2')).filter((post) => post.data.draft === false);
 
   return allCalc2Posts.map(entry => ({
     params: {

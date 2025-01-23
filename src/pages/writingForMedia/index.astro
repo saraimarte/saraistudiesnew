@@ -4,11 +4,11 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
-const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = (await getCollection('writingForMedia'));
+const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = (await getCollection('writingForMedia')).filter((post) => post.data.draft === false);
 
 
 export async function getStaticPaths() {
-  const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = await getCollection('writingForMedia');
+  const allWritingForMediaPosts: CollectionEntry<'writingForMedia'>[] = (await getCollection('writingForMedia')).filter((post) => post.data.draft === false);
 
   return allWritingForMediaPosts.map(entry => ({
     params: {

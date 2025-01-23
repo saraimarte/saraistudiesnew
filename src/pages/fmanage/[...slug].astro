@@ -6,7 +6,7 @@ import { formatDate } from '@scripts/utils';
 import BackBtn from '@components/BackBtn.astro';
 
 export async function getStaticPaths(){
-    const allPosts: CollectionEntry<'fmanage'>[] = await getCollection('fmanage');
+    const allPosts: CollectionEntry<'fmanage'>[] = (await getCollection('fmanage')).filter((post) => post.data.draft === false);
 
     return  allPosts.map(entry => ({
         params:{
