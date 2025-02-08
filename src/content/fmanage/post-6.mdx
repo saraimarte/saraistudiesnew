@@ -15,13 +15,36 @@ import  Solution from '@components/Solution.astro';
 
 # What are stocks?
 
-Stocks can also pay dividends which you can think of them as little money gifts. 
+A stock is a contract that represents partial ownership in a firm, making you a shareholder.
 
-Some firms pay constant dividends, others pay dividends pay growing dividends and others pay different amount of dividends.   
+If the company chooses, it can pay you dividends, which are regular cash payments distributed to shareholders.
+
+Some firms pay:
+
+    **Constant dividends:** The same amount every year.  
+    **Growing dividends:** Dividends that increase over time.  
+    **Different dividends:** Dividends that differ in amount year by year.  
 
 # How do we value stocks? (2 Methods)
 
-## Dividend discount model  
+Here are two primary ways to make money from stocks:
+
+    **Capital Gains:** Selling the stock when its price increases.  
+    **Dividends:** Receiving cash payments from the firm, typically at the end of the year.  
+
+For companies that pay constant, growing, or varying dividends, we value stocks based on the present value of all the dividends you expect to receive. For companies that do not pay dividends at all, we use the FCFTE model.  
+
+We use the dividend discount model which is just topic 4 again but instead of **C** for cashflows we treat the dividends (**D**) as cashflows. 
+
+In this model, we calculate the present value of all future dividends (DD) the company is expected to pay.
+
+But what about firms that don't pay dividends at all? How do we value a stock then?
+
+For such firms, we use the Free Cash Flow to Equity (FCFTE) model, which looks at the total cash flow available to the company’s equity holders at the end of the year.
+
+Even if the company doesn’t pay dividends, this model helps us calculate the hypothetical cash flow that could be distributed as dividends if the company chose to do so. This way, we estimate the company’s value based on its capacity to generate cash for its shareholders.
+
+## Dividend discount model  (DDM)
 
 <RuleBox>
 <Latex formula="P_0 = \frac{D_1}{r_E}" />
@@ -57,4 +80,4 @@ Pacific Power is expected to pay a dividend of $3.15 per share next year. The co
 
 # What are the dividend growth and FCFTE models for pricing stocks?  
 
-
+ 

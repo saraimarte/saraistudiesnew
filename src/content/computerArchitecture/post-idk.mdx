@@ -1,0 +1,123 @@
+---
+layout: '@layouts/Blog.astro'
+title: Programming in C
+pubDate: 2025-01-29T00:00:00Z 
+updatedDate:  2025-01-29T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: programming-in-cs
+---
+
+import Code from '@components/Code.astro';
+
+# Compiling 
+
+The following command compiles your file to a file called a.out by default. We call this an output file.  
+
+<Code fileName = "Command" lang = "" code = {`gcc file_name.c`}/>
+
+If your file is called 'helloWorld' then it would go like so, 
+
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c`}/>
+
+## Flags 
+
+If you want to change the name of the output file from a.out to something new like 'outputFile' then you can run the following, 
+
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -o outputFile`}/>
+
+### Enables all warnings 
+
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -Wall`}/>
+
+# Treats warnings as errors 
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -Wall`}/>
+
+# Detects memory issues (AddressSanitizer)
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -fsanitize=address`}/>
+
+# Combines output, warnings, errors, and memory checks.
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -Wall`}/>
+
+<Code fileName = "Command" lang = "" code = {`gcc helloWorld.c -o helloWorld -Wall -Werror -fsanitize=address`}/>
+
+Maximum amount of integers is 2<sup>31</sup> -1. 
+So class example: the integers at the end start being negative because it ran out of integers. 
+
+1 byte = 8 bits 
+size of shows in bits not byte 
+
+integer division 5/2 ypu get 2 when answer is actually 2.5 you loose info  
+so what do you do? Thats where typecasting comes in. 
+
+(double) a
+
+  
+
+# Signed vs Unsigned 
+
+In a computer there are only positive numbers. 
+
+So how can you represent -5?
+
+Computer will just have a big number.  But how does it know the big number.  
+
+whats the point of unsigned then? if we can just use signed and computer will print out -5. 
+
+with unsigned you can use larger range of numbers.  factorials??
+
+# scanf 
+
+scanf expects an addy of x where the input should go so that is an & 
+
+scanf("%d", x); wrong   
+scanf("%d", &x); right   
+
+
+# Editors 
+
+create file touch pointers.c  or just vim pointers.c
+
+vim pointers.c 
+
+i to edit 
+
+paste code 
+
+esc to get out :w to save  w for write (save) changes to file pointers.c 
+:wq to save and exit 
+
+ gcc pointers.c -o pointers -g
+
+ what does g stand for??
+
+ gdb ./pointers
+
+ gdb is a library???
+
+ smm651@ilab1:~/Documents/test$ gdb ./pointers
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./pointers...
+(gdb)
+
+
+he went over debugging but he went to fast. 
+
+
+he will give us makefile??
+
+what is makeclean?

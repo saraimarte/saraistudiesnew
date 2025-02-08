@@ -1,0 +1,111 @@
+---
+layout: '@layouts/Blog.astro'
+title: Programming in C
+pubDate: 2025-02-06T00:00:00Z 
+updatedDate: 2025-02-06T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: programming-in-c
+---
+
+import Code from '@components/Code.astro';
+import img1 from '../../../public/images/211/1.png';
+import img2 from '../../../public/images/211/2.png';
+import ImageMd from '@components/ImageMd.astro';
+
+# Hello World
+
+In every C program, we need a function called **main** that will return an integer. 
+
+That integer will be 0 or 1 and will represent weather the program ran successfully (0) or not(1).  
+
+<Code lang = "c" fileName = "hello.c" code = {
+    
+`int main(){
+    return 0;
+}`}/>
+
+Let's say you want to print **Hello World**. 
+
+In C, the command to print is **printf**. 
+
+<Code lang = "c" fileName = "hello.c" code = {
+    
+`int main(){
+    printf("Hello World");
+    return 0;
+}`}/>
+
+Now, this by itself won't work because **printf** is a function that comes with stdio.h. 
+
+stdio.h is just a file that contains a collection of input/output functions.
+
+One of the functions is **printf**. 
+
+In order to use **printf**, you need to *include* stdio.h in your program at the top- as a header. 
+
+That's why we call these header files.  
+
+<Code lang = "c" fileName = "hello.c" code = {
+    
+`#include <stdio.h>
+int main(){
+    printf("Hello World");
+    return 0;
+}`}/>
+
+Now, we're ready to run this! 
+
+But first, like Java, we have to compile the code. 
+
+First, open the terminal in VSCode using CTRL + J. 
+
+## Compiling 
+
+Compiling is just converting human-readable code into machine code (binary, 0's and 1's) that can be read (executed) by a machine. 
+
+In C, the compiler we use is **gcc**. 
+
+Remember, you are supposed to be connected to one of the ilabs while coding in this class. 
+
+All the ilabs are set up the exact same way and have everything you need- including gcc. 
+
+To compile we write **gcc** and then the name of the file we want to compile which in this case is **hello.c**. 
+
+<Code lang = "c" fileName = "terminal" code = {`gcc hello.c`}/>
+
+If you simply run this, and **ls** you will see a new file called **a.out**.  
+
+That is the default name of the output file if you don't give it one. 
+
+<ImageMd img = {img2} alt = "Before and after compiling with GCC. You can see that a.out is now created."/>
+
+What the compiler did was compile the **hello.c** code and create what we call an **executable file** that is just the code but in 0's and 1's. 
+
+Now, you may try to fact check me and open up the file using, **vim a.out** and you'll see the following, 
+
+<ImageMd img = {img1} alt = ""/>
+
+Then, you may be like "This isn't 0's and 1s!".
+
+It is! It's just that if you open it in a text editor, it tries to display it as characters (ASCII or Unicode), resulting in gibberish like ^?ELF^B^A^A....
+
+Now, let's say I don't want my output file to be called **a.out**. I want to give it it's own name. 
+
+All I have to do is use something called a flag. A flag is just extra specifications you want to add to a command. 
+
+We will use the **-o** flag which allows us to specify the name of the **o**output file. Instead of a.out i'm just going to call it **outputFile**. 
+
+<Code lang = "c" fileName = "terminal" code = {`gcc hello.c -o outputFile`}/>
+
+*You can do outputFile.out too. 
+
+Now, if you run **ls**, you will see outputFile as the executable.
+
+Another reason to name your output file is that if you compile without specifying a name, the compiler will default to a.out, overwriting it each time you recompile.
+
+## Running 
+
+Now, run the file like so, 
+
+<Code lang = "c" fileName = "terminal" code = {`./outputFile`}/>

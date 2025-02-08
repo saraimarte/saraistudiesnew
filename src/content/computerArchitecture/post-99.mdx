@@ -1,0 +1,141 @@
+---
+layout: '@layouts/Blog.astro'
+title: Programming in C
+pubDate: 2025-01-29T00:00:00Z 
+updatedDate:  2025-01-29T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: recitation notes
+---
+
+# Recitation 1 
+
+**1. Make a CS account**
+ 
+<a href = "https://services.cs.rutgers.edu/accounts/">Make a CS Account</a>
+
+It will allow you to make youre own CS password, 
+
+**2. Use weblogin**
+
+<a href = "https://weblogin.cs.rutgers.edu/guacamole-1.5.5/#/">Weblogin</a>
+
+
+# SSH Another Approach Remote Shell Connectiton 
+
+Open terminal (powershell) Mac and linux have it installed. Sometimes windows doesnt. so just check if ssh works by typing ssh.  
+
+mention password is not visible 
+
+ssh smm651@ilab1.cs.rutgers.edu
+
+
+ssh smm651@machineyouwanttoconnecto.cs.rutgers.edu
+
+write password 
+
+to exit just write exit. 
+
+"The authenticity of host 'ilab1.cs.rutgers.edu (128.6.13.2)' can't be established.
+ED25519 key fingerprint is SHA256:BhLuz++ZUJUBUwL0khj9stB0xZtAT1iHpvqfof/HPYU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? n
+Please type 'yes', 'no' or the fingerprint: no
+Host key verification failed.
+PS C:\Users\smart> ssh smm651@ilab1.cs.rutgers.edu
+The authenticity of host 'ilab1.cs.rutgers.edu (128.6.13.2)' can't be established.
+ED25519 key fingerprint is SHA256:BhLuz++ZUJUBUwL0khj9stB0xZtAT1iHpvqfof/HPYU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? " say yes. 
+
+pwd tells you where you are the absolute path 
+
+tab autocompletes
+
+cd with nothing takes you back to the home folder - start again 
+cd .. goes back one folder 
+cd . same folder 
+
+create file - touch dog.c
+
+if you get permissions denied you did something wrong 
+
+one way is if youre in 
+
+cp doggo.png dogs 
+
+create folder 
+
+move it mv doggo.png folder 
+
+rename file move doggo.png into doge.png
+
+mv doggo.png  doge.png
+
+copy folder (-r) flag 
+
+mv doesnt have r flag needed 
+
+go over copying files and folders 
+
+remove file 
+rm dog.c remove files 
+
+remove folder 
+
+not simple as rm folder 
+we have to use r 
+
+rm -r animals 
+
+-r for recursive 
+
+i for insert 
+
+escape to go back to n normal mode by clicking esc
+
+go to terminal :term 
+
+ctrl w w twice to switch between terminal and 
+
+scp file.png smm651@ilab1.cs.rutgers.edu ~/Documents 
+
+https://cyberduck.io/
+
+cyberduck allows you to have a fancy file explorer for your machine. it gives you a graphical interface to move files.  
+
+# Writing C 
+
+javac filename  = gcc filename 
+bc int main(){
+return 0;
+}
+is type integer we have to return a number 
+
+\n stands for new line 
+
+motivation for f santizie 
+make an array size of  5 
+if you print array[7] that would not work in java but it would compile in c but with a warning so use 
+
+-fsanitize = address,undefined 
+
+so that when you run the file it tells you that you did something wrong thats overbound 
+
+Questions 
+operating system dependent language if you compile code in one machine it wont run in another machine. 
+
+
+to get out of vim :q!
+
+
+goo over wall and weror 
+cm and rm with -r copying files and folders 
+connecting vs code to linux  
+
+sftp
+
+
+int 4 bytes 
+float 5 bytes
+double 8 bytes
