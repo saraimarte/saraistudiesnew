@@ -1,0 +1,27 @@
+---
+const {t} = Astro.props;
+---
+
+<details>
+    <summary>{t}</summary >
+        <slot></slot>
+</details>
+  
+<style>s
+
+summary{
+    user-select: none;
+    color:black;
+}
+details {
+    border: 1px solid  rgb(145, 202, 204);
+    border-radius: 4px;
+    padding:5px 10px;
+    font-size: 0.9rem;
+    margin:10px 0;
+    height:min-content;
+    background-color:none;
+
+}
+  
+</style>

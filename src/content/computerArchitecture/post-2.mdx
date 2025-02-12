@@ -1,23 +1,24 @@
 ---
 layout: '@layouts/Blog.astro'
 title: Programming in C
-pubDate: 2025-02-06T00:00:00Z 
-updatedDate: 2025-02-06T00:00:00Z
-draft: false
+pubDate: 2025-02-07T00:00:00Z 
+updatedDate: 2025-02-07T00:00:00Z
+draft: true
 author: Sarai Marte
 slug: programming-in-c
 ---
 
-import Code from '@components/Code.astro';
 import img1 from '../../../public/images/211/1.png';
 import img2 from '../../../public/images/211/2.png';
 import ImageMd from '@components/ImageMd.astro';
+import Section from '@components/Section.astro';
+import Code from '@components/Code.astro';
 
-# Hello World
+<Section t= "Hello World Example + Compiling and Running Code Basics">
 
-In every C program, we need a function called **main** that will return an integer. 
+In every C program, we need a function called **main** that will return an integer. Think of it as boiler plate code- you will almost always need to write it like such. 
 
-That integer will be 0 or 1 and will represent weather the program ran successfully (0) or not(1).  
+The integer returned will either be 0 or 1 and will represent weather the program ran successfully (0) or not(1).  
 
 <Code lang = "c" fileName = "hello.c" code = {
     
@@ -109,3 +110,25 @@ Another reason to name your output file is that if you compile without specifyin
 Now, run the file like so, 
 
 <Code lang = "c" fileName = "terminal" code = {`./outputFile`}/>
+
+</Section>
+
+<Section t = "Compiling Code">
+
+The most basic way to compile a file is by using gcc and then the file name.
+
+<Code lang = "c" fileName = "terminal" code = {`gcc file.c`}/>
+
+We also learned that there are things  called **flags**. They are just extra specifications we can add to commands. 
+
+We already learned how to use one of them, that is the -o flag. 
+
+<Code lang = "c" fileName = "terminal" code = {`gcc file.c -o outputFileName`}/>
+
+
+We used it to give the **o**utput file a name but there are even more other flags!
+
+
+
+
+</Section>

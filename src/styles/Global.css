@@ -59,29 +59,6 @@ iframe{
 
 } 
 
-::selection {
-    /* Change highlight background color to black */
-    background:rgb(145, 202, 204);
-    /* Change highlight text color to red */
-    color: black;
-  }
-
-summary{
-    user-select: none;
-    color:black;
-}
-
-details {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    padding: 0.5em 0.5em 0;
-    background-color: rgb(145, 202, 204);
-    padding:5px 10px;
-    color:black;
-    font-family: var(--primaryFont);
-
-}
-
 /* Disable zooming */
 body {
     touch-action: manipulation;
@@ -90,4 +67,12 @@ body {
     -ms-touch-action: none; /* For older versions of Internet Explorer */
     -ms-content-zooming: none; /* For Internet Explorer */
     zoom: 1; /* For Internet Explorer */
+}
+
+
+::selection {
+    /* Change highlight background color to black */
+    background:rgb(145, 202, 204);
+    /* Change highlight text color to red */
+    color: black;
 }
