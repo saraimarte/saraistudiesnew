@@ -3,7 +3,7 @@ layout: '@layouts/Blog.astro'
 title: Programming in C
 pubDate: 2025-02-07T00:00:00Z 
 updatedDate: 2025-02-07T00:00:00Z
-draft: true
+draft: false
 author: Sarai Marte
 slug: programming-in-c
 ---
@@ -13,6 +13,7 @@ import img2 from '../../../public/images/211/2.png';
 import ImageMd from '@components/ImageMd.astro';
 import Section from '@components/Section.astro';
 import Code from '@components/Code.astro';
+import RuleBox from '@components/Rule.astro';
 
 <Section t= "Hello World Example + Compiling and Running Code Basics">
 
@@ -121,14 +122,115 @@ The most basic way to compile a file is by using gcc and then the file name.
 
 We also learned that there are things  called **flags**. They are just extra specifications we can add to commands. 
 
-We already learned how to use one of them, that is the -o flag. 
+We already learned how to use one of them, that is the **-o** flag. 
 
 <Code lang = "c" fileName = "terminal" code = {`gcc file.c -o outputFileName`}/>
 
-
 We used it to give the **o**utput file a name but there are even more other flags!
+ 
+Let's say we have a file called **hello.c** and w
+
+**1. -Wall:** Enables all warnings.
+<Code lang = "c" fileName = "terminal" code = {`gcc helloWorld.c -o -Wall`}/>
+
+**2. -Wall -Werror:** Treats warnings as errors. 
+<Code lang = "c" fileName = "terminal" code = {`gcc helloWorld.c -o -Wall`}/>
+
+**3. -fsanitize=address:** Detects memory issues (AddressSanitizer)
+<Code lang = "c" fileName = "terminal" code = {`gcc helloWorld.c -o -Wall`}/>
 
 
+**4. -Wall -Werror: -fsanitize=address:** Combines output, warnings, errors and memory checks.  
+<Code lang = "c" fileName = "terminal" code = {`gcc helloWorld.c -o -Wall`}/>
+
+</Section>
+
+<Section t = "Memory">
 
 
+In Java, memory would see what is not being used up and remove it to save space in C you have to free up memory manually. 
+</Section>
+
+<Section t = "Data Types">
+checking data types sizes. 
+</Section>
+
+<Section t = "Input and Output Functions">
+
+# Importing i/o functions 
+
+There already exists functions you can use to input or output data. 
+
+To use these functions we simply have to import the file they are wrriten in.
+ 
+In this case, the file is **stdio.h**. 
+
+The **std** stands for standard and the **io** stands for input/output. 
+
+We call these files header functions hence the **.h** extension in stdio.**h**  
+
+We import the file and any file (as long as it's one that comes with C) using `#include <fileName>`
+
+<Code lang = "c" fileName = "fileName.c" code = {`#include <stdio.h>`}/>
+
+This file includes functions like **printf** and **scanf**. 
+
+The f stands for 'formatted' because for whatever we print or scan- we have to specify the format we want to print or read it in. 
+ 
+# Printing Using Formatting 
+For example, let's say I want to print an integer. If we try,
+
+<Code lang = "c" fileName = "fileName.c" code = {`printf(2); //"print this thing"`}/>
+
+That will give us an error saying you're missing format arguments—and you are!
+
+In C, whenever we print something, we must specify the format. Since we're printing an integer in this case, we need to use the integer format specifier: %d.
+
+%d: The "d" stands for "decimal integer," referring to decimal numbers which we’ve used since kindergarten, which represents numbers using digits 0-9, as opposed to binary. 
+
+<Code lang = "c" fileName = "fileName.c" code = {`printf("%d", 2);//"print this integer"`}/>
+
+<RuleBox>
+Here, are the format specifiers for other data types.  
+
+%d: Integer    
+%f: Float     
+%c: Character  
+%s: String 
+</RuleBox>
+
+# Scanning Using Formatting 
+
+<Code lang = "c" fileName = "fileName.c" code = {`scanf("%d", &num)`}></Code>
+
+
+</Section>
+
+<Section t = "Conditional Statements, Iteration, Break and Continue">
+
+</Section>
+
+<Section t = "Functions">
+
+</Section>
+
+<Section t = "Type Casting">
+Signed vs Unsigned Type Casting 
+</Section> 
+ 
+<Section t = "Debugger">
+
+</Section>
+
+<Section t = "Arrays">
+
+arr is a pointer to the first element of the array
+</Section>
+ 
+<Section t = "Struct">
+</Section>
+
+<Section t = "Pointers">
+dereferencing 
+how does it know when to stop when reading array of chars for a string? it stops when it reaches the null character. 
 </Section>
