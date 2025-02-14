@@ -14,6 +14,8 @@ import Section from '@components/Section.astro';
 import Code from '@components/Code.astro';
 import RuleBox from '@components/Rule.astro';
 
+import img1 from '@images/211/1.png';
+
 <Section t= "Hello World Example + Compiling and Running Code Basics">
 
 In every C program, we need a function called **main** that will return an integer. Think of it as boiler plate code- you will almost always need to write it like such. 
@@ -83,6 +85,8 @@ What the compiler did was compile the **hello.c** code and create what we call a
 
 Now, you may try to fact check me and open up the file using, **vim a.out** and you'll see the following, 
 
+<ImageMd img = {img1} alt = ""/>
+
 Then, you may be like "This isn't 0's and 1s!".
 
 It is! It's just that if you open it in a text editor, it tries to display it as characters (ASCII or Unicode), resulting in gibberish like ^?ELF^B^A^A....
@@ -99,7 +103,9 @@ We will use the **-o** flag which allows us to specify the name of the **o**outp
 
 Now, if you run **ls**, you will see outputFile as the executable.
 
-Another reason to name your output file is that if you compile without specifying a name, the compiler will default to a.out, overwriting it each time you recompile.
+<ImageMd img = {img2} alt = ""/>
+
+Another reason to name your output file is that if you compile without specifying a name, the compiler will default to a.out, overwriting it each time you compile.
 
 ## Running 
 
