@@ -15,6 +15,7 @@ import Code from '@components/Code.astro';
 import RuleBox from '@components/Rule.astro';
 
 import img1 from '@images/211/1.png';
+import img2 from '@images/211/2.png';
 
 <Section t= "Hello World Example + Compiling and Running Code Basics">
 
@@ -153,7 +154,41 @@ In Java, memory would see what is not being used up and remove it to save space 
 </Section>
 
 <Section t = "Data Types">
-checking data types sizes. 
+
+# Data Types 
+
+**int:** integer (2, -3, 0)    
+**char:** character ('a')   
+**float:** decimal that takes up 32 bits of memory (3.141593)    
+**double:** decimal that takes up 64 bits of memory (3.141592653500)   
+
+**int signed:** can store both positive and negative numbers (int is signed by default so you don't have to specify it.) (2, -3, 0)   
+**int unsigned:** can only store positive values and zero. (0, 1, 2, 3, 4...)  Have a larger range.  
+**short:** Short Integers (consume 16 bits of memory)    
+**long:** Long Integers (consume 32 bits of memory)    
+**long long:**  Even longer Integers (consume 64 bits of memory)  
+
+# Check Size of Data Type 
+
+We can check how much memory a data type takes up using the built in **sizeof()** function. 
+
+<Code lang = "c" fileName = "hello.c" code = {
+`#include <stdio.h> //include this file that contains the printf function so you can use it
+
+int main(){
+    int num; //initialize a variable called num that will hold an integer; c will now allocate the needed amount of memory for that integer
+ 
+    printf("%lu", sizeof(num)); //print the size of the integer 
+
+    return 0; //return an integer since this main function is set to return an int 
+}`}/>
+
+Notice when printing the size of the integer, we format it using the **lu** format specifier. 
+
+This stands for long unsigned long. Again by long we mean integer so it's an unsigned long integer. We use unsigned because how much memory a data takes up is never negative so no need for singed integers. Also, it's a long because sometimes data types will take a lot of memory.  
+
+
+
 </Section>
 
 <Section t = "Input and Output Functions">
@@ -198,13 +233,32 @@ Here, are the format specifiers for other data types.
 %f: Float     
 %c: Character  
 %s: String 
+%lu: Long Unsigned Integer 
 </RuleBox>
+
+Let's say you want to print out a sentence that contains variables,
+
+<Code lang = "c" fileName = "fileName.c" code = {
+    
+`#include <stdio.h> //include to use printf()
+
+int main(){
+    int age; 
+    int favNumber; 
+
+    age = 21;
+    favNumber = 13;
+
+    printf("I'm %d years old and my favorite number is %d\\n", age, favNumber);
+
+    return 0;
+}`}/>
+
+Notice how the variables in the sentence are replaced with their format specifiers and then you list the variables in the order you want them to appear, so age then favNumber. 
 
 # Scanning Using Formatting 
 
 <Code lang = "c" fileName = "fileName.c" code = {`scanf("%d", &num)`}></Code>
-
-
 </Section>
 
 <Section t = "Conditional Statements, Iteration, Break and Continue">
@@ -216,7 +270,94 @@ Here, are the format specifiers for other data types.
 </Section>
 
 <Section t = "Type Casting">
-Signed vs Unsigned Type Casting 
+
+One cool thing we can do in C is convert a variable from one data type to another. This is called type casting, and it can be done in two ways:
+
+Implicitly – When C automatically converts a value to a different type.  
+Explicitly – When we manually tell C to convert a value using type casting syntax.  
+
+# Implicit Type Casting
+
+In implicit type casting, C automatically converts one data type to another when needed. For example, a double can be converted to an int (like 10.5 to 10) without any extra effort:
+
+<Code lang = "c" fileName = "fileName.c" code = {
+`double a = 10.5; //set double to 10.5
+
+int b = a; //create an integer and set it to a - C will automatically strip away the anything after the decimal so that a becomes an integer. 
+
+printf("%f %d\\n", a,b); //10.500000 10`}></Code>
+
+Here, C automatically converts **a** from an int to a double because **b** is declared as a double. No extra syntax is needed—C just does it for us!
+
+# Explicit Type Casting
+
+Explicit type casting is when we manually tell C to change a variable’s type using (type) before the value.
+
+<Code lang = "c" fileName = "fileName.c" code = {
+`double a = 10.5; //set double to 10.5
+
+int b = (int)a; //explicity say "hey, I want a to be an integer" and set that to an int called b
+
+printf("%f %d\\n", a,b); //10.500000 10`}></Code>
+
+Here, we force C to remove the decimal part of **a** by using (int)a. This means **b** stores only the whole number 10, with everything after the decimal point removed.
+
+In both cases, casting implicitly or explicity does not matter. Both ways do the same thing except doing it explicity is more readable. 
+
+# Why Use Explicit Casting?
+
+Now, you may ask, other than readability, why would you use explicit casting if implicit does the same thing?
+
+## EX1| Dividing Integers a/b
+Let's look at this example, 
+
+<Code lang = "c" fileName = "fileName.c" code = {
+`//you have 2 integers, 5 and 3 
+int a = 5, b = 3;
+
+//you divide a by b and set it to a variable of data type of double 
+double result = a/b; //note that the division happens FIRST then it's assigned as a double.
+
+printf("Result: %f\\n", result); //Result: 1.000000
+`}></Code>
+
+Note that the division a/b happens first.
+
+Also note that **a** and **b** are both integers so integer/integer will give you the same datatype- an integer. 
+
+In this case it will be 5/3 = 1. 
+
+*Then,* what a/b gave is assigned to a variable called **result** that is a double so it will take the 1 and make it a 1.000000. 
+
+Following the same logic as above, the only way we can get a double as an answer is if we did double/double. 
+
+We have to explicity say, "hey, BEFORE you divide a/b, turn them into doubles so that the answer may be a double."
+
+<Code lang = "c" fileName = "fileName.c" code = {`double result = (double)a/(double)b; //this is saying "hey, turn a and b into doubles before dividing a/b. That way, the result will be a double instead of an integer. Then store it as a double called result.`}></Code>
+
+Now, that works fine but a nice thing about C is that it only needs *one* of them to be a double and it will convert the other one to a double aswell. 
+
+<Code lang = "c" fileName = "fileName.c" code = {`double result = (double)a/b; //this is saying "hey, turn a into a double before dividing a/b. That way, C will implicitly convert b to a double as well and the result will be a double instead of an integer.`}></Code>
+
+So, we don't need double/double to get a double we can also do double/integer and C will convert that integer into a double.
+
+Hence, the only way that a/b would give a double is if a and b were initialized as doubles in the first place or if at least one of them was or is made a double. 
+
+And this is only possible using explicit casting!
+
+# Casting with Signed and Unsigned Casting
+
+Casting with singed and unsigned numbers may result in unexpected outputs. For example, 
+
+<Code lang = "c" fileName = "fileName.c" code = {
+`int signed num = -3; //singed number (singed because it literally has a sign- a negative sign)
+
+int unsigned unsignedNum = (unsigned int)num; //change the datatype of number to unsigned datatype (aka removes the sign- at least that's what you expect it to do) 
+
+printf("Result: %d, %u\n", num, unsignedNum); //Result: -3, 4294967293`}></Code>
+
+Interesting how we took a signed number -3, changed it's data type to unsigned which you would think would remove the sign and give you 3 but instead it gave you 4294967293. Why?
+
 </Section> 
  
 <Section t = "Debugger">
