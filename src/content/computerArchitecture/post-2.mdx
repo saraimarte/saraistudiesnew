@@ -3,12 +3,11 @@ layout: '@layouts/Blog.astro'
 title: Programming in C
 pubDate: 2025-02-07T00:00:00Z 
 updatedDate: 2025-02-07T00:00:00Z
-draft: true
+draft: false
 author: Sarai Marte
 slug: programming-in-c
 ---
 
- 
 import ImageMd from '@components/ImageMd.astro';
 import Section from '@components/Section.astro';
 import Code from '@components/Code.astro';
@@ -232,8 +231,9 @@ Here, are the format specifiers for other data types.
 %d: Integer    
 %f: Float     
 %c: Character  
-%s: String 
-%lu: Long Unsigned Integer 
+%s: String   
+%lu: Long Unsigned Integer   
+
 </RuleBox>
 
 Let's say you want to print out a sentence that contains variables,
@@ -258,7 +258,22 @@ Notice how the variables in the sentence are replaced with their format specifie
 
 # Scanning Using Formatting 
 
-<Code lang = "c" fileName = "fileName.c" code = {`scanf("%d", &num)`}></Code>
+<Code lang = "c" fileName = "fileName.c" code = {
+`int num;  //initialize a variable called num that will hold an integer
+scanf("%d", &num) //take in an integer and store it in num`}></Code>
+
+Notice we have **&num** instead of **num**. 
+
+The **&** symbol gives us the memory address of where num is stored. 
+
+What we're really saying, is "hey, take in an integer and store it at num's *address*."
+ 
+In C, when you use variables in a function, in this case the function is scanf(), the variable passed in is only a *copy* of itself. 
+
+So, when we pass in **num** into **scanf()**, that is not **num** itself. Just a copy of it. 
+
+So if we want to store user input in num then we have to tell scanf where exactly num is so it can directly modify it itself. 
+
 </Section>
 
 <Section t = "Conditional Statements, Iteration, Break and Continue">
@@ -266,6 +281,7 @@ Notice how the variables in the sentence are replaced with their format specifie
 </Section>
 
 <Section t = "Functions">
+Each function will have a frame or space in the stack.  
 
 </Section>
 
@@ -357,6 +373,8 @@ int unsigned unsignedNum = (unsigned int)num; //change the datatype of number to
 printf("Result: %d, %u\n", num, unsignedNum); //Result: -3, 4294967293`}></Code>
 
 Interesting how we took a signed number -3, changed it's data type to unsigned which you would think would remove the sign and give you 3 but instead it gave you 4294967293. Why?
+
+Well, signed and unsigned integers interpret their bits differently. So when we change from signed to unsigned then the unsigned integer interprets it differently. 
 
 </Section> 
  
