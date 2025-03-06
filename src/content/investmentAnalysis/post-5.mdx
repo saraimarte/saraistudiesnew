@@ -1,9 +1,227 @@
 ---
 layout: '@layouts/Blog.astro'
 title: Chapter 5 | Risk, Return, and the Historical Record
-pubDate: 2025-01-23T00:00:00Z 
-updatedDate:  2025-01-23T00:00:00Z 
+pubDate: 2025-02-26T00:00:00Z 
+updatedDate:  2025-02-26T00:00:00Z 
 draft: true
 author: Sarai Marte
 slug: risk-return-and-the-historical-record
 ---
+
+import RuleBox from '@components/Rule.astro';
+import Latex from '@components/Latex.astro';
+
+A key aspect of investing is the return but you also have to take into consideration what the risk associated with that investment and if you could afford it.
+
+# Determinants of the level of interest rates
+
+**1. The supply of funds from savers:**
+
+**2. The demand for funds from businesses to be used to finance investments in PPE adn inventories:**
+
+**3. Users:** Students who will take money and use it to pay college education. 
+
+**4. Government** the government needs cash, they borrow a lot of money.  
+
+Note the FED is the central bank of the United States and has control over interest rates.  
+
+PPE - Property, Plant, and Equipment 
+
+**Nominal Interest Rate (rn):** the growth rate of an individual's money. Hopefully, it's ahead of inflation. If it falls behind inflation that's a problem. 
+
+**Real Interest Rate (rr):** the growth rate of an individual's purchasing power. This has to do a lot with how much people can buy. 
+
+**E.g.** A place you eat breakfast at every day raises the price of breakfast and it is now $20 so you decided to buy oatmeal because it's cheaper so the rate affected your purchasing power- what you purchase. 
+
+<RuleBox>
+rr ≈ rn - 1
+</RuleBox>
+
+<RuleBox>
+<Latex formula='rr = \dfrac{rn - i}{1 + i}'/>
+</RuleBox>
+
+**E.g.** Families looking to move will mostly move during the summer months. Why? Becuase that's when the kids are no longer in school so the demand for money is higher then.  
+
+**E.g.** Let's say that everybody who is in highschool now decided they will go to college. So 100% of highschoolers will go to college. That means demand for money will increase and so will the interest rate.
+
+# Equilibrium Nominal Rate of Interest  
+
+If inflation increases, that means there's too much money in circulation, so the FEF will raise interest rates, and that will hopefully motivate households to save their money and take it away from the economy and that it will cause prices too drop and inflation to decrease.
+
+**E.g.** 
+
+
+<RuleBox>
+The Fisher Equation
+rn = rr + E(i)
+</RuleBox>
+
+# Taxes and the real rate of interest
+
+<RuleBox>
+<Latex formula='rn(1 - t) - i = (rr + i)(1 - t) - i = rr(1 - t) - it'/>
+</RuleBox>
+
+Left hand side tells you if you will loose or gain money from the investment based on inflation, average tax rate, and interest rate.
+
+**E.g.** If you invest in a CD where **rn** is 3%, **t** is 28%, **i** is 3%. 
+
+.03(1 - .28) - .03 = -.01% rounded. Notice it's negative, you're loosing money.  
+
+Zero Coupon Bonds - you buy it at a discount and you get the face value at the end. These are bonds that give you zero in interest. 
+What the government does is say "hey, even though you aren't paid interest, you still have to pay taxes on that interest." BUT you don't have to pay taxes on the face value you get at the end. 
+
+Why would anybody want to buy an investment like this?
+
+It's an investment where you can sleep at night because it's gaurenteed by the government. 
+
+Another reason- retirement! If you are 45 and buy a bond, you pay the taxes as you are working but when you retire you get the $100,000 tax free which is perfect because you're not even working to pay taxes. 
+
+P(T) is price given certain time period
+
+# Comparing rates of return for different holding periods 
+
+## Slide 1
+
+## Slide 2
+[insert formula]
+
+**r<sub>f</sub>** is the risk-free rate of return.
+**EAR** is the effective annual rate.
+
+## Slide 3
+
+APR is relative to who you are. 
+
+From one party its an expense. For the lender its an annuity. 
+
+[insert formula pg11] 
+
+**Continuous Compounding:** compounding occurs literally every second of the day. It does not violate usuary law. 
+
+To find APR using continuous compounding 
+
+APR = e<sup>APR</sup> - 1
+
+Note: If you don't have calculator, he will accept e as 2.718. 
+
+### What are usuary laws?
+
+Usury Laws: the interest rate on a loan cannot go over a certain percent. If it does then the loan is illegal.
+
+**E.g.** In NJ, you can't charge on a loan more than 30%. 
+
+**E.g.** Radio shack and Sears used to have their credit cards at 29.9%
+
+# Risk and risk premiums 
+
+<RuleBox>
+<Latex formula='E(r) = \sum_{s} p(s)r(s)'/>
+</RuleBox>
+
+# Expected return and standard deviation
+
+## Calculate Variance 
+
+How much risk you're going to get involved with?
+
+<RuleBox>
+<Latex formula='\sigma^2 = \sum_{s} p(s)[r(s) - E(r)]^2'/>
+</RuleBox>
+
+How much risk can you tolerate?
+
+<RuleBox>
+<Latex formula='STD = \sqrt{\sigma^2}'/>
+</RuleBox>
+
+# Risk and Risk Premiums 
+
+**1. Risk-free rate:** the rate of return on a risk-free investment.  
+
+**2. Risk premium:** It's the idea that if you are going to taken on an investment and it has a certain risk associated with it, that risk premium is going to compensate you for that risk you are going to inccur.   
+
+**3. Excess Return:** the rate of return in excess of the risk-free rate (icing on the cake.)  
+
+**4. Risk Aversion:** the idea that people are risk averse. They don't want to take any risk. E.g. You can have a portfolio that consists of only treasury instruments (no risk.) E.g. An investor will consider a risky investment only if they're compensated for the risk with the risk premium.   
+
+[cake analogy]
+[suspender analogy] risk premium is belt 
+
+# Time series analysis of past rates of returns 
+
+<RuleBox>
+<Latex formula='(Year~1 + Year~2 + Year~3 + Year~4) / \# \text{ of years} = \text{Average arithmetic return}'/>
+</RuleBox>
+
+## GAR - Geometric Average Return
+
+The average compound return earned over an n years. 
+
+1 + the return for the first year + 1 + return of 2nd year... all to the power of T -1
+
+<RuleBox>
+<Latex formula='GAR = [(1 + R_1) (1 + R_2) (1 + R_3) \ldots (1 + R_T)]^{1/T} - 1'/>
+</RuleBox>
+
+## Sharpe Ratio 
+
+It's a ratio that measures the tradeoff between reward and risk. 
+
+<RuleBox>
+Sharpe ratio = Risk premium /SD of excess return
+</RuleBox>
+
+If you want to annualize it, 
+
+<RuleBox>
+<Latex formula='Annualized~Sharpe~ratio = \frac{[Risk~premium \times 12]}{[SD~of~excess~return \times \sqrt{12}]}'/>
+</RuleBox>
+
+# Normal Distribution 
+
+What occurs over a period of time, given certain average and standard deviation. 
+
+## Deviations from normality and risk measures 
+
+Normality ensures investors that standard deviation is a complete measure of risk. 
+
+The sharp ratio is a complete measure as far as portfolio performance but there may be deviations from normality as far as asset returns because something happens in the market, company, economy, etc that cause things to move one way or the other. 
+
+E.g. If NVIDIA's earnings report for this year show that they earned $38.05 billion instead of the $39.33 billion estimated then that would be a deviation from normality. 
+
+# Value at Risk 
+
+[insert notes]
+
+# Expected Shortfall / Conditional Tail Expectation (CTE)
+
+Focuses on the loss in the worst-case scenarios. 
+
+It answers the question, "What's the worse that could happen as far as an investment is concerned?"
+
+It is a very conservative measure of risk because it only looks at the worst thing that could happen. 
+
+# Lower Partial Standard Deviation (LPSD) and the Sortino Ratio 
+
+Assuming there is some imbalance as far as  returns are concerned, it addresses the imbalance as far as returns are involved. 
+
+It's computed the same way as standard deviation but only uses bad returns. 
+
+It uses negative standard deviations. 
+
+# Historic Returns on Risky Portfolios
+
+# ✨ Practical Information 101 ✨ 
+
+Life Cycle Investment Goals. 
+
+If you are going to invest, it helps to have certain goals but you have to take into consideration your age, lifestyle you live, etc. 
+
+**Near-term, high-priority goals:** this is a goal that is really important to you, it's high priority. What do you want to do in five years, seven years? Be debt free? Have a condo?
+
+**Long-term, high-priority goals:** this is a goal that is really important to you but it's long term. What do you want to do in 15 years, 20 years, even 30 years? Retire at age 55?
+
+**Lower-priority goals:** this is a goal that is not as important to you but you still want to strive for it. If you get it, fine. If you don't, it's not a big deal. E.g. Let's say you want to travel to Europe every two years or owning a second home. 
+
