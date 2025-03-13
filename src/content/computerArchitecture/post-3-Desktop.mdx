@@ -1,0 +1,77 @@
+---
+layout: '@layouts/Blog.astro'
+title: Digital Logic Design (DLD)
+pubDate: 2025-03-13T00:00:00Z 
+updatedDate: 2025-03-13T00:00:00Z
+draft: false
+author: Sarai Marte
+slug: digital-logic-design-dld
+---
+
+import DropDown from '@components/DropDown.astro';
+
+<a href = "https://circuitverse.org/simulator">CircuitVerse</a>
+
+All data in computers are represented by 0s and 1s. 
+
+You just need three things to build a computer- the OR, AND, and NOT gates. 
+
+Another option is to use one gate, called the universal gate or the NAND gate.  
+
+A combination of these gates is called a circuit. 
+
+1 means on, true, or somewhere in your circuit is high voltage.   
+0 means off, false or somewhere in your circuit is low voltage 
+
+Sometimes you want to know all possible outputs of a circuit depending on whatever your inputs are. 
+
+Two ways to represent the outputs are by a truth table or a formula. 
+
+First, let's focus on what gates are and then we will focus on the rest. 
+
+# Types of Gates + Intro to Circuits to Formulas with Basic Gates
+
+<iframe src="https://www.youtube.com/embed/BFcjKqGZXi8?si=tGoKq9NHQk4Xakpl&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Circuit to Formula 
+
+<iframe src="https://www.youtube.com/embed/k6N5jMVVGWI?si=vVaIhRFSxgyksuwZ&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+# Circuit to Truth Table 
+
+# Truth Table to Formula (3 Methods- Sum of Products, Product of Sums, K-MAP)
+
+<iframe src="https://www.youtube.com/embed/4_sjWlseXQA?si=6Nzfzx4lMXhLvMrD&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+# Formula to Circuit
+
+
+# Machines
+
+## Decoders 
+
+## Multiplexers 
+
+## Splitters
+
+## Adder Subcircuit
+
+### Half Adder
+
+### Full Adder 
+
+
+## Subtracter Subcircuit
+
+# Error Index in CircuitVerse 
+
+<DropDown title = "Why do I get a contention error for a simple combination circuit in CircuitVerse?">
+
+<a href = "https://electronics.stackexchange.com/questions/508669/why-do-i-get-a-contention-error-for-a-simple-combination-circuit-in-circuitverse"> Solution </a>
+
+"Looks like you have connected two terminals together with a wire, delete the and gate correct the wire and add in the and gate again."
+
+Aka you have to find the gate that has like a wire that is not connected to anything or is connected to itself and delete it.
+
+</DropDown>
