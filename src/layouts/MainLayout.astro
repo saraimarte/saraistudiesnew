@@ -13,6 +13,7 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
 ---
 <html lang="en">
 	<head>
+
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" user-scalable=no />
@@ -23,7 +24,8 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
         <script src="/pagefind/pagefind-ui.js" is:inline></script>          
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.css" integrity="sha384-NFTC4wvyQKLwuJ8Ez9AvPNBv8zcC2XaQzXSMvtORKw28BdJbB2QE8Ka+OyrIHcQJ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-z9arB7KJHppq8kK9AESncXcQd/KXIMMPiCrAdxfFpp+5QU438lgBE7UFGbk+gljP" crossorigin="anonymous"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+
     </head> 
 	<body>
         <div x-data="{closedScreen:false}" class="container" >
@@ -124,7 +126,7 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
     
 
 <script>
-    //Problem: I would drag the desktop folder and once i let go it would take me to it's page but I didnt want to go to the page just by dragging it. I wanted to go to the page if and only if I double click on the icon.
+    //Problem: I would drag the desktop folder and once i let go it would take me to it's page but I didn't want to go to the page just by dragging it. I wanted to go to the page if and only if I double click on the icon.
     //Solution: this
     // Get all elements with the class 'myLink'
     var links = document.querySelectorAll('.myLink');
@@ -236,6 +238,8 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
         /*scrollbar-width:none; */
         scrollbar-color: rgb(145, 202, 204) white;
         font-size:15px;
+        
+
     }
 	
     

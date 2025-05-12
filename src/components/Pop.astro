@@ -1,0 +1,86 @@
+---
+const { t } = Astro.props;
+---
+
+<span 
+  x-data="{ show: false }"
+  @mouseenter="show = true" 
+  @mouseleave="show = false" 
+  class="tooltip-wrapper"
+>
+  <slot />
+  <span 
+    x-show="show" 
+    x-transition 
+    x-cloak 
+    class="tooltip"
+  >
+    {t}
+  </span>
+</span>
+
+<style>
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  text-decoration: none;
+  padding-bottom: 2px;
+  
+}
+
+.tooltip-wrapper::after {
+  content: '';
+  display: block;
+  border-bottom: 1.5px dotted #888;
+  margin-top: 1px;
+  
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(233, 233, 233, 0.75);
+  color: black;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: wrap;
+  max-width:200px;
+  text-align:center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+  font-weight: 400;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+/*once it reaches 768px desktop (desktop)*/
+@media only screen and (min-width:768px){
+    .tooltip{
+      white-space: wrap;
+      min-width:200px;
+      text-align:center;
+
+    }
+    
+}
+
+</style>

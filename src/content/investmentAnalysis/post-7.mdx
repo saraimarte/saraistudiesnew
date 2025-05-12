@@ -1,9 +1,101 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Chapter 7 | Optimal risky portfolios
-pubDate: 2025-01-23T00:00:00Z 
-updatedDate:  2025-01-23T00:00:00Z 
-draft: true
+title: ✅ Chapter 7 | Optimal Risky Portfolios
+pubDate: 2025-03-11T00:00:00Z 
+updatedDate: 2025-03-11T00:00:00Z  
+draft: false
 author: Sarai Marte
 slug: optimal-risky-portfolios
 ---
+
+[efficiency frontier]
+
+import img1 from '@images/380/1.png'
+
+import ImageMd from '@components/ImageMd.astro'
+
+import Pop from '@components/Pop.astro' 
+
+import RuleBox from '@components/Rule.astro'
+
+import Latex from '@components/Latex.astro'
+
+# Diversification and Portfolio Risk 
+
+**1. <Pop t = "aka systematic risk, non-diversifiable risk"> Market risk: </Pop>** risk that affects all industries in the market. For example, a recession puts all industries at risk. It's also known as systematic risk- think of it as risk that affects the entire 'system'. You can't minimize or control this risk because you can't control when a recession will happen for example.
+
+**2. <Pop t = "aka nonsystematic risk, diversifiable risk, firm-specific risk"> Unique risk:</Pop>** risk that only affects specific industries. For example, if the cost of steel goes up, Ford’s manufacturing costs go up. This hurts automakers more than, say, tech or toy companies. Yet, this is the type of risk you can control- you can minimize. How? By diversifying your portfolio
+
+**3. Diversification:** diversification of a portfolio is the act of spreading your capital across different assets in different industries. Why? Because it helps reduce unsystematic risk. How? Because if one industry is doing poorly, the other industries in your portfolio may be doing well. This helps balance out the risk.
+
+But if your portfolio consists only of car manufactures like Ford, GM, and Toyota, then if the price of steel goes up, that affects the entire car industry negatively which by extension affects your portfolio negatively but if all your eggs are not in one basket- you diversify- then your portfolio won't loose all its worth because you have other investments keeping it afloat.
+
+Speaking of portfolios, how do we measure how risky a portfolio is or what is it's expected return? 
+
+# Portfolio Expected return and Standard deviation  
+
+Let's consider a portfolio with two assets.
+
+## Calculate Expected Return (Weighted Average) 
+
+<RuleBox>
+<Latex formula="E(r_p) = W_A \cdot E(r_A) + W_B \cdot E(r_B)" />
+</RuleBox>
+
+<iframe src="https://www.youtube.com/embed/B0Im2a62SOE?si=FTWnMAw_aoIY6zlB&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Calculate Risk (Standard Deviation)
+
+<RuleBox>
+<Latex formula="\sigma_p = W_D \cdot \sigma_D + W_E \cdot \sigma_E" />
+</RuleBox>
+
+# Sharpe ratio  
+
+The higher the Sharpe ratio, the better the asset is at compensating you for the risk you're taking.
+
+It tells you if you are being fairly compensated for the risk you're taking. 
+
+<RuleBox>
+<Latex formula="S_A = \frac{\mathbb{E}(r_A) - r_f}{\sigma_A}" />
+</RuleBox>
+
+# Optimal Complete Portfolio  
+
+Tells you what percent of your wealth to invest in risky assets vs. the risk-free assets.
+
+<RuleBox>
+<Latex formula="y = \frac{\mathbb{E}(r_p) - r_f}{A \cdot \sigma_p^2}" />
+</RuleBox>
+
+# Markowitz Selection Model for Efficient Portfolios
+
+Harry Markowitz is the father of modern portfolio theory which is a method of selecting the most efficient <Pop t = "group of investments"> portfolio </Pop> that maximizes the amount of return for a given amount of risk or minimizes the amount of risk for a given return.
+
+In the graphical representation of this theory you can see what's called the **efficient frontier** curve. Every point on this curve is a portfolio with the optimal return and risk combo you could have, given the fact that you want one then it will give you the best of what the other option could be. 
+
+Any portfolio below the efficient frontier is well, inefficient. It means you can be getting a higher return for whatever risk you're taking on. 
+
+# ✨ Practical Information 101 ✨ 
+
+[Taken Directly From Slides by Professor Arthur Guarino]
+
+What is meant by The Portfolio Management Process?
+
+Once funds are initially invested according to the plan, the real work starts in
+evaluating the portfolio’s performance and updating the portfolio based on
+changes in the environment and the investor’s needs.
+
+There are four steps:
+
+**1.** Formulate a policy statement after determining the investor’s short-term and long-
+term needs as well as risk tolerance
+
+**2.** Study current and projected financial, political, social, and economic conditions and
+forecast future trends
+
+**3.** Construct the portfolio which means implementing the plan
+
+**4.** Evaluate portfolio’s performance, continuously monitor investor’s needs and market
+conditions and update policy statement as needed
+

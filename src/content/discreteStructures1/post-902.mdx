@@ -1,0 +1,73 @@
+---
+layout: '@layouts/Blog.astro'
+title: Turing Machines
+pubDate: 2025-01-21T00:00:00Z 
+updatedDate: 2025-01-25T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: turing-machines
+---
+import RuleBox from '@components/Rule.astro';
+
+The version of Turing Machine Garcia teaches is one that is a DFA + tape.
+
+<RuleBox align = "left">
+
+A Turing Machine is defined as M = (Q, Σ, Γ, δ, S<sub>0</sub>, F)
+
+**Q:** Set of States
+
+**Σ:** Set of input symbols (input alphabet)
+
+**Γ:** Set of tape symbols (including blank symbol)
+
+**δ:** Transition function 
+
+**S<sub>0</sub> (or q<sub>0</sub>):** Start state
+
+**F:** Set of final/accepting states
+
+</RuleBox>
+
+The tape is infinite in both directions.
+ 
+The tape is divided into cells. 
+
+Each cell can hold a symbol from the tape alphabet. 
+
+We read the tape from left to right and we start by reading the first non-blank symbol. 
+
+# Languages Accepted by Turing Machines
+
+<RuleBox align = "left">
+
+Languages accepted by Turing Machines are called **decidable languages**, otherwise, **undecidable languages**.
+
+Formally, a language L is decidable ⟺ ∃ a Turing Machine such that it halts ∀ x ∈ Σ*, and accepts ⟺ x ∈ L (otherwise rejects).
+
+</RuleBox>
+
+E.g. Can you write an algorithm to determine if a number is prime? 
+
+Yes -> Decidable The Turing Machine can decide if a number is prime or not. 
+
+
+Anything that you can write in a normal computer you can compute with this Turing Machine, however simple it may be.  
+
+This is the Church-Turing thesis.
+
+<RuleBox align = "left">
+
+**Church-Turing Thesis** says that any algorithmic computation can be computed by a Turing Machine and vise versa.
+
+This has **NOT** been proven yet but it is widely accepted.
+
+</RuleBox>
+
+The Church-Turing thesis allows us to say that anything that can be solved with an algorithm can be solved with a Turing Machine. 
+
+So, if a language is undecidable that means that it can't be solved by a Turing Machine and so that means that it can't be solved with an aglorithm either.  
+
+So, that is the answer to the big question: "Can we tell if a problem can be solved using computers?"
+
+If the Turing Machine halts for all of the inputs in that problem then it is a decidable language that problem has and therefore the Turing Machine can decide on the answer to the prroblem so hence bc of the CT thesis that means that it can be solved an actual computer too. 

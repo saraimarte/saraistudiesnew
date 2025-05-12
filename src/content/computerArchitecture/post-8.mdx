@@ -1,0 +1,79 @@
+---
+layout: '@layouts/Blog.astro'
+title: Bomb Lab
+pubDate: 2025-04-21T00:00:00Z
+updatedDate: 2025-04-21T00:00:00Z
+draft: true
+author: Sarai Marte
+slug: bomb
+---
+
+
+ scp bomblab smmm651@ilab1.cs.rutgers.edu:/common/home/smm651/Desktop/cs211/bomb
+
+  scp filename smmm651@ilab1.cs.rutgers.edu:/common/home/smm651/Desktop/cs211/bomb
+  pwd on 
+
+you have to look at assembly 
+Decipher  not practical 
+  objdump -d bomblab
+
+  objdump -d bomblab > bomlab.asm
+
+GDB - new debugger 
+
+gdb bomlab
+
+in  gdb
+
+layout asm to see assembly 
+layout reg puts register values on top 
+
+just set breakpoints at functions 
+
+How to go thorugh assembly 
+
+how to go thorugh next insutrction (ni)  just press enter to not write over again 
+
+si to step through a function 
+
+to kill program write kill
+
+good practice to set breakpoints through each function once you encounter them 
+
+
+
+manpages on mac and linux 
+
+man fscanf
+
+printing registers 
+print $rex 
+
+# 5555 or 7555 its prob a memory address 
+
+to see actual addreess 
+
+print *(int*)$rdi - garbage value 
+
+voce 
+
+c mu gbb cheatsheet on canvas
+
+h418-1.cs.rutgers.edu:17220
+
+h418-1.cs.rutgers.edu:17220/scoreboard
+
+break explode_bomb  run that command so you gaurentee no explosions 
+
+but if you exit the  break points etc. will reset so run  break explode_bomb again 
+
+but if you do it in the beginning it will stay even if you exit 
+
+problem: loops around we have to solve that  
+
+disessmble phase_1 shows you the assembly of phase_1
+
+meltdown lab and in the cave - if you get illegal host error (when you run on your local machine or if you are on a blacklisted ilab)
+
+to run jut put some sort of input RAM

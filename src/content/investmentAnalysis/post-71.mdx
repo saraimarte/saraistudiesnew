@@ -1,0 +1,49 @@
+---
+layout: '@layouts/Blog.astro'
+title: Chapter 9 | The Capital Asset Pricing Model (CAPM)
+pubDate: 2025-04-17T00:00:00Z 
+updatedDate: 2025-04-17T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: the-capital-asset-pricing-model-capm-chapter-9
+---
+
+import Pop from '@components/Pop.astro' 
+
+import RuleBox from '@components/Rule.astro'
+
+import Latex from '@components/Latex.astro'
+
+//If you diversify your assets, you reduce risk.
+
+<RuleBox>
+<Latex formula="E(R_i) = R_f + \beta_i \cdot (E(R_m) - R_f)" />
+</RuleBox>
+
+# Assumptions of the CAPM  
+
+**1. Investors optimize their portfolios based on Markowitz's portfolio theory.**
+
+Markowitz recognized the fact that if you're expecting a certain rate of return, then there will be a certain amount of risk you have to take into consideration and be comfortable with. 
+
+This might sound like common sense but before his findings, people thought that the best strategy in regards to choosing stocks was to choose those that had the best prospects- the most future potential or the ones likely to do well. 
+
+They weren't thinking about how risky those picks were or how those risks added up when you combined different stocks.
+
+His point was that it's not just about which stocks look good- it's about how they interact in a portfolio. Even great stocks can increase your risk if they move the same way at the same time.
+
+Simply, we assume that all investors have diversified portfolios so all unsystematic risk is irrelevant and the only risk that truly matters is systematic- the risk that affects the entire system (market.)
+
+**2. Investors use identical input list for efficient frontier:**  Everyone has the same expectations about returns, risk, and correlations between assets. So they all see the same "menu" of optimal portfolios.
+
+**3. Same risk-free rate for all investors:** meaning everyone can borrow or lend at the same risk-free rate, allowing them to combine the market portfolio with the risk-free asset to suit their risk tolerance. This means that some investors can play it safe by holding more of the risk free asset (like T-bills) and less of the market or if they have a low risk tolerance they can hold more of the market.  
+
+**4. Market portfolio is aggregation of all risky portfolios and has same weights:** when everyone follows the same logic, the combined risky portfolio that everyone ends up holding is the market portfolio. This portfolio includes all assets, weighted by their market value.
+
+# Results of the CAPM 
+
+**1.** All investors will have the same basket of risky assets to invest in (the market portfolio.)
+
+**2.** The only risk that matters is systematic risk.
+
+**3.** The Capital Market Line (CML) shows the best possible complete portfolios that combine the risk-free asset with the market portfolio. It is different from the Efficient Frontier, which only includes portfolios made up of risky assets. The CML starts at the risk-free rate and is tangent to the efficient frontier at the market portfolio- meaning it shows the highest possible return for each level of total risk, including combinations with the risk-free asset.
