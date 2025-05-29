@@ -27,6 +27,7 @@ import corporateFinance from '@assets/icons/corporateFinance.svg';
 import operationsManagement from '@assets/icons/operationsManagement.svg';
 import computerArchitecture from '@assets/icons/computerArchitecture.svg';
 import investmentAnalysis from '@assets/icons/investmentAnalysis.svg';
+import introToMarketing  from '@assets/icons/introToMarketing.svg';
 
 
 
@@ -59,16 +60,17 @@ const collectionImages = {
   corporateFinance,
   operationsManagement,
   computerArchitecture,
-  investmentAnalysis
+  investmentAnalysis,
+  introToMarketing
 };
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'corporateFinance', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis' ];
-//calc1 //compsci removed
+const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'introToMarketing' ];
+//calc1 //compsci //corporateFinance removed 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'corporateFinance', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis']; // Add other collection names here
+  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1',, 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'introToMarketing ']; // Add other collection names here
 
   // Return paths for each collection
   return collectionNames.map(name => ({
@@ -185,6 +187,7 @@ export async function getStaticPaths() {
         border-bottom:var(--border);
         overflow-x: auto; /* Allow horizontal scrolling but w/o mouse*/
         scrollbar-width:none; 
+        max-height:50px;
     }
    
     .tab{

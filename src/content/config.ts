@@ -194,7 +194,16 @@ const computerArchitectureCollection = defineCollection({
   }),
 });
 
-
+const introToMarketingCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
 
 export const collections = {
   calc1: calc1Collection,
@@ -213,5 +222,6 @@ export const collections = {
   corporateFinance: corporateFinanceCollection,
   operationsManagement: operationsManagementCollection,
   investmentAnalysis:investmentAnalysisCollection,
-  computerArchitecture: computerArchitectureCollection
+  computerArchitecture: computerArchitectureCollection,
+  introToMarketing:introToMarketingCollection
 };
