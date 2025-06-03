@@ -2,181 +2,165 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-// Canvas & Scene
+// Canvas
 const canvas = document.querySelector('canvas.webgl');
-const scene  = new THREE.Scene();
-scene.background = new THREE.Color(0xF2F3F4);
 
-// ———————————————————————
-// Webpage Plane (initially black)
-// ———————————————————————
-const webpageWidth  = 0.88;
-const webpageHeight = 0.64;
+// Scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xF2F3F4); // Scene background color
+
+// Clickable Webpage Plane
+const webpageWidth = 0.88; // Width of the plane
+const webpageHeight = 0.64; // Height of the plane
 const webpageGeometry = new THREE.PlaneGeometry(webpageWidth, webpageHeight);
 
-const blackTexture  = new THREE.TextureLoader().load('/path/to/black-image.png');
-const blackMaterial = new THREE.MeshBasicMaterial({
-  map: blackTexture,
-  side: THREE.DoubleSide
-});
+// Create a black texture for the initial screen
+const blackTexture = new THREE.TextureLoader().load('/path/to/black-image.png'); // Ensure this is a valid black image
+const blackMaterial = new THREE.MeshBasicMaterial({ map: blackTexture, side: THREE.DoubleSide });
 
+// Create the webpage plane with the black texture initially
 const webpagePlane = new THREE.Mesh(webpageGeometry, blackMaterial);
-webpagePlane.position.set(0.03, 0.29, 0.0550);
 scene.add(webpagePlane);
+webpagePlane.position.set(0.03, 0.29, 0.0550); // Set the position of the webpage plane
 
-// Preload real webpage texture
-let webpageTexture = null;
-new THREE.TextureLoader().load('/website.png', tex => {
-  tex.encoding = THREE.sRGBEncoding;
-  webpageTexture = tex;
+// Load the actual website texture for later use
+const webpageTexture = new THREE.TextureLoader().load('/website.png', function (texture) {
+    texture.encoding = THREE.sRGBEncoding; // Correct texture encoding
 });
 
-// ———————————————————————
-// Load Models & build clickable list
-// ———————————————————————
-const clickableMeshes = [ webpagePlane ];
-const gltfLoader      = new GLTFLoader();
-const deskMaterial    = new THREE.MeshBasicMaterial({ color: 0xf9f9f9 });
-const glassMaterial   = new THREE.MeshBasicMaterial({ color: 0xffffff });
-const mouseMaterial   = new THREE.MeshBasicMaterial({ color: 0xffffff });
+// Models
+const gltfLoader = new GLTFLoader();
+const deskMaterial = new THREE.MeshBasicMaterial({ color: 0xf9f9f9 });
+const glassMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const mouseMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
-// Desk
-gltfLoader.load('/desk.glb', gltf => {
-  gltf.scene.traverse(child => {
-    if (child.isMesh) child.material = deskMaterial;
-  });
-  scene.add(gltf.scene);
+// Load desk model
+gltfLoader.load('/desk.glb', (gltf) => {
+    gltf.scene.traverse((child) => {
+        child.material = deskMaterial;
+    });
+    scene.add(gltf.scene);
 });
 
-// Computer (screen frame will be clickable)
-gltfLoader.load('/computer.glb', gltf => {
-  gltf.scene.traverse(child => {
-    if (child.isMesh) {
-      child.material = glassMaterial;
-      clickableMeshes.push(child);
+// Load computer model and apply materials
+gltfLoader.load('/computer.glb', (gltf) => {
+    gltf.scene.traverse((child) => {
+        child.material = glassMaterial;
+    });
+    scene.add(gltf.scene);
+});
+
+// Load mouse model
+gltfLoader.load('/mouse.glb', (gltf) => {
+    gltf.scene.traverse((child) => {
+        child.material = mouseMaterial;
+    });
+    scene.add(gltf.scene);
+});
+
+// Sizes
+const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight
+};
+
+// Raycaster for click detection
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+// Event listener for mouse movement
+window.addEventListener('mousemove', (event) => {
+    // Convert mouse position to normalized device coordinates
+    mouse.x = (event.clientX / sizes.width) * 2 - 1;
+    mouse.y = - (event.clientY / sizes.height) * 2 + 1;
+});
+
+// Event listener for pointer down
+window.addEventListener('pointerdown', (event) => {
+    // Check if the webpage plane was clicked
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObject(webpagePlane);
+
+    if (intersects.length > 0) {
+        zoomInAndRedirect();
     }
-  });
-  scene.add(gltf.scene);
 });
 
-// Mouse
-gltfLoader.load('/mouse.glb', gltf => {
-  gltf.scene.traverse(child => {
-    if (child.isMesh) child.material = mouseMaterial;
-  });
-  scene.add(gltf.scene);
-});
-
-// ———————————————————————
-// Camera & Controls
-// ———————————————————————
-const sizes = { width: window.innerWidth, height: window.innerHeight };
+// Camera/perspective
 const camera = new THREE.PerspectiveCamera(16, sizes.width / sizes.height, 0.1, 100);
-camera.position.set(0, 0, 0.01);
+camera.position.set(0, 0, 0.01); // Start very close to the plane
 scene.add(camera);
 
+// Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
-// ———————————————————————
 // Renderer
-// ———————————————————————
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: true
+});
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// ———————————————————————
-// Raycaster & Mouse
-// ———————————————————————
-const raycaster = new THREE.Raycaster();
-const mouse     = new THREE.Vector2();
-
-window.addEventListener('mousemove', e => {
-  mouse.x = (e.clientX / sizes.width) * 2 - 1;
-  mouse.y = - (e.clientY / sizes.height) * 2 + 1;
-});
-
-// ———————————————————————
-// Initial “zoom out” on load
-// ———————————————————————
+// Animate
 const clock = new THREE.Clock();
 let zoomOutStartTime = null;
 
+// Start the animation
 setTimeout(() => {
-  zoomOutStartTime = clock.getElapsedTime();
+    zoomOutStartTime = clock.getElapsedTime(); // Start the zoom out
 }, 10);
 
-// ———————————————————————
-// Click-to-zoom handler
-// ———————————————————————
-let isAnimating = false;
+const tick = () => {
+    const elapsedTime = clock.getElapsedTime();
 
-window.addEventListener('pointerup', () => {
-  if (isAnimating) return;
-  raycaster.setFromCamera(mouse, camera);
-  const hits = raycaster.intersectObjects(clickableMeshes, false);
-  if (hits.length) zoomToIntersect(hits[0]);
-});
+    // If zooming out, interpolate the camera position
+    if (zoomOutStartTime !== null) {
+        const progress = (elapsedTime - zoomOutStartTime) / 1; // Duration of 1 second
+        if (progress < 1) {
+            camera.position.z = THREE.MathUtils.lerp(0.1, 6, progress); // Zoom out from 0.1 to 6
+        } else {
+            webpagePlane.material.map = webpageTexture; // Change to the actual image after zooming out
+            zoomOutStartTime = null; // Reset zoom out
+        }
+    }
 
-function zoomToIntersect(intersect) {
-  isAnimating     = true;
-  controls.enabled = false;
-
-  const duration  = 1; // seconds
-  const startTime = clock.getElapsedTime();
-
-  const startPos    = camera.position.clone();
-  const startTarget = controls.target.clone();
-
-  // Hit point & face normal in world space
-  const worldPoint = intersect.point.clone();
-  const normal     = intersect.face.normal.clone()
-                        .transformDirection(intersect.object.matrixWorld)
-                        .normalize();
-
-  // End position 0.2 units off the surface
-  const endPos    = worldPoint.clone().add(normal.multiplyScalar(0.2));
-  const endTarget = worldPoint.clone();
-
-  (function animate() {
-    const t = Math.min((clock.getElapsedTime() - startTime) / duration, 1);
-    camera.position.lerpVectors(startPos,    endPos,    t);
-    controls.target.lerpVectors(startTarget, endTarget, t);
     controls.update();
     renderer.render(scene, camera);
-
-    if (t < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      // If you clicked the plane, swap in the real webpage texture first
-      if (intersect.object === webpagePlane && webpageTexture) {
-        webpagePlane.material.map = webpageTexture;
-      }
-      window.location.href = '../home';
-    }
-  })();
-}
-
-// ———————————————————————
-// Main render loop
-// ———————————————————————
-const tick = () => {
-  const elapsedTime = clock.getElapsedTime();
-
-  // initial zoom-out
-  if (zoomOutStartTime !== null) {
-    const prog = (elapsedTime - zoomOutStartTime) / 1;
-    if (prog < 1) {
-      camera.position.z = THREE.MathUtils.lerp(0.1, 6, prog);
-    } else if (webpageTexture) {
-      webpagePlane.material.map = webpageTexture;
-      zoomOutStartTime = null;
-    }
-  }
-
-  if (!isAnimating) controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(tick);
+    window.requestAnimationFrame(tick);
 };
 
 tick();
+// Function to handle zoom-in and redirect on click
+const zoomInAndRedirect = () => {
+    // Animate zooming into the webpage
+    let zoomInStartTime = clock.getElapsedTime();
+    const zoomInDuration = 1; // Duration of zoom-in animation
+
+    const zoomInTick = () => {
+        const elapsedTime = clock.getElapsedTime();
+        const progress = (elapsedTime - zoomInStartTime) / zoomInDuration;
+
+        if (progress < 1) {
+            camera.position.z = THREE.MathUtils.lerp(6, 0.1, progress); // Zoom into the webpage
+            requestAnimationFrame(zoomInTick);
+        } else {
+            window.location.href = '../home'; // Redirect to the desired page after zooming in
+        }
+    };
+
+    zoomInTick();
+};
+
+// Event listener for pointer up to check for clicks
+window.addEventListener('pointerup', (event) => {
+    // Check if the webpage plane was clicked
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObject(webpagePlane);
+
+    if (intersects.length > 0) {
+        // Only trigger zoom-in and redirect if the webpage plane was clicked
+        zoomInAndRedirect();
+    }
+});

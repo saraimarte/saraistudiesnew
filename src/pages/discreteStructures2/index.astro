@@ -1,0 +1,37 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allPosts: CollectionEntry<'discreteStructures2'>[] = (await getCollection('discreteStructures2')).filter((post) => post.data.draft === false);
+
+
+export async function getStaticPaths() {
+  const allPosts: CollectionEntry<'discreteStructures2'>[] = (await getCollection('discreteStructures2')).filter((post) => post.data.draft === false);
+
+  return allPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+  folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Discrete Structures 2 Directory" 
+  allArticles = {allArticles} 
+  className = "discreteStructures2" 
+  fullClassTitle = "Discrete Structures 2 01:198:206">
+</ClassHomePage>
