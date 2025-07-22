@@ -1,0 +1,29 @@
+---
+layout: '@layouts/Blog.astro'
+title: Python Programming Basics 
+pubDate: 2025-07-15T00:00:00Z 
+updatedDate: 2025-07-15T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: python-programming-basics
+---
+
+import DropDown from '@components/DropDown.astro';
+import Code from '@components/Code.astro';
+
+<DropDown title = "How to import and use a function you wrote in another file?">
+
+Let's say you have a function that generates a map in mapGenerator.py:
+
+<Code lang = "python" fileName = "mapGenerator.py" code = {
+`def generate_map(D, p):
+	   # function code 
+    return grid`}/>
+
+and you want to use it in another file, newFile.py. Here's how you can do it:
+
+<Code lang = "python" fileName = "newFile.py" code = {
+`from mapGenerator import generate_map # import function
+grid = generate_map() # use function `}/>
+
+</DropDown>
