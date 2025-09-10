@@ -1,0 +1,86 @@
+---
+// File: src/components/customThumb.astro
+interface Props {
+  iframeSrc: string; // full YouTube embed URL
+  src: string;       // e.g., src={img3.src}
+  title?: string;
+}
+const { iframeSrc, src, title = "YouTube video player" } = Astro.props as Props;
+---
+
+<div class="yt" role="button" tabindex="0" aria-label={`Play ${title}`} data-src={iframeSrc}>
+  <img class="thumb" src={src} alt="" loading="lazy" decoding="async" />
+  <svg class="play" viewBox="0 0 68 48" aria-hidden="true">
+    <path d="M66.52 7.74a8 8 0 0 0-5.64-5.66C56.05 1 34 1 34 1s-22.05 0-26.88 1.08a8 8 0 0 0-5.64 5.66C0.38 12.6 0.38 24 0.38 24s0 11.4 1.1 16.26a8 8 0 0 0 5.64 5.66C12 47 34 47 34 47s22.05 0 26.88-1.08a8 8 0 0 0 5.64-5.66C67.62 35.4 67.62 24 67.62 24s0-11.4-1.1-16.26Z"/>
+    <path d="M45 24 27 14v20l18-10Z" fill="#fff"/>
+  </svg>
+</div>
+
+<script is:inline>
+(() => {
+  const root = document.currentScript.previousElementSibling;
+  if (!root) return;
+  const activate = () => {
+    const src = root.dataset.src || "";
+    const url = src + (src.includes("?") ? "&" : "?") + "autoplay=1&rel=0&modestbranding=1&playsinline=1";
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.title = root.getAttribute("aria-label") || "YouTube video player";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.className = "yt-iframe";
+    root.replaceWith(iframe);
+  };
+  root.addEventListener("click", activate, { once: true });
+  root.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
+  }, { once: true });
+})();
+</script>
+
+<style>
+  .yt{
+    position:relative;
+    display:block;
+    width:100%;
+    background:#000;
+    cursor:pointer;
+    overflow:hidden;
+    aspect-ratio:16/9;
+    border: none;     
+    box-sizing: border-box;
+  }
+
+  .yt-iframe{
+    border: none;         
+    box-sizing: border-box;         
+}
+
+  .thumb{position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    user-select:none;
+    -webkit-user-drag:none}
+
+  .play{position:absolute;
+    width:68px;
+    height:48px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    opacity:.9;
+    fill:#e00;
+    pointer-events:none}
+
+  /* Mirror your iframe rules on the wrapper to prevent size jump */
+  @media (max-width: 768px) {
+    .yt{aspect-ratio:auto;height:240px;border-radius:5px}
+  }
+  @media (max-width: 708px) {
+    .yt{aspect-ratio:auto;height:300px;border-radius:5px}
+  }
+</style>

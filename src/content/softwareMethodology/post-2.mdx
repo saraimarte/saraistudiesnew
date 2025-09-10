@@ -1,0 +1,378 @@
+---
+layout: '@layouts/Blog.astro'
+title: Object Oriented Design With Java
+pubDate: 2025-09-10T00:00:00Z 
+updatedDate: 2025-09-10T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: object-oriented-design-with-java
+---
+
+import Code from '@components/Code.astro';
+import CS from '@components/CSnippet.astro';
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import Solution from '@components/Solution.astro'
+import ImageMd from '@components/Solution.astro'
+
+# Java Classes Review 
+
+In CS111 we introduced the idea of wanting to model the real world. 
+
+The real world is made up of objects like persons, animals, plants, pencils, etc. 
+
+We learned how to create our own objects in Java and in this class it is assumed you are familiar with how to do so but if your'e not here is a review. 
+
+**1. Start by creating a file <CS code = {`File.java`}/>**
+
+**2. Write your boilerplate code (the classic file class and main method)**
+
+
+<Code lang = "java" fileName = "File.java" code = {
+` public class File {
+
+		public static void main(String[] args){
+
+		}
+		
+   }
+`}/>
+
+From now on, any code we write should be placed inside the main method. 
+
+**3. Create the class for the object**
+
+Again, we can create any object from the real world, a person, a cat, a student, a point (x,y). The professor created a point so let's use that. 
+
+Let's call that class <CS code = {`Point`}/>
+
+Recall that a class is just a blueprint or a recipe- it tells Java how to create the object.
+
+
+<Code lang = "java" fileName = "File.java" code = {
+
+` class Point{
+			
+	 }`}/>
+
+**4. Define the attributes of the object**
+
+Just like a person has attributes like name, eye color, DOB, etc. so does a point.
+
+A classic coordinate point has two attributes- the two coordinate values - x and y.
+
+Let's assume they are integers. 
+
+<Code lang = "java" fileName = "File.java" code = {
+
+` class Point{
+		int x,y; /*"hey, a Point should have values x and y" */
+	 }`}/>
+
+**5. Add a constructor**
+
+<RuleBox>
+
+**Def.** A **Constructor** is used to <Pop t = "give life/fill in/form">initialize</Pop> an object *not* <Pop t = "create">construct</Pop> an object.
+</RuleBox>
+
+In the same way that <CS code = {`int x;`}/> itself creates x (allocates memory for x) and <CS code = {`x = 2;`}/> afterwards initializes x to be 2, we have it so that <CS code = {`new`}/> creates the Point object but <CS code = {`new Point();`}/> initializes the Point to be what you want it to be.
+
+Note that "creates x" means you simply reserved some space for this variable x and "creates the Point object" means you reserved some space for this object Point.
+
+So you haven't told the variable or the object to come alive or to come to be. 
+
+You're just saying "Hey, you exist. I know how much space you take up but I don't exactly know what you're made up of."
+
+You haven't *initialized* them yet hence we use the constructor to initialize the object- to give life or an identity to the object.
+
+Again, calling the constructor would look like this: <CS code = {`new Point();`}/>
+
+This is the simplest constructor you can have- where there are no arguments being passed in. 
+
+This is called a no-arg constructor. 
+
+<RuleBox>
+**Def.** A **no-arg constructor** is a constructor that has no arguments.
+</RuleBox>
+
+Now, if we used this constructor to initialize a new Point object, because it's a no-arg constructor, the user will not be able to pass any arguments or values in ... but we want the user to pass in what they want x and y to be! 
+
+I mention this because you might be like "well <CS code = {`x = 2;`}/> and <CS code = {`new Point();`}/> don't look the same. Having x be 2 makes sense but what exactly are you having the Point be?"
+
+So, we will get back to talking about no-arg constructors later but let's try to design a constructor where the user can actually pass in values for the Point. 
+
+Again, we want the users to give the values for x and y when they initialize the object.
+
+From the user's perspective, if they want to initialize a Point where x = 1 and y = 2, we want it to look like this: <CS code = {`new Point(1,2)`}/>
+
+To design a constructor that allows you to do that, you would want to design it so that it takes in x and y as integers and assigns the value for x the user gave to the Point's x <Pop t = "instance variable">attribute</Pop> (and the same for y.)
+
+The constructor would look something like this:
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Point{
+	   int x,y;
+
+	   /*Constructor*/
+
+	   public Point (int x, int y){ /*It takes in two integer values x and y*/
+
+			this.x = x;	/* It will assign the object's x to be the x the user puts in*/ 
+			/*this.object'sX = user'sX;*/	
+
+			this.y = y; /*and the same for y*/
+		}
+	}
+`}/>
+
+Recall, that <CS code = {`this.x`}/> refers to the object's x not the x that the user passes in.
+
+**6. Create the object!**
+
+Create and initialize an <Pop t = "version/copy">instance</Pop> of the Point Object <CS code = {`p`}/>so that it looks like this where x is 1 and y is 2.
+
+Then, display the point created so that the output looks like this: <CS code = {`Point: (1,2)`}/> 
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public static void main(String[] args){
+	
+	  class Point{
+		int x,y;
+
+		public Point (int x, int y){ 
+
+			this.x = x;	
+
+			this.y = y; 
+		
+		}
+
+	  }
+
+	Point p = new Point(1,2); /*make space for the object and create the object by calling the constructor*/
+	System.out.println("Point: (" + p.x + "," + p.y + ")");	
+}`}/>
+
+Note that the constructor we designed in the <CS code = {`Point`}/> class requires two values so when you call the constructor you have to provide those two values.
+
+In this case it was 1 and 2. 
+ 
+Great! Now, you're up to speed and you're ready for Lecture 1's content:
+
+Sesh started the class by deep diving into constructors. 
+
+
+# Constructors 
+
+Let's go back to where we left off on **step 4** before we added a constructor:
+
+<Code lang = "java" fileName = "File.java" code = {
+
+` class Point{
+		int x,y; 
+	 }`}/>
+
+At the moment, we have only a class for an object Point and we have defined the attributes of the Point (those being it's x and y values.)
+
+We have no constructor at the moment. 
+
+## Sesh proposed the question: "Would this class compile without a constructor?" In other words is it necessary for you to write a constructor in order for the class to be 'valid'?
+
+The answer is yes, this code would compile and no, it's not necessary for you to write a constructor for your classes.
+
+Why? Because if you don't write a constructor the compiler will add one for you! 
+
+The compiler adds what's called the default constructor. 
+
+<RuleBox>
+**Def.** A **default constructor** is a special type of no-arg constructor that is added to any class where the programmer did not add a constructor themselves. It's a no-arg constructor with nothing in the body (aka nothing in between the curly braces.)
+</RuleBox>
+
+So, if we compile the code above, the compiler will literally add a constructor to the code, so it would look like this: 
+
+<Code lang = "java" fileName = "File.java" code = {
+
+` class Point{
+		int x,y; 
+
+		public Point(){} /*<-- Compiler Adds Default Constructor*/
+	 }`}/>
+
+Note that the compiler doesn't *literally* add the constructor to your file so that you can visually see your code change. It adds it while its compiling the code. 
+
+So it's hidden to you but visible to the compiler during compilation.
+
+## Sesh then proposed the question: "What happens if we try to create and initialize an <Pop t = "version/copy">instance</Pop> of the Point object?" In other words, what happens if we try to create a new object?
+
+Well, the default constructor we know takes no arguments so it would look something like this, 
+
+<CS code = {`new Point()`}/>
+
+and if we do the same thing as before where we print the x and y values for the Point like so, 
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public static void main(String[] args){
+	
+	  class Point{
+		int x,y;
+	  }
+
+	Point p = new Point(); /*creates new Point Object- the compiler is using the default constructor since we didn't manually write one*/
+	
+	/*print out the point*/
+	System.out.println("Point: (" + p.x + "," + p.y + ")");	
+}`}/>
+
+When we run this, we get Point: (0,0)
+
+Interesting! 
+
+You might be like, "Well, wait... I never told it that x and y should be 0"
+
+and you're right! You didn't tell it to be 0.
+
+Even if you wanted to tell it that x and y should be 0 you couldn't because we didn't design the Point object to have a constructor that allows users to assign values to x and y. 
+
+So, who set the values of x and y to be 0...if it wasn't us?
+
+The <CS code = {'new'}/> keyword did!
+
+Not only does <CS code = {'new'}/> create the object by making space for it in memory but right after that, it assigns it a default value.
+
+<CS code = {'new'}/> assigns default values for every <Pop t = "instance variable">attribute</Pop> defined in the object class. 
+
+In this case, our defined attributes are the integers x and y so the <CS code = {'new'}/> keyword will assign the default integer value to x and y which is 0. 
+
+Hence, why you see 0 for both x and y. 
+
+If the attributes were objects, doubles, or other types, the default values would be different. For objects it would be NULL, for doubles it would be 0.0, etc. 
+
+Note that it's not the constructor that sets the default values it's the <CS code = {'new'}/> keyword.
+
+## Sesh then asked the question, "Would the following code compile?"
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public static void main(String[] args){
+	
+	  class Point{
+		int x,y;
+		public Point (int x, int y){ /* <--- CONSTRUCTOR */
+				this.x = x;
+				this.y = y;
+		}
+	  }
+
+	Point p = new Point(); /*creates new Point Object*/
+	
+}`}/>
+
+The answer is **no.**
+
+Why?
+
+You might be like "Wait, shouldn't it compile since if I didn't write the constructor the compiler would add a default constructor for me, right?"
+
+Wrong :) 
+
+Note that the compiler only adds the default constructor if you *fail* to add a constructor **at all.** 
+
+Because you added a constructor, the compiler **will not** add the default constructor hence the only way you can create and construct a new Point object is to use the constructor in the object class above that looks like this:
+
+<Code lang = "java" fileName = "File.java" code = {
+	`public Point (int x, int y){ /* <--- CONSTRUCTOR */
+			this.x = x;
+			this.y = y;
+	}
+`}/>
+
+and as a user, you would call it like so: <CS code = {`new Point(1,2)`}/> where you are required to pass in a value of x and y. 
+
+Now, let me propose this question: What if you wanted to change your object class so that you can create and construct a Point object like this: <CS code = {`new Point()`}/>? What would you need to do?
+
+Well, you can have multiple constructors! Multiple ways of constructing an object. 
+
+# Multiple Constructors and this()
+
+You can design your object class so that it has several ways a user can create an <Pop t = "copy">instance</Pop> of that object. 
+
+Again, if you want to construct a Point object without specifying any arguments given that you already have another constructor in your class, all you have to do is design the no-args constructor yourself and add it to the class.
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public static void main(String[] args){
+	
+	  class Point{
+		int x,y;
+		public Point (int x, int y){ /* <--- CONSTRUCTOR */
+				this.x = x;
+				this.y = y;
+		}
+
+		public Point (){ /* <--- 2nd CONSTRUCTOR (A No-Arg Constructor)*/
+		
+		}
+	  }
+
+	Point p = new Point(); /*creates new Point Object*/
+	
+}`}/>
+
+Note that every default constructor is a no-arg constructor but not every no-arg constructor is a default constructor.
+
+This is a perfect example, thee 2nd constructor we just added is a no-arg constructor but it looks exactly the same as a default constructor so is it a default constructor? No. 
+
+A default constructor is one added only by the compiler. We manually added this no-arg constructor and in fact no-arg constructors can look different! 
+
+For example, they can have stuff in the body! Default constructors can not.
+
+What would be an a example of that?
+
+Well, consider the case where you don't want the default values for x and y to be 0 and instead you want to define your own 'default' values. 
+
+Note that at this point, these customized 'default' values are no longer default in the sense that the <CS code = {`new`}/> keyword assigned them but it's default in the sense that these are what you want your x and y to be, always.
+
+As in, you don't want the user to be able to change them.
+
+**E.g.** Let's say you want the values for x and y to be -1 always.
+
+You would design a constructor that takes no arguments because you don't want the user to pass in any values for x and y since you want x and y to be -1 *always*. 
+
+Hence, you would design a no-arg constructor. 
+
+Additionally, in the body of the no-arg constructor you would set the object's x and y to be -1 like so: 
+
+<Code lang = "java" fileName = "File.java" code = {
+
+	`public Point (){ 
+		this.x = -1;
+		this.y = -1;
+	}
+`}/>
+
+A shortcut to this which appeared on Sesh's slides is **only if you have the first constructor where you already wrote** <CS code = {`this.x = x; this.y = y`}/> then instead of being repetitive and writing it again in the no-arg constructor you can use this **this()** shortcut.
+
+(You can use the this() shortcut in any constructor not just no-arg constructors.)
+
+<Code lang = "java" fileName = "File.java" code = {
+
+	`public Point (){ 
+		this(-1,-1)
+	}
+	`}/>
+
+The above code does the same thing as the previous code- it simply says "I want x and y to be -1 by default if the user uses this constructor."
+
+**E.g.** Let's say you want the values for x to always be -1 but you want the user to be able to specify what y should be.
+
+
+<Code lang = "java" fileName = "File.java" code = {
+
+	`public Point (int y){ 
+		this(x,-1); /* this says let the object's x be the user's x and let the object's y be -1. */
+	}
+	`}/>
+

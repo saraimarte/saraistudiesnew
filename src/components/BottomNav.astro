@@ -30,15 +30,12 @@ import investmentAnalysis from '@assets/icons/investmentAnalysis.svg';
 import introToMarketing  from '@assets/icons/introToMarketing.svg';
 import ai  from '@assets/icons/ai.svg';
 import discreteStructures2  from '@assets/icons/discreteStructures2.svg';
+import cs336  from '@assets/icons/cs336.svg';
+import softwareMethodology  from '@assets/icons/softMeth.svg';
+import cs344  from '@assets/icons/cs344.svg';
 
-
-
-
-
-// Define the props interface (even if empty)
 interface Props {}
 
-// Destructure props (even if empty)
 const {} = Astro.props;
 
 const collectionImages = {
@@ -66,16 +63,19 @@ const collectionImages = {
   investmentAnalysis,
   introToMarketing,
   ai,
-  discreteStructures2
+  discreteStructures2,
+  cs336,
+  softwareMethodology,
+  cs344
 };
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'introToMarketing', 'ai'];
+const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis',  'ai', 'cs336', 'softwareMethodology', 'cs344']; //codeWord 
 //calc1 //compsci //corporateFinance removed 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'introToMarketing', 'ai']; // Add other collection names here
+  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'ai', 'cs336', 'softwareMethodology','cs344']; //codeWord 
 
   // Return paths for each collection
   return collectionNames.map(name => ({

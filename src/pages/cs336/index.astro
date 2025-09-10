@@ -1,0 +1,45 @@
+---
+import ClassHomePage from '@layouts/ClassHomePage.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allPosts: CollectionEntry<'cs336'>[] = (await getCollection('cs336')).filter((post) => post.data.draft === false);
+
+
+export async function getStaticPaths() {
+  const allPosts: CollectionEntry<'cs336'>[] = (await getCollection('cs336')).filter((post) => post.data.draft === false);
+
+  return allPosts.map(entry => ({
+    params: {
+      slug: entry.slug
+    }
+  }));
+}
+
+const allArticles = allPosts;
+const folderPath1 = "../toolbox";
+const folderPath2 = "../rankings";
+const folderPath3 = "../ratings";
+const pathHome =  './';
+
+---
+
+<ClassHomePage
+  folderPath1= {folderPath1} 
+  folderPath2 = {folderPath2} 
+  folderPath3 = {folderPath3} 
+  pathHome = {pathHome} 
+  pageTitle="Principles of Information and Data Management" 
+  allArticles = {allArticles} 
+  className = "cs336" 
+  fullClassTitle = "Principles of Information and Data Management 01:198:336">
+</ClassHomePage>
+
+<!--codeword-->
+ <!-- the className attribute above should be the same name as the 
+  1. folder for the class in src > content  
+  2. folder for the class in the src > pages 
+  3. and what you add to the bottomnav component  
+  4. and the name of the collection in config.ts
+-->

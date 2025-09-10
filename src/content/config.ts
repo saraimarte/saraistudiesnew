@@ -194,7 +194,7 @@ const computerArchitectureCollection = defineCollection({
   }),
 });
 
-const introToMarketingCollection = defineCollection({
+const cs336Collection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -227,6 +227,19 @@ const discreteStructures2Collection = defineCollection({
   }),
 });
 
+
+
+const softMethCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
+
 export const collections = {
   calc1: calc1Collection,
   calc2: calc2Collection,
@@ -245,7 +258,8 @@ export const collections = {
   operationsManagement: operationsManagementCollection,
   investmentAnalysis:investmentAnalysisCollection,
   computerArchitecture: computerArchitectureCollection,
-  introToMarketing:introToMarketingCollection,
+  cs336:cs336Collection,
   ai: aiCollection,
-  discreteStructures2:discreteStructures2Collection
+  discreteStructures2:discreteStructures2Collection,
+  softwareMethodology: softMethCollection
 };

@@ -1,0 +1,95 @@
+---
+layout: '@layouts/Blog.astro'
+title: Object Oriented Design With Java Practice
+pubDate: 2025-09-04T00:00:00Z 
+updatedDate: 2025-09-04T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: object-oriented-design-with-java-p
+---
+
+import Code from '@components/Code.astro';
+import CS from '@components/CSnippet.astro';
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import Solution from '@components/Solution.astro'
+
+
+# Practice 
+
+**1A.** What is the output for the following code?
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public class File {
+
+	public static void main(String[] args){
+
+		class Point{
+		int x,y;
+
+		public Point (int x, int y){
+				this.x = x;
+				this.y = y;
+		}
+
+		public Point (){ 
+			this(-1,-1);
+		}
+
+
+	  }
+
+	Point p = new Point(); 
+	System.out.println("Point:(" + p.x + "," + p.y + ")");	}
+}`}/>
+
+**1B.** What would be the output if you changed <CS code = {`this(-1,-1)`}/> to <CS code = {`this(-1,0)`}/>
+<Solution>
+
+A. Point: (-1,-1) Here the default values for both x and y were set to be -1.
+
+B. Point: (-1, 0) Here the default value for x was changed to be -1 and 0 for y.
+
+</Solution>
+
+**2.** Assume you have a constructor that lets the user construct a new point object by giving the values for both x and y. 
+ 
+If you had to create another constructor that allowed the user to only input the x value and have the y value be a default value of -1, how would it look like?
+
+<Solution>
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public class File {
+
+	public static void main(String[] args){
+
+		class Point{
+		int x,y;
+		
+		public Point (int x, int y){
+				this.x = x;
+				this.y = y;
+		}
+
+		public Point (int x){ /*Requires that user inputs value for x*/
+			this.x = x ; /*Sets Point's x to be user's x*/
+			this.y = -1; /*Sets Point's y to be -1 by default*/
+		}
+	  }
+
+	Point p = new Point(2);
+	System.out.println("Point:(" + p.x + "," + p.y + ")");	}
+}
+`}/>
+
+or you can use the this() shortcut instead of having to repeat this.x = x and this.y = y.
+
+<Code lang = "java" fileName = "File.java" code = {
+
+`public Point (int x){
+		this(x,-1); /* Sets the Point's x to be user's inputted x value and y to be -1 by default.*/
+	}`}/>
+
+</Solution>

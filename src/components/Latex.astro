@@ -1,12 +1,12 @@
 ---
 import katex from 'katex';
-import 'katex/dist/katex.min.css'; 
+import 'katex/dist/katex.min.css';
 
-const { formula = '' } = Astro.props;
+const { formula = '', align = 'center' } = Astro.props;
 const html = katex.renderToString(formula, { throwOnError: false });
 ---
 
-<div>
+<div class={`latex-wrap ${align === 'left' ? 'left' : 'center'}`}>
   <span set:html={html} />
 </div>
 
@@ -19,15 +19,27 @@ const html = katex.renderToString(formula, { throwOnError: false });
 
 <style>
   div{
-    width:100%;
-    display:flex;
+    margin-top:20px;
+  }
+  .latex-wrap {
+    width: 100%;
+    display: flex;
+    word-wrap: break-word;
+  }
+  .latex-wrap.center {
     justify-content: center;
     align-items: center;
     text-align: center;
-    word-wrap: break-word;
   }
-  span { 
-    font-size: 1.1em !important; 
+  .latex-wrap.left {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
   }
-
+  .latex-wrap > span {
+    font-size: 1.1em !important;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
 </style>
