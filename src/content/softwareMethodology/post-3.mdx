@@ -1,0 +1,160 @@
+---
+layout: '@layouts/Blog.astro'
+title: Lecture 3| Inheritance Continued 
+pubDate: 2025-09-09T00:00:00Z 
+updatedDate: 2025-09-09T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: lecture-3-inheritance-continued
+---
+
+import Code from '@components/Code.astro';
+import Solution from '@components/Solution.astro'
+import CS from '@components/CSnippet.astro';
+import RuleBox from '@components/Rule.astro';
+
+# Even More on Subclasses
+
+<RuleBox>
+**Moral of the story:** Subclasses do not inherit private fields or methods.
+</RuleBox>
+
+## Can we Inherit Private Fields/Attributes?
+
+Consider a class called <CS code = {`SuperClass`}/> 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class SuperClass{
+
+}`}/>
+
+Let's create one public attribute int x and private attribute int y.
+
+<Code lang = "java" fileName = "File.java" code = {
+`class SuperClass{
+    public int x;
+    private int y;
+}`}/>
+
+Now, let's create a subclass called <CS code = {`SubClass`}/> and have it inherit from the class <CS code = {`SuperClass`}/>. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Subclass extends SuperClass{
+
+}`}/>
+
+Create an instance of the subclass.
+
+<Code lang = "java" fileName = "File.java" code = {
+`SubClass p = new SubClass();`}/>
+ 
+Now, let's see if we're able to access the public and private attributes/fields from the superclass. 
+
+
+<Code lang = "java" fileName = "File.java" code = {
+`System.out.println(p.x);`}/>
+
+This works! It outputs 0 (the default value set by the <CS code = {`new`}/> keyword.)
+
+Now, if we try printing p.y like so,
+
+<Code lang = "java" fileName = "File.java" code = {
+`System.out.println(p.y);`}/>
+
+It gives the following error: The field SuperClass.y is not visible
+
+Why?
+
+Because the y field in the superclass is private- it's hidden from any subclasses.
+
+Hence, it's not *visible* to any subclasses.
+
+**This implies that subclasses do not inherit private fields/attributes.**
+
+## Can we Inherit Private Methods?
+
+First, remove the two fields from the <CS code = {`SuperClass`}/> class so you just have this:
+
+<Code lang = "java" fileName = "File.java" code = {
+`class SuperClass{
+
+}`}/>
+
+Let's create two methods for this class: (a)  Public Method called <CS code = {`method1`}/> that prints out "Method 1" and (b)  Private Method called <CS code = {`method2`}/> that prints out "Method 2" 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class SuperClass{
+
+    public void method1(){
+			System.out.println("Method 1");
+	  }
+
+    private void method2(){
+			System.out.println("Method2");
+	  }
+}`}/>
+
+Note, that they are the exact same methods, the only difference is that one is public and the other is private (other than what they print ofcourse.)
+
+Now, let's create a subclass called <CS code = {`SubClass`}/> and have it inherit from the class<CS code = {`SuperClass`}/>. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Subclass extends SuperClass{
+
+}`}/>
+
+At this point, we expect the class <CS code = {`SubClass`}/> to inherit all the stuff from the it's Superclass which happens to be called <CS code = {`SuperClass`}/>. 
+
+But the question is...will it inherit all the 'stuff'?
+
+Let's see. 
+
+We assume we already have the instance of the class created already from before.
+
+Now, let's test each method. 
+
+Let's call method 1 on p. 
+
+Remember that p is of type SubClass but note that SubClass has no methods written inside of it. 
+
+So when we do, 
+
+<Code lang = "java" fileName = "File.java" code = {
+`p.method1();`}/>
+	
+it's actually calling the method the SubClass inherited from the SuperClass. 
+
+If we compile this, it actually works! We get "Method 1" printed out in the terminal. 
+
+Great, so we have once again confirmed that **public methods are inherited**. 
+
+What if we try calling method 2 like so: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`p.method2();`}/>
+
+We get the following error: The method method2() from the type SuperClass is not visible
+
+Why is it not visible? 
+
+Because it's private!
+
+**This implies that private methods can not be inherited.**
+
+Now you might be like, "Well then what's the point of private methods in the superclasses if you can never use them in the subclasses?"
+
+Well, sometimes you want to create methods that you can use in other methods in your superclass. You would make these methods private because the user has no need to use them. 
+
+Well then what's the point of private methods in the superclasses if you can never use them in the subclasses?
+
+Imagine a company's public-facing website (SuperClass). It has a public method called processOrder() that customers use. This method, however, secretly calls a private method calculateTax() and another private method applyDiscounts() to do its work.
+
+When a new regional website is created (SubClass), it inherits the public processOrder() method. When a customer uses processOrder() on the new site, the original processOrder() code from the main website runs.
+
+The customer won't need to call any methods like calculateTax() or applyDiscounts() because those are private methods that the superclass uses to do it's work.  
+
+# Dynamic Binding (Again)
+
+<RuleBox>
+**Def.** **Dynamic Binding** is the principle that a method call on a subclass object will execute the subclass's version of the method. In English, it's the idea that if you override a method from the sueprclass in the subclass, then the overridden method (the new one) is the one that will get called if the client calls on the method. 
+</RuleBox>

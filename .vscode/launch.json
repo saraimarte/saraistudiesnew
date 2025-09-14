@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "File1",
+      "request": "launch",
+      "mainClass": "File1",
+      "projectName": "saraistudiesnew_cbce3f2d"
+    },
+    {
       "command": "./node_modules/.bin/astro dev",
       "name": "Development server",
       "request": "launch",
