@@ -240,17 +240,6 @@ const softMethCollection = defineCollection({
   }),
 });
 
-const cs344Collection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
 export const collections = {
   calc1: calc1Collection,
   calc2: calc2Collection,
@@ -272,6 +261,5 @@ export const collections = {
   cs336:cs336Collection,
   ai: aiCollection,
   discreteStructures2:discreteStructures2Collection,
-  softwareMethodology: softMethCollection,
-  cs344:cs344Collection
+  softwareMethodology: softMethCollection
 };
