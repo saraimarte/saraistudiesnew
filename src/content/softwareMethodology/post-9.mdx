@@ -170,7 +170,7 @@ If you want a method to handle any type of object, it must be made generic.
 
 
 
-QHat you get when you get static dynmaic types but we will see this in the context of interfaces first)
+QHat you get when you get static dynmaic types but we will see this in the context of interfaces first
 
 
 
@@ -188,8 +188,8 @@ Putting an item into a container <CS code = {`myBox.setContent(myItem)`}/>
 
 <RuleBox>
 
-A method can be generic if: A) The action is truly general for all objects (like printing)
-OR B) The action is conceptually general (like comparing), and you use an interface to require that every object provides its own specific way of performing that action.
+A method can be generic if: A The action is truly general for all objects (like printing)
+OR B The action is conceptually general (like comparing), and you use an interface to require that every object provides its own specific way of performing that action.
 
 </RuleBox>
 
@@ -231,7 +231,7 @@ What you should think about:
 
     "What capability do I need from any object T that is used with my method?" → For a binary search, you need the ability to compare two objects.
 
-    "How do I enforce that requirement?" → You use a generic constraint: <T extends Comparable<T>>.
+    "How do I enforce that requirement?" → You use a generic constraint:<Code lang = "java" fileName = "File.java" code = {`<T extends Comparable<T>>.`}/>
 
 Your Goal: You are delegating the responsibility for the specific implementation back to the creator of the class. You are saying, "I don't care how you compare yourself, just that you can."
 
