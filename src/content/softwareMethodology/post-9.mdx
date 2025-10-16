@@ -146,3 +146,124 @@ Fail to compile because static type checker sees type B but class B doesn't have
 
 </Solution>
 
+
+
+
+
+What if we want to create a method that takes a particular action but it can do it for any data type. 
+
+For example, what if I want to create a static method that prints whatever we give it no matter what the data type is? 
+
+We know that when writing methods we have to specify the data type of the arguments but what if I want it to work for any data type?
+
+Should I write a billion versions of the same method for every data type that exists? (We call this method overloading- because you're *over* *loading* the class with methods that are really the same but each takes care of a slightly different datatype.)
+
+No! Who has time for that? 
+
+Instead we use what's called a generic datatype (a placeholder for *any* datatype.)
+
+This avoids code duplication! 
+
+Anywhere you would specify the datatype of the argument passed into the method you write a placeholder for the <Pop t = "argument's">thing's</Pop> datatype and that is <CS code = {`<T>`}/>
+
+If you want a method to handle any type of object, it must be made generic. 
+
+
+
+QHat you get when you get static dynmaic types but we will see this in the context of interfaces first)
+
+
+
+Now, you might be like "Well, what if I want to create a method that adds any datatype? That shouldn't work. I mean maybe to add booleans we can do some boolean algebra. And maybe for Strings we concatenate them together. But what about for two Point objects? Do we put them next to eachother?" You can see how the concept of 'adding' is different for every possible datatype you could pass in so therefore this is not a generic method. 
+
+You can only make methods generic **if** the method **is literally** general as in it works for any datatype in general or where it's the same action no matter the datatype. 
+
+The actions are "type-agnostic." They don't care about what the data is; they only care about performing a general operation like:
+
+Getting an item from a list <CS code = {`myList.get(0)`}/>
+
+Printing an object's string representation <CS code = {`Shout.shout(myObject)`}/>
+
+Putting an item into a container <CS code = {`myBox.setContent(myItem)`}/>
+
+<RuleBox>
+
+A method can be generic if: A) The action is truly general for all objects (like printing)
+OR B) The action is conceptually general (like comparing), and you use an interface to require that every object provides its own specific way of performing that action.
+
+</RuleBox>
+
+The key is to shift your thinking: instead of seeing this as a problem to "take care of," you should see it as a powerful feature to embrace and design for.
+
+When coding, your responsibilities change depending on which "hat" you're wearing: the creator of a class, the user of a class, or the designer of a generic system.
+
+Hat #1: When You are the Creator of a Class (e.g., Point)
+
+Your primary job is to make your object a well-behaved citizen in the Java world. You anticipate that other methods will want to interact with your object in polymorphic ways.
+
+What you should think about:
+
+    "How should my object represent itself as a String?" → This means you should override toString(). Provide a clear, readable output that is useful for debugging and logging.
+
+    "What does it mean for two of my objects to be logically equal?" → This means you should override equals(). For two Point objects, they are probably equal if their x and y values are the same.
+
+    "If my objects can be equal, how should they be stored in collections?" → This means you must also override hashCode() whenever you override equals. This ensures they work correctly in data structures like HashMap.
+
+Your Goal: You are providing the specific, polymorphic behavior that other parts of the system will rely on.
+
+Hat #2: When You are the User of a Class (e.g., calling the shout method)
+
+Your job is to trust the contract and write flexible code. You are the beneficiary of polymorphism.
+
+What you should think about:
+
+    "Can I rely on this object having a toString() method?" → Yes. Every object does. Your shout method is safe because it relies on this universal contract.
+
+    "Should I depend on the exact format of the toString() output?" → No! You should only rely on the fact that you will get some string representation. You should not write code that tries to parse the x and y values out of "Point(5, 10)". If the author of the Point class later changes their toString() method to return "Coordinates: [5, 10]", your code would break.
+
+Your Goal: Program to the general contract (the interface or superclass), not the specific implementation. Trust that the object knows how to handle the polymorphic call correctly.
+
+Hat #3: When You are the Designer of a Generic Method (e.g., binarySearch)
+
+Your job is to define the required contract using an interface. You are the one who decides what capabilities are needed for your generic algorithm to work.
+
+What you should think about:
+
+    "What capability do I need from any object T that is used with my method?" → For a binary search, you need the ability to compare two objects.
+
+    "How do I enforce that requirement?" → You use a generic constraint: <T extends Comparable<T>>.
+
+Your Goal: You are delegating the responsibility for the specific implementation back to the creator of the class. You are saying, "I don't care how you compare yourself, just that you can."
+
+Summary
+
+Your Role	Your Main Responsibility
+Class Creator	Provide the specific polymorphic behavior (override toString, equals, compareTo, etc.).
+Class User	Trust the polymorphic behavior (call toString, but don't depend on its exact format).
+Generic Method Designer	Require a specific polymorphic behavior by using an interface
+as a contract.
+
+
+
+Lecutre 5 why can we implement from more than one interface ? abstract classes only have to define methods in the classes you make themesleves.
+
+ How to specify that binarySearch expects ComparableT Type ObjectS?
+
+
+ lecture 4 You can actually assign a method in the [...] class to be final that way you can't override any methods from the superclass?
+after **7.** An interface J can extend another interface I, in which case I is the super interface and J is its sub interface   
+
+
+To Do
+
+Lecture 4 
+# Abstract Method vs Interface 
+# explicit vs implicit 
+
+# Specialized Role for Classes
+
+# Use case num 2 
+
+# Polymorphism Using interface type 
+
+# 2 use case of interfaces

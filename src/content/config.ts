@@ -252,6 +252,16 @@ const cs344Collection = defineCollection({
 });
 
 
+const IBCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    updatedDate:z.date(),
+    draft: z.boolean(),
+    author: z.string()
+  }),
+});
 
 export const collections = {
   calc1: calc1Collection,
@@ -275,5 +285,6 @@ export const collections = {
   ai: aiCollection,
   discreteStructures2:discreteStructures2Collection,
   softwareMethodology: softMethCollection,
-  cs344:cs344Collection
+  cs344:cs344Collection,
+  investmentBankingAnalysis:IBCollection
 };

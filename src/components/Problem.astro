@@ -1,73 +1,44 @@
 ---
+import Latex from '../components/Latex.astro'; // Adjust the path as needed
+
 const { n, img } = Astro.props;
 ---
+
 <div class="card">
   <div class={`content ${img ? '' : 'no-img'}`}>
     <p>{n}.</p>
-    {img && (
-      <div class="img-container">
-        <img src={img.src} alt={'Problem ' + n} />
-      </div>
-    )}
+    {img && <img src={img.src} alt={'Problem ' + n} />}
     <slot></slot>
   </div>
 </div>
 
 <style>
+
+
 .card {
   display: flex;
   gap: 2em;
-  width: 100%;
-  overflow: hidden; /* Prevent overflow */
 }
-
 .content {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
-  min-width: 0; /* Allow flex items to shrink below content size */
+
 }
 
 .content.no-img {
-  align-items: start;
-  gap: 1em;
-}
-
-.img-container {
-  flex-shrink: 0; /* Prevent the container from shrinking too much */
-  max-width: 50%; /* Limit image to 50% of container width */
-  min-width: 0;
+  align-items: start; 
+  gap:1em;
 }
 
 img {
-  width: 100%;
-  height: auto;
   max-width: 100%;
-  object-fit: contain; 
-  display: block;
-}
+  height: auto;
+} 
 
-p {
+p{
   position: relative;
-  bottom: 8px;
-  flex-shrink: 0;
+  bottom:8px;
 }
 
-@media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-  }
-  
-  .img-container {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  p {
-    bottom: 0;
-  }
-}
 </style>

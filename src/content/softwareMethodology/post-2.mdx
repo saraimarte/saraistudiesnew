@@ -269,6 +269,15 @@ What's the fix? Call the superclass constructor using <CS code = {`super(x,y);`}
 		this.color = color; 
 }`}/>
 
+As a programmer, you know that ColoredPoint is a Point so x and y which are fields of a Point should also be passed in when creating a ColoredPoint object.
+
+Now, you can re-write the constructor that takes in x and y in the subclass but note that x and y also are fields of the Superclass Point and what if the Point constructor has different or more complex logic to initialize x and y and you don't know about it because you can't see the superclass. This causes a problem because it violates the principle of encapsulation and risks bypassing the parent's established, tested initialization code, which is why Java makes it a rule that you must call the super constructor.
+
+
+The Point class is responsible for initializing the X and Y coordinates correctly. By calling super(x, y), you are delegating that responsibility to the code that was tested and proven to work in the superclass (Point).
+
+The subclass (ColoredPoint) should only focus on initializing its own unique part, the color.
+
 ## Polymorphism
 
 <RuleBox>
@@ -304,11 +313,11 @@ Note that in C, there are no objects and hence there is no such thing as dynamic
 At this point, Sesh only wants you to develop the following skill: Be able to answer what is the type in compile time (static) vs runtime (dynamic.)
 
 <RuleBox>
-**Def.** A **static type** is the type that a variable is declared to be at compile time. It's a property of a class just like <CS code = {`random`}/> is a static method of the <CS code = {`Math`}/> library. 
+**Def.** A **static type** is the type that a variable is declared to be at compile time. It's a property of a class just like <CS code = {`random`}/> is a static method of the <CS code = {`Math`}/> library. Simply, it's the class that you see at the start of a variable declaration.  
 </RuleBox>
 
 <RuleBox>
-**Def.** A **dynamic type** is the actual type of the object that a variable references at runtime.
+**Def.** A **dynamic type** is the actual type of the object that a variable references at runtime. Simply it's the class that an object is initialized with (the class after the <CS code = {`new`}/> keyword.)
 </RuleBox>
 
 **E.g.** In <CS code = {`Object o = new String("hello");`}/> 
@@ -336,13 +345,15 @@ The point is that the dynamic type of an object remains the same no matter what 
 ## Dynamic Binding 
 
 <RuleBox>
-**Def.** **Dynamic Binding** is the process that allows the Java runtime to determine which overridden method to execute at runtime.
+**Def.** **Dynamic Binding** is the process that allows the Java to determine which overridden method to execute at runtime (instead of compile time.)
+
+
+To Java it's a process. To us it's a simple rule.  
+
+If you 
+
+It only comes into play when there is overriding of methods.
+
 </RuleBox>
 
-**a.** Variable Declaration: The compiler sees a variable declared with a static type (Point p3).
-
-**b.** Method Call: The compiler verifies that the method you're trying to call like display() exists in the Point class. If it does, the code compiles successfully.
-
-**c.** Runtime Execution: When the program is run and it reaches that method call, the Java runtime doesn't just use the static type.
-
-**d.** Dynamic Binding in Action: The runtime looks at the actual object the variable is holding, which is its dynamic type (ColoredPoint). Because the ColoredPoint class has a more specialized, overridden version of the display() or toString() method, dynamic binding ensures that this more specific version is the one that gets called.
+**E.g.** If a subclass Object has a more specialized, overridden version of a method that is in the superclass, dynamic binding ensures that this more specific (overwritten) version is the one that gets called instead of the method in the superclass. 

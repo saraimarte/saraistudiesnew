@@ -1,0 +1,288 @@
+---
+layout: '@layouts/Blog.astro'
+title: Lecture 5| Interfaces 
+pubDate: 2025-09-16T00:00:00Z 
+updatedDate: 2025-09-16T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: lecture-5
+---
+
+import Code from '@components/Code.astro';
+import Solution from '@components/Solution.astro'
+import CS from '@components/CSnippet.astro';
+import RuleBox from '@components/Rule.astro';
+import ImageMd from "@components/ImageMd.astro";
+import Pop from "@components/Pop.astro";
+
+# Use Case 3 of Interfaces: To set up an invariant front for different implementations of a class (Plug and Play)
+
+## Plug and Play Example 1 | ArrayList vs LinkedList for Stack 
+
+The idea that you plug in the ArrayList version and then run you're code then you plug in the Linked List version then run your code.  
+
+<Code lang = "java" fileName = "File.java" code = {
+`package util;
+public class Stack<T>{
+    private ArrayList<T> items;
+    public Stack(){...}
+    public void push(T t){...}
+    ...
+}`}/>
+
+<Code lang = "java" fileName = "File.java" code = {
+`package apps;
+import util.*;
+public class SomeApp {
+...
+Stack<String> stk = new Stack< >();
+stk.push(“stuff”);
+...
+}`}/>
+The <CS code = {`util`}/> group wants to provide an alternative stack implementation that uses a linked list instead of an <CS code = {`ArrayList`}/>. In the process, it changes the name of the push method like so:
+
+<Code lang = "java" fileName = "File.java" code = {
+`package util;
+public class LLStack<T>{
+    private Node<T> items;
+    public LLStack() {...}
+    public void llpush(T t) {...}
+    ...
+}`}/>
+
+The client needs to make an appropriate changes in the code in order to use the LL alternative.
+
+These  changes consist of (1) **what** can be done (push) and (2) **how** it can be done (ArrayList/Linked List)
+
+<Code lang = "java" fileName = "File.java" code = {
+`package apps;
+package util.*;
+public class someApp{
+    ...
+    LLStack<String> stk = new LLStack< >();
+    stk.llpush("stuff");
+    ...
+}`}/>
+
+Solution: Actually build the stack interface. 
+
+## Client Use of Stack Interface 
+
+<Code lang = "java" fileName = "File.java" code = {
+`package apps;
+package util.*;
+public class someApp{
+    ...
+    Stack<String> stk = new ALStack<String>();
+    stk.push("stuff");
+    ...
+}`}/>
+
+Note that we use the interface <CS code = {`Stack`}/> for the static type. 
+
+To switch to the other stack (LLStack) we simply have to switch the name of the type of stack! 
+
+<Code lang = "java" fileName = "File.java" code = {
+`package apps;
+package util.*;
+public class someApp{
+    ...
+    Stack<String> stk = new LLStack<String>();
+    stk.push("stuff");
+    ...
+}`}/>
+
+## Plug and Play Example 2 
+
+In an application that does stuff with lists, there is a choice of what kind of list to use:
+
+<CS code = {`ArrayList`}/> is used, statically typed to <CS code = {`ArrayList`}/> :
+
+<Code lang = "java" fileName = "File.java" code = {
+`ArrayList list = new ArrayList();
+...
+list.<ArrayList method>(...)
+...`}/>
+
+What is the difference between ArrayList and LinkedList?
+
+Constant time access to anything in the list.  
+
+You can't say "It doesn't matter if I do that or this"
+
+It does matter why?
+
+<RuleBox>
+Design is Intentional. 
+</RuleBox>
+
+<Code lang = "java" fileName = "File.java" code = {
+`List list = new ArrayList();
+...
+list.<List method>(...)
+...`}/>
+
+Now, let's you want to switch to a linked list like <CS code = {`java.util.LinkedList`}/>.
+
+Note that the <CS code = {`LinkedList`}/> class also implements the <CS code = {`List`}/> interface.
+
+Solution: It's not as easy as plugging and changing it to something else.
+
+In the version where <CS code = {`list`}/> is statically typed to ArrayList:
+
+<Code lang = "java" fileName = "File.java" code = {
+`List list = new LinkedList();
+...
+list.<List method>(...)
+...`}/>
+
+Just replace new <CS code = {`ArrayList()`}/> with new <CS code = {`LinkedList()`}/>. No other changes are needed.
+
+<RuleBox>
+Using a static interface type (for reference variable) to switch implementations (for object at run time) is a kind of **interface polymorphism**. 
+</RuleBox>
+
+<Code lang = "java" fileName = "File.java" code = {
+`List list = new LinkedList();
+...
+list.<List method>(...)
+...`}/>
+
+
+# Use case 4 | As a workaround for multiple inheritance (a bit of a hack)
+
+**Situation:** Let's say we have a phone and want to build a music player class like this: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class Phone{
+    public void makeCall(...){...}
+    public void addContact(...){...}
+    ...
+}
+
+public class MusicPlayer{
+    public Tune getTune(...){...}
+    public void playTune(...){...}
+    ...
+}`}/>
+
+What if we want a class to implement a device that is both a phone and a music player?
+
+Are we able to inherit from both of these classes?
+
+No! We can't inherit from more than one class. 
+
+Why?
+
+Consider the case where there may be two methods with the same names - if you're going to inherit from both, which version of the method is going to be inherited? The compiler won't know. 
+
+We call this problem **multiple inheritance**- where we want to inherit *multiple* classes but we know that's not allowed.
+
+How do we solve this problem? We use interfaces. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public interface MusicPlayer{
+    Tune getTune(...);
+    void playTune(...);
+    ...
+}`}/>
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class SmartPhone extends Phone implements Music Player{
+    public Tune makeCall(...){...} //added by compiler
+    public void addContact(...){...} //added by compiler
+    public Tune getTune(...){...}
+    public void playTune(...){...}
+    ...
+}`}/>
+ 
+
+NEW SLIDESHOW 6:40PM 
+
+# Default Methods in Interfaces 
+
+Going back to the stack example. 
+
+What if the interface designer decides to add a peek function like so:
+
+Recall that the peek function let's you peek at a value in the data structure without permanently removing it.  
+
+<Code lang = "java" fileName = "File.java" code = {
+`public interface Stack<T>{
+...
+T peek() throws
+    NoSuchElementException;}`}/>
+
+Implements installs a new version of library that has, among other new artifacts, the updated Stack interface, of which they are not  aware- what happens?
+
+The MyStack implementation no longer compiles.  
+
+What can I do to deal with this issue?
+
+Slide 6
+
+Application has two choices: 
+
+(1) Get the updated library binaries and run original implementation without recompiling (binary compatibility) 
+
+This is doable, but restrictive- how long can you avoid recompiling?
+
+(2) If other code in application changes, recompiling may be necessary.  
+
+Slide 7
+
+**Solution:** Library updates an interface with new functionality. Old code that implements this interface will no longer compile, UNLESS interface can provide a default implementation. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public interface Stack<T>{
+    void push(T item);
+    T pop() throws NoSuchElementException;
+    boolean isEmpty();
+    int size;
+    void clear();
+
+    default T peek() throws NoSuchElementException {
+        T temp = pop();
+        push(temp);
+        return temp;
+        }    
+}`}/>
+
+[motivation for defaults methods- new things that came up where they didn't want to break old code so they wrote defaults]
+
+## Default Method in Java Library: Example
+
+Prior to Java 8, the way to sort a List was to call static method sort in the java.util.Collections class:;
+
+<Code lang = "java" fileName = "File.java" code = {
+`List<MyType> lis = ...
+Collections.sort(list);
+}`}/>
+
+In Java 8, the List interface was updated to include a ort method so applications can sort a List by invoking it directly.
+
+Signature is the name of the method and the parameters. The parameters are the sequence of types (order matters). Return type is irrelevant.
+
+Slide 9 Liger Example  
+
+If you wanted to create a Liger you would have to implement a Lion and a Tiger. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class Liger implements Lion, Tiger{
+    public static void main(String[], args){
+        [...]
+    }
+}`}/>
+
+
+Slide 11 Solution: In Liger, override the common method, and have it explitcitly call one of the default methods:
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class Liger implements Lion, Tiger{
+    public void roar(){
+        Lion.super.roar();
+    }
+    [..]
+}`}/>
+
+Slide 12 "and this is a slightly different issue" where Lion is a class and tiger is an interface.

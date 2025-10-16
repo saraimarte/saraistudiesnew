@@ -1,0 +1,132 @@
+---
+layout: '@layouts/Blog.astro'
+title: Lecture 7| When to Use Static? Design Considerations 
+pubDate: 2025-09-18T00:00:00Z 
+updatedDate: 2025-09-18T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: lecture-7
+---
+
+import Code from '@components/Code.astro';
+import RuleBox from '@components/Rule.astro';
+import CS from '@components/CSnippet.astro';
+
+Object orientation means to create an instance of an object. 
+Object orientation means to maintain a state.
+
+Static is for non-object oriented programming 
+
+# Example 1 | Suppose you want to write a program that just echoes whatever is typed in 
+
+<Code lang = "java" fileName = "File.java" code = {`slide3`}/>
+
+The Java Virtual Machine is what starts your program. But objects are created when programs start so how do you start a program and get it to run without any objects? 
+
+Well that's where static comes in.
+
+# Usage 2 | Static Methods for "Functions"
+
+input -> function -> output 
+
+A function has no memory of what happened once it's done executing => no "state" maintained between calls.
+
+How is it that if we try to create an instance of a Math class...it won't let us? 
+
+You write a constructor that does nothing and make it private so that no instances of <CS code = {`Math`}/> are created.
+
+# Usage 3 | Static Fields for Constants  
+
+<RuleBox>
+**Def.** A **utility class** is a one that contains only static or "utility" methods (or useful tools.)
+</RuleBox>
+
+In these classes they are always public static and final. 
+
+Public because it's visible everywhere. 
+
+Static because it's not a method belonging to a particular object. 
+
+Final so no one can change it so it's safe that way. 
+
+# Usage 4 | Static Fields for Sharing Among Instances  
+
+Consider a class for which only a limited number of instances are allowed.
+
+For instance, some kind of ecological simulation that populates a forest with tigers- want to put a llimit on number of tigers. 
+
+Need to keep track of current count, IN THE TIGER CLASS.
+
+Whenever an attempt is made to create a new tiger instance, a count... slide 9
+
+Slide 10 insert code 
+
+<Code lang = "java" fileName = "File.java" code = {`slide3`}/>
+
+Point: Always use name of class the static methods belong to to call them. Instead of name of object because again the method doesn't belong to a specific object. 
+
+# Global 
+
+# Static/Non-static Mix: Another Example 
+
+E.g. We want to parse a string into an integer. e.g. "123" -> 123 - where to provide this functionality?
+
+Options:
+
+**1.** Have a <CS code = {`String`}/> instance method, say, <CS code = {`parseAsInteger`}/> that returns an  <CS code = {`int`}/>, e.g. 
+
+<Code lang = "java" fileName = "File.java" code = {`int i = "123".parseInteger();`}/>
+
+This is bad design. 
+
+Why?
+
+An instance method should be applicable to ALL instances. But not all strings are parsable as integers. 
+
+You could have a String "abc123" that's not parsable as integers. 
+
+Think of it like this: 
+
+You have a <CS code = {`Stack`}/> class. 
+
+With methods push, pop, etc. 
+
+You have a <CS code = {`Queue`}/> class.
+
+With methods enqueue, dequeue, etc. 
+
+What if you had a class called <CS code = {`StackQueue`}/> with all of the methods of a <CS code = {`Stack`}/> and a <CS code = {`Queue`}/>?
+
+That would be a mess because a user could use the enqueue method by accident but then it wouldn't  work! 
+
+You want to ...
+
+[break]
+
+# Another Slide Deck (Inheritance equals method)
+
+# Overloading 
+
+[Are these methods overloaded?]  
+
+Moving on to equals...
+
+Slide 5 in Slide Deck 2 
+
+## Implementing Equals as a Rookie 
+
+<Code lang = "java" fileName = "File.java" code = {``}/>
+
+Problem : 
+
+Solution: 
+
+## Implementing Equals in a smarter way. 
+
+
+The Object class's equals(Object O)...
+
+Slide 6 
+
+<Code lang = "java" fileName = "File.java" code = {`public boolean equals(Point p){
+return x ==}`}/>

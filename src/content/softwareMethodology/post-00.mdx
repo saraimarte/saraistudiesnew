@@ -1,0 +1,99 @@
+---
+layout: '@layouts/Blog.astro'
+title: Github Setup for Projects With a Partner 
+pubDate: 2025-09-30T00:00:00Z 
+updatedDate: 2025-09-30T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: github
+---
+
+import Code from '@components/Code.astro';
+import Solution from '@components/Solution.astro'
+import CS from '@components/CSnippet.astro';
+import RuleBox from '@components/Rule.astro';
+import ImageMd from "@components/ImageMd.astro";
+import Pop from "@components/Pop.astro";
+import Note from "@components/Notes.astro";
+import DropDown from "@components/DropDown.astro";
+
+import i3 from '@images/213/3.png';
+import i4 from '@images/213/4.png';
+import i5 from '@images/213/5.png';
+import i6 from '@images/213/6.png';
+import i7 from '@images/213/7.png';
+import i8 from '@images/213/8.png';
+import i9 from '@images/213/9.png';
+import i10 from '@images/213/10.png';
+import i11 from '@images/213/11.png';
+import i12 from '@images/213/12.png';
+import i13 from '@images/213/13.png';
+import i15 from '@images/213/15.png';
+
+# Cloning a Partner's Repo in VSCode
+
+<ImageMd img={i3} alt = "1. Open the repo. Click the Code dropdown (1) and copy the HTTPS link (2)."> </ImageMd>
+
+<ImageMd img={i4} alt = "2. Open VSCode and open/create a folder. I called mine test. Go to Source Control Tab (3) and click Initialize Repository (4) "> </ImageMd>
+
+<ImageMd img={i5} alt = "3. Click on the three dots (5) > Remote (6) > Add Remote... (7)"> </ImageMd>
+
+<ImageMd img={i6} alt = "4. Paste the HTTPS link to your repo and click enter."> </ImageMd>
+
+<ImageMd img={i7} alt = "5. It's going to ask you for a remote name. It can be anything. I called mine 'a1' as in assignment 1. Click enter."> </ImageMd>
+
+<ImageMd img={i8} alt = "6. Click on the three dots (10) > Pull, Push (11) > Pull From... (12) Select this."> </ImageMd>
+
+<ImageMd img={i9} alt = "7. It's going to ask you where you want to pull from. There will only be one option at the start select that one (13) and click enter."> </ImageMd>
+
+<ImageMd img={i10} alt = "8. Go back to Explorer/Files (14) and you'll be able to see all the files from the repo there now!"> </ImageMd>
+
+# Making Changes 
+
+All you have done so far is <Pop t= "make a copy"> clone </Pop> the repo. If you make changes, unless you commit and then push them to GitHub then... your partner will never be able to see them. 
+
+Let's create a new file called <CS code = {`test.java`}/> inside the folder chess and leave a comment like <CS code = {`/*test*/`}/> 
+
+<ImageMd img={i11} alt = "1. Click create file and call it test.java and leave a comment"> </ImageMd>
+
+Now, let's commit this change. 
+
+<ImageMd img={i12} alt = "2. Go to Source Control (2). Add a commit message like 'test commit' (3) and then click the blue Commit button (4). Publish Branch if you haven't already."> </ImageMd>
+
+Now, if you look at the repo on GitHub you can see the test.java file in the chess folder!
+
+<ImageMd img={i13} alt = ""> </ImageMd>
+
+# How does your partner pull those changes from GitHub that you made?
+
+VSCode periodically runs a command called <CS code = {`git fetch`}/> in the background. This command checks the remote repository on GitHub to see if there are any new commits that you don't have on your local machine.
+
+While this check is automatic, it isn't always instantaneous. It might take a minute or two for VSCode to notice the new changes. If you want to check immediately, you can always click the Refresh icon (a circular arrow) at the top of the Source Control panel.
+
+Once VSCode detects that your partner has pushed new commits, the UI in the Source Control tab will update so that you see the blue button and it will say "Sync Changes," indicating that your local version and the remote version are out of sync. This is what it would look like: 
+
+<ImageMd img={i15} alt = ""> </ImageMd>
+
+All your partner has to do is click on it and all the changes made by you will appear in their local version of the repo.
+
+OR your partner can pull from the repo by going to source control > three dots > pull, push > pull from... > select the remote name you made when you cloned the repo.  
+
+# Errors 
+
+
+**1. "Please clean your repository working tree..."**
+
+This means you are trying to pull what your partner committed from the repository but you made changes and haven't committed those changes yet so if you pull it will make your local version what's on github and overwrite anything you have thats not committed yet so you want to stash (store) the changes you had.
+
+A quick fix is to go to **settings > search "Auto Stash" and enable it**.  
+
+It will stop the error from happening and let you pull your partner's changes but you won't see those changes until you close out of the file you were working on and then open it again. By doing this any changes made by you in that file that have not been committed yet will be deleted so it's up to you to copy them and paste them into the updated file. 
+
+   
+**2. "Not all changes are staged do git add .  to stage then commit"**
+
+This means you can't commit or pull because of unmerged changes. 
+
+Click on unmerged changes and on the  top right corner theres double check marks for your version and the other. Click the double check mark for the version of code  you want to accept and then on the bottom right click on blue button that says resolve merge conflict. 
+
+Then you will be able to commit. 

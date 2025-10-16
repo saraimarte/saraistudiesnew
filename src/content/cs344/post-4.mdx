@@ -1,0 +1,61 @@
+---
+layout: '@layouts/Blog.astro'
+title: Solving Recurrence Relations
+pubDate: 2025-10-15T00:00:00Z 
+updatedDate: 2025-10-15T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: solving-recurrence-relations
+---
+
+import Latex from '@components/Latex.astro';
+import RuleBox from '@components/Rule.astro';
+
+
+In recursion problems, we have recurrence relations. 
+<RuleBox>
+**Def.** A **recurrence relation** is an equation or inequality that calls itself with smaller inputs. 
+</RuleBox>
+
+For example, the Fibonacci sequence is defined by the recurrence relation:
+
+<Latex formula="F_n = F_{n-1} + F_{n-2}" />
+
+F(n) is a recurrence relation because it calls itself to define it's value.
+
+Recall, that a recurrence relation describes how a problem can be solved by breaking it down into smaller subproblems.
+
+But we want to know how much time this will take.
+
+In other words, we want to be able to go from a reccurence relation of an algorithm to the time complexity of an algorithm.
+
+Reccursion Algorithms at the end of the day take two of these two forms: 
+
+The recurrence relations for most algorithms you'll encounter follow one of two patterns: 
+
+
+<Latex formula="(a) T(n) = \sum_{i} r_i T(n - c_i) + f(n)" />
+
+<Latex formula="(b) T(n) = \sum_{i} r_i T(n/c_i) + f(n)" />
+
+i is the counter for the subproblems  
+
+r<sub>i</sub> is the number of subproblems, 
+
+c<sub>i</sub> is the size of each subproblem, 
+
+and f(n) is the cost of dividing the problem and combining the results.
+
+**You:** Uh, you just said reccurence relations either look like (a) or (b), but earlier you said this: 
+
+<Latex formula="F_n = F_{n-1} + F_{n-2}" /> 
+
+was a reccurence relation but... it doesn't look like either of those forms. So...
+
+**Me:**  Your're right! But we can get it to look like one of those forms.
+
+So I should say that most reccurence relations can be written in either form (a) or (b).
+
+The question is how? 
+
+

@@ -1,9 +1,9 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Lecture 4| Interfaces
+title: Lecture 4| Interfaces & Static Methods & Fields
 pubDate: 2025-09-09T00:00:00Z 
 updatedDate: 2025-09-09T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
 slug: lecture-4
 ---
@@ -12,45 +12,904 @@ import Code from '@components/Code.astro';
 import Solution from '@components/Solution.astro'
 import CS from '@components/CSnippet.astro';
 import RuleBox from '@components/Rule.astro';
+import ImageMd from "@components/ImageMd.astro";
+import Pop from "@components/Pop.astro";
+import Note from "@components/Notes.astro";
+import DropDown from "@components/DropDown.astro";
 
-# Static Methods and Properties
+import i1 from '@images/213/1.png';
+import i2 from '@images/213/2.png';
 
-Static is a property of the class, not of any specific object. A static method has no connection to the class and is its own entity. You could take a static method and put it in another class and it would work the same.
-
-## Generic Classes 
+# Interfaces 
 
 <RuleBox>
-
+**Def.** An **interface** is like a contract or a promise. If you have a class that implements an interface then that means you promise to specify all of the methods defined in the interface class. 
 </RuleBox>
 
-## Generic Static Methods 
+## When to use interface?
 
-If a static method needs to accept any kind of object, it needs to be made generic.
+**Use case 1.** To Make Classes Conform to a Specific Role Used in External Context
+**Use case 2.** To define a single type that gathers functionality common to classes that are not in an inheritance hierarchy 
 
-# Comparing for Inequality in Library Module 
+## Use Case 1 
+ 
+Imagine a car, a bus, and a bicycle. They are all very different, but they all share one common behavior: they can be driven.
 
-# How to specify a T tpe with inequality method?
+An interface is like a contract that says: "Anything that agrees to this contract must have a drive() method."
 
-# How to specify that binarySearch expects ComparableT Type ObjectS?
+This differs from inheriting methods or fields from a parent class because you would have to inherit the exact method or field but for a car, a bus, and a bike, the methods and fields may be different. 
 
-# Abstract Method slide explicit interface 
+The Car agrees to the contract and drives with an engine.
 
-public abstract comparable to blah 
+The Bus agrees to the contract and drives with a diesel engine.
+
+The Bicycle agrees to the contract and drives by pedaling
+
+Let's create our interface class called <CS code = {`Drivable`}/> and require a method Drive() that returns nothing.
+
+<Code lang = "java" fileName = "File.java" code = {
+`interface Drivable {
+    void drive();
+}`}/>
+
+Notice how we didn't have to specify anything in the method - when we implement this interface to other classes- *those* classes **have** to specify the <CS code = {`drive`}/> method. 
+
+Now let's say we want to create a class called <CS code = {`Car`}/> and implement the <CS code = {`Drivable`}/> interface so we can make sure that this vehicle will have a <CS code = {`drive`}/> method. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Car implements Drivable {
+   
+}`}/>
+
+You want to now define the <CS code = {`drive`}/> method because by implementing the <CS code = {`Drivable`}/> interface you are signing a contract or promising to have a <CS code = {`drive`}/> method. Have drive just print out a small description of how the vehicle drives. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Car implements Drivable {
+    @Override
+    public void drive() {
+        System.out.println("The car's gasoline engine hums to life and it drives down the road.");
+    }
+}`}/>
+
+Note that you're writing over the <CS code = {`drive`}/> method in the interface so on top of it you have to say "Hey, I am overriding this method right now."
+
+Now, let's create a <CS code = {`Bus`}/> and <CS code = {`Bicycle`}/> class that implement the same interface. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Bus implements Drivable {
+    @Override
+    public void drive() {
+        System.out.println("The bus's diesel engine rumbles and it pulls away from the curb.");
+    }
+}
+
+class Bicycle implements Drivable {
+    @Override
+    public void drive() {
+        System.out.println("The bicycle's rider pedals and it moves forward.");
+    }
+}`}/>
+
+Now, let's create a <CS code = {`Car`}/>  object and run the method <CS code = {`drive()`}/> and see what we get :
+
+<Code lang = "java" fileName = "File.java" code = {
+`Car car1 = new Car();
+car1.drive();`}/>
+
+We get "The car's gasoline engine hums to life and it drives down the road"!
+
+Above I demonstrated use case 1. The Drivable interface establishes a role: "anything that can be driven." By implementing this interface, classes like Car, Bus, and Bicycle are forced to conform to that role by providing a <CS code = {`drive()`}/> method. 
+
+An external context, such as a main method, can then interact with all these different objects as a single, unified type (Drivable). This allows a developer to write code that relies on the <CS code = {`drive()`}/> method, regardless of the object's specific class, simplifying the code and making it more flexible.
+
+<DropDown title = "Full Code">
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File5 {
+    
+    public static void main(String[] args) {
+
+
+    interface Drivable {
+        void drive();
+    }
+
+    class Car implements Drivable {
+        @Override
+        public void drive() {
+            System.out.println("The car's gasoline engine hums to life and it drives down the road.");
+        }
+    }
+
+     class Bus implements Drivable {
+        @Override
+        public void drive() {
+            System.out.println("The bus's diesel engine rumbles and it pulls away from the curb.");
+        }
+    }
+     class Bicycle implements Drivable {
+        @Override
+        public void drive() {
+            System.out.println("The bicycle's rider pedals and it moves forward.");
+        }
+    }
+
+    Car car1 = new Car();
+    car1.drive(); 
+
+    }
+}`}/>
+
+</DropDown>
+
+## Use Case 2 | When it wouldn't make sense for these objects to inherit from the same class but they do have something in common. 
+
+For example, what do a dog, a bell, and a speaker have in common?
+
+They all make a sound!
+
+These classes are completely different and cannot logically share a common parent class. However, they all share a common behavior: they can make a sound.
+
+So we can have a <CS code = {`SoundEmitter`}/> interface that will require any object class that implements it to define a  <CS code = {`sound()`}/>  method.
+
+Let's have the <CS code = {`sound`}/> method just return a simple description of sound. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`interface SoundEmitter {
+    void sound();
+}`}/>
+
+Then, let's create a class for each of these objects and implement the <CS code = {`SoundEmitter`}/> interface  so that they are required to define a <CS code = {`sound()`}/> method. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Dog implements SoundEmitter {
+    @Override
+    public void sound() {
+        System.out.println("Woof!");
+    }
+}
+
+class Speaker implements SoundEmitter {
+    @Override
+    public void sound() {
+        System.out.println("Playing music...");
+    }
+}
+
+class Bell implements SoundEmitter {
+    @Override
+    public void sound() {
+        System.out.println("Ding dong!");
+    }
+}`}/>
+
+Now, let's test it. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`Dog car1 = new Dog();
+car1.sound();`}/>
+
+And we get "Woof!" 
+
+<DropDown title = "Full Code">
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File5 {
+    
+    public static void main(String[] args) {
+
+    interface SoundEmitter {
+        void sound();
+    }
+
+    class Dog implements SoundEmitter {
+        @Override
+        public void sound() {
+            System.out.println("Woof!");
+        }
+    }
+
+    class Speaker implements SoundEmitter {
+        @Override
+        public void sound() {
+            System.out.println("Playing music...");
+        }
+    }
+
+    class Bell implements SoundEmitter {
+        @Override
+        public void sound() {
+            System.out.println("Ding dong!");
+        }
+    }
+
+    Dog car1 = new Dog();
+    car1.sound(); 
+
+    }
+}`}/>
+</DropDown>
 
 # Properties of Interfaces
 
-**1.** 
-**2.** All fields in an interface have to be constants like pi in the Math class.
+**1.** An interface defines a new type that is tracked by the compiler   
+**2.** All fields in an interface are constants: implicitly public, static, and final   
+**3.** Originally, all interface methods were implicitly public and abstract  
+(no method body)    
+**6.** When a class implements an interface, it must implement every single   
+abstract method of the interface   
+**4.** Now interfaces can have default and static methods (fully implemented).  
+However, these need to be public  
+**5.** Interfaces can also have fully implemented private methods ( static or non static)  
+**7.** An interface J can extend another interface I, in which case I is the super interface and J is its sub interface   
+**8.** A class may implement multiple interfaces unlike inheritance  
+**9.** A subclass implicitly implements all interfaces that are implemented by it's superclass
+**10.** An interface may be generic, but this does not require an implementing class to match the generic type with itself - see the ColoredPoint example above
 
-You can actually assign a method in the [...] class to be final that way you can't override any methods from the superclass?
+# Classes vs Packages 
 
-# When to use class vs interface?
+<RuleBox>
+**Def.** A **package** is a folder that contains files. These files are classes.
+</RuleBox>
 
-# Specialized Role for Classes
+<ImageMd img={i1} alt = ""> </ImageMd>
+
+Up until now, you have been making classes to represent objects from the real world but classes can also be used as a place to store methods you can use as you're coding that have nothing to do with an object from the real world and if they do then you don't have to create and initialize the object in order to use these methods.
+
+You have already used these classes before! 
+
+In CS111 you used the Math, String and System classes. 
+
+**Math:** Math.sqrt();   
+**String:** String.toUpperCase();  
+**System:** System.out.println();  
+
+Each of these classes are their own file as seen below.
+
+<ImageMd img={i2} alt = ""> </ImageMd>
+
+Now, what Java did was say, "You know what, all of these classes are really essential to Java so let's put them all together in a folder and call it lang."
+
+java.lang package is a collection of all the essential classes for Java. 
+ 
+Which is why when you want to use any of the methods from one of the classes in the package (let's say you want to use the PI method from the Math class) you have to import the method like so:
+
+<Code lang = "java" fileName = "File.java" code = {
+`import static java.lang.Math.PI;`}/>
+
+So, the format is: 
+
+<CS code = {`import static java.packageName.className.methodName;`}/>
+
+If you want to import all the methods from a class then you would do it like so: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`import static java.lang.Math.*;`}/>
+
+These methods from classes that you can use without having to create an object are called static methods. 
+
+# Static Methods
+
+<RuleBox>
+**Def.** A **static method** is a method in a class that can be used without having to create an instance of that class and instead just use the class name directly like className.staticMethod() to use the method. It's a property of a class not of any specific object. You could take a static method and put it in another class and it would work the same.
+</RuleBox>
 
 
-# Use case num 2 
+So the question is: how do you create these methods that you can use from a class without having to create a new object?
 
-# Polymorphism Using interface type 
+Well, let's try to create our own Math class. 
 
-(QHat you get when you get static dynmaic types but we will see this in the context of interfaces first)
+Let's call it <CS code = {`Math2`}/>
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Math2{
+
+}`}/>
+
+Now, let's create a method called <CS code = {`add`}/> that adds two integers <CS code = {`x`}/> and <CS code = {`y`}/> and returns the sum.
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Math2{
+
+    static int add(int x , int y) {
+        return x+y;
+    }
+
+}`}/>
+
+Now, let's test it!
+
+Let's say I want to print the sum of 1 and 2- I would do the following: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`System.out.println(Math2.add(1,2));`}/>
+
+And in the terminal, we get 3! 
+
+Notice how we didn't have to create and initialize a Math2 object in order to use this Math2's method <CS code = {`add`}/>
+
+Why? Because we made it a *static* method. 
+
+If it was not a static method then the method would be specific to an object so you would have to create that object. 
+
+Okay, but if I *do* try to access this method through an instance of the class, does that mean it won't work?
+
+In other words, can I use static methods from an object instance instead of the class name directly?
+
+The answer is yes, you can, but you absolutely should not. It is considered very bad practice by programmers.
+
+For example creating an instance of the class <CS code = {`Math2`}/> and using the <CS code = {`add`}/> method from it also works:
+
+<Code lang = "java" fileName = "File.java" code = {
+`Math2 m = new Math2();  
+System.out.println(m.add(1,2));`}/>
+
+It prints out 3 in the terminal as well but it's not good practice to use these methods like so because it's redundant work. 
+
+# Static Fields 
+
+Just like there are static methods there are static fields.
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File {
+		public static void main(String[] args){
+		
+			class Point {
+				static int count;
+
+				Point(){
+					count++; //every time the Point constructor is called
+							// it will increase the count of Points created
+				}
+			
+			}
+
+			Point p = new Point(); //1 point object created
+			Point p2 = new Point(); //another point object created
+
+			System.out.println(Point.count); //should print 2 because we have created 2 Point objects
+        }
+}`}/>
+
+## Generic Methods 
+
+What if you want a method to work for any data type, like a <CS code = {`static`}/> method that can print any argument you give it?
+
+You could write a separate version of the method for every possible datatype. 
+
+One for Strings, another for integers, etc. 
+
+This approach is called method overloading—essentially "overloading" a class with many versions of the same method. In this case it would be the exact same print method but it would in different datatypes for it's arguments [We talk about overloading in Lecture 7.]
+
+But this is inefficient because it creates a lot of repetitive code.
+
+The better solution is to have **one** method that can take *any* datatype for it's arguments. 
+
+Instead of using a specific type like String or int, you use a placeholder, such as <CS code = {`<T>`}/>, (T for data**T**ype) to represent the datatype of the argument.
+
+This allows you to write one flexible method that avoids code duplication.
+
+This type of method is called a generic method. 
+
+<RuleBox>
+**Def.** A **generic method** is a method that works for any possible datatypes hence making it a general method instead of a method that takes in specific datatypes.
+</RuleBox>
+
+Let's say we want a static method <CS code = {`Shout`}/> that shouts out (prints out in all uppercase) whatever we give it. 
+
+If it's an integer, we want it to shout it out.
+
+If it's a double, we want it to shout it out.
+
+If it's a String, we want it to shout it out.
+
+If it's a Point Object, we want it to shout it out.
+
+No matter what the datatype is, we want it to shout it out.
+
+Well, we can use <CS code = {`.toString()`}/> which is a method that converts any datatype to a <CS code = {`String`}/>.
+
+This is a method that every object has by default.
+
+<RuleBox>
+**Fact** Every single object in Java automatically inherits a .toString() method from the master Object class.
+</RuleBox>
+
+This means you are guaranteed to get a String representation of your object.
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File {
+		public static void main(String[] args){
+		
+			class Shout {
+
+                //static method that takes in an argument thingToShout of datatype T where T is the placeholder for what the datatype of thingToShout will be.
+
+				static <T> void shout(T thingToShout){
+
+					 System.out.println(thingToShout.toString().toUpperCase() + "!!!");
+
+				}
+			
+			}
+
+			Shout.shout("i love icecream"); //I LOVE ICECREAM!!!
+			Shout.shout(67); //67!!!
+			Shout.shout(6.7); //6.7!!!
+        }
+}`}/>
+
+<Note>
+
+Java is designed to be helpful and will automatically call the .toString() method for you in two common situations:
+
+**1.** Printing an Object: When you pass any object directly to <CS code = {`System.out.println()`}/>, the method internally calls  <CS code = {`toString()`}/> on that object to get the text to display.
+**2.** String Concatenation: When you use the + operator to join a String with any object, Java automatically calls  <CS code = {`toString()`}/> on the object to convert it to a string first.
+
+This automatic conversion is just a convenience for printing and joining strings. If you want to use a String-only method like .toUpperCase(), you must explicitly call <CS code = {`toString()`}/> first to convert your object into a String.
+
+Otherwise, if you just want to convert to a String and that's it you don't have to write <CS code = {`.toString()`}/>.
+
+</Note>
+
+Now, try creating and initializing a new Point object and then using the <CS code = {`Shout`}/> method on it. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`Point myPoint = new Point(5, 10);
+Shout.shout(myPoint);`}/>
+
+Notice that it doesn't give you a compiling error because it is guaranteed that every object or data type has the .toString() method. 
+
+But it didn't give you what you expected did it? 
+
+It gave me this <CS code = {`FILE3$1POINT@63961C42!!!`}/>
+
+but I expected something like this <CS code = {`(5,10)!!!`}/>
+
+So this generic method didn't work as expected and that's the thing: a generic method doesn't mean you will always get the expected general result for any datatype you pass in. 
+
+Instead it means that you are guaranteed that the method call itself <CS code = {`.toString()`}/> is safe and your code will compile, because that method is known to exist for any possible data type.
+
+## The Two Levels of "Generic"
+
+**1.The Compiler's Perspective** (This is what Java's Generics care about)
+
+From the compiler's point of view, the <CS code = {`shout`}/> method is perfectly generic. Why?
+
+Because the compiler can look at the code <CS code = {`thingToShout.toString()`}/> and guarantee, with 100% certainty, that for any possible object T you pass in, a method with the signature toString() will exist. It knows this because the master Object class has that method as we mentioned before.
+
+The compiler doesn't care what the method does or what it returns. It only cares that the method call is safe and will not cause a compile error. The "action" it sees is simply "call the toString() method," and that action is valid for everything.
+
+**2.The Programmer's Perspective** 
+
+We realized that the behavior or outcome of <CS code = {`toString()`}/> is not the same for all objects.
+
+For a String: <CS code = {`toString()`}/> simply returns the string itself.
+
+For an Integer: <CS code = {`toString()`}/> returns a readable string of the number (e.g., 123 becomes "123").
+
+For our Point object: <CS code = {`toString()`}/> returns the unhelpful ClassName@HashCode string (like <CS code = {`FILE3$1POINT@63961C42!!!`}/>)
+
+This might lead you to ask the perfect question: "Okay, so how can we take care of that? When coding, what should we think about?"
+The key is to shift your thinking. Instead of seeing this as a bug to "take care of," you should see it as a powerful feature to embrace and design for when coding. 
+
+When you're writing your own classes, this should make you think, "Oh, a user might want to use <CS code = {`toString()`}/> method so my responsibility is to make sure that it works the way it should for my object."
+
+## P.O.V: When You are the Creator of a Class (e.g., Point)
+
+Your primary job is to make your object a well-behaved citizen in the Java world. To do this, you provide your own versions of important default methods. This is called overriding.
+
+You should ask yourself:
+
+"What does it mean for two of my objects to be logically equal?" → Override equals(). For two Point objects, they are probably equal if their x and y values are the same. 
+
+"How should my object represent itself as a String?" → Override toString() to provide a clear, readable output that is useful for debugging and logging.
+
+In this case, because we didn't override the <CS code = {`toString()`}/> method in <CS code = {`Point`}/> when we used it- it used the default version which just returns the ClassName@HashCode. 
+
+What we had to do is override the <CS code = {`toString()`}/>  method in Point so that it converts the Point to the proper String we expect.
+
+That would look something like this: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Point {
+            int x;
+            int y;
+
+            Point(int x , int y){
+                this.x = x;
+                this.y = y;
+            }
+        
+            @Override
+            public String toString(){
+                
+                return "(" + this.x + "," + this.y + ")";
+         
+            } 
+}`}/>
+
+Now, if we try the following again:
+
+<Code lang = "java" fileName = "File.java" code = {
+`Point myPoint = new Point(5, 10);
+Shout.shout(myPoint);`}/>
+
+We get <CS code = {`(5,10)!!!`}/> printed out!
+
+Because we overrode the <CS code = {`toString()`}/> method for the Point class so if any other class like the <CS code = {`Shout`}/> class calls it- then it actually converts the Point into a String that we actually expect to see. 
+
+## P.O.V: When You are the User of a Class 
+
+As a user your job is to trust the contract and write flexible code. 
+
+What you should think about:
+
+"Can I rely on this object having a <CS code = {`toString()`}/>  method?" → Yes. Every object does. Your shout method is safe because it relies on this universal contract.
+
+"Should I depend on the exact format of the <CS code = {`toString()`}/>  output?" → No! You should only rely on the fact that you will get some string representation. You should not write code that tries to parse the x and y values out of "(5, 10)".
+
+If the author of the Point class later changes their <CS code = {`toString()`}/>  method to return "[5, 10]", your code would break. 
+
+But as a user you would *want* the <CS code = {`toString()`}/> to at least give you an actual String representation of the Point and not some random gibberish so as the creator and designer of the class you should take into account the proper way to handle the <CS code = {`toString()`}/> method for your object and not leave it as the default way. 
+
+Furthermore, as a user you shouldn't actually be using <CS code = {`toString()`}/> to work with the String representation of the whatever object (it's really only for debugging purposes) and instead you should use the .get() methods the class designer should have. 
+
+But I just used it for the sake of this example.
+
+We can conclude: 
+
+<RuleBox>
+You should make a method **generic** if the action, no matter the data type, follows the same logical steps.
+</RuleBox>
+
+<DropDown title = "Full Code">
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File2 {
+		public static void main(String[] args){
+	
+		
+				class Point {
+					int x;
+					int y;
+
+					Point(int x , int y){
+						this.x = x;
+						this.y = y;
+					}
+				
+					@Override
+					public String toString(){
+						
+						return "(" + this.x + "," + this.y + ")";
+				
+					} 
+				}
+
+				class Shout {
+
+					static <T> void shout(T thingToShout){
+
+						System.out.println(thingToShout + "!!!");
+
+					}
+				
+				}
+		
+			Point myPoint = new Point(5,10);
+			Shout.shout(myPoint); //(5,10)!!!
+		}
+}`}/>
+
+</DropDown>
+
+## Another Example 
+Let's try another example. Let's see if we can create a class called <CS code = {`Math2`}/> with a method called <CS code = {`findMax`}/> that can take in any two arguments of any type and returns the max of the two arguments. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public class File2 {
+		public static void main(String[] args){
+		
+			class Math2{
+
+				public static <T> T findMax(T a, T b){
+					if (a > b){
+						return a;
+					}
+					else return b;
+				}
+			}
+		}
+}`}/>
+
+Because the arguments can be of any type not only can they be two integers or doubles but Strings or even objects like Points or Apples! 
+
+But...how do you return the max Point? The max Apple? 
+
+What does the <CS code = {`>`}/> symbol even mean when comparing Points or Apples?
+
+In fact, the compiler actually asks you that same question when it gives you this error: "The operator > is undefined for the argument type(s) T, T"
+
+Java is saying "Hey, since we don't know what the types of the arguments are always going to be- we're not sure we can guarantee a comparison between item a and b that will always work. If items a and b are Points then we don't really know what <CS code = {`>`}/>  means for a Point. Hence, I can't let you continue like this."
+
+So then that's what the solution?
+
+What if there was a way to tell Java "hey, what if i could promise you that if the items I give you are comparable (as in they can literally be compared) then you can go on with the method otherwise just give the same error?" 
+
+**Java:**  "I mean okay? But how would you promise me that?"
+
+**You:** "Well, remember interfaces?"
+
+**Java:** "Yes"
+
+**You:** "Interfaces act like contracts or promises. 
+If I write an interface that contains a  <CS code = {`.compareTo()`}/> method and then in my Apple class I implement 
+that interface or that *promise* 
+then I'm promising that my Apple class will have a <CS code = {`.compareTo()`}/> method that will 
+define how anyone should compare my apples. 
+Luckily for us, that interface already exists! 
+Java has a built-in contract for this exact problem 
+called the Comparable interface. 
+
+**Java:**  "Okay, but my <CS code = {`findMax()`}/> method still says 'The operator > is undefined for the argument type(s) T, T' even though the Apple class is able to compare apples now. Why?"
+
+**You:**  I have to put a rule on the method's generic placeholder, T. I tell the method that it will only accept types that have fulfilled the Comparable promise. I do this by changing the signature from <CS code = {`<T>`}/>  to <CS code = {`<T extends Comparable<T>>`}/>
+This is how you specify that <CS code = {`findMax()`}/> expects Comparable T Type Objects.   
+
+
+**You:** "Because I have to tell my method that I guarantee any item I give it- *if* it has a <CS code = {`.compareTo()`}/> method then there will be no problems because I *will* be able to compare the items."
+
+**Java:**  "Doesn't that mean that if the items don't have the Comparable Interface implemented then the method won't run on the items?"
+
+**You:** "Exactly. This means that I as a designer have to make sure every object class I write implements the Comparable Interface and specify the <CS code = {`.compareTo()`}/> method so you and others who want to compare my object have a way to do so!"
+
+**1.** Have an <CS code = {`Apple`}/> class with it's only attributes as color and weight. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Apple{
+	double weight;
+	String color;
+}`}/>
+
+**2.** Implement the built in Java Comparable Interface 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Apple implements Comparable<Apple>{
+	double weight;
+	String color;
+}`}/>
+
+The first line of the class reads "We are defining a class called Apple, which promises to follow the Comparable contract, specifically for the purpose of comparing one Apple object to *only* another Apple." 
+
+The "only another apple" is taken care of with the <CS code = {`<Apple>`}/> at the end of the line. 
+
+This will give you an error saying, "Hey, you need to actually fulfil this interface/contract by defining the method in this interface" and that is the <CS code = {`compareTo()`}/> method. 
+
+**3.** Define the <CS code = {`compareTo()`}/> method.
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Apple implements Comparable<Apple>{
+
+	double weight;
+	String color;
+
+	public int compareTo(Apple apple){
+		return Double.compare(this.weight, apple.weight);
+	}
+}`}/>
+
+**4.** Now, in our <CS code = {`findMax()`}/> class above we can tell our method or promise it that it can compile if I say the items are comparable. 
+
+How do I 'say' it?
+
+Again, I do this by changing the signature from <CS code = {`<T>`}/>  to <CS code = {`<T extends Comparable<T>>`}/> like so: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Math2{
+
+	public static <T extends Comparable<T>> T findMax(T a, T b){ //here 
+		if (a > b){
+			return a;
+		}
+		else return b;
+	}
+}`}/>
+
+
+By doing this we are again telling Java, 
+"Hey, you can run now if you see that the 
+classes of the objects passed in, implement the 
+Comparable interface."
+
+But this gives you an error. Why?
+
+In Java, the comparison operators like <CS code = {`>`}/> and <CS code = {`<`}/> are reserved only for primitive numeric types (like int, double, etc.). You cannot use them on objects, even if those objects are guaranteed to be Comparable
+
+The Comparable interface doesn't teach the <CS code = {`>`}/> operator how to work with objects. Instead, it provides a specific method that you must use to perform the comparison.
+
+The solution is to replace the  <CS code = {`>`}/>  operator with the .compareTo() method, which is guaranteed to exist because of your <CS code = {`<T extends Comparable<T>>`}/> constraint.
+
+The .compareTo() method returns an integer with the following meaning:
+
+Returns a positive number (> 0) if a is greater than b.
+
+Returns a negative number (< 0) if a is less than b.
+
+Returns 0 if they are equal
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Math2{
+
+	public static <T extends Comparable<T>> T findMax(T a, T b){ //here 
+		if (a.compareTo(b) > 0){ //if Apple a compared to Apple b is bigger
+			return a; //then return Apple a 
+		}
+		else return b; //otherwise return Apple B as the max (biggest) apple. 
+	}
+}`}/>
+
+**5.** Now, let's try testing this. Create two Apple objects call them <CS code = {`Apple1`}/> and <CS code = {`Apple2`}/> give them whatever color and weight you want and then use the <CS code = {`Math2`}/>'s static method  <CS code = {`findMax()`}/> to find the max of the two apples. In context- to find the biggest of the two apples. 
+
+But wait... in order to give them whatever color and weight you want- you need to write a constructor that allows you to give a color and weight so let's do that. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Apple implements Comparable<Apple>{
+
+	double weight;
+	String color;
+
+	//here 
+	Apple(double weight, String color){
+		this.weight = weight;
+		this.color = color;
+	}
+
+	@Override
+	public int compareTo(Apple apple){
+		return Double.compare(this.weight, apple.weight);
+	}
+
+}`}/>
+
+Now, we're ready to create and initialize these objects. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`Apple apple1 = new Apple(167,"red");
+Apple apple2 = new Apple(213,"green");
+
+System.out.println(Math2.findMax(apple1,apple2));
+`}/>
+
+If we run this, we expect it to return <CS code = {`Apple2`}/> right?!
+
+But we don't... 
+
+We get <CS code = {`File2$1Apple@5305068a`}/> which *is* <CS code = {`Apple2`}/> technically but it's not the nice String format we want right?
+
+What did we learn before? 
+
+If we are good designers, we want to override the <CS code = {`.toString()`}/> method for our object classes so that we're able to use it to get the proper String format of our objects. 
+
+Here, Java is using the default <CS code = {`.toString()`}/> method which again returns ClassName@HashCode. 
+
+So in our <CS code = {`Apple`}/> class we want to override the <CS code = {`.toString()`}/> to say "hey, return the Apple's name that we give it." So something like this: 
+
+<Code lang = "java" fileName = "File.java" code = {
+`@Override
+public String toString(){
+		return this.name;
+}`}/>
+
+But to do that, we need name as an attribute so we would have to add it as one and hence we would have to provide the name of the apple when we initialize it so we would also have to tell that to the constructor.
+
+So our <CS code = {`Apple`}/> ends up looking like this
+
+<Code lang = "java" fileName = "File.java" code = {
+`class Apple implements Comparable<Apple>{
+
+		String name; //here
+		double weight;
+		String color;
+
+		Apple(String name, double weight, String color){ //here
+			this.name = name; //here
+			this.weight = weight;
+			this.color = color;
+		}
+
+		@Override
+		public int compareTo(Apple apple){
+			return Double.compare(this.weight, apple.weight);
+		}
+
+		@Override
+		public String toString(){
+			return this.name; //here
+		}
+}`}/>
+
+Now, let's try again. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`Apple apple1 = new Apple("Apple 1", 167,"red");
+Apple apple2 = new Apple("Apple 2", 213,"green");
+
+System.out.println(Math2.findMax(apple1,apple2));`}/>
+
+And we get "Apple 2" printed out! Which is correct because 213 > 167. 
+
+Notice that we actually didn't write the <CS code = {`.toString()`}/> method and yet Java used it. This is a prime example of what I mentioned in the **Note** tab above. 
+
+<DropDown title = "Full Code">
+<Code lang = "java" fileName = "File.java" code = {
+`public class File2 {
+		public static void main(String[] args){
+	
+			class Apple implements Comparable<Apple>{
+		
+				String name;
+				double weight;
+				String color;
+
+				Apple(String name, double weight, String color){
+					this.name = name;
+					this.weight = weight;
+					this.color = color;
+	
+				}
+
+				@Override
+				public int compareTo(Apple apple){
+					return Double.compare(this.weight, apple.weight);
+				}
+
+				@Override
+				public String toString(){
+					return this.name;
+				}
+			}
+
+			class Math2{
+
+				public static <T extends Comparable<T>> T findMax(T a, T b){ 
+					if (a.compareTo(b) > 0){
+						return a;
+					}
+					else return b;
+				}
+			}	
+
+			Apple apple1 = new Apple("Apple 1", 167,"red");
+			Apple apple2 = new Apple("Apple 2", 213,"green");
+
+			System.out.println(Math2.findMax(apple1,apple2)); //Apple 2
+		
+		}
+}`}/>
+
+</DropDown>
+
+Now a question you may ask is "if I'm telling the method that it can only run for objects that have the Comparable interface implemented in their classes what if I do something like this?:"
+
+<Code lang = "java" fileName = "File.java" code = {
+`System.out.println(Math2.findMax(1,5));`}/>
+
+Will it not work because integers are not objects and hence don't have the ability to implement the Comparable interface?
+
+No! This still prints out 5!
+
+Not because it works for non-objects but because Java actually converts these <CS code = {`ints`}/> to their object version <CS code = {`Integer`}/> and all Java's eight primitive types already have the Comparable interface implemented for them.
+
+What about other inputs like chars or booleans or Strings?
+
+Strings are objects already and implement the Comparable interface by default. 
+
+Boolean: Has a simple rule where true is considered greater than false.
+
+Character: Compares based on the character's underlying Unicode value, which for standard letters is the same as alphabetical order. 'a' is less than 'b'.
+
+The moral of the story is you just have to worry about objects when it comes to being able to compare them. 
+
+
+

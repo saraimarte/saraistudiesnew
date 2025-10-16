@@ -1,0 +1,202 @@
+---
+layout: '@layouts/Blog.astro'
+title: Lecture 6| Abstract Classes  
+pubDate: 2025-09-18T00:00:00Z 
+updatedDate: 2025-09-18T00:00:00Z 
+draft: true
+author: Sarai Marte
+slug: lecture-6
+---
+
+import CS from '@components/CSnippet.astro';
+import Code from '@components/Code.astro';
+
+# Abstract Classes 
+
+They are in between inheritance and interfaces. 
+
+They are more like interfaces. 
+
+Used when you want to build from bottom up. 
+
+The point of inheritance and classes is to reuse code. 
+
+But interfaces is not about that (other than default stuff) it's more like a to do list of code you have to write. 
+
+# Introductory Example 
+
+Consider a rectangle and circle. 
+
+**Properties or Features:**  
+**1.** Can be drawn in a 2D plane (like on paper)
+**2.** Have a perimeter and an area    
+**3.** It can be checked whether a point is inside or outside.   
+  
+The common features can be "abstracted" out into a superclass, say <CS code = {`2DShape`}/>
+
+This is called Generalization: Gathering properties that are common (general) to related classes into a superclass. 
+
+But there is no actual <CS code = {`2DShape`}/> shape object: only specific kinds of <CS code = {`2DShape`}/> objects so the generalized superclass is **abstract.**
+
+An abstract class MUST have keyword abstract in the class header:
+
+<Code lang = "java" fileName = "File.java" code = {
+`public abstract class 2DShape{...}`}/>
+
+An abstract method has no implementation
+
+<Code lang = "java" fileName = "File.java" code = {
+`public abstract class 2DShape {
+public abstract void draw();
+public abstract float area();
+...}`}/>
+
+An abstract class may have zero or more abstract method
+
+<Code lang = "java" fileName = "File.java" code = {
+`public abstract class Device {
+    protected String name;
+    protected int widthPixelDensity;
+    protected int heightPixelDensity;
+
+    public String getName() {
+      return name;
+    }
+    public int getWidthPixelDensity() {
+      return widthPixelDensity;
+    }
+    public int getHeightPixelDensity() {
+      return heightPixelDensity;
+    }
+}`}/>
+
+You can have an abstract class where you implement everything. 
+
+## Another point 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public abstract class Device{
+    protected String name;
+    protected int widthPixelDensity;
+    protected int heightPixelDensity;
+
+    public ....
+}`}/>
+
+**3.** An abstract class cannot be instantiated even if all methods have been implemented. 
+
+<Code lang = "java" fileName = "File.java" code = {
+`public abstract class Device {
+    protected String name;
+    protected int horizontalResolution;
+    protected int verticalResolution;
+
+    public String getName() {
+        return name;
+    }
+    public int getHorizontalResolution() {
+        return horizontalResolution;
+    }
+    public int getVerticalResolution() {
+        return verticalResolution;
+    }
+}`}/>
+
+You have to have an abstract keyword in a class in order to implement an abstract method. (Slide 8)
+
+**4.** An abstract class may implement constructors (if no constructor is implemented then the compiler will write in a default constructor.)
+
+You can't create objects if that object class is abstract.   
+
+**So what's the point of having constructors if you can't create objects?**
+
+You have an application, you have things that have properties in common, so you make abstract class(s?) for them.
+
+Extending an abstract class doesn't make the class abstract. 
+
+# Chess 
+
+Piece but would you want to create a piece object because what type of piece? 
+
+So it's kind of like a concept its abstract or its general so you would create an abstract class Piece. 
+
+# Some Abstract Classes in Java SDK 
+
+## Dictionary
+
+It's almost 99% an interface except you can have a constructor. 
+
+**1.** java.util.Dictionary 
+
+A dictionary is a structure that allows insert, search and delete- all methods of Dictionary are abstract. 
+
+Any search structure (e.g. hash table) can implement Dictionary: java.util.Hashtable is a concrete subclass of Dictionary. 
+
+The Dictionary class is now obsolete, replaced by java.util.Map interface- why?
+
+
+A: You can't extend more than one class. If Dictionary were a class and if you wanted to do this Hash Table you can only extend Dictionary so that closes the door to the hashtable extending anything else.  
+
+If you have a class with all methods being abstract- then inheriting it is useless because you can't use any of the code and you're using up a slot in the hashtable.
+
+Dictionary is an abstract class the only way to use it is to inherit it but inheriting gives you nothing (why?) 
+
+Now they replaced it with interface. 
+
+## Calendar
+
+**1.** java.util.Calendar provides methods to convert between specific instant in time and calendar attributes year, day, month, etc. 
+
+java.util.GregorianCalendar is a concrete subclass of Calendar. 
+
+Static method Calendar.getInstance() returns calendar instance for current time with default locale 
+
+# New Slide Deck 
+
+Moving on to using these ideas in the larger context but there are some little hings to get through. 
+
+# Access Levels and Visibility/Protected  
+
+Always build classes in packages. 
+
+**1.** Public   
+**2.** Private: other classes outside or inside the same package cannot access the private methods  
+**3.** Protected: other classes outside or inside the   
+
+Package Level Access 
+<Code lang = "java" fileName = "File.java" code = {
+`package abcpackage;
+public class A{
+    private int apriv;
+    protected int aprot;
+    int apack;
+    ...
+}`}/>
+
+
+<Code lang = "java" fileName = "File.java" code = {
+`package abcpackage;
+class B{
+    int bpack;
+    public void m(){
+        A a = new A();
+        a.aprot=10;
+    }
+}`}/>
+
+
+<Code lang = "java" fileName = "File.java" code = {
+`package abcpackage;
+class C extends B{
+    public void m(){
+        A a = new A();
+        a.apriv = 10; //X
+        a.apack = 15;
+        B b = new B();
+        bpack=5;
+    }
+}`}/>
+
+Can you inherit a package level access field from the superclass? No. 
+
+Protected is somehow more visible than package. 
