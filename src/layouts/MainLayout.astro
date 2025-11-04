@@ -33,14 +33,7 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
                 <img src = {folderIcon1.src} alt = "toolbox"></>
                 <p class = "label"> toolbox </p>
             </a>
-            <a  data-pagefind-ignore  href = {folderPath2} id = "folder2" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
-                <img src = {folderIcon2.src} alt = "ranks"></>
-                <p class = "label"> rankings </p>
-            </a>
-            <a  data-pagefind-ignore  href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
-                <img src = {folderIcon3.src} alt = "rating"></>
-                <p class = "label"> ratings </p>
-            </a>
+            
             <div x-show="!closedScreen" class="screen" >
                 <TopNav/>
                 <div class = "content">

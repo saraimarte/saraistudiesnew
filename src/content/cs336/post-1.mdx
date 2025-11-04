@@ -9,3 +9,48 @@ slug: p
 ---
 
 <iframe src="https://www.youtube.com/embed/dym6CmWqIgI?si=jVdxX_avgr5GOtTj&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+
+
+
+
+create database university;
+use university;
+
+create table students(
+sid int,
+sname varchar(30),
+major varchar(30),
+level varchar(10),
+age int,
+primary key (sid));
+
+create table faculty(
+fid int,
+fname varchar(30),
+dept varchar(4),
+primary key (fid));
+create table courses(
+cname varchar(30),
+meets_at time,
+room varchar(10),
+fid int,
+primary key (cname),
+foreign key (fid) references faculty(fid));
+
+create table enrolledin(
+sid int,
+cname varchar(30),
+primary key (sid,cname),
+foreign key (sid) references students(sid),
+foreign key (cname) references courses(cname)); 
+
+
+<a href = "https://www.eclipse.org/downloads/packages/"> Eclipse Download Link </a>
+
+<a href = "https://tomcat.apache.org/download-10.cgi"> Apache Tomcat Download Link </a>
+
+https://gemini.google.com/share/7af47c0a882f
+
+
+
+https://www.eclipse.org/downloads/packages/release/2025-12/m2

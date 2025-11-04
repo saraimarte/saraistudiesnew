@@ -73,11 +73,11 @@ const collectionImages = {
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis',  'ai', 'cs336', 'softwareMethodology', 'cs344', 'investmentBankingAnalysis']; //codeWord 
+const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis',  'ai', 'cs336', 'softwareMethodology', 'cs344', 'investmentBankingAnalysis']; //codeWord 
 //calc1 //compsci //corporateFinance removed 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'latinoWorkers', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'ai', 'cs336', 'softwareMethodology','cs344', 'investmentBankingAnalysis']; //codeWord 
+  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'ai', 'cs336', 'softwareMethodology','cs344', 'investmentBankingAnalysis']; //codeWord 
 
   // Return paths for each collection
   return collectionNames.map(name => ({
