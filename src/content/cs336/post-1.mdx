@@ -54,3 +54,33 @@ https://gemini.google.com/share/7af47c0a882f
 
 
 https://www.eclipse.org/downloads/packages/release/2025-12/m2
+
+
+
+select count(*) 
+from students as s, e 
+
+# courses student is enrolled in
+
+select count(*)
+from students as s, enrolled as e
+where s.sid = 
+
+
+
+INSERT INTO enrollment (sid, cid, section, grade)
+VALUES
+(10001, '198:111', 1, 'A'),
+(10001, '640:151', 2, 'B'),
+(10002, '198:111', 1, 'B'),
+(10002, '198:112', 1, NULL),
+(10007, '198:440', 1, NULL),
+(10007, '198:112', 1, 'A'),
+(10015, '198:440', 1, NULL),
+(10016, '640:151', 2, 'C'),
+(10020, '700:220', 1, 'A'),
+(10030, '198:111', 2, 'D'),
+(10003, '700:101', 1, 'A'),
+(10008, '640:350', 1, 'C'),
+(10044, '640:152', 1, 'B'),
+(10050, '198:440', 1, 'A');
