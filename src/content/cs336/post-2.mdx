@@ -15,17 +15,30 @@ import File from '@components/File.astro';
 
 <File link = "https://www.eclipse.org/downloads/packages/" title = "Download Eclipse"/>
 
+><iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=7" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>
+
 ## Setting up the Server
 
+<iframe  src="https://www.youtube.com/embed/mq_4YERSz-0?start=187" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 ## Setting up the Frontend 
 
+<iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=252" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
+
 ## Running the Sever 
+
+<iframe src="https://www.youtube.com/embed/mq_4YERSz-0?start=319" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
 # Downloading JDBC Driver 
 
 <File link = "https://dev.mysql.com/downloads/connector/j/" title = "Download JDBC Driver"/>
 
+<iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=543" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
+
 # Downloading MySQL Server and MySQL Workbench Using MySQL Installer For Windows
+
+Garcia just requires you use any version 8.0.21 or above. 
+
+<iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=910" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
 ## Option 1 | (Windows Only) Download both with MySQL Installer For Windows
 
@@ -37,8 +50,10 @@ import File from '@components/File.astro';
 
 <File link = "https://dev.mysql.com/downloads/workbench/" title = "Download Workbench"/>
 
-
+Note: If you are a mac user, download the DMG files and download the one with the biggest file size. 
 # SQL Code to Create Database and Table
+
+<iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=651" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
 <Code lang = "sql" fileName = "cs336.sql" code = {
 `-- 1. Create a new database for your bank
@@ -65,12 +80,18 @@ SELECT * FROM users;`}/>
 
 # Connection Code 
 
+<iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=987" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
 <Code lang = "sql" fileName = "cs336.sql" code = {
 `// 1. Authentication
 String dbUrl = "jdbc:mysql://localhost:3306/bank_db"; //database url
 String user = "root"; //Replace with your username
 String pass = "0000"; //Replace with your password 
+
+
+//1B. Missed in the video -  you have to load the jdbc driver 
+Class.forName("com.mysql.cj.jdbc.Driver");
+
 
 // 2. Connecting to MySql DB Sever 
 Connection con = DriverManager.getConnection(dbUrl, user, pass);
@@ -80,3 +101,50 @@ out.println("Connection successful!");
 // 3. Close connection 
 con.close();`}/>
 
+# Querying Example
+
+<iframe src="https://www.youtube.com/embed/mq_4YERSz-0?start=1092" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
+
+<Code lang = "sql" fileName = "index.jsp" code = {
+`<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ page import="java.sql.*" %>
+    
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CS336</title>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+		<%
+		// 1. Authentication
+		String dbUrl = "jdbc:mysql://localhost:3306/bank_db";
+		String user = "root";
+		String pass = "0000";
+
+		//1B. Missed in the video -  you have to load the jdbc driver 
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		// 2. Connecting to MySQL DB Server
+		Connection con = DriverManager.getConnection(dbUrl, user, pass);
+
+		String sql = "select sum(amount) from users;";
+
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+
+		rs.next();
+
+		double totalSum = rs.getDouble(1);
+		out.println("Total amount in bank: " + totalSum);
+
+		// 3. Close connections
+		con.close();
+		rs.close();
+		stmt.close();
+		%>
+	</body>
+</html>`}/>
