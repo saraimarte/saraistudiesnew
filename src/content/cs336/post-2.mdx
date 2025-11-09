@@ -1,0 +1,82 @@
+---
+layout: '@layouts/Blog.astro'
+title: Project Setup
+pubDate: 2025-11-08T00:00:00Z 
+updatedDate: 2025-11-08T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: project-setup
+---
+
+import Code from '@components/Code.astro';
+import File from '@components/File.astro';
+
+# Installing Eclipse
+
+<File link = "https://www.eclipse.org/downloads/packages/" title = "Download Eclipse"/>
+
+## Setting up the Server
+
+## Setting up the Frontend 
+
+## Running the Sever 
+
+# Downloading JDBC Driver 
+
+<File link = "https://dev.mysql.com/downloads/connector/j/" title = "Download JDBC Driver"/>
+
+# Downloading MySQL Server and MySQL Workbench Using MySQL Installer For Windows
+
+## Option 1 | (Windows Only) Download both with MySQL Installer For Windows
+
+<File link = "https://dev.mysql.com/downloads/windows/installer/8.0.html" title = "Download with MySQL Installer For Windows"/>
+
+## Option 2 | Download separately (Need to do this if you want version 8.1 or later of MySQL Server)
+
+<File link = "https://dev.mysql.com/downloads/mysql/" title = "Download MySQL Server"/>
+
+<File link = "https://dev.mysql.com/downloads/workbench/" title = "Download Workbench"/>
+
+
+# SQL Code to Create Database and Table
+
+<Code lang = "sql" fileName = "cs336.sql" code = {
+`-- 1. Create a new database for your bank
+CREATE DATABASE bank_db;
+
+-- 2. Switch to the newly created database to work inside it
+USE bank_db;
+
+-- 3. Create the 'users' table
+CREATE TABLE users (
+  name VARCHAR(100) primary key,
+  age INT,
+  amount DECIMAL(10, 2)
+);
+
+-- 4. Insert some sample values into the 'users' table
+INSERT INTO users (name, age, amount) VALUES 
+('Alice Smith', 30, 1500.75), 
+('Bob Johnson', 25, 800.00),
+('Charlie Brown', 42, 10200.50);
+
+-- 5. Selecting all data from the table
+SELECT * FROM users;`}/>
+
+# Connection Code 
+
+
+<Code lang = "sql" fileName = "cs336.sql" code = {
+`// 1. Authentication
+String dbUrl = "jdbc:mysql://localhost:3306/bank_db"; //database url
+String user = "root"; //Replace with your username
+String pass = "0000"; //Replace with your password 
+
+// 2. Connecting to MySql DB Sever 
+Connection con = DriverManager.getConnection(dbUrl, user, pass);
+
+out.println("Connection successful!");
+
+// 3. Close connection 
+con.close();`}/>
+

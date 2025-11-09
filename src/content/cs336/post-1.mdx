@@ -84,3 +84,82 @@ VALUES
 (10008, '640:350', 1, 'C'),
 (10044, '640:152', 1, 'B'),
 (10050, '198:440', 1, 'A');
+
+
+
+
+
+
+Print all values of a field from a table 
+```
+ <%
+		    try{
+		        Class.forName("com.mysql.cj.jdbc.Driver");
+		        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "0000"); 
+		        
+		        Statement stmt = con.createStatement();
+		        
+		        // Get ALL names
+		        String sql = "SELECT name FROM users";
+		        
+		        ResultSet rs = stmt.executeQuery(sql);
+		        
+		        // This 'while' loop is the ONLY rs.next() call you need.
+		        // On its first run, it moves to the 1st name.
+		        while (rs.next()) {
+		            out.println(rs.getString("name") + "<br>");
+		        }
+		        
+		        con.close();
+		        
+		    }catch(Exception e){
+		        out.println("Connection failed");
+		        e.printStackTrace(new java.io.PrintWriter(out));
+		    }
+		 
+		 %>
+        
+        ```
+
+
+
+get first name in users 
+
+```
+		<%
+ 
+    try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "0000"); 
+        
+        Statement stmt = con.createStatement();
+        
+        // 1. Tell the database to only get one row
+        String sql = "SELECT name FROM users LIMIT 1";
+        
+        ResultSet rs = stmt.executeQuery(sql);
+        
+        // 2. Use 'if' to get only the first result
+        if (rs.next()) {
+            out.println("The first name in the database is: " + rs.getString("name"));
+        }
+        
+        con.close();
+        
+    }catch(Exception e){
+        out.println("Connection failed");
+        e.printStackTrace(new java.io.PrintWriter(out));
+    }
+ 
+ %>
+ 
+ ```
+
+fdg
+
+<File link = "https://dev.mysql.com/downloads/installer/" title = "Download MySql"/>
+
+
+# Downloading
+<File link = "https://dev.mysql.com/downloads/workbench/" title = "Download MySQL Workbench"/>
+

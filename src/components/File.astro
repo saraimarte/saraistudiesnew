@@ -1,21 +1,36 @@
 ---
 
 const {link,title} = Astro.props;
+import cursorIcon from '@assets/cursorBlack.svg';
+
 ---
 
-<a href = {link}>{title}</a>
+
+<a href = {link}>
+    <img id="cursor" src={cursorIcon.src} alt={`cursor icon`} />
+    {title}
+
+</a>
 
 
 <style>
     a{
-        background:rgb(145, 202, 204);
         border-radius: 5px;
         padding:5px 10px;
         text-decoration: none;
-        color:black;
-        font-size:0.8em;
+        color:rgb(71, 179, 247);
+        margin:10px 0;
+        border: 2px dashed lightskyblue;
+        display:flex;
+        font-size: 17px;
+        align-items: center;
     }
     a:hover{
-        background-color: rgb(128, 195, 198);
+        border: 2px solid lightskyblue;
+    }
+    #cursor{
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
     }
 </style>
