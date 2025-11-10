@@ -10,6 +10,10 @@ slug: project-setup
 
 import Code from '@components/Code.astro';
 import File from '@components/File.astro';
+import ImageMd from "@components/ImageMd.astro";
+import Solution from '@components/Solution.astro';
+import img1 from "@images/336/java-build-path-error.png";
+import Quote from '@components/Quote.astro';
 
 # Installing Eclipse
 
@@ -82,7 +86,7 @@ SELECT * FROM users;`}/>
 
 <iframe   src="https://www.youtube.com/embed/mq_4YERSz-0?start=987" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
-<Code lang = "sql" fileName = "cs336.sql" code = {
+<Code lang = "java" fileName = "cs336.sql" code = {
 `// 1. Authentication
 String dbUrl = "jdbc:mysql://localhost:3306/bank_db"; //database url
 String user = "root"; //Replace with your username
@@ -91,7 +95,6 @@ String pass = "0000"; //Replace with your password
 
 //1B. Missed in the video -  you have to load the jdbc driver 
 Class.forName("com.mysql.cj.jdbc.Driver");
-
 
 // 2. Connecting to MySql DB Sever 
 Connection con = DriverManager.getConnection(dbUrl, user, pass);
@@ -105,7 +108,7 @@ con.close();`}/>
 
 <iframe src="https://www.youtube.com/embed/mq_4YERSz-0?start=1092" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" > </iframe>
 
-<Code lang = "sql" fileName = "index.jsp" code = {
+<Code lang = "java" fileName = "index.jsp" code = {
 `<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -148,3 +151,42 @@ con.close();`}/>
 		%>
 	</body>
 </html>`}/>
+
+# Possible Errors You May Encounter 
+
+**1.** Build Path Error 
+
+<ImageMd img = {img1} alt = ""/>
+
+The following solution is from Gemni. 
+
+<Quote author = "Gemni" source = "">
+The import statement ```<%@ page import="java.sql.*" %>``` is correct. The problem is that your project is missing the main Java library.
+
+Here is how to fix it:
+
+    In the "Project Explorer," right-click your cs336 project.
+
+    Go to Properties (at the bottom).
+
+    On the left, select "Java Build Path".
+
+    Click the "Libraries" tab at the top.
+
+    Look at the list. You should see "JRE System Library" or "JavaSE". If it's missing or has a red 'X' on it, that's the problem.
+
+    Click the "Add Library..." button on the right.
+
+    Select "JRE System Library" and click "Next".
+
+    Make sure "Workspace default JRE" is selected (or pick your "JavaSE-21" from the "Execution environment" list).
+
+    Click "Finish".
+
+    Click "Apply and Close".
+
+This will add the main Java library back to your project, and Eclipse will now be able to find the Connection class. 
+
+[Or at least it should- the error still might be there for a bit. Try cleaning the project (Project -> Clean...) and restarting Eclipse if it doesn't go away right away. That's what worked for me - Sarai. Either way, this error doesn't actually prevent anything from working.]
+
+</Quote>
