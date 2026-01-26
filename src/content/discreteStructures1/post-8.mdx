@@ -2,10 +2,10 @@
 layout: '@layouts/Blog.astro'
 title: Grammar, Finite State Machines, Regular Languages, Turing Machines
 pubDate: 2025-12-20T00:00:00Z 
-updatedDate: 2025-12-21T00:00:00Z
+updatedDate: 2025-12-20T00:00:00Z
 draft: false
 author: Sarai Marte
-slug: grammar-fsm-and-turing-machines
+slug: grammar
 ---
 
 import RuleBox from '@components/Rule.astro';
@@ -57,8 +57,9 @@ import imgn10 from '@images/205/n10.jpeg';
 import imgn11 from '@images/205/n11.jpeg';
 import imgn12 from '@images/205/n12.jpeg';
 import imgn13 from '@images/205/n13.jpg';
-import imgn14 from '@images/205/n14.jpeg';
 
+
+Note: I'm in the process of doing the time stamps for the video and updating the video links here. Grammar section is done. 
 
 # Intro to the Video Series 
 
@@ -66,6 +67,7 @@ import imgn14 from '@images/205/n14.jpeg';
   iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=UdW-vZBCUdR1VDtw&amp;start=38"
   src={imga.src}
 />
+
 
 <Section t = "Grammar">
 
@@ -116,6 +118,8 @@ Note: Variables can also be called symbols or characters.
 />
 
 
+
+
 # Find a context-free grammar for a given language 
 
 <CustomThumb
@@ -134,10 +138,11 @@ Note: Variables can also be called symbols or characters.
 
 <Section t = "Finite State Machines (DFAs, NFAs, Mealy and Moore)">
 
+
 <RuleBox align = "left">
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=WXue0w1GhKw9_-qn&amp;start=1756"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img1.src}
 />
 
@@ -160,7 +165,7 @@ Note: Symbols can also be called variables or characters.
 # From State Diagram to Formal Description 
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=WXue0w1GhKw9_-qn&amp;start=2533"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img2.src}
 />
 
@@ -186,12 +191,9 @@ Note: Symbols can also be called variables or characters.
 
 **Provide the formal description for the non-deterministic finite state machines represented by the state diagrams below.**
 
-<CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=WXue0w1GhKw9_-qn&amp;start=2780"
-  src={imgn14.src} 
-/>
-
+/*Done*/
 <Problem n= "1" img = {imgn13} alt = "Problem 3"/>
+/*Done*/
 <Solution>
 <iframe src="https://www.youtube.com/embed/IRg0Yt9q9cs?si=c9O-2jCDYMZ2KEzJ&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </Solution>
@@ -208,7 +210,7 @@ Note: Symbols can also be called variables or characters.
 # From Formal Description to State Diagram + What is the language of the machine?
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=lmHzhEXp9VKXMK3G&amp;start=3020"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img3.src}
 />
 
@@ -221,37 +223,31 @@ Note: Symbols can also be called variables or characters.
 />
 </Solution>
 
-# Determine if a given string is in the language of a DFA Using Instantaneous Configuration
-<CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=3246"
-  src={img4.src}
-/>
-
-# Determine if a given string is in the language of an NFA Using Derivation Tree
+# Determine if a given string is in the language of a DFA or NFA using Instantaneous Configuration or Derivation Tree
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=3550"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img4.src}
 />
 
 # Constructing a DFA or NFA that accepts a given language
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=3550"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img5.src}
 />
 
 # Differences between DFAs and NFAs + Given NFA find equivalent DFA
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=4366"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img6.src}
 />
 
 # Regular Languages and Operations on Regular Languages (Union, Concatenation, Kleene Star, Parentheses)
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=7799"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img7.src}
 />
 
@@ -266,14 +262,14 @@ Note: Symbols can also be called variables or characters.
 # Regular Expressions + Describe the language of a machine using regular expressions.
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=9558"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img8.src}
 />
 
 # Finite State Machines with Output (Mealy and Moore Machines)
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=6938"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={img9.src}
 />
 
@@ -282,7 +278,7 @@ Note: Symbols can also be called variables or characters.
 # Design a Grammar that Constructs the Set of all Even Numbers and a FSM that recognizes all even numbers.
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=6087"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgb.src}
 />
 
@@ -291,7 +287,7 @@ Note: Symbols can also be called variables or characters.
 <RuleBox align = "left">
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=11309"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM0.src}
 />
 
@@ -316,35 +312,35 @@ Note: We adopt the rule that if a state has no transition fro a given input, the
 # EX1 How to Read and Write on the Tape + From Tuples to State Diagram and FSM 
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=12246"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM1.src}
 />
 
 # EX2 Design Turing Machine Given Description
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=13318"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM2.src}
 />
 
 # EX3 Design a DFA, NFA, and Turing Machine For the Same Language (This shows that Turing Machines can do what FSMs do)
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=13677"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM3.src}
 />
 
 # EX4 Design a Turing Machine for Non-Regular Language aⁿbⁿ n ≥ 1 
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=14565"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM4.src}
 />
 
 # Limitation of Turing Machines (Infinite Loops)
 
  <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=15467"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgTM5.src}
 />
 
@@ -353,7 +349,7 @@ Note: We adopt the rule that if a state has no transition fro a given input, the
 # "Can a Problem be Solved Using a Computer?" Seeing if this question can be answered. Church Turing Thesis, Decidable vs Undecidable Problems + Design a TM that Recognizes all Even Numbers 
 
 <CustomThumb
-  iframeSrc="https://www.youtube.com/embed/lAkhtqj1EPY?si=bGzk9npiUgxwMNru&amp;start=15665"
+  iframeSrc="https://www.youtube.com/embed/PK7kcAkQjB8?si=As0EAys2KBh1wSfv&start=5"
   src={imgc.src}
 />
 

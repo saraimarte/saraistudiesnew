@@ -263,75 +263,6 @@ const IBCollection = defineCollection({
   }),
 });
 
-
-const derivativesCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-const treasuryCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-const advancedCorpFinanceCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-const internationalFinancialManagementCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-const dataScienceCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-
-const businessEthicsCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    updatedDate:z.date(),
-    draft: z.boolean(),
-    author: z.string()
-  }),
-});
-
-
 export const collections = {
   calc1: calc1Collection,
   calc2: calc2Collection,
@@ -355,11 +286,5 @@ export const collections = {
   discreteStructures2:discreteStructures2Collection,
   softwareMethodology: softMethCollection,
   cs344:cs344Collection,
-  investmentBankingAnalysis:IBCollection, 
-  Derivatives: derivativesCollection, 
-  treasuryManagement:treasuryCollection, 
-  advancedCorporateFinance: advancedCorpFinanceCollection,
-  internationalFinancialManagement: internationalFinancialManagementCollection,
-  dataScience: dataScienceCollection, 
-  businessEthics: businessEthicsCollection
+  investmentBankingAnalysis:IBCollection
 };
