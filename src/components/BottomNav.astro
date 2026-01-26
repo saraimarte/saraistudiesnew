@@ -35,6 +35,14 @@ import softwareMethodology  from '@assets/icons/softMeth.svg';
 import cs344  from '@assets/icons/cs344.svg';
 import investmentBankingAnalysis from '@assets/icons/ib.svg';
 
+
+import derivatives from '@assets/icons/derivatives.svg';
+import treasuryManagement from '@assets/icons/treasuryManagement.svg';
+import advancedCorporateFinance from '@assets/icons/advancedCorporateFinance.svg';
+import internationalFinancialManagement from '@assets/icons/internationalFinancialManagement.svg';
+import businessEthics from '@assets/icons/businessEthics.svg';
+import dataScience from '@assets/icons/dataScience.svg';
+
 interface Props {}
 
 const {} = Astro.props;
@@ -68,16 +76,22 @@ const collectionImages = {
   cs336,
   softwareMethodology,
   cs344,
-  investmentBankingAnalysis
+  investmentBankingAnalysis, 
+  derivatives, 
+  treasuryManagement, 
+  advancedCorporateFinance, 
+  dataScience, 
+  internationalFinancialManagement,
+  businessEthics
 };
 
 // There is no function that returns a list of all your collections so you have to manually keep a list of them
 // Make sure that slug in the index for each collection is the same as the collection name
-const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis',  'ai', 'cs336', 'softwareMethodology', 'cs344', 'investmentBankingAnalysis']; //codeWord 
+const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage', 'mis','dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis',  'ai', 'cs336', 'softwareMethodology', 'cs344', 'investmentBankingAnalysis', 'derivatives', 'treasuryManagement', 'advancedCorporateFinance', 'internationalFinancialManagement', 'businessEthics', 'dataScience']; //codeWord 
 //calc1 //compsci //corporateFinance removed 
 export async function getStaticPaths() {
   // Define the collection names directly
-  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'ai', 'cs336', 'softwareMethodology','cs344', 'investmentBankingAnalysis']; //codeWord 
+  const collectionNames = ['calc2', 'macc', 'statMethods', 'supplyChain', 'writingForMedia', 'fmanage','mis', 'dataStructures', 'linearAlg', 'discreteStructures1', 'discreteStructures2', 'operationsManagement', 'computerArchitecture', 'investmentAnalysis', 'ai', 'cs336', 'softwareMethodology','cs344', 'investmentBankingAnalysis', 'derivatives', 'treasuryManagement', 'advancedCorporateFinance', 'internationalFinancialManagement', 'businessEthics', 'dataScience']; //codeWord 
 
   // Return paths for each collection
   return collectionNames.map(name => ({
@@ -212,20 +226,28 @@ export async function getStaticPaths() {
 
 
 </style>
-<script>
-    /*Horizontal Scrolling on BottomNav with mouse*/
-    const container = document.getElementById("bottomNav");
-    //container.style.scrollBehavior = "smooth";
-    container.addEventListener("wheel", function (e) {
-        if (e.deltaY > 0) {
-        container.scrollLeft += 100;
-        e.preventDefault();
-        }
-        else {
-        container.scrollLeft -= 100;
-        e.preventDefault();
-        }
-    });
 
-    /*https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scroll-using-css*/
+<script>
+    /* Horizontal Scrolling - Enhanced for trackpads and mice */
+    const container = document.getElementById("bottomNav");
+    
+    container.addEventListener("wheel", function (e) {
+        // Check if this is a horizontal scroll attempt (trackpad horizontal swipe)
+        // or a vertical scroll that we should convert to horizontal
+        
+        // If there's horizontal delta, let it scroll naturally (trackpad swipe)
+        if (Math.abs(e.deltaX) > 0) {
+            return; // Let the browser handle it naturally
+        }
+        
+        // If it's a vertical scroll (mouse wheel or trackpad vertical), 
+        // convert it to horizontal only if the shift key is NOT pressed
+        // and only if deltaY is significantly larger than deltaX
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            container.scrollLeft += e.deltaY;
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    /* https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scroll-using-css */
 </script>
