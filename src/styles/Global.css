@@ -76,3 +76,11 @@ body {
     /* Change highlight text color to red */
     color: black;
 }
+
+li{
+    margin-left:25px;
+}
+
+ul{
+    margin-bottom: 10px;
+}

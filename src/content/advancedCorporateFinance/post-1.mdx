@@ -1,169 +1,1020 @@
 ---
 layout: '@layouts/Blog.astro'
-title: In the beginning...
+title: Financial Statement Analysis 
 pubDate: 2026-01-20T00:00:00Z 
 updatedDate: 2026-01-20T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
-slug: lecture-1
+slug: financial-statement-analysis
 ---
 
-# Balance Sheet 
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import Game from '@components/Game.astro';
+import IB from '@components/ImportantBox.astro';
+import Solution from '@components/Solution.astro'; 
+import Latex from '@components/Latex.astro';
+import ImageMd from '@components/ImageMd.astro'; 
+import File from '@components/File.astro';
 
-The most valuable asset in the balance sheet is perishable inventory 
-- Only asset you know when it's going to 0.
-- Its always either book value or 0
+import img1 from '@images/440/bally_deferred_revenue_example.png';
+import img2 from '@images/440/EBITLINE.svg';
+import img3 from '@images/440/netflixEBIT.png';
+ 
+# Index
 
-- Why? When and that the value will go to 0 E.g. Milk 
+<ul>
+    <li><a href = "#bs"> Balance Sheet</a></li>
+    <li><a href = "#is"> Income Statement</a></li>
+    <li><a href = "#cf"> Statement of Cash flows</a></li>
+    <li><a href = "#debt"> How Debt Can be Good</a> </li>
+    <li><a href = "#fa"> Fundamental Analysis (How to measure profitability, efficiency, leverage and liquidity)</a></li>
+</ul>
 
-Missing something (...)
+<File link = "" title ="Practice Exam Based on These Notes">
+</File>
 
+<Game link = "https://gemini.google.com/share/0a6ec05f03e5" title = "Account Drivers Flashcards"/>
 
-# Income Statement 
+# <h1 id="bs"> Balance Sheet </h1>
 
+<RuleBox>
+**Def.** A **balance sheet** is a <Pop t = "It's a snapshot in time because the time period of the data provided is one day (e.g. 12/31/2021.)">snapshot in time</Pop> of the assets, liabilities and equity of a firm. 
+</RuleBox>
 
-Problem: Firm is not profitable. 
+<RuleBox align ="left">
+**Def.** An **asset** is anything that provides future economic benefit.  
+</RuleBox>
 
-1. Can I raise my price? Can we create barriers to entry?  
-2. Can I cut variable costs? (Is it going to make a difference? It depends on ...)  
-3. Can I cut fixed costs/functional costs (in Europe)?  
-4. Can I cut taxes?   
+<RuleBox  align ="left">
+**Def.** A **liability** is any money or service that is owed. 
+</RuleBox>
 
-Things to cover: 
+<ul>
+    <li>The items in a balance sheet can **never** go up in value. </li>
+    <li>The **date** is the most important thing on the balance sheet along with the fact that the **balance sheet should balance** so A = L + E.</li>
+</ul>
 
-inelastic demand (if i raise prices there is no impact on revenue)
+**Note on A = L + E:**
 
-The last thing you want is elastic demand (why??)
+If A = L + E   
+=> E = A - L   
+=> δE = δA - δL  
 
-Fixed costs doesn't require volumes to scale 
+This is an equation that is very intuitive because you can see if you owe litigation fees you're liabilities goes up and that decreases your equity and that's saying that the company is worth less now so what does that say about the stock price of the firm? It's likely to go down. 
 
-# Cash Flow Statement 
+## How the Balance Sheet is Structured 
 
+**1.** The line items in the balance sheet are ordered by decreasing <Pop t = "how quickly a line item can be converted into cash">liquidity.</Pop>
 
-# Slide 5 
+<RuleBox  align ="left">
+**Def.** **Liquidity** measures how quickly and easily an asset can be converted into cash. 
 
+There are two dimensions to liquidity: 
 
-Higher up on Balance sheet - the more liquid the asset 
+**1. Speed:** "How **quickly** I can monetize an asset?"  
+**2. Transaction Cost:** "How **expensive** is it to monetize this asset?"  
 
-The higher the difference in Market value and Liquidation Value the BLANK (higher/lower)? is is on the balance sheet 
+</RuleBox>
 
-Balance sheet items can go down in value never up. 
+<Game link ="https://gemini.google.com/share/c81f18384368" title = "Given two line items which one is higher on the balance sheet?"/>
 
-# Slide 10
+This means that the most liquid assets (cash) are at the top of the balance sheet and the least liquid assets (e.g. <Pop t = "property, plant, and equipment ">PP&E</Pop>) are lower in the balance sheet.
 
-Cash Flow = EBITDA - Capex - Change in Working Capital 
+**2.** The balance sheet is broken down into 2 main sections: assets & liabilities + shareholders equity. 
 
-Financial Statements don't tell us what we need to know 
+Assets are broken down into current assets and long term assets. 
 
-# Questions 
+Liabilities are broken down into long term assets and long term liabilities. 
 
-**1.** How does sitting on an asset cost you?  Weighted Cost of Capital??
+We will now go over what line items or important items belong to each of these sub-categories for assets and liabilities. 
 
+# Current Assets 
 
-The most important thing on the balance sheet is the date. 
+<Game link = "https://gemini.google.com/share/d0fbda495ce0" title = "Current Assets Buckets Game"/>
 
+<RuleBox>
+**Def.** **Current assets** are assets that can be converted into cash or used within one year. 
+</RuleBox>
 
-For stocks... what you're looking for.
+**1. Cash:** is U.S. dollars that is kept in an interest bearing checking account. The most liquid item in the balance sheet.   
 
-1. Delta A will pop
-2. 
+**2. Marketable Securities/Cash Equivalents:** are assets you are able to monetize within 24 hours with almost no risk. (E.g. treasury bills, certificates, notes, bonds- so short-term investments.) Recall, you can sell all of these in the secondary market within 24 hours without them being mature yet.   
 
+<ul>
+    <li>It's where you park money that you don't need now but you know you're going to need in the future.</li>
+    <li>**Tip:** When you see a firm building up marketable securities ask what are they saving up for. They keep parking money there for a reason. Usually an acquisition.</li>
+    <li>**Note:** Some companies keep **Cash Equivalents** and **Marketable Securities** separate (like Microsoft). In that case cash equivalents would be anything that you can monetize within 24 hours with almost no risk that are not short term investments like an <Pop t= "a piece of paper that you can use as an alternative to cash for travel. You can go to other countries and cash out the check."> American Express Traveler's Check,</Pop> Western Union money order, or Bank of America Treasurer Checks. In general, think foreign currencies. </li>
 
-ON Exam
+</ul>
+ 
+**3. Accounts Receivable (AR):** amount of cash that is to be received and has not yet been collected because the sales were made on credit.
 
-Liquidity: 
-1. Speed - how quickly I cann monetize an asset -> (...)
-2. Transaction Cost - How expensive is it to monetize this asset? 
+<ul>
+    <li> It's also an asset that earns nothing- there is no interest on accounts receivable because it's an <Pop t = "I Owe You Money/0 interest loan"> IOU </Pop>- where the customers owe you money but they are not charged any interest. They will just pay you what they owe you. So it's a 0 interest loan. </li>
+    <li> AR is the only thing on the balance sheet driven by sales. </li>
+</ul>
+          
+<IB>
+**Accounts Receivables is driven by sales** Why?
 
+The more the company sells, the more cash they will receive so AR should increase. 
+</IB>
 
-# Euros vs US Dollar  Cash vs Marketable Sequirties 
+**3B. Allowance for Doubtful Receivables:** is an estimate made by management of the amount of accounts receivable that will not be collected. 
 
-Its illegal to use Euros in US 
-You have to sell Euros 
+<ul>
+    <li>**You *usually* won't see this as a line item in the balance sheet:** This is used to calculate *Accounts receivable, net* which is Accounts Receivable - Allowance for Doubtful Receivables. It's what you should receive - what you think you probably won't receive = what you realistically expect to receive (You can see this in Hershey 10k)</li>                       
+  
+    <li>**Allowance for Doubtful Receivables is a percentage of sales:** If you see that this percentage is 5% this year, 10% next year, 15% the following year then something is wrong- they are playing a game with the numbers. They should be stable- the same percent every year.</li>
 
-Cash above in balacne sheet no risk 
-Marketable sequirties next (Foreien Bears risk bc of foreign exchange rate and transaction costs)
+    <li>**What does it mean if the percent is not stable?** It means they could be purposely pumping up the percent to let's say 60% which means they're saying that 60% of their customers are deadbeats. This causes a drop in their net income. Why would they do that? Well, let's say this is a really good year for them so that drop in the net income still won't overshadow how well they did this year. So, on a bad year, where they don't think they will hit their profit targets, they can decrease the percent back to let's say 20% and say, "Oh, look! Our customers are actually paying better than we thought!" This boosts net income making them look like they did good this year but... they didn't do anything to the business. It's just an accounting trick. </li>
+  
+    <li>**Where do they get this percentage?** From historical financial data on how much of AR was not collected as a percentage of sales. They find the average of all those percentages and set that as the percent in which allowance for doubtful receivables grows with respect to sales.</li>
+</ul>
 
+<RuleBox>
+**Def.** When we say a line item is **"Growing as a percentage of another line item"** that is just the finance way of saying that line item is growing proportional to that other line item. 
+</RuleBox>
 
-Cash Account goes up > Use of Funds > Debit   What's in your pocket? Nothing its in the (...) debit bucket 
-Cash Account goes down > Source of Funds > Credit    What's in your pocket? $100
+<IB>
+**Doubtful Receivables is driven by sales** Why?
 
+The more a company sells, the more cash they are to receive, and the more they have to receive- the more they have to loose (to not receive) 
 
-# Slide 29 
+So, an increase in sales => increases AR => increases allowance of doubtful receivables. 
 
-Pecking order theory ... excess cash ...
+The less sales there are => the less there is to receive => the less there is to loose. 
 
+</IB>
 
-Compensating Balance : putting savings up for collateral 
+**4. Inventory:** includes raw materials, work in process, finished goods, and merchandise     
 
-Mortgaage: If you want to borrow against a house : putting up your house for collateral 
+<ul>
+    <li>**Inventory is reported as the lesser of what you paid for it or what it's worth today:** this means that even if a comic book that was acquired in 1920 for $10 and it is is now worth $10m in the market... it will *still* be reported as $10 in the books. Because $10 is the lesser of $10 and $10m. This goes back to the point that no item in the balance sheet can ever go up in value- only down or it stays the same. </li>
 
+</ul>
 
-# Slide 31 Marketabel Secrutiieis (Liquid in 24 hrs )
+**Some things that mess with the value of inventory:** 
 
-Where you park money that you don't need now but you know you're going to need. 
+<ul>
+    <li>**Perishability:** when inventory expires or perishes. Let's say you have 100,000 gallons of milk in your inventory and now it's two months old. The milk is obviously expired. It perished. The thing is we know exactly when the milk was going to perish and what the value of the milk was going to be once it perished. This type of asset is the most volatile because the value of it can go down to zero because of spoilage etc. </li>
+    <li>**Obsolescence:** when inventory that you have that could go out of date or no longer be useful or is not expected to be sold in the future (e.g. DVDs, jean skirts, bathing suits in greenland.) This type of inventory has to be impaired (written down.)</li>
+    <li>**Idiosyncratic Inventory:** when inventory value is affected by a specific issue that is unique to the company (e.g. warehouse fire, specific product defect like shrimp recall, etc.) or when you have inventory thats unique to one customer and if they don't buy it... what are you going to do with it? E.g. Only 4 people that will buy a $30k guitar...what happens if they don't want to buy it because the guitar has initials of a random person who nobody knows of?</li>
 
-If its not an asset that you can't monetize within 24 hours  in  a day with almost no risk it shouldn't be in marketbale securities. It should be considered a long term investment.  
+</ul>
 
-When you see a firm builing up marketable securitites ask what are they saving up for? Usually an aquisition. 
+<IB>
+**Inventory is driven by COGS** Why?
 
-# Slide 32 Accounts Receivable 
+The more the company spends on goods to be sold, the more inventory (goods) there should be. 
 
-On exam : what drives what. 
+</IB>
 
-def: sales that are not collected. ( IOU "I owe you money") 
-0 interest loan  
+**5. Prepaid Expenses:** payments made in advance for goods or services that haven't been fully received/experienced/enjoyed (e.g. insurance, rent, microsoft 365 yearly subscription, adobe yearly subscription)  
 
-Ex. Paying roomatate back $20 on friday that you borowed on tuesday thats an IOU. you pay $20 not $2o + interest. Its a 0 interest loan.  
+<IB>
+**Prepaid Expenses is driven by COGS** Why? 
 
-AR is an asset that earns nothing... 
+Because you're usually paying for things you will use to make goods (like utility bills, rent, etc.) which will also be included as the *cost* of the goods sold. 
+</IB>
+ 
+# Long Term Assets 
 
-Sales drive AR. 
+<RuleBox>
+**Def.** **Long-term assets** are assets that are expected to last or provide value for more than one year.   
+</RuleBox>
 
-AR is the only thing on the balance sheet driven by sales. 
+**1. Property, Plant and Equipment:** land, buildings built on the land, machines that are used to manufacture a product or provide services, respectively.  
 
-# Slide 33 Allowance for Doubtful Receivables
+<IB>
+**PP&E is driven by CAPEX** Why?
 
-Allowance for Doubtful Receivables is a percentage of sales
+</IB>
 
-If you see that they are 5% this year, 10% next year,  15% the following year then something is wrong they are playing a game with the numbers.  
+**Note:** The book value of equipment is not just the price of the equipment. It includes the price of getting that equipment ready for use (e.g. installation costs, shipping, etc.)  
 
-Should be a stable 
+**Note:** "PP&E is the lesser of Book Value or what it is worth today in the market" means " Out of the book value and market value of the PP&E- you have to choose the lesser of the two to represent the value of PP&E"   
+ 
+**E.g** Let's say you buy a machine for $50k and 3 months later a new law is passed banning the machine so now the market values it as a $10k machine. 
 
+Out of the $50k (book value) and the $10k (market value) you have to pick the lesser of the two to represent PP&E. 
 
-We have $1m in inventory but we think 200k wont sell.
+So, PP&E will be recorded as $10k. 
 
-# Slide 34 Inventory 
+What if instead the machine in 3 months is valued at $100k? 
 
-Inventroy is driven by COGS (raw material + labor) not sales. 
+You do nothing! You can never increase the value of anything on the balance sheet only decrease. 
 
-Sales is price and quantitiy. 
+So, PP&E will stay at $50k.
 
-Quantiity drives inventory. 
+**2. Intangibles:** assets that are not physical or don't have a historical price like patents, copyrights, trademarks, licenses, etc.   
 
-What are things that mess with the value of inventory? 
+**Note:** Human Capital is the only asset you don't own. That would be slavery. You rent human capital. It's the most expensive asset to obtain and retain.  
 
-1. Perishability 
+**Note:** Brand Names/Trade Secrets are things you will never see on the balance sheet because there is no historical value *unless* I buy your brand or your trade secret and then it appears on my balance sheet under goodwill *then* it will have a cost.   
+ 
+<IB> 
+**Trademark, Copyright, Franchises are driven by Marketing Expenditures** Why? (Back)
 
-2. Obsolescence (seasons bathing suits brazil etc.)
+    The more marketing you do do for the company => the more people are aware of the company => the more trademarks, copyrights, and franchises there could be.
+</IB>
 
-3. Idiosyncratic Inventory (inventory thats unique to one customer and if she doens't buy it what are you going to do with it? E.g. Only 4 people that will buy that $30k guitar. E.g. Guitar that has inititals of un juan de lo palotes. )
+<IB>
+**Patents are driven by R&D** Why?
 
-E.g. Don't buy a car from a company thats going to go bankrupt. 
+    The more research and development you do, the more patents there are. 
+</IB>
 
+**3. Property held for sale:** property that the company has stopped using and plans to sell within the next year.
 
-# Slide 38 Inventoroy is reported at...
-E.g. Comic worth 10 cents becaues that was the historical price but its worth $10m today. 
+**4. Capitalized Financing Investments:** are costs paid to obtain a loan (like legal costs or bank fees) that are recorded as an asset for the same reason as prepaid expenses...you haven't inccured what the expense was for yet (the loan) so by accural accounting rules, you canno't count it as an expense so it has to be in this 'prepaid' sort of account.  
 
-Impariment - write down inventory debit equity goes down the amount of inventory 
+**5. Long-term financial investments:** assets such as stocks or bonds from other companies that the company intends to hold for more than one year.     
 
-inventory goes down
-equity goes down 
-equity goes up?
+**6. Goodwill:** comes up when one company acquires another for a price in excess of the book value of the company. That excess price is recorded as goodwill. It's like a plug. 
 
-# Slide 39 Prepaid Expenses 
+### Other Items to Note
 
-What drives prepaid? COGS. 
+<Game link = "https://gemini.google.com/share/a3f8db019338" title = "Given an asset, how should we spread the cost of the asset? Depreciation or Amort?"/>
 
+**1. Depreciation:**
 
-On Exams: What drives what??
+Let's say you buy a truck for $50,000 that will help you make money for the next 5 years. 
+
+If you record the full $50,000 as an expense this month, your profit looks bad today but will look really good in the next 4 years because in those 4 years, it looks like you're making money using a free truck. 
+
+What we want, is to match the revenue that the truck is helping to generate to a portion of the cost of the truck. 
+
+We do this with **depreciation.**
+
+<RuleBox>
+**Def.** **Depreciation** is the act of spreading the cost of an PP&E asset over their useful lifetime.  
+</RuleBox>
+
+<IB>
+**Depreciation is driven by CAPEX** Why?
+
+Well what are you depreciating? Usually PP&E and what's a measure of how much PP&E you have? The amount you spend on PP&E which is CAPEX. 
+
+So the more CAPEX you spend the more you will be depreciating. 
+
+So CAPEX drives depreciation. 
+</IB>
+
+**2. Amortization:**
+
+<RuleBox>
+**Def.** **Amortization** is the act of spreading the cost of an <Pop t = "trademarks, copyrights, patents, franchises"> *intangible* asset </Pop> over their useful lifetime (also spreads cost of capital leases and leasehold improvements.) 
+</RuleBox>
+
+# Liabilities 
+
+<RuleBox>
+**Def.** **Liabilities** are existing debts or financial obligations a firm owes that require future sacrifice of assets (like cash) to settle.   
+</RuleBox>
+
+## Current Liabilities 
+
+<RuleBox>
+**Def.** **Current liabilities** are liabilities that are expected to be paid within one year. 
+</RuleBox>
+
+**1. Accounts Payable (AP):** reports how much money you owe. It increases when you buy something on credit and the change is removed when the invoice is paid. 
+
+<IB>
+**Accounts Payable is driven by purchases**
+
+It should be a 1:1 relationship. If purchases go up by 10% then AP should go up by 10%.  Why?  
+
+Because the more that companies purchase, the more they owe because it is the norm for companies to pay on credit rather than cash so they owe money for those purchases. 
+</IB>
+
+**2. Notes Payable:** reports how much money you owe to whoever you have a note with.  
+
+<RuleBox>
+**Def.** A **Note** in finance is a written promise that one entity (the borrower) will pay an amount of money to another entity (the lender) which could be a bank, supplier, etc.    
+</RuleBox>
+
+<ul>
+    <li>Any **credit card debt** goes under Notes Payable.</li>
+    <li>If a company uses their <Pop t = "a really big line of credit">revolver</Pop> that amount used goes under Notes Payable.</li>
+    <li>**What's the difference between notes payable and accounts payable?** Anything in Notes Payable are usually amounts you owe in more than one year while anything in accounts payable are amounts you owe within 30-60 days.</li>
+</ul>
+
+**3. Accrued Liabilities:** (opposite of prepaid expense account.) It is something that you haven't paid for yet but have already enjoyed. 
+
+Some examples of accrued liabilities: 
+
+<ul>
+
+    <li>**Accrued Utility:** you can enjoy the electricity in your warehouse before you have to pay the utility bill at the end of the month.</li>
+
+    <li>**Accrued Wages/Salaries/Payroll:** you can enjoy the amount of hours your employees work before you have to pay them at the end of the month.</li>
+
+    <li>**Accrued Freight Costs:** If raw materials are being shipped to your factory and your supplier hasn't billed you yet, you enjoyed the shipping without paying for it yet. </li>
+ 
+</ul>
+
+<IB>
+
+**Accrued Liabilities is driven by COGS**. Why?
+
+Accrued liabilities are mostly the *cost* of the goods sold (payroll, utility bills, etc.) so payroll for example is a cost of goods sold so COGS drives the need for these accrued liabilities. 
+
+</IB>
+
+**Note: Payroll is the most important liability.** Why? Because if you don't cover that liability then people will leave your company. If people leave, you get a bad reputation, and no one will work for you. 
+
+Who's going to market your product? Sales go down. 
+
+If sales go down, then the whole thing goes down.
+
+**4. Deferred Revenue/Unearned Revenue:** (opposite of accounts receivable) money that you receive before a product or service has been delivered. It's a liability because you haven't earned the revenue yet- you are still liable for providing the goods or services you were paid to do.       
+  
+<ul>
+    <li>**Example:** Corporations can pay Microsoft $10,000 in advance for 12 months of Microsoft 365 Service that starts in 2 years. Microsoft records the $10,000 not as revenue but as deferred revenue because they haven't earned it yet since they haven't provided the service.</li>
+    <li>**How is this different than a commitment?** There is no transaction with a commitment. A commitment is just a promise where Microsoft agrees to provide services in 2 years and the client agrees to pay $10,000 at that time. Since no cash has changed hands yet, Microsoft has no financial liability on the books today. In the previous example, Microsoft *received* cash- that's a transaction and all transactions have to be recorded in the books. </li>
+    <li>**Red Flag:** In subscription companies,revenue is usually always deferred because the companies are receiving money from customers without offering the service yet (like a monthly Netflix subscription) so many disreputable accountants are not going to put that money where it belongs (deferred revenue)- they will just put it all in revenue. This could mislead you. How? Because you might be like "Oh look at Netflix with all this revenue at the end of the year, they can totally spend it all in dividends." If they do, then when it's finally time to let people watch Netflix... they won't be able to because they don't have the money to pay the bills that come with keeping Netflix running.     Using deferred revenue is like borrowing earnings from future years and in those years, you won't have have anything left to operate or offer the service. </li>
+    <li>**Bally Total Fitness Example:** Bally Total Fitness was a gym in the early 2000s that happened to commit a series of accounting frauds including wrongly categorizing what should have been deferred revenue for Bally as... Revenue which then caused net income to be overstated.</li> 
+</ul>
+
+<ImageMd img={img1} alt="Snippet of SEC Complaint Explained" />
+
+<a href = "https://www.sec.gov/files/litigation/complaints/2008/comp20470.pdf"> SEC Complaint Link </a>
+
+# Long Term Liabilities 
+
+<RuleBox>
+**Def.** **Long term liabilities** are liabilities that are expected to be paid in more than one year. 
+</RuleBox>
+
+**Note:** Anytime you hear "lease" it means debt
+
+**1. Financial Leases Liabilities:** reports how much you are obligated to pay for an asset that you are essentially buying through a loan and will eventually own the asset (e.g. 5-year lease on a delivery van where you keep the van at the end.)  
+
+**2. Operating Leases Liabilities:** reports how much you are obligated to pay for an asset that you don't own but are enjoying (e.g. rent for a retail space in a mall for 10 years)
+
+<ul>
+    <li> Before 2019, operating leases were not required to be on the balance sheet so companies were not disclosing millions of dollars that they had in debt.  </li>
+
+</ul>
+
+**3. Long Term Debt:** is debt with a maturity of more than a year that require payments of interests and principal (e.g. notes, bonds, mortgages, loans.)
+
+# Commitments & Contingencies (Future Liabilities)
+
+**1. Commitments:** are non-cancelable obligations to do something in the future (e.g. pay money, provide services, deliver goods, etc.)  
+
+<ul>
+    <li>**How does it appear?** It's not a dollar value. It's a simple disclosure of the liabilities the company *will* (because of a contract) have in the future. </li>
+    <li>**Where does it appear?** In a footnote in the financial statements (almost always 10k; rarely ever 10q). Not as a liability. Why?</li>
+    <li>**Why is this not considered a liability?** Because it's a future liability and under GAAP we don't record future liabilities in the balance sheet. Under GAAP, a liability is only recorded when an exchange of value has actually taken place so if the company hasn't received what they will liable for then...there's no liability so no change in the balance sheet.</li>
+    <li>**In what document do you see these in?** 10ks. You will most likely never see this in a 10q, 10q is not audited so company will not disclose this info. But in 10k you will see it because the auditor wont sign up unless you disclose that. </li>
+    <li>**Pre-2019**(Pre 2019 this would be in operating leases) After 2019 it shows up as contiengeis and commitements as a footnote</li>
+    <li>**Red Flag:** If you see this in the financial statements it's a red flag- it means there is danger and you should look into it because it's something big. </li>
+</ul>
+
+Some examples, 
+
+**E.g.** Today, you enter into a contract with Walmart to buy $50,000 worth of apples in 2 years. What happens to the balance sheet?
+
+<Solution>
+Nothing! You just made a promise you will be liable for those $50,000 in the future. 
+
+You haven't received the apples yet so you owe nothing therefore are liable for nothing.
+
+So, this will just be a footnote in your financial statements.  
+</Solution>
+
+**E.g.** In 2 years, you receive the apples and you pay on credit. What happens to the balance sheet? 
+
+<Solution>
+Well, now that you got the benefit (the apples) you are now liable for the cost of those apples. 
+
+We *now* have a liability. 
+
+Your accounts payable goes up because you now owe Walmart $50,000. 
+
+</Solution>
+
+**2. Contingencies:** are usually potential liabilities from lawsuits. 
+
+Arthur Anderson was the accounting firm that represented ENRON and the reason they don't exist anymore is because the judgement against them by the jury was more than the enterprise value of the firm.  
+
+Until the judge actually hit her dabble on the bench and confirmed how much Arthur Anderson was liable for... Arthur Anderson was not liable for *anything* and so they didn't need to record any liabilities. 
+
+What does this mean for investors back then?
+
+If they just looked at the financial statements, (and also ignored all the news lol) they would have no idea that such a tremendous liability was coming hence it was now a practice for off-balance sheet obligations and contingencies be disclosed in the financial statements. 
+
+With these commitments and contingencies, investors can make more informed decisions by seeing the hidden risks that could potentially bankrupt a company before those risks actually hit the balance sheet.
+
+After all, that's what happened to Arthur Anderson (Enron's Accounting Firm), their financials were doing just fine and suddenly they go bankrupt because the value of the judgement against them was more than what the company was worth.  
+
+Their lawsuit wasn't disclosed anywhere so it would be nice to know if companies are involved in any lawsuits hence the contingencies footnotes. 
+
+And of course, just like commitments, if you see contingencies in the statements- it's a red flag. 
+
+# Equity 
+
+**1. Common Stock:** shares of the company that come with voting rights and dividends at the discretion of management. 
+
+**2. Additional Paid in Capital:** is the additional money that investors pay for a company's stock on top of what it's <Pop t = "nominal value">par value</Pop> during IPO.
+
+**3. Retained Earnings:** the amount of money from operating cash flows retained in the company. 
+
+# <h1 id="is">Income Statement </h1>
+
+<RuleBox>
+**Def.** An <Pop t = "aka statement of operations, earnings statement, or profit and loss statement (P&L)">**income statement**</Pop> is an overview of the revenue and expenses <Pop t = "collected"> incurred </Pop> during a <Pop t = "e.g. 1/1/2021 to 12/31/2021">specific time period.</Pop> It's useful when trying to find out if the firm was profitable or not. It's simply Revenue - Expenses. 
+</RuleBox>
+
+**1. Revenues:** is the first line item in the income statement. 
+
+<ul>
+    <li>Note that most companies who sell products, offer refunds, or <Pop t = "price reductions for damaged goods">allowances,</Pop> are more likely to use **Net Sales** while subscription based companies are more likely to use **Revenues** as their topline in the income statement. </li>
+
+    <li>Also note that it's **net sales** not **gross sales.**</li>
+
+</ul>
+
+<RuleBox align = "left">
+**Def.** **Gross** refers to the total amount before any deductions.  
+</RuleBox>
+
+<RuleBox>
+**Def.** **Net** refers to the remaining amount *after* deductions. (e.g. Think of when you pull a net out of the ocean, the water, sand, and tiny debris fall through the holes. What stays inside the net-the fish-is what remains and frankly what actually matters and is material or useful.)
+</RuleBox>
+
+**1B. Net sales:** what's actually coming home (net of <Pop t = "cash incentive given to customer after purchase like Apple giving $100 gift card after customer purchases $1,200 MacBook.">rebates,</Pop> <Pop t = "discounts"> coupons,</Pop> <Pop t = "refunds">chargebacks</Pop>)
+
+<ul>
+    <li>Net Sales = Gross Sales - <Pop t = "customer sends back products">Sales Returns</Pop> - <Pop t = "price reductions for damaged goods">Allowances</Pop> - Discounts</li>
+    <li> **Pharmaceutical Example:** Drug manufactures make contracts with hospitals to sell a drug (e.g. $100) for a discounted price (e.g. let's say $60) so that the hospital doesn't go buy their competitor's products. Now, a drug manufacture doesn't want to deliver 10 drugs to 5,000 different hospitals. Instead, they rather deliver 50,000 drugs to one wholesaler. So, the wholesaler buys the drugs from the manufacture at the standard price $100. Then, the wholesaler is obligated to sell those drugs to the hospitals for the discounted price $60 but they bought them for $100 so the wholesaler 'charges' the drug manufacture 'back' for the $40 difference in what they bought the drug for and the amount they had to sell it for. Then, the drug manufacture approves and <Pop t = "give a refund">issues a chargeback</Pop> to the wholesaler for the $40 they lost in that sale. This situation means that the drug  manufacturer could have gross sales of $1B (have sold $1B worth of drugs) but have $750 million in chargebacks. This means that they didn't actually sell $750m of those $1B worth of drugs. They had to issue charge backs-refunds-to the wholesalers that bought the drugs at their standard price but had to sell them for lower because of the contracts between the manufacturer and the hospitals. Net sales however will deduct these chargebacks and will be a more representative measure of how much the drug manufacture actually sold.</li>  
+</ul> 
+
+**2. COGS:** is the cost of goods sold. 
+
+<IB>
+**COGS is driven by quantity (if demand is perfectly inelastic...which like never happens) or sales (otherwise)** Why?
+
+Recall: Price x Quantity = Sales 
+
+If demand is perfectly inelastic meaning the demand doesn't change, then companies will produce the same quantity of goods for higher prices. Prices go up => sales go up. So now you have sales spiking but COGS could be staying the same because the cost of *goods* sold stays the same because you are making the same number of *goods*. 
+
+So in that case, sales isn't a good measure of COGS and instead quantity is because that's the only thing that would move COGS at that point.  
+
+Otherwise, we can use sales as a proxy for quantity. 
+
+</IB>
+
+<ul>
+    <li>You should expect the relationship between COGS and sales to be stable. If it's not, where to look? The Footnotes. </li>
+    <li>If relationship doesn't track then thats not always a bad thing...</li>
+    <li>Ex. When COGS explodes with respect to sales that typically means there was an impairment (e.g. you have to write down bananas that go bad.)</li>
+</ul>
+
+Credit Inventory. (Inventory goes down)    
+Debit COGS  (COGS go up)   
+Equity (eventually goes down b/c COGS ↑ => Net Income ↓ => Retained Earnings ↓ => Equity ↓ )  
+
+**3. Gross Profit:** tells you how much you earned after deducting the direct costs. 
+<ul>
+    <li>**Naming:** Some companies (like Apple) call it **Gross Margin** but that's technically incorrect because Gross Margin refers Gross Profit in terms of Revenue.</li>
+    <li>**Formula:** Net Sales - COGS</li>
+    <li>**Used to Measure the Power of a Brand:** One of the ways a brand is powerful is if they can raise their prices without loosing customers. Markup is our ability to raise prices. We know that gross profit is a function of markup. This means that when markup moves up, gross profit goes up (see notes below for why). So, we can use gross profit as a proxy that tells us how powerful a brand is- how effectively the company can raise prices. </li>
+</ul>
+
+<IB>
+**Gross Profit is driven by markup** Why?
+
+Because markup is how much (in %) you add on to the cost of a good to get to the price you sold it at. The higher the markup => the higher the revenue => the higher the profit. 
+</IB>
+
+<hr/>
+
+# Gross Profit Margin vs Markup 
+
+<Game link = "https://gemini.google.com/share/5672dd0895ac" title = "Markup vs. Gross Margin Practice"/>
+
+**Gross Margin (aka Profit Margin)** tells you how much of the revenue you actually kept  (as a percentage)
+<ul>
+<li>Out of the **revenue** how much did you keep?</li>
+<li>Divide by **revenue**</li>
+<li>**Another Interpretation:** For every dollar of revenue you earned, you kept 16 cents as gross profit to cover your operating costs (SG&A).</li>
+</ul>
+
+<RuleBox>
+
+<Latex formula='GM = \dfrac{\text{Revenue - Costs}}{\text{Revenue}}'/>
+
+</RuleBox>
+
+<RuleBox>
+
+<Latex formula='GM = \dfrac{\text{Net Income}}{\text{Revenue}}'/>
+
+</RuleBox>
+
+**Markup** tells you how much you added on top of the cost to arrive at your selling price. 
+
+<ul>
+<li>Out of the **cost** how much did you add on?</li>
+<li> Divide by **cost**</li>
+</ul>
+
+<RuleBox>
+
+<Latex formula='M = \dfrac{\text{Revenue - Costs}}{\text{Cost}}'/>
+
+</RuleBox>
+<RuleBox>
+
+<Latex formula='M = \dfrac{\text{Net Income}}{\text{Cost}}'/>
+
+</RuleBox> 
+
+**Fact:** You can get 100%+ markup (Markup just means increasing the selling price and you can do that to the extent that you want.) but realistically we cannot get 100% gross margin. 
+
+100% Gross margin means you kept 100% of the revenue which is unrealistic because that means your costs were 0 and costs are never 0. 
+
+# <h1 id="here"> 4 Ways You Can Increase Your Profit Margin (Gross Margin)</h1>
+
+Before anything, the first thing you have to get straight is that profit is not the same thing as cashflow. 
+
+<ul>
+    <li>You can make $100m profit but have $100m in accounts receivable. You sold the good but you never collected. We care about cash-what is coming home to us. </li>
+</ul>
+
+However, if a firm is not profitable enough there are 4 questions you can ask yourself: 
+
+**1. Can I raise my price?** Can I blur the price value/relationship so no one competes on us with price or steal our customers? Can we create barriers to entry?            
+
+**2. Can I cut my variable costs?** Variable costs requires volume to scale. Pick something that turns over a lot (nails, napkins, screws) things that you are using *millions* of. If you can save a penny, you can save millions of dollars a year. 
+
+<ul>
+    <li>Recall that variable costs is labor + materials. You can cut down on the cost of materials but not the cost of labor. You can't pay people less... because if you do they tend to leave.</li>
+</ul>
+
+**3. Can I cut <Pop t = "aka functional costs in Europe">fixed costs?</Pop>** 
+
+**4. Can I cut taxes?**  back (Mustang vs Tesla example) ($5m made the deal of company that made no money)
+
+<hr/>
+
+**4. Operating Expenses (SG&A):** Selling, General and Administrative Expenses are all considered costs of *operating* the business. These expenses are what gross profit has to cover.  
+
+<ul>
+    <li>These are also known as functional costs in Europe</li>
+    <li>Not all SG&A are fixed costs (e.g. travel expenses, office supplies) </li>
+</ul>
+
+**A. Selling:** commissions to sales people    
+**B. General:** rent, office supplies, utilities   
+**C. Administrative:** salaries, insurance  
+**D. R&D and Brand Marketing Expenditures:** research and development 
+
+<IB>
+**Sales are driven by selling**
+</IB>
+
+**5. Interest Expense** 
+
+**6. Other Income (Expenses):** anything put here is non-operating or non-recurring income or expenses like restructuring costs, legal settlements, etc. 
+
+**7. Net Income (Net Earnings):** how much you have earned (revenues) net of COGS, operating expenses, and interest. It's the bottom line of the income statement. 
+
+<ul>
+    <li>Shareholders own net income.</li>
+    <li>**What can you do with net income?** You can (a) use it to distribute dividends to the shareholders, (b) buy back shares of the company if the stock is underpriced, (c) do nothing and keep/retain the money in the company as retained earnings</li>
+</ul>
+
+# <h1 id="cf">Statement of Cash Flows</h1>
+
+Earnings is fine but again, we care about what's coming home at the end of the day- that's cash. 
+
+<h1 style = "color:red; font-size:100px;">Cash is King</h1>
+
+What does this mean? It's not about having cash its about having *access* to cash. 
+
+To see how much cash you have access to we look at the **statement of cashflows** 
+
+<RuleBox>
+**Def.** A **Statement of Cash Flows** is cash accounting. It is a record of the sources and uses of cash (funds) during an accounting period. 
+</RuleBox> 
+
+## First: Use vs Source of Funds
+
+<RuleBox>
+**Def.** The **DUCS** (pronounced "Ducks") acronym helps you remember that **D**ebit is a **U**se of funds and **C**redit is a **S**ource of funds. 
+</RuleBox> 
+
+<Game link = "https://gemini.google.com/share/256c46b56aa1" title = "Is this a source or use of funds?"/>
+
+It's more important to look at the source of funds. 
+
+Because if a firm's majority source of funds is a bank... then that's a red flag because what will be their source of funds next year? More money from the bank? Do you think they will be able to keep getting money from the bank?
+
+What if the bank says no... then how will get funds then?! 
+
+Now, that's a problem you have to solve. 
+
+**Q:** Under what condition do sources of funds not equal uses of funds?  
+
+**A:** NO CONDITION. NEVER. 
+
+## How the Statement of Cash Flows is Structured 
+
+At the end of the day we want to know how much cash we have at the end of the year. 
+
+To do this we need to add all the cash we made *this* year to how much we had in the beginning of the year. 
+
+For that, we need to know where to look for cash (funds) comes from? 
+
+## Three Sources of Funds (OIF)
+
+We get cash from three sources: operations, investments, and financing activities.  
+
+Now, we don't only get cash in these categories, we also spend it there.
+
+So, for each of these categories we have to make sure to find the Net Cash Flow. 
+
+<RuleBox>
+**Def.** **Net Cash Flow** tells you how much cash you have net of the uses of the cash.
+
+*Net Cash Flow = Cash In (Sources) - Cash Out (Uses)*
+
+</RuleBox>
+
+To do that, we have to be able to recognize what are sources of cash and uses of cash within each category:
+
+**1. Operations** 
+
+<ul>
+  <li>**Source(+)** cash collected from customers </li>
+  <li>**Use(-)** cash paid for inventory, wages, and utilities</li>
+</ul>
+
+**2. Investments** 
+
+<ul>
+  <li>**Source(+)** investment income, selling assets </li>
+  <li>**Use(-)** buying new machinery, building warehouses, or acquiring a startup</li>
+</ul>
+
+**3. Financing**
+
+<ul>
+  <li>**Source(+)** any cash raised from borrowing money (debt) or issuing stock (equity)</li>
+  <li>**Use(-)** any cash used to pay back the principal of a loan (paying creditors) or paying out dividends (paying shareholders)</li>
+</ul>
+
+Now, we already did most of the work when we determined what our Net Income was since Net Income represents our earnings. 
+
+So, the topline of the statement of cash flows is actually **Net Income.**
+
+But recall that Net Income was constructed under many accounting rules that don't involve cash. 
+
+For example, 
+
+<ul>
+  <li>You didn't actually loose any cash from a machine depreciating, so we add that cash back.</li>
+  <li>You didn't actually receive any cash when you made a sale where someone paid you on credit and you put that in accounts receivable so we should 'uncount' that cash.</li>
+  <li>You didn't actually lose any cash when your employees earned their wages this week (Accrued Expenses); since you recorded the expense but haven't cut the checks yet, we add that cash back.</li>
+  <li>You didn't actually spend any cash when you bought supplies on credit (Accounts Payable); since that expense lowered your profit on paper but kept the cash in your pocket, we add that cash back.</li>
+</ul>
+
+So, we start with Net Income and then within each category we undo any sources or uses of funds that actually didn't actually move a physical dollar in or out of your bank account.
+
+Then, we add the Net Cash Provided by Operating Activities + Net Cash Provided by Investing Activities + Net Cash Provided by Financing Activities
+
+We then add that sum to how much cash we had at the beginning of the year and, voila, we get the cash we made this year. 
+
+<hr/>
+
+## CAPEX 
+
+<RuleBox>
+**Def.** **Capital Expenditures (CAPEX):** are investments in acquiring or upgrading new assets like buildings, machines and equipment (PP&E).  
+
+There are two types of CAPEX: 
+
+**1. Maintenance CAPEX:** how much is spent on upgrading assets (e.g. replacing a factory machine)   
+**2. Expansion CAPEX:** how much is spent on buying/making new assets (e.g. building a new factory.) This is the one that breaks the bank because it could be $10m etc.    
+
+</RuleBox>
+
+<ul>
+    <li>**Which companies don't have CAPEX?** Service Companies, online magazines, subscription companies, software companies, .coms, AI companies unless they own hardware, etc. </li>
+    <li>**Where do you find CAPEX in the financial statements?** back</li>
+</ul>
+
+
+<IB>
+
+**Maintenance CAPEX is driven by COGS** Why?
+
+The whole point of maintenance CAPEX is to spend money on repairing or upgrading PP&E and the whole point of PP&E is to make goods. 
+
+And those goods have a cost. 
+
+So if you see COGS going up, you're likely to see maintenance CAPEX going up. 
+
+Because the more stuff you make => the more equipment/machines you break or use up => the more of those machines you have to maintain or replace. 
+
+</IB> 
+
+<IB>
+
+**Expansion CAPEX is driven by Capacity** Why? back
+
+</IB> 
+
+
+<hr/>
+
+# <h1  id="fa" >Fundamental Analysis </h1> 
+
+We want to be able to measure the following attributes of a firm: 
+
+**1. Profitability:** Are we making money?     
+**2. Efficiency:** Are we using our "stuff" well?     
+**3. Leverage:** Are we using too much debt?        
+**4. Liquidity:** Do we have enough cash for tomorrow?  
+
+**1. Profitability** can be measured by return on equity (ROE) and <Pop t = "gross margin">profit margin</Pop>
+
+<RuleBox>
+
+**Def.** The **Return on Equity (ROE)** tells you how much profit the company generates for $1 of your own money that you put into the business. 
+
+<Latex formula='ROE = \dfrac{\text{Net Income}}{\text{Shareholders Equity}}'/>
+
+In short, ROE = (NI/E)
+</RuleBox>
+
+Recall when we went over 4 ways to increase the profitability of a firm <a href = "#here"> here</a>- if we we are saying that we can use ROE to measure profitability then increasing ROE is a way to increase the profitability of the firm. 
+
+Now, the cool thing is that we can break down the ROE formula further by using the DuPont Equation. 
+
+<RuleBox>
+
+**Def.** The **DuPont Equation** deconstructs ROE into 3 components (Profit Margin (PM), <Pop t = "A ratio that measures how effectively a company uses its assets to generate revenue"> Total Asset Turnover (TATA),</Pop> and Equity Multiplier (EM))
+
+<Latex formula='ROE (\dfrac{\text{NI}}{\text{E}}) = \text{PM} \ \text{x} \ \text{TATA} \ \text{x} \ \text{EM}'/>
+
+You now have 3 levers you can play with to increase profitability. 
+
+<Latex formula='ROE (\dfrac{\text{NI}}{\text{E}}) = \dfrac{\text{NI}}{\text{S}} \ \text{x} \ \dfrac{\text{S}}{\text{TA}} \ \text{x} \ \dfrac{\text{TA}}{\text{E}}'/>
+
+Note that if you cross out the Ss and the TAs you end up with NI/E which is ROE. 
+</RuleBox>
+
+So, if our goal is to increase profitability => we can increase ROE => increase PM, TATA, and EM.
+
+We already know four ways to increase Profit Margin (PM): 
+
+<ul>
+    <li>Increase price</li>
+    <li>Cut variable costs</li>
+    <li>Cut fixed costs</li>
+    <li>Cut taxes</li>
+</ul>
+
+But how can we increase Total Asset Turnover (TATA)? 
+
+We basically try to get any asset to turn over into cash as soon as possible or get rid of anything that doesn't generate sales.  
+
+<ul>
+
+<li>Collect receivables (an asset) early</li>
+<li>Clear out obsolete products</li>
+<li><Pop t = "Get rid of/or turn into COGS"> Turnover</Pop> your inventory faster</li>
+<li><Pop t = "Get rid of"> Turnover</Pop> your prepaid expenses faster</li>
+<li><Pop t = "Get rid of"> Turnover</Pop> your PP&E faster</li>
+<li><Pop t = "Get rid of"> Turnover</Pop> fixed assets faster</li>
+
+</ul>
+
+How do we increase the equity multiplier (EM)?
+
+**Note:** In Europe, they use ROC (they call it "ROW-C".)
+
+<ul>
+    <li>**What does ROC stand for?** Return on Capital Employeed </li>
+    <li>**How to calculate ROC?** Return on Net assets</li>
+    <li>**What are net assets?** Whatever asset that you need capital to finance it. </li>
+</ul>
+
+**2. Efficiency** can be measured by Asset Turnover, Days Sales Outstanding, Inventory Turnover. 
+
+<ul> 
+ <li>**Asset Turnover:** tells you how efficiently a company uses it's assets to generate revenue.</li>
+ <li>**Days Payable Outstanding(aka Average Collection Period):** tells you the average number of days a company takes to pay it's suppliers and vendors. These should be <Pop t = "same">flat</Pop> over time. If they are not, that's a red flag. Why? If the number of days they are taking to pay their bills is not stable that may signal a lack of funds to pay them or the relationship between them and the supplier is strained. </li>
+ <li>**Inventory Turnover:** tells you how efficiently a company uses it's inventory </li>
+back b/c "Days Payable Outstanding" =  How many days does it take for me to get paid by my customers?  
+</ul>
+
+**3. Leverage** can be measured by the leverage ratio  
+
+<RuleBox>
+
+**Def.** The **Leverage Ratio** tells you how much a company relies on debt to finance it's assets and operations.  
+
+<Latex formula='\dfrac{\text{FIRST LIEN DEBT}}{\text{EBITDA}}'/>
+
+or 
+
+<Latex formula='\dfrac{\text{TOTAL DEBT}}{\text{EBITDA}}'/>
+
+</RuleBox>
+
+<hr/>
+
+# <h1 id="debt"> Quick Lesson on Why Debt Can be Good</h1>
+
+## Lottery Ticket Example
+ 
+
+## Buying a House Example 
+
+
+<hr/>
+
+**4. Liquidity** can be measured by current ratio, quick ratio and ... a better measurement. 
+
+<RuleBox>
+**Def.** **Liquidity** tells you if a firm has access to cash.
+</RuleBox>
+
+**A. Current Ratio** 
+
+<RuleBox>
+
+<Latex formula='Current Ratio = \dfrac{\text{Current Assets}}{\text{Current Liabilities}}'/>
+
+</RuleBox>
+ 
+In words, current ratio deals with, 
+
+**Current Assets:** anything that will turn into cash within a year   
+
+**Current Liabilities:** anything that will go out of the firm within a year   
+
+What's the problem with that?
+
+Well, if current assets are twice as much as current liabilities you're good. 
+
+Because that means that you will have twice as much stuff becoming cash than stuff going out. 
+
+But what if the current ratio is 20?
+
+That's good right?
+
+That means you have 20 times more stuff that will turn into cash than the stuff coming out of the firm.  
+
+But what if all of the assets mature in 11 months and you're liabilities are due next week?
+
+Are you liquid?
+
+No! 
+
+Why? Because you will only have 20 times more stuff that will turn into cash *within* 11 months.
+
+But you need that cash next week! You're not liquid. You're dead!
+
+So the problem with the current ratio is that it doesn't give you any indication that the firm can actually cover it's short term liabilities.  
+
+So what is a better liquidity measure?
+
+**B. A better liquidity measure**  
+
+Look at the firms balance sheet and ask this question, "If I need money in a hurry, what can I monetize within 3 months?"
+
+What about the 50 barbie dolls, the 100 rare comic books or the 50 rare pokemon cards that you have in inventory?  
+
+Can I monetize those?
+
+Yes! 
+
+Compare those assets with the liabilities due in 3 months. 
+
+That way the timeline is matched. 
+
+You can replace 3 months, 6 months, 9 months, 12 months, etc as long as they match. 
+
+**Q:** True or False: The Current Ratio is a good measure of liquidity  
+<Solution>
+**A:** FALSE 
+</Solution>
+
+**C. Quick Ratio:** used when the quality of inventory is concerning. (It's a bad measure of liquidity for the same reasons the current ratio is.)   
+
+<RuleBox>
+
+<Latex formula='Current Ratio = \dfrac{\text{Current Assets - Inventory}}{\text{Current Liabilities}}'/>
+
+</RuleBox>
+
+# Financial Metrics 
+
+**1. Net Working Capital:** is a measure of how liquid a company is. It tells you the <Pop t = "realistic total"> net</Pop> <Pop t = "money">capital</Pop> you have to work with after covering your liabilities. Really, it tells you if you have enough to cover your short-term liabilities. 
+
+<IB>
+Net working capital increases in proportion with sales. 
+</IB>
+ 
+**2. EBITDA:** is earnings before interest, taxes, depreciation and amortization   
+
+<RuleBox>
+<Latex formula="\text{EBITDA} = \text{Sales(Net Sales)} \\\\ - \text{Cash COGS (COGS without depreciation) } \\\\ - \text{Cash Overhead}" />
+
+or 
+
+<Latex formula="\text{EBITDA} = \text{Net Income} + \text{I} + \text{T} + \text{D} + \text{A}" />
+
+or
+
+<Latex formula="\text{EBITDA} = \text{EBIT} + \text{D} + \text{A}" />
+
+or 
+
+EBITDA = anything that is non cash and non recurring.
+
+</RuleBox>
+
+<ul>
+    <li>It's not a line item on any financial statement - its something you calculate </li>
+    <li>**Why measure EBITDA in the first place?** In <Pop t = "the acquiring of a company by an investor using a significant amount of leverage (debt) to cover the purchase price.">Leveraged Buyouts(LBOs),</Pop> banks would use EBITDA to determine how much debt is too much debt. </li>
+    <li> **It's an excellent measure of cash flows** when a firm has no CAPEX or working capital. E.g. Service Companies, Subscription Companies, online magazines etc. Why? See the rulebox below. </li>
+    <li> **It is a bad measure of cash flows** when the firm has CAPEX or working capital because it would then overstate the cash flows. Ex. manufacturing companies, boeing </li>
+</ul>
+
+<RuleBox>
+<Latex formula="\text{Cash Flows} = \text{EBITDA} \\\\ - \text{CAPEX (use of funds)} \\\\ - \text{Working Capital (use of funds)}" />
+</RuleBox>
+
+**Some things to watch out for:**
+
+<ul>
+    <li>Accountants often times include depreciation in COGS on the Income Statement. So if you don't see depreciation on the income statement it doesn't mean a firm doesn't have depreciation.</li>
+    <li>They also include amortization in SG&A so just because you don't see amort on the income statement doesn't mean there isn't any. </li>
+    <li>**Where can you find depreciation and amort of a firm then?** In the statement of cash flows.</li>
+</ul>
+
+**3. EBIT (aka operating income)** is earnings before interest and taxes. 
+
+If you take a look at an income statement, revenue is the top line and net income is the bottom line. 
+
+In between, we have *THE* line which we call EBIT also known as Operating Income. 
+
+Anything put above EBIT/Operating Income are operating expenses or income and anything below EBIT are *non*-operating expenses or income. 
+
+<ImageMd img={img2} alt="EBIT in the Income Statement" />
+ 
+<ImageMd img={img3} alt="Netflix Income Statement" />
+
+This is important to know because disreputable accountants will add non-recurring income (like legal settlements) as revenue which increases EBITDA which therefore increases the value of the company.  
+
+Now, let's make sure you can classify what goes above or below the line:
+
+<Game link = "https://gemini.google.com/share/da2099927fe8" title = "Above or Below EBIT Classification Game"/>
+
+<hr/>
+
+# Misc 
+
+## Net Present Value (NPV) 
+
+<RuleBox>
+**Def.** **NPV** is the extent to which something is underpriced/cheap. By how much? By the amount of NPV. 
+
+NPV = Present Value of the inflows (what project is worth(- Present Value of the outflows (what project costs) 
+
+If what project is worth is more than what it costs then it's cheap! It's underpriced. So accept the project. 
+
+If what project is worth is less than what it costs then the project is not worth it! It's overpriced. Don't accept it. 
+
+</RuleBox>
+
+Now, what do we do if project is overpriced? 
+
+Do we reject the project and walk away?
+
+Well, that's what we learned in Financial Management. 
+
+But in the real world, we don't just walk away. You can do two things:
+
+**1. Lower the costs**     
+**2. Reduce the risk**  
+
+and make it happen for your team. 
+
+
+
+
+
+
+
+
