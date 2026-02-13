@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Forwards, Futures, Options and Swaps 
+title: Overview of Forwards, Futures, Options and Swaps 
 pubDate: 2026-01-20T00:00:00Z 
 updatedDate: 2026-01-20T00:00:00Z 
 draft: true
@@ -8,36 +8,84 @@ author: Sarai Marte
 slug: derivatives 
 ---
 
-# Forwards 
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import Game from '@components/Game.astro';
+import IB from '@components/ImportantBox.astro';
+import Solution from '@components/Solution.astro'; 
+import Latex from '@components/Latex.astro';
+import ImageMd from '@components/ImageMd.astro'; 
+import File from '@components/File.astro';
 
-use if youre not flexible
-# Futures
+# What is a Derivative?
 
-**1.** Started with farmers agriculture... i thought that was forwards  
-**2.** dont have cost margin doesnt count 
+<RuleBox align = "left">
+**Def.** A **derivative** is a <Pop t = "like stocks, bonds, currency, commodities, real estate "> financial instrument</Pop> that derives it's value from something else. 
 
-**3.** Use if youre flexible 
-# Options 
+We call that 'something else' an underlying asset or 'the underlying.' 
 
-Have a cost 
+These underlying assets can be  <Pop t = "raw materials like oil, gas, gold, wheat, corn, soybeans"> commodities</Pop>, stocks, bonds, currency, or real estate. 
 
-# Swaps 
+</RuleBox>
 
-# No Arb Principle (Arb Principle)
+Some examples:
 
-from an academic sense even if arb exists its going to be exploited away so its not even going to be considered in 
+<ul>
+    <li>A **stock derivative** is a derivative who's value is derived from a **stock**.</li>
+    <li>A **bond derivative** is a derivative who's value is derived from a **bond**.</li>
+    <li>A **commodity derivative** is a derivative who's value is derived from a **commodity**.</li>
+</ul>
+
+# Types of Derivatives 
+
+<RuleBox>
+**Def.** A **derivative,** physically, is just a <Pop t = "just a piece of paper">contract</Pop> between a buyer and a seller.
+</RuleBox>
+
+We have different types of contracts:
+
+**1. Forward Contract:**  is a private contract agreement between two parties to buy and sell an asset at a specific price.    
+**2. Futures Contract:**  is a forward contract but standardized, public, has guardrails, and is traded on an exchange.     
+**3. Options Contract:**  is an agreement between two parties that give the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price within a specified timeframe.   
+**4. Swaps Contract:**  
 
 
+guardrails have subject to clearing and market requirements  version of a forward 
 
-# Manipulation 1:22:33 
-Market Squeezes recent squeeze in silver market last 6 months on exam 
-Be able to identify what the manipulation is and how they play the manipulation. 
+# Where are Derivatives Traded?
+
+<RuleBox>
+**Def.** An **exchange** is an organization that **provides a place for trading** financial instruments.  
+
+It also sets the rules and procedures for how those financial instruments are traded. 
+</RuleBox>
+
+<RuleBox>
+**Def.** We say that a deal is done **Over the Counter (OTC)** if it is a private deal between two parties. 
+</RuleBox>
+
+In summary,
+
+<ul>
+    <li>**Exchange:** Public Market/Public Deal</li>
+    <li>**OTC:** Private Market/Private Deal</li>
+</ul>
+
+If you trade stocks, then you can trade in the New York Stock Exchange (NYSE).
+ 
+If you trade derivatives, you can trade either 
 
 
-signal: when price of physical silver is the same as derivative 3 month delivery this is signal for a market squeeze. 
+In the same way we have stock exchanges- we have derivative exchanges... where we can trade derivatives. 
 
-This has happened in the silver, copper market, etc. 
+But unlike a stock exchange where you can trade all stocks, there are only two derivatives that are traded in exchanges and those are futures and options. 
 
-Movie:Trading Places 
+Futures are the only derivatives that are exclusively traded in exchanges because options can be traded in exchanges and OTC. 
 
-regulation can cause price to move 
+
+There are two main derivative exchanges:
+
+**1. Chicago Mercantile Exchange (CME):** where you can trade derivatives...  
+**2. Intercontinental Exchange (ICE):** where you can trade derivatives ....  
+
+
