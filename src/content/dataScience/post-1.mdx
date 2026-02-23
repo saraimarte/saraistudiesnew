@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Data Manipulation with Pandas 
+title: Data Analysis with Pandas 
 pubDate: 2026-01-22T00:00:00Z 
 updatedDate: 2026-01-22T00:00:00Z 
 draft: true
@@ -8,9 +8,109 @@ author: Sarai Marte
 slug: data-manipulatation-with-pandas
 ---
 
+import Code from '@components/Code.astro';
+import File from '@components/File.astro';
+import RuleBox from '@components/Rule.astro';
+
+
+
+# Appending Data Frames slide 16
+# What is Pandas 
+
+Pandas is a data analysis library in Python. 
+
+It allows you to store data in it's data structures. 
+
+Each data structure has attributes and methods you can use to clean, explore and analyze data. 
+
+It also allows you to work with data files you already have like excel, csv, json, html, xml, txt, files etc. 
+
 # Key Data Structures
-# Creating data frames
-# Data frame operations
-# Indexing data frames
-# GroupBy operation
-# Memory optimization
+
+There are two main data structures in pandas: (a) DataFrame and (b) Series.
+
+## Creating data frames
+
+<Code lang="python" fileName = "FileName.ipynb" code={
+`import pandas as pd 
+
+df = pd.DataFrame(
+    {
+        "name": ['sarai', 'elena', 'mike'], 
+        "math": [83,94,76],
+        "reading": [80, 100,40]
+    }
+)
+
+df`}/>
+
+## Creating Series 
+
+<Code lang="python" fileName = "FileName.ipynb" code={
+`import pandas as pd 
+
+s = pd.Series(["sarai", "elena", "mike"])
+s`}/>
+
+
+# Reading in data frames 
+
+Most of the time, you are working with a dataset someone gave you- not making your own dataset so how do we read in excel files, csv files, etc?
+
+<File link = "" title = "student_data.csv"></File>
+<File link = "" title = "student_data_excel.xlsx"></File>
+
+<Code lang="python" fileName = "FileName.ipynb" code={
+`pd.read_csv("student_data.csv")`}/>
+
+<Code lang="python" fileName = "FileName.ipynb" code={
+`pd.read_excel("student_data_excel.xlsx")`}/>
+
+
+# Basic DataFrame Methods and Attributes 
+
+<File link = "" title = "data.csv"></File>
+
+<br/>
+<br/>
+
+# Indexing DataFrames 
+
+<File link = "" title = "data.csv"></File>
+
+<RuleBox align = "left">
+**Def.** **Indexing** is the process of selecting data by it's position.
+</RuleBox>
+
+# Bonus: Aggregation Methods
+
+# Filtering 
+
+<File link = "" title = "data.csv"></File>
+
+<RuleBox align = "left">
+**Def.** **Filtering** is the process of selecting data based on specific conditions.
+</RuleBox>
+
+# Sorting
+
+<File link = "" title = "data.csv"></File>
+
+# GroupBy 
+
+# Merging 
+
+<File link = "" title = "left.csv"></File>
+
+<File link = "" title = "right.csv"></File>
+
+
+# Dealing with Null Values 
+
+<File link = "" title = "dataNull.csv"></File>
+
+# .apply()
+
+<RuleBox align = "left">
+**Def.** **.apply()** is used to apply a function to all the rows in a column. 
+</RuleBox>
