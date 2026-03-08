@@ -3,12 +3,67 @@ layout: '@layouts/Blog.astro'
 title: Data Collection
 pubDate: 2026-01-22T00:00:00Z 
 updatedDate: 2026-01-22T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
-slug: data-collection
+slug: data-collection-2.2
 ---
 
+import Code from '@components/Code.astro';
+import RuleBox from '@components/Rule.astro';
+
 # How to collect data?
+
+**1.Types of Data to Collect:** You can gather data via surveys, web scraping, social media analysis, weather/traffic monitoring, experimentation, observational studies, interviews, and online datasets.
+
+**2. Sources & Acquisition:** Data can be sourced from government sites (like data.gov), database queries, instrument feeds, APIs, or direct scraping.
+
 # Common data formats
-# Regular expressions
+
+**1. CSV Files:** Comma-separated values (CSV) files are files where the data is *literally* separated by commas (or any other delimiter like |, -, etc. so not *just* commas.) Every new line in the file is a new row of data. 
+
+**2. JSON Files:** JavaScript Object Notation (JSON) is a file format that uses a hierarchical structure of key-value pairs to represent data. It is commonly used for APIs and web applications.    
+
+**3. HTML/XML:** Hypertext Markup Language (HTML) and Extensible Markup Language (XML) are used for structuring and presenting data on the web. They can be parsed to extract relevant information.  
+
+<Code lang = "html" fileName = "code.html" code = {
+`<h1> Heading 1 </h1>
+<p> This is a paragraph. </p>`}/>
+
+## Flat vs. Hierarchical Data Formats
+
+When you look closely at how these formats store information, they generally fall into two categories: flat or hierarchical.
+
+CSV files are flat. They organize information in a strict, two-dimensional grid of rows and columns, exactly like a standard spreadsheet.
+
+In contrast, JSON and HTML/XML both use a hierarchical structure.
+
+A hierarchical structure means the data is organized in nested layers—branching out like a tree. Instead of being forced into a rigid row, one piece of information acts as a parent container that can hold multiple child pieces of information inside it.
+
+For example, imagine a website containing an online course. In JSON, the very top of the tree (the root) is a dictionary representing the course itself. Inside that dictionary is a list of modules. Inside that list, each module is its own dictionary, containing another list of videos:  
+
+<Code lang = "json" fileName = "cs111.json" code = {`{
+    "collection name": "CS111",
+    "author name": "Rutgers University",
+    "modules": [
+        {
+        "module name": "1. Introduction",
+        "videos": [
+            {
+            "video type": "youtube",
+            "title": "Lesson 1 Introduction"
+            },
+            {
+            "video type": "youtube",
+            "title": "Lesson 2 What is Pseudo Code?"
+            }
+        ]
+        }
+    ]
+}`}/>
+
 # Scraping data
+
+<ul>
+    <li> **Data in CSV files:** If the data is stored in a CSV file, you can use libraries like pandas in Python to read and manipulate the data. For example, you can use  `pd.read_csv('file.csv')` to load the data into a DataFrame.</li>
+    <li> **Data from Websites (HTML/XML):** You can use libraries like BeautifulSoup in Python to parse HTML or XML files.</li>
+</ul>

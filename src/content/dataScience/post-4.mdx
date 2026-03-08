@@ -1,10 +1,129 @@
 ---
 layout: '@layouts/Blog.astro'
-title: topic2
+title: Exploratory Data Analysis
 pubDate: 2026-02-03T00:00:00Z 
 updatedDate: 2026-02-03T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
-slug: topic2
+slug: exploratory-data-analysis-4.1
 ---
-given table write code to find certain data before gorupby 
+
+import Game from '@components/Game.astro';
+
+
+# Types of Data 
+
+<Game link = "https://gemini.google.com/share/3a490b93c8ec" title = "Types of Data"/>
+
+
+There are two types of data: (a) categorical and (b) numerical.
+
+You can break down each of the two categories further:
+
+
+**1. Nominal:** **Categorical** data that you can't order. 
+
+<ul>
+    <li>Political Party Affiliation: (Democrat, Republican, Other)</li>
+    <li>Sex: (male, female, other)</li>
+    <li>Computer Operating System: (Windows, MacOS, Linux)</li>
+    <li>Blood Type: (A, B, AB, O)</li>
+    <li>Car Brands: (Toyota, Ford, BMW)</li>
+</ul>
+
+**2. Ordinal:** **Categorical** data that you can **order.**    
+
+
+<ul>
+    <li>T-Shirt Size: (small, medium, large)</li>
+    <li>Final Course Letter Grade: (A, B, C, D, F)</li>
+    <li>Movie Ratings: (1, 2, 3, 4, 5)</li>
+    <li>Level of Education: (High School, College, Graduate)</li>
+</ul>
+
+
+**3. Interval:** **Numerical** data that **can be negative** and where it's **0 doesn't mean 0 of whatever you're measuring** (e.g. If you're measuring temperature in celsius and have a reading of 0°C, that doesn't mean there is an absolute absence of what you're measuring which is temperature.) 
+
+<ul>
+    <li>Temperature in Fahrenheit: (-2°, -1°, 0°, 1°, 2°)</li>
+    <li>Years: (1990, 2010, 2024)</li>
+    <li>Acceleration: (-10 m/s², 0 m/s², 10 m/s²)</li>
+    <li>Velocity: (-10 m/s, 0 m/s, 10 m/s)</li>
+
+
+</ul>
+
+
+**4. Ratio:**  **Numerical** data that that can't be negative and where it's **0 actually *does* means 0 of whatever you're measuring** (e.g. If you're measuring salaries and have $0, it means there is a complete absence of whatever your'e measuring which is salary.)
+
+<ul>
+    <li>Temperature in Kelvin: (0K, 260K, 310K)</li>
+    <li>Height: (5'5", 5'11", 6'2")</li>
+    <li>Length: (4 in, 10 in, 5 in)</li>
+    <li>Weight: (120 lbs, 165 lbs, 210 lbs)</li>
+    <li>Home Prices: ($250,000, $500,000, $1,000,000)</li>
+</ul>
+
+Difference between Interval and Ratio?
+
+The key is that 0 is just a position on a scale (interval), not a total absence of the thing (like Ratio.)
+
+
+# Properties of Data
+
+<Game link = "https://gemini.google.com/share/dde1a0d115ea" title = "Properties of Data Applet"/>
+
+**1. Structure:**  is the data wide (more columns than rows) or long (more rows than columns)?  
+**2. Granularity:** how detailed (granular) is the data?  
+**3. Scope:** how in(complete) is this data?  
+**4. Temporality:** when was the data collected, and what time period does it cover?  
+**5. Faithfulness:** how well can you trust this data?    
+
+
+# Basic Data Visualization 
+
+<Game link = "https://gemini.google.com/share/3b8148afaa86" title = "Identify Graphs Applet"/>
+
+<table style="width: 100%; border-collapse: collapse; background-color: #f4f7f9; font-family: sans-serif; color: #333;">
+  <thead>
+    <tr>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Chart Type</th>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Matplotlib Method</th>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Seaborn Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Scatter Plot</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.scatter()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.scatterplot()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Line Plot</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.plot()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.lineplot()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Histogram</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.hist()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.histplot()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Box Plot</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.boxplot()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.boxplot()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">KDE Plot</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">None (Requires manual computation)</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.kdeplot()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Bar Plot</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.bar()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">.barplot()</td>
+    </tr>
+  </tbody>
+</table>
+
+

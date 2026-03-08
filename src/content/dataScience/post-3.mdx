@@ -3,10 +3,185 @@ layout: '@layouts/Blog.astro'
 title: Working With Text Data
 pubDate: 2026-01-22T00:00:00Z 
 updatedDate: 2026-01-22T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
-slug: working-with-text-data
+slug: working-with-text-data-3.1
 ---
 
+import RuleBox from '@components/Rule.astro';
+import Game from '@components/Game.astro';
+import File from '@components/File.astro';
 
-# Regex 
+# Extracting Text Using String Functions 
+
+<File link = "https://rutgersconnect-my.sharepoint.com/:u:/g/personal/smm651_scarletmail_rutgers_edu/IQDBvmYQbFGNQbneW7omwHCPAVyltikqlvTTUwO1IrYsSH8?e=Ft5Tn2" title ="String Methods Practice Workbook (.ipynb)"></File>
+
+<table style="width: 100%; border-collapse: collapse; background-color: #f4f7f9; font-family: sans-serif; color: #333;">
+  <thead>
+    <tr>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Method</th>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold; width: 30%;">str[x:y]</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Slices <code>str</code>, returning indices x (inclusive) to y (exclusive).</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">str.lower()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Returns a copy of a string with all letters converted to lowercase.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">str.replace(a, b)</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Replaces all instances of the substring <code>a</code> in <code>str</code> with the substring <code>b</code>.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">str.split(a)</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Returns substrings of <code>str</code> split at a substring <code>a</code>.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">str.strip()</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Removes leading and trailing whitespace from <code>str</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+# Extracting Text Using Regex 
+
+<RuleBox align = "left">
+**Def.** **Regular Expressions** are used to describe patterns within a text. 
+</RuleBox>
+
+<File link = "https://rutgersconnect-my.sharepoint.com/:u:/g/personal/smm651_scarletmail_rutgers_edu/IQBfsEslOUYSSogycTVkeV2hAaMcgHWB0ttXDhWUXEQVW2I?e=heAcEX" title ="Regex Practice Workbook (.ipynb)"></File>
+
+<Game link = "https://gemini.google.com/share/77a9d38e22a3" title = "Regex Symbols Quiz"/>
+
+<Game link = "https://gemini.google.com/share/a1e89d497e4b" title = "Regex Quiz"/>
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 600px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 15%;">Symbol</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 45%;">Description</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 40%;">Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">a</td>
+  <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Matches the specific character "a" exactly as it appears.</td>
+  <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>a</code> matches <code>apple</code> or <code>banana</code>.</td>
+</tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">\d</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Any digit 0&ndash;9</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&lbrace;3&rbrace;</code> matches <code>732</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">\w</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Any word character (letters, digits, _)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\w&#43;</code> matches <code>hello_2</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">\s</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Any whitespace (space, tab, newline)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\s&#43;</code> matches <code>&nbsp;&nbsp;&nbsp;</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&#43;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">One or more of the previous</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&#43;</code> matches <code>42</code> or <code>9</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&#42;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Zero or more of the previous</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&#42;</code> matches <code>""</code> or <code>99</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&#63;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Zero or one (optional)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&#63;</code> matches <code>""</code> or <code>5</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">|</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Or</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>cat|dog</code> matches <code>cat</code> or <code>dog</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&lbrace;n&rbrace;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Exactly n repetitions</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&lbrace;4&rbrace;</code> matches <code>2024</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&lbrace;m,n&rbrace;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Between m and n repetitions</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>\d&lbrace;2,4&rbrace;</code> matches <code>12</code> or <code>1234</code></td>
+      </tr>
+         <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&#91; &#93;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Character Class: Matches any <b>single</b> character inside the brackets.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>&#91;aeiou&#93;</code> matches any vowel (a, e, i or u.)</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">&#40; &#41;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Capture Group: Groups multiple tokens together and remembers the match for later use.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>&#40;abc&#41;&#43;</code> matches <code>abcabc</code>.</td>
+      </tr>
+         <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold;">(:?)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Non-Capture Group: Groups multiple tokens together and does *NOT* remember the match for later use.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>&#40;:?abc&#41;&#43;</code> matches <code>abcabc</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ul>
+  <li>**Note on /:** In front of special characters the backslash escapes them so they become literal (looses their special meaning): `\`. means a real dot, `\$` means a real dollar sign. But in front of letters the backslash converts them into special characters: `\d` (means any digit), `\w` (means any word character), `\s` (means any whitespace character). So the same symbol either removes special meaning or adds it depending on what follows.</li>
+  <li>**Note on ^:** Inside brackets, as the first symbol, means NOT so [^abc] means any character except/NOT a, b, or c </li>
+  <li>**Note on -:** is a symbol that only has special meaning inside brackets. It means 'through' so [a-z] means ["a through z"] </li>
+  <li>**Note on []:** All special characters (like \s, \d, etc.) lose their meaning inside brackets except ^, -, \, and ]. </li>
+  <li>**Note on Groups () vs (:?):** Capture groups allow you to deconstruct a text into groups that you can work with. You will see the use of this when you get to `re.search()`. You use non-capture groups (:?) when you want to group tokens together but don't want to remember those tokens together later and just use it as a tool. </li>
+</ul>
+
+
+## Regex Functions
+
+Once we are comfortable describing patterns with regex, we can pass these patterns into Python's `re` functions to search, extract, replace, or split text based on those patterns.  
+
+<table style="width: 100%; border-collapse: collapse; background-color: #f4f7f9; font-family: sans-serif; color: #333;">
+  <thead>
+    <tr>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Purpose</th>
+      <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left;">Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; width: 60%;">Check if a pattern exists anywhere in the text</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; color: #000;">re.search()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Return every substring that matches the pattern</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; color: #000;">re.findall()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Replace every matching substring with something else</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; color: #000;">re.sub()</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Split the text at every point where the pattern matches</td>
+      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; color: #000;">re.split()</td>
+    </tr>
+  </tbody>
+</table>
+
+# NLP Basics 
+
+[soon]
+
+# NLTK 
+
+[soon]
