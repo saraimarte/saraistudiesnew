@@ -9,6 +9,7 @@ slug: PCA-and-SVD-6.2
 ---
 
 import RuleBox from '@components/Rule.astro';   
+import File from '@components/File.astro';
 
 <RuleBox>
 **Def.** **Dimensionality Reduction** is the process of reducing the number of variables and features in a dataset without loosing essential information (e.g. image compression.)  
@@ -16,11 +17,13 @@ import RuleBox from '@components/Rule.astro';
 
 <iframe src="https://www.youtube.com/embed/twlzriOG0tI?si=oHpDzLgU8U7i5FC5&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# PCA 
+# Principal Component Analysis (PCA) 
 
 <RuleBox>
 **Def.** **Principle Component Analysis (PCA)** is a dimensionality reduction technique that simplifies complex datasets while retaining as much variability (information) as possible.
 </RuleBox>
+
+<File link = "https://rutgersconnect-my.sharepoint.com/:b:/g/personal/smm651_scarletmail_rutgers_edu/IQBgzL8oaQRyQrgMKixW56YTAbxPBdFDxUjHbBrW44dcnC4?e=7pFror" title ="Practice PCA Questions Worksheet + Answers"></File>
 
 <iframe src="https://www.youtube.com/embed/0VYQSCQijh4?si=WlEEy0aSxIx8lYD8&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -31,4 +34,5 @@ There are two main ways (there's also the sequential algorithm) you can implemen
 **1. Singular Value Decomposition (SVD):** decomposes a matrix into three distinct matricies U, Σ, V<sup>T</sup>, where the column vectors in V (or rows in V<sup>T</sup>) are the principal components of the data.   
 
 **2. Eigen Decomposition of the Covariance Matrix:** involves finding the covariance matrix C of the data and then decomposing that matrix into three distinct matricies W, λ , W<sup>-1</sup>,  where the columns in W are the principal vector components. 
+
 
