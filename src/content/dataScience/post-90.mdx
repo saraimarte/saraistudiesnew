@@ -1,8 +1,8 @@
 ---
 layout: '@layouts/Blog.astro'
 title: Techniques to Simplify Complex Datasets 
-pubDate: 2026-02-03T00:00:00Z 
-updatedDate: 2026-02-03T00:00:00Z 
+pubDate: 2026-03-08T00:00:00Z 
+updatedDate: 2026-03-08T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: PCA-and-SVD-6.2
@@ -14,15 +14,19 @@ import RuleBox from '@components/Rule.astro';
 **Def.** **Dimensionality Reduction** is the process of reducing the number of variables and features in a dataset without loosing essential information (e.g. image compression.)  
 </RuleBox>
 
+<iframe src="https://www.youtube.com/embed/twlzriOG0tI?si=oHpDzLgU8U7i5FC5&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 # PCA 
 
 <RuleBox>
 **Def.** **Principle Component Analysis (PCA)** is a dimensionality reduction technique that simplifies complex datasets while retaining as much variability (information) as possible.
 </RuleBox>
 
+<iframe src="https://www.youtube.com/embed/0VYQSCQijh4?si=WlEEy0aSxIx8lYD8&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 # PCA Implementation Methods
 
-There are two ways (we cover in this class) you can implement PCA: 
+There are two main ways (there's also the sequential algorithm) you can implement PCA: 
 
 **1. Singular Value Decomposition (SVD):** decomposes a matrix into three distinct matricies U, Σ, V<sup>T</sup>, where the column vectors in V (or rows in V<sup>T</sup>) are the principal components of the data.   
 
