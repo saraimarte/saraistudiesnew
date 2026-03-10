@@ -1,9 +1,9 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Clarkson and Lumber Case
-pubDate: 2026-01-20T00:00:00Z 
-updatedDate: 2026-01-20T00:00:00Z 
-draft: true
+title: Clarkson and Lumber Case [Not Done]
+pubDate: 2026-03-09T00:00:00Z 
+updatedDate: 2026-03-09T00:00:00Z 
+draft: false
 author: Sarai Marte
 slug: clarkson-and-lumber-case-draft
 ---
@@ -14,59 +14,157 @@ import Game from '@components/Game.astro';
 import IB from '@components/ImportantBox.astro';
 import Solution from '@components/Solution.astro'; 
 import Latex from '@components/Latex.astro';
- 
-<h1 style = "color:red">Profitability ≠ Liquidity</h1>
+import Note from '@components/Notes.astro';
 
+# About Clarkson Lumber 
 
-**Description of the Company:** Clarkson Lumber is a rapidly growing lumber yard that experiences seasonal sales demand that peaks heavily during the summer months  
-
-**Problem:** Growth => can't afford assets to support that growth   
-
-**Clarkson's Solution:** Take a 2% discount for early payment to suppliers => that takes away $400,000 in AP that he could use for free financing  
-
-**Actual Solution:** Do a pro-forma forecast that shows taking that 2
-
-Mr. Clarkson is experiencing rapid, unsustainable sales growth- he is hitting the gas on the revenue line.  
+<h1 style = "color:red">ⓘ Moral of the case: Profitability ≠ Liquidity</h1>
 
 <ul>
-  <li><strong>Lack of internal funds:</strong> Because his profit margins are basically zero, his profits cannot fund the massive amount of new assets required to support his sales growth.</li>
-  <li><strong>The costly discount:</strong> To make matters worse, he decides to take a 2% early payment discount from his suppliers. While this saves him about $68,000 a year, it forces him to pay his bills in 10 days instead of 40 days.</li>
-  <li><strong>The financing gap:</strong> Paying suppliers 30 days earlier wipes out almost $400,000 in "free" financing from accounts payable. Because he is a private company and cannot simply issue equity, something else has to go up to fill that gap: Bank debt.</li>
+  <li>**Company Description:** Clarkson Lumber was a <Pop t = "Business to Consumer (B to C) aka they sold to regular people and not businesses" >retail</Pop> lumber yard that experienced seasonal sales demand that peaked heavily during the summer months.</li>
+
+  <li>**Sales Growth:** Clarkson Lumber was rapidly growing in sales about 25% per year and expected growth to keep going at that rate.</li>
+
+  <li>**Location Advantage (1):** The lumber yard was located in Oregon during a time when there was a massive movement of people fleeing California due to high taxes and high real estate prices. Since Oregon's real estate was cheaper, there was a steady influx of people moving in and building homes and where would they buy the materials they needed? From Clarkson. These macroeconomic factors were incredibly favorable, putting Mr. Clarkson in the absolute right place at the right time to capture a naturally booming demand for lumber.</li>
+
+  <li>**Location Advantage (2):** The lumberyard was right at the railroad tracks which means that they were saving on supply chain costs because the trains would just stop at Clarkson Lumber, unload the lumber and Clarkson would take it in. They didn't need to pay trucks to bring them the lumber.</li>
+
+  <li>**Lower Price Advantage:** Because they saved on supply chain costs, they were able to keep prices lower than normal. This meant that they were solely competing on lowest price.</li>
 </ul>
 
-Clarkson is currently asking the bank for $750,000 upfront. 
+# Analysis of Clarkson at the Industry and Firm Level
 
-If he guesses wrong and takes too little, he will inevitably have to go crawling back to the bank to say, "Yeah, I need more money." 
+## A. Industry Level: Porter's Five Forces Analysis 
 
-This puts Clarkson in a terrible position because the bank will have all the power to squeeze him.  
+<Note>
+You only have to know what the Porter's Five Forces are for the exam- not what Clarkson's are specifically. 
+</Note>
 
-# The Solution: Pro Forma Forecasting
-
-<ul>
-  <li>To ensure he doesn't have to go back and ask for more money, we need to figure out exactly how much money Clarkson actually needs before going to the bank.</li>
-  <li>To do this, you have to build a "pro forma" forecast.</li>
-  <li>This involves setting up the balance sheet and calculating the required external financing—which acts as a "plug" variable, or X, in the notes payable/revolver account.</li>
-</ul>
+When you are going into a consulting interview, before answering any questions on a firm, what you want to go in opening with is that firm's place within the industry and a tool you can use to do so is Porter's Five Forces: 
 
 <RuleBox>
-
-**Def.** **Pro-Forma** means adjusting for change so doing a **Pro-Forma Forecast** means you are making a specific change to the business and updating your financial expectations to reflect that change.   
-
+**Def.** **Porter's Five Forces** are 5 factors that describe the nature of competition at the industry level. They are:
 </RuleBox>
 
-In the Clarkson Lumber case, the pro forma adjustment is the decision to take the early payment discount. Instead of letting accounts payable grow naturally driven by purchases, you force a change by locking it in at 10 days of payables.
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+<table style="width: 100%; min-width: 700px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+<thead>
+<tr style="background-color: #edf2f7;">
+<th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 25%;">Force</th>
+<th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 25%;">General Definition</th>
+<th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 50%;">Clarkson Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">1. Threat of New Entry</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Ease of new companies entering to compete.</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><b>High:</b> No barriers to entry; competitors like Home Depot can easily move in, especially with Clarkson's 25% annual revenue growth.</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">2. Competitive Rivalry</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Intensity of competition among existing firms.</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><b>Very High:</b> Competition is primarily driven by price.</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">3. Threat of Substitutes</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Ease of customers switching to different types of products.</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Not enough information.</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">4. Bargaining Power of Customers</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Buyer power to negotiate prices and terms.</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><b>High:</b> Price-based competition gives buyers many choices.</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">5. Bargaining Power of Suppliers</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Supplier power to negotiate prices and terms.</td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Not enough information.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-# The 5 Steps of Pro Forma Forecasting
-
-<ul>
-  <li><strong>Forecast the Income Statement:</strong> You always start a financial model by forecasting the income statement. You do this to calculate your projected retained earnings (Net Income).</li>
-  <li><strong>Calculate Next Period's Equity (E):</strong> Next period's equity is equal to last period's equity plus those new retained earnings. Once you have this calculation, you know E.</li>
-  <li><strong>Forecast Assets (A):</strong> Next, you forecast your assets as a percentage of sales. Once you do this, you know A.</li>
-  <li><strong>Forecast Liabilities (L):</strong> Then, you forecast all of the liabilities except for the revolving line of credit (the notes payable). You leave the notes payable as an X because you do not know what it is yet. At this point, you know all of your assets, all of your equity, and all of your liabilities except for X.</li>
-  <li><strong>Solve for Bank Debt (X):</strong> Finally, you use the fundamental accounting equation by setting assets equal to liabilities plus equity. You then solve the algebra equation for X to find the exact amount of bank debt needed.</li>
-</ul>
+**Conclusion:** At the industry level, we are very concerned for the reasons stated above. 
 
 
-epxlain why again even though cogs is not a percent of sales we calcualte 2022 coggs as a percent of sales how does that help us 
 
-# Sources and Uses 
+## B. Firm Level: SWOT Analysis
+
+<RuleBox>
+**Def.** **SWOT Analysis** is a strategic planning framework used to evaluate a company's competitive position and environment. It assesses 4 key elements: Strengths, Weaknesses, Opportunities, and Threats.
+</RuleBox>
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 1000px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: fixed;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; width: 150px; vertical-align: top;">Category</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Point 1</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Point 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Strengths</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>Location Advantage:</strong> This lumberyard was right at the railroad tracks which means that they were saving on supply chain costs because the trains would just stop at Clarkson Lumber, unload the lumber and Clarkson would take it in. They didn&rsquo;t need to pay trucks to bring them the lumber from the train.
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>Tenured Leadership &amp; Key Man Risk:</strong> The owner has been there for a long time and there is a &#35;2 right hand man that can do everything that Mr.Clarkson does. Does this &#35;2 drive the revenues? If yes, then this is not a strength- it&rsquo;s a massive weakness. You need to make sure the customers are loyal to the business and not key people because if &#35;2 guy leaves &hellip; your customers leave with him.
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Weaknesses</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>No Barriers to Entry &#40;No Sustainable Comparative Advantage&#41;:</strong> while Clarkson has a comparative advantage &#40;the railroad location&#41;, it is not a sustainable one. There are no barriers to entry so you have to ask the question &ldquo;what is the likelihood that a big dog will move in and steal all your customers?&rdquo; For Clarkson, with 25% growth every year, it is likely that a big dog like Home Depot would come in and take all their customers.
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>A Weak Financial Condition &#40;Over-Leveraged&#41;:</strong> they are operating with a 73% leverage ratio &#40;debt to asset ratio&#41; which means that 73% of their total assets are financed by creditors. To put it another way, for every dollar in assets the company holds, 73 cents is owed to lenders.
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Opportunities</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>Shifting to High-Margin &amp; Slower Turning Inventory:</strong> Mr. Clarkson &#40;the owner&#41; realized he couldn&rsquo;t compete purely on price with commodity items &#40;like standard 2x4 boards&#41;, so he started stocking differentiated, higher-margin products &#40;like bronze faucets and specialty doorknobs&#41;. We should note that there is a huge tradeoff- these specialty items sit on the shelves much longer. Slower-turning inventory means Assets &#40;A&#41; go up, which means Liabilities &#40;L &amp; E&#41; must go up to finance it. This &lsquo;opportunity&rsquo; is actively worsening his leverage ratio.
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Threats</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+          <strong>Revenue Vacuum:</strong> If Home Depot wants to come in and take over Clarkson then they do something called a Revenue Vacuum.
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<RuleBox>
+**Def.** **Revenue Vacuum** is a predatory market event where a large, well-capitalized competitor (like Home Depot) enters a new area and temporarily slashes their prices. This strategy simultaneously sucks up all current demand and incentivizes customers to accelerate their future purchases to take advantage of the discount, thereby starving local competitors of cash flow for months and driving them out of business.
+</RuleBox>
+
+If Home Depot does perform a revenue vacuum on Clarkson then it's even worse for them because Clarkson competes only on lowest price and if they are no longer the lowest cost producer then they are ... nothing. Gone. 
+
+**How do you survive a revenue vacuum?** 
+
+A: Keep expenses low. Ofcourse Clarkson could have to pay monthly bills, overhead, or leases but if they have to pay interest on top of that (which they do with their 73% leverage ratio) - the speed at which they are going to decline and die will accelerate tremendously.
+
+If they want to survive that, **they need equity.** They need to raise money to get rid of the debt. 
+
+**But... who's going to fund them?** 
+
+There are no barriers to entry and they are only competing on low prices- who in their right mind would invest in this company? 
+
+**No one!** So it's too late for Clarkson to raise equity.
+
+**Now, again, why is he so desperate for equity in the first place?** 
+
+**To get rid of debt.** 
+
+**Why do they have so much debt?** How did they get there?
+
+How did they get to a 73% leverage ratio?
