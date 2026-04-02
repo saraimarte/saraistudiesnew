@@ -1,9 +1,9 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Leasing
+title: Leases 
 pubDate: 2026-01-20T00:00:00Z 
 updatedDate: 2026-01-20T00:00:00Z 
-draft: true
+draft: false
 author: Sarai Marte
 slug: lease 
 ---
@@ -16,19 +16,104 @@ import Solution from '@components/Solution.astro';
 import Latex from '@components/Latex.astro';
 
  
-<RuleBox>
-**Def.** A **lease** is a contract granting the right to use an <Pop t = "like a car, home, equipment">asset</Pop> owned by someone else for a set period of time.    
+# Terminology 
+<RuleBox align = "left">
 
-Isn't that just rent? 
+**Def 0.** A **lease** is an extended rental agreement on an  <Pop t = "like a car, home, apartment, equipment">asset</Pop>
 
-Yes, but it's renting for a long time. 
+**Def 1.** A **lease** is a contract granting the right to use an <Pop t = "like a car, home, equipment">asset</Pop> owned by someone else for a set period of time.    
 
-Hence, we say a lease is an extended rental agreement. 
 
-We call the **o**wner of the equipment the **less**o**r** and the user of the equipment  the **lessee.**
+We call the **o**wner of the asset the less**o**r and the user of the equipment  the **lessee.**
+
 </RuleBox>
 
-Op bc it came with operator 
+E.g. If you are leasing your apartment then you're the lessee and your landlord is the lessor. 
+
+
+# Two Kinds of Leases 
+
+There are two types of leases: (a) operating  and (b) financial leases (also known as capital leases.)  
+
+A note on financial leases: before 2019, they were called capital leases and post-2019 they were called financial leases. 
+
+
+**1. Operating Lease:** short-term lease that can typically be canceled. 
+
+<ul>
+    <li>**The Name Lore:** Back in the day, if you were to rent a <Pop t = "machine used to cut, shape, or pierce materials">punch press,</Pop> the operator of the punch press would come with it so you would literally have someone from the company you borrowed the punch press from working and operating the punch press in your company. Hence, why they are called operating leases because they would *come with* the operators.</li>
+    <li>E.g. If you were to rent a chainsaw, they wouldn't let you use the chainsaw because it's dangerous so they would send someone to operate the chainsaw for you. </li>
+    <li>**Lease Payments:** lease payment amounts were always less than the cost of the asset (b/c if what you're paying to rent the asset is more than the cost of the asset itself then you might have as well just bought the asset.)</li>
+    <li>**What happens when the lease is up?**  As the lessee, you return the asset back to the lessor</li> 
+    <li>**Who maintains the asset?** the lessor e.g. if you lease the apartment- the lessor, your landlord, is responsible for maintaining it so if your sink breaks, they are responsible for fixing it.</li>
+    <li>**Cancelable?** Yes. E.g. If you rent a car, you can give it back anytime.</li>
+    <li>**Accounting:** They have never been <Pop t = "recorded"> advertized </Pop> on the balance sheet until 2019. This allowed firms to hide billions of dollars of financial liabilities on their books. The only time you would see it would be as a footnotes under commitments or under SG&A footnotes in the income statement until ASC 842 in 2019 (more on that later).</li>
+
+</ul>
+
+**2. Financial/Capital Lease:** long-term leases that typically cannot be canceled.
+
+<ul>
+    <li>**Fully Amortized:** As you make lease payments the value of the asset goes down. </li>
+    <li>**Who maintains the asset?** the lessee</li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+</ul>
+
+# How to Account for Financial and Operating Leases 11:21 
+
+After <Pop t = "Accounting Standard Code" >ASC</Pop> 842, all leases are reported on the balance sheet, meaning operating leases will now have to be advertized.  
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 600px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Lease Type</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Asset</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Liability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Financial/Capital Lease</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Capital Lease</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Capital Lease</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Operating Lease</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Right of Use (ROU)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Operating Lease</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+# How to Price Leases
+
+**1. Take PV of lease payments**  = book value of the lease 
+
+lease has principal and interest 
+and lease payment will be part principal and interest 
+
+All leases are capitalized what does that mean
+
+Capitalizing of operaring lease
+
+loan amount, 
+paymnet, 
+interest 
+principal 
+
+idnetical to amortization of a loan 
+
+
+residual value 
+
+
+
 
 T/F With an operating lease you dont have any responsibility to maintain the ssset TRUE
 
