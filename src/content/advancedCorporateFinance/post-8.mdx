@@ -1,12 +1,370 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Valuation 
-pubDate: 2026-04-01T00:00:00Z 
-updatedDate: 2026-04-01T00:00:00Z 
-draft: true
+title: Valuation (Draft/Not Edited)
+pubDate: 2026-04-12T00:00:00Z 
+updatedDate: 2026-04-13T00:00:00Z  
+draft: false
 author: Sarai Marte
 slug: valuation 
---- 
+---
 
-# DCF 
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import DropDown from '@components/DropDown.astro';
+import Note from '@components/Notes.astro';
+import IB from '@components/ImportantBox.astro';
+import Latex from '@components/Latex.astro';
 
+
+# Intro 
+
+The skill we need to learn in this lesson is how to value a firm's equity.
+
+First, let's go over the definition of equity. 
+
+<RuleBox align = "left"> 
+**Def.** **Equity** is the remaining dollar value of a firm that belongs to the owners (shareholders) after all liabilities and debts have been paid in full.  
+</RuleBox>
+
+## Why would we want to value a firm's equity?
+
+**1. We can use it to avoid bad stock investments** by determining if the stock is under or over valued in comparison to what we got as equity. 
+
+**2. We can use it to make acquisition decisions** because there is a formula (we will learn later) that calculates how much you need to buy a firm and that formula includes equity.
+
+**3. We can use it to price new shares in an IPO** because if there is no price the market deems the shares worth then the starting point is what the company thinks the shares are worth which is equity.  
+
+There are two main approaches we will cover to value equity: (a) Income/Discounted Cash Flows (Income) Approach and the (b) Market/Comps Approach. 
+
+First, we will cover the income approach to value equity which consists of two approaches in itself: (a) the direct approach and (b) the indirect approach. 
+
+<hr/>
+
+# A. The Income Approach 
+
+The idea of the income approach is to value equity based on income (cash flows) that will be received, in the future. 
+
+Now, if the income being measured is dividends then we call that using the direct approach. 
+
+If the income being measured is unlevered free cash flow then we call that using the indirect approach.  
+
+# 1 | Direct Approach
+
+The idea of this approach is to value the equity of a firm based on how much the cash flows the equity holders will be paid are worth *today*.
+
+What cash flows do equity holders receive?
+ 
+<Pop t = "cash the firm has leftover, that they decide to pay to shareholders">Dividends</Pop> and <Pop t = "profit you gain when you sell an asset for a higher price than what you paid for it.">capital gains.</Pop> 
+
+However, we can ignore capital gains as cash flows because of assumption 1 (see below.)
+
+<DropDown title = "DCF Assumptions">
+
+In the DCF approach we assume, 
+
+**1. that shareholders will buy a stock and hold it forever** (because of this assumption we don't have to worry about capital gains as cash flows to equity holders because there will never be a profit made if the shareholder doesn't sell the stock!)
+
+**2. that eventually the firm's dividends will start growing at a constant rate** (if we don't make this assumption then we would be stuck forecasting dividends every year until infinity (b/c of assumption 1) so we would have an infinite stream of future dividends which is mathematically impossible to computer so we have to assume that at some point the dividends will grow at a constant rate and that will allow us to convert those infinite stream of dividends into one formula we can solve.)
+
+**3. that managers will find an optimal dividend policy and act optimally by adhering to that policy** (we make this assumption because it's nearly impossible to find the <Pop t = "the optimal amount of dividends to pay and when"> optimal dividend policy</Pop> and there is no way to force managers to pay those dividends as per the policy.)   
+
+**4. that the firm's dividends will be paid at the end of the year**
+</DropDown>
+
+Overall there are two elements of DCF: (a) the cash flow and (b) discount rate used. 
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Cash Flow Type</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">What You're Valuing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Dividends (Direct Method)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Equity Value</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Unlevered Free Cash Flow (Indirect Method)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Enterprise Value</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+As for the discount rate we will be using WACC. We will later go into the components of WACC. 
+
+There are two situations we can encounter when doing DCF: (a) we have a firm where dividends grow at a constant rate or (b) we have a firm where dividends grow at a non-constant rate. 
+
+## Example 1 | Constant Dividend Growth Rate 
+
+## Example 2 | Non-Constant Dividend Growth Rate 
+
+# How do we get WACC 
+
+Cash that goes to capital providers / Rate of Return that Goes to Capital Providers 
+that is wacc 
+
+<RuleBox>
+**Def.** The **Weighted Average Cost of Capital (WACC)** is is the minimum annual percentage return a company must generate on its investments to <Pop t = "aka keep the lenders and shareholders happy"> satisfy the required returns of its lenders and shareholders.</Pop>  
+
+<Latex formula={`WACC = (1 - t)k_d \\left( \\frac{D}{V} \\right) + k_e \\left( \\frac{E}{V} \\right)`} />
+
+**k<sub>d</sub>:** cost of debt     
+**k<sub>e</sub>:** cost of equity   
+**(D/V):** weight of debt (tells you the % of the firm that is funded by debt)  
+**(E/V):** weight of equity (tells you the % of the firm that is funded by equity)  
+**D:** debt   
+**E:** equity  
+**V:** debt + equity   
+**t:** tax rate   
+</RuleBox>
+
+[insert table soon]
+
+## When to Use WACC 
+
+Well, you don't want to use WACC if the market is tanking. 
+
+The market needs to be stable in order to use WACC.  
+
+
+# 2 | Indirect Approach
+
+In order to do the indirect approach we need to know two things:
+
+**1.** The definition of enterprise value    
+**2.** Two ways to find enterprise value 
+
+<RuleBox align = "left"> 
+**Def.** **Enterprise Value** is how much you need to buy a firm. 
+
+Specifically, it's the sum of all financial claims against the firm (because you're not just buying the firm, you are buying their obligations as well like the debt they owe, and the common and preferred stock that represent the ownership interests you must buyout to have 100% control over the firm’s future cash flows.)
+
+Note that if the firm has excess cash when you buy it, you can use that cash to cover the debt and PS costs so it takes away from the <Pop t = "Enterprise Value">cost of buying a firm.</Pop> So we have, 
+
+**Enterprise Value = Equity (Common Stock) + Preferred Stock + Debt - Excess Cash**
+
+</RuleBox>
+
+Note that the Enterprise Value formula has equity as a term so if we solve the equation for equity we get: 
+
+**Equity (Common Stock) = Enterprise Value - Preferred Stock - Debt + Excess Cash**
+
+Now, if we can find what Enterprise Value, Preferred Stock, Debt and Excess Cash are- we can get a value for equity! 
+
+This is called the indirect approach to calculating equity. 
+
+But in order to get equity in this formula we need to know what enterprise value is so we need to know another way to find enterprise value:
+
+Recall that enterprise value is the sum of all the financial claims against the firm which we can represent by keeping track of the amount that is available for these <Pop t = "aka capital providers"> people who have financial claims against the firm.</Pop>
+
+This value is called Free Cash Flow to the Firm (FCFF) or Unlevered Free Cash Flow (ULFCF.)
+
+## Why are we using Unlevered Free Cash Flow to the Firm?
+
+If you want to value anything, you have to look at the cash it will put into the owner's (or whoever benefits from the asset) pocket. For example, 
+
+<ul>
+<li>If you want to value a bond, you look at the interest payments it will generate for the owner (bond holder).</li>
+
+<li>If you want to value a stock, you look at the dividends it will generate for the owner (stock holder)  </li>
+
+<li>If you want to value the enterprise, you look at the **cash it will generate for the <Pop t = "all the capital providers">owner + beneficiaries</Pop>** (b/c debt holders are not owners but they do benefit from all the cash generated to pay them.)</li>
+
+</ul>
+
+We call this "**cash the firm will generate for the <Pop t = "all the capital providers">owner + beneficiaries</Pop>**", unlevered free cash flows or free cash flows to the firm. 
+
+<RuleBox align = "left"> 
+**Def.** **Unlevered Free Cash Flows (UFCF)** is the cash left over after the company has already kept what it needs to operate so it's the cash leftover for all <Pop t = "people who give money to the firm (equity holders & debt holders)"> capital providers</Pop> (the people the firm has financial obligations to.)
+</RuleBox>
+
+
+<DropDown title = "If Unlevered Free Cash Flow belongs to all capital providers but isn't always fully distributed to them, why do we value the firm based on its capacity to pay (UFCF) rather than just the cash it actually pays out?">
+</DropDown>
+
+
+## How to calculate Unlevered Free Cash Flow 
+
+<iframe  src="https://www.youtube.com/embed/YfJeEG9xdpY?si=gUq3_I1QupQ8wNf7&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## How to Value Enterprise Value and (Equity Indirectly)
+
+<iframe src="https://www.youtube.com/embed/z9dRmhuGXbY?si=YgviFDZ29mCOSkzQ&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+# DCF Limitation
+
+<IB>
+Traditional DCF **undervalues** companies.  
+</IB>
+
+
+Up until now, we have assumed cash flows are happening at the end of the year. 
+
+This is okay for retail or toy companies which make most of their cash at the end of the year because of the holiday shopping season but for other companies such as hotel chains or McDonald's- ones that generate cashflow smoothly throughout the year not just at the end- using traditional DCF as a method to value them is doing them a disservice because there is another approach that will make their company look more valuable (rightly so) and it's called the Mid-Year Convention Approach. 
+
+# Mid-Year Convention 
+
+<RuleBox align = "left"> 
+**Def.** **Mid-Year Convention** A valuation technique used in Discounted Cash Flow (DCF) modeling that treats cash flows as if they are received in the exact middle of the year (e.g., June) rather than at the end.  
+</RuleBox>
+
+<Note>
+Mid-Year Convention is not really another approach or method to value equity, it's more a technique that you can use in any of the income approaches. 
+</Note>
+
+<iframe src="https://www.youtube.com/embed/G_tkN3Sk7sI?si=4Yl8jFqdd38vXrTN&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## How does Mid-Year Convention Approach Increase the Value of a Firm?
+
+Mid-Year Convention method shortens the <Pop t = "length of discounting period" >time it takes to receive a cash flow </Pop> from 1 year to 0.5 years (6 months.)
+
+And conveniently the less time you have to wait for cash flow, the higher the value of the cash flow today. 
+
+## Who Prefers Which Approach? 
+
+So, someone who wants to sell a company, and would want to make their company look more valuable, would use the mid-year convention approach because it *will* make the company look more valuable. 
+
+However, whether that value is fair or misleading depends the type of firm: 
+
+<ul>
+
+    <li>If they use the mid-year convention approach on a retail company, it would be assuming the company gets all it's cash flows at the middle of the year, which we all know is not true (they get most of their cash during the holiday season) so it *would* make the retail company more valuable but ... it would be misleading because the assumption is wrong. </li>
+
+    <li>If they use it on a hotel then it would be assuming the hotel gets it's cash flows in the middle of the year, which is fair to assume because a hotel generally earns its cash flows smoothly throughout the year (half before June, half after), or has its peak season right in the summer (June), so the approach would make the hotel more valuable but rightly so. </li>
+
+</ul>
+
+On the other side of the coin, you have the buyer, who would prefer if the company was valued using DCF because it would then be undervalued so they would be paying less than they would if it was valued with the use of mid-year convention technique. 
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 150px;">Role</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Traditional DCF</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Mid-Year Convention</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Seller</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10006;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10084;</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Buyer</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10084;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10006;</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr/>
+
+# B. Market/Comparables Approach 
+
+Again, there are two main approaches to value equity: (a) Income/Discounted Cash Flows (Income) Approach and the (b) Market/Comps Approach.
+
+We have so far covered the Income Approach, now we will cover the Market Approach. 
+
+The reality is that no one in industry closes a deal just on DCF because it's based mostly on your assumptions- it's your opinion! 
+
+<h1 style = "color:red;">HOW? </h1>
+
+Instead, DCF is used more as a ballpark estimate on what the value would be but it's more realistic to ask what the market would be willing to pay right now based on what it pays for similar companies. 
+
+Just like the income approach, the market or comparables approach has two approaches within itself: (a) Public Company Comparables Method/Trading Comparables Method and (b) Precedent Transactions Comparables Method. 
+
+We will only cover the first but it is important to know what they are and the difference between them. 
+
+**1. Trading Comparables Analysis:** You look for comparable companies that are currently trading on the public stock market to see what everyday investors are paying for a **minority stake** of their shares.
+
+**2. Precedent Transactions Analysis:** You look for comparable companies that were recently bought in M&A deals to see what acquirers actually paid for a **majority stake** to take over the whole business.
+
+The **only difference** between the two is that in the precedent transaction method **you have to pay a premium for the equity if you want control.**
+
+# Trading Comparables Approach 
+
+The idea of this approach is to value a minority stake in a firm by comparing it to a <Pop t = "similar">*comparable*</Pop> firm by using financial metrics such as <Pop t = "ratios">multiples</Pop> to compare them (which we also call comparables or comps.) 
+
+The idea of the use of multiples is if a comparable company trades at a certain price relative to its earnings (or revenue, or EBITDA), then a truly similar company should trade at roughly the same ratio. 
+
+# What is a Valid Multiple
+
+<RuleBox align = "left"> 
+**Def.** A **Valid Multiple** is one where the cash flow in the denominator and what we are trying to value in the numerator are in agreement with one another.    
+</RuleBox>
+
+<ul>
+<li>For example, **price/earnings** is a valid multiple because the numerator is the price one share of stock and the denominator is earnings which only equity owners have a claim on so both the top and the bottom match perfectly because they only deal with Equity.</li>
+
+<li>But **price/sales** is not because numerator is price per one share of stock but the denominator is sales which equity holders are not the only ones that have a claim to those sales so the numerator and denominator don't match.</li>
+
+</ul>
+
+## The Two Most Popular Multiples 
+
+**1. Price/Sales Multiple:** this is a revenue multiple (meaning it has revenue/sales in the denominator.)
+
+Revenue multiples are **useful when earnings are negative** or when the firm is overall inefficient (e.g. government owned enterprise.)
+
+In order for two companies to trade at the same revenue multiple, the projected profit margins should look similar over time (e.g. you can't use Chanel to value Michael Kors because even though they're in the same industry and have similar business model- their profit margins are way different.)
+
+Bodegas, Restaurants are traded at price/sales. 
+
+**2. EV/EBITDA Multiple:** will give us an estimate of the firm's enterprise value (EV.) 
+
+The higher the multiple, the higher the firm is valued at. 
+
+In order to use this multiple you want to pick what we call **comparables** which are companies that are similar to the one you want to value. 
+
+What similar factors do we look for? Well we look for if they are in the/have... 
+
+<ul>
+    <li>Same Industry?</li>
+    <li>Similar locations?</li>
+    <li>Same Target Customer?</li>
+    etc.
+</ul>
+
+Once we have a group of chosen comparables, to find ones that truly match we look for the four factors-that influence the multiple- to be very close.
+
+What are those factors?
+
+**The EV/EBITDA multiple is a function of four factors:**
+
+**1. Growth (+):** how fast the company is increasing its revenues and profits.  
+
+**2. Reinvestment (-):** how much cash the firm <Pop t = "invests"> puts back</Pop> into its operations (e.g. like buying new equipment) 
+
+**3. Tax (-):** how much taxes the firm pays
+
+**4. Risk (-):** how uncertain we are about the firm's future cash flows. 
+
+The above are four drivers we can pull that has an effect on EV/EBITDA multiple. 
+
+All the drivers decrease (-) the multiple except for growth which increases (+) it. 
+
+**The practical use of these four drivers:** 
+
+Again, when selecting comparable companies, you want companies that match your target on all four dimensions. 
+
+When negotiating <Pop t = "(which will be determined by the EV/EBITDA multiple)">price</Pop> as a seller, these are the levers that you can pull. 
+
+You can say "our growth is faster" or "we pay less taxes than these companies" to argue for a multiple above the <Pop t = "the avg EV/EBITDA of the companies you're comparing yours too">comp average</Pop> which will then increase your EV/EBITDA multiple which will then increase the price someone is willing to pay for the firm. 
+
+Using an enterprise multiple is an indirect way to value equity, working exactly the same way we did in the indirect method of the income approach (where you find Enterprise Value first, then subtract debt to reach equity). 
+
+The only difference is how we calculate that EV: instead of discounting future UFCF, we simply multiply our firm's EBITDA by the average EV/EBITDA multiple of our comparable companies. 
+
+Note that in this class, we only compare our company to one comp not a group of them so it will just require us multiplying the comp's EV/EBITDA by our company's EBTIDA to get our company's EV and then from there it's the same as the indirect income approach where we use the EV formula to solve for our company's equity.  
+
+# Vale Equity of Firm Using Market Approach + Using EV/EBITDA to get stock price
+
+<iframe src="https://www.youtube.com/embed/Uel3EIg8V5c?si=z33B5FvtKbpUNqvm&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

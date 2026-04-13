@@ -2,7 +2,7 @@
 const {title} = Astro.props;
 ---
 
-<details>
+<details class = "color">
 
     <summary> {title} </summary>
     
@@ -35,6 +35,21 @@ details {
     font-family: var(--primaryFont);
     font-size:1rem;
     margin: 10px 0;
+}
+
+
+.color {
+    margin: 10px 0;
+    
+    border: 1px solid #53b5d8;
+    border-radius: 4px;
+    background-color: rgb(123, 176, 171);
+    padding: 0.5em 0.5em 0;
+    padding:5px 10px;
+    font-size:1rem;
+    margin-bottom:20px;
+     
+
 }
 
 </style>
