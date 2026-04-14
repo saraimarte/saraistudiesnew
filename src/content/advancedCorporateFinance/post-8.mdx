@@ -14,6 +14,7 @@ import DropDown from '@components/DropDown.astro';
 import Note from '@components/Notes.astro';
 import IB from '@components/ImportantBox.astro';
 import Latex from '@components/Latex.astro';
+import Solution from '@components/Solution.astro';
 
 
 # Intro 
@@ -98,38 +99,9 @@ As for the discount rate we will be using WACC. We will later go into the compon
 
 There are two situations we can encounter when doing DCF: (a) we have a firm where dividends grow at a constant rate or (b) we have a firm where dividends grow at a non-constant rate. 
 
-## Example 1 | Constant Dividend Growth Rate 
+## Example 1 | Constant Dividend Growth Rate [insert video]
 
-## Example 2 | Non-Constant Dividend Growth Rate 
-
-# How do we get WACC 
-
-Cash that goes to capital providers / Rate of Return that Goes to Capital Providers 
-that is wacc 
-
-<RuleBox>
-**Def.** The **Weighted Average Cost of Capital (WACC)** is is the minimum annual percentage return a company must generate on its investments to <Pop t = "aka keep the lenders and shareholders happy"> satisfy the required returns of its lenders and shareholders.</Pop>  
-
-<Latex formula={`WACC = (1 - t)k_d \\left( \\frac{D}{V} \\right) + k_e \\left( \\frac{E}{V} \\right)`} />
-
-**k<sub>d</sub>:** cost of debt     
-**k<sub>e</sub>:** cost of equity   
-**(D/V):** weight of debt (tells you the % of the firm that is funded by debt)  
-**(E/V):** weight of equity (tells you the % of the firm that is funded by equity)  
-**D:** debt   
-**E:** equity  
-**V:** debt + equity   
-**t:** tax rate   
-</RuleBox>
-
-[insert table soon]
-
-## When to Use WACC 
-
-Well, you don't want to use WACC if the market is tanking. 
-
-The market needs to be stable in order to use WACC.  
-
+## Example 2 | Non-Constant Dividend Growth Rate [insert video]
 
 # 2 | Indirect Approach
 
@@ -183,10 +155,6 @@ We call this "**cash the firm will generate for the <Pop t = "all the capital pr
 </RuleBox>
 
 
-<DropDown title = "If Unlevered Free Cash Flow belongs to all capital providers but isn't always fully distributed to them, why do we value the firm based on its capacity to pay (UFCF) rather than just the cash it actually pays out?">
-</DropDown>
-
-
 ## How to calculate Unlevered Free Cash Flow 
 
 <iframe  src="https://www.youtube.com/embed/YfJeEG9xdpY?si=gUq3_I1QupQ8wNf7&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -195,6 +163,127 @@ We call this "**cash the firm will generate for the <Pop t = "all the capital pr
 
 <iframe src="https://www.youtube.com/embed/z9dRmhuGXbY?si=YgviFDZ29mCOSkzQ&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+# WACC as the Discount Rate 
+
+Again, in the income/DCF approach, whether you are using dividends or UFCF as the cash flows, there is also another element of DCF and that is the discount rate we need to use. 
+
+In these methods, we use WACC as the discount rate. 
+
+<RuleBox>
+**Def.** The **Weighted Average Cost of Capital (WACC)** is is the minimum annual percentage return a company must generate on its investments to <Pop t = "aka keep the lenders and shareholders happy"> satisfy the required returns of its lenders and shareholders.</Pop>  
+
+<Latex formula={`WACC = (1 - t)k_d \\left( \\frac{D}{V} \\right) + k_e \\left( \\frac{E}{V} \\right)`} />
+
+**k<sub>d</sub>:** cost of debt     
+**k<sub>e</sub>:** cost of equity   
+**(D/V):** weight of debt (tells you the % of the firm that is funded by debt)  
+**(E/V):** weight of equity (tells you the % of the firm that is funded by equity)  
+**D:** debt   
+**E:** equity  
+**V:** debt + equity   
+**t:** tax rate   
+</RuleBox>
+
+**1. Why do we use WACC as the discount rate?**
+
+Recall, the formula for present value at time 0 (today) is
+
+<Latex formula={`PV_0 = \\frac{CF_T}{(1 + r)^T} = \\frac{\\text{Cashflow}}{\\text{Discount}}`} />
+
+<br/>
+
+<ul>
+<li>**Cashflow:** In this case, when we are valuing an enterprise, the cashflow is Unlevered Free Cash Flow (UFCF) which is the cash that goes to capital providers (both lenders and shareholders).</li>
+
+<Latex formula={`PV_0 = \\frac{CF_T}{(1 + r)^T} = \\frac{\\text{Cashflow}}{\\text{Discount}} = \\frac{\\text{UFCF}}{\\text{?}}`} />
+
+<br/>
+
+<li>**Rule:** You the numerator and denominator to match the entity you're dealing with. In this case, the entity is the capital providers. So, **the cash in the numerator must belong to the same people whose costs are in the denominator.**</li>
+
+<Latex formula={`PV_0 = \\frac{CF_T}{(1 + r)^T} = \\frac{\\text{Cashflow}}{\\text{Discount}} = \\frac{\\text{Cash belonging to Capital Providers}}{\\text{Cost of the Capital Providers}}`} />
+
+<br/>
+
+<li>**Discount:** Therefore, we want the denominator to be the *cost* *of* capital providers (both lenders and shareholders) and what is the cost of capital providers that the firm incurs? WACC!</li>
+
+<Latex formula={`PV_0 = \\frac{CF_T}{(1 + r)^T} = \\frac{\\text{Cashflow}}{\\text{Discount}} = \\frac{\\text{UFCF}}{\\text{WACC}}`} />
+
+</ul>
+
+By definition, WACC is the weighted average cost of capital- capital which the capital providers... provide. 
+
+<Latex formula={`PV_0 = \\frac{CF_T}{(1 + r)^T} = \\frac{\\text{Cashflow}}{\\text{Discount}} = \\frac{\\text{Cash belonging to Capital Providers}}{\\text{Cost of the Capital Providers}} = \\frac{\\text{UFCF}}{\\text{WACC}} `} />
+
+## Practice
+
+Q: T/F PV of UFCF discounted back at the cost of equity (k<sub>e</sub>) gives you enterprise value.
+
+<Solution>
+**False.** The cost of equity is the cost of getting capital from equity holders *only* and that doesn't match the numerator which includes cash belonging to equity holders *and* lenders. The denominator needs to be the cost of both equity holders *and* lenders. 
+</Solution>
+
+Q: T/F PV of UFCF discounted back at the cost of debt (k<sub>d</sub>) gives you enterprise value.
+
+<Solution>
+**False.** The cost of debt is the cost of getting capital from lenders *only* and that doesn't match the numerator which includes cash belonging to lenders *and* equity holders. The denominator needs to be the cost of both lenders *and* equity holders. 
+</Solution>
+
+
+Q: T/F PV of UFCF discounted back at the WACC gives you enterprise value.
+
+<Solution>
+**True.** The WACC is the cost of getting capital from *both* equity holders and lenders and that *does* match the numerator which includes cash belonging to *both* equity holders *and* lenders. 
+</Solution>
+
+Q: T/F When valuing enterprise value, the cashflow being discounted is UFCF. 
+
+<Solution>
+**True.** 
+</Solution>
+
+Q: T/F When valuing equity using the direct income approach, the cashflow being discounted is dividends. 
+
+<Solution>
+**True.** 
+</Solution>
+
+
+Q: T/F PV of dividends discounted back at the cost of equity gives you the <Pop t = "or the value of equity">equity.</Pop>
+
+<Solution>
+**True.** The cost of equity is the cost of getting capital from equity holders and the numerator is the amount going to equity holders so they match!
+</Solution>
+
+Q: T/F PV of dividends discounted back at the WACC gives you equity. 
+
+<Solution>
+**False.** In the numerator, we have dividends which is the amount going to equity holders so in the denominator we would want the cost of getting capital from equity holders and that is not WACC. WACC is the cost of getting capital from equity holders *and* lenders. Hence, the denominator doesn't match the numerator so WACC is not the right discount rate.  
+</Solution>
+
+Q: T/F PV of dividends discounted back at the WACC gives you the cost of equity. 
+
+<Solution>
+**False.** Two things wrong here. 
+
+First, taking the Present Value (PV) of a cashflow gives you a Value (a dollar amount)-not a cost- of that cash flow today so it won't give you the *cost* of equity. 
+
+Second, the discount rate is incorrect for the same reasons as the previous question.
+</Solution>
+
+**2. How do we get the WACC to use in our valuations?**
+
+In this class, WACC is always given to us but it is important to know how to get a WACC to use in your valuations.
+
+In this section, we will go over the components of WACC, how to calculate them and where to find the data you need in order to do so. 
+
+[insert video]
+
+**3. When do we use WACC?**
+
+You only want to use WACC if the firm is investment grade (BBB- or higher.)
+
+You don't want to use WACC if the market is tanking because the market needs to be stable in order to use WACC.  
 
 # DCF Limitation
 
@@ -246,20 +335,20 @@ On the other side of the coin, you have the buyer, who would prefer if the compa
     <thead>
       <tr style="background-color: #edf2f7;">
         <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 150px;">Role</th>
-        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Traditional DCF</th>
-        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Mid-Year Convention</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: center; vertical-align: top;">Traditional DCF</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: center; vertical-align: top;">Mid-Year Convention</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Seller</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10006;</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10084;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: center;">&#10006;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: center;">&#10084;</td>
       </tr>
       <tr>
         <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Buyer</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10084;</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: left;">&#10006;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: center;">&#10084;</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; text-align: center;">&#10006;</td>
       </tr>
     </tbody>
   </table>
@@ -273,9 +362,9 @@ Again, there are two main approaches to value equity: (a) Income/Discounted Cash
 
 We have so far covered the Income Approach, now we will cover the Market Approach. 
 
-The reality is that no one in industry closes a deal just on DCF because it's based mostly on your assumptions- it's your opinion! 
+The reality is that no one in industry closes a deal just on DCF because it's based mostly on *your* assumptions- it's your opinion! 
 
-<h1 style = "color:red;">HOW? </h1>
+You can make DCF spit out almost any valuation you want just by tweaking the WACC, for example, which is based on your assumptions. 
 
 Instead, DCF is used more as a ballpark estimate on what the value would be but it's more realistic to ask what the market would be willing to pay right now based on what it pays for similar companies. 
 
@@ -316,7 +405,7 @@ Revenue multiples are **useful when earnings are negative** or when the firm is 
 
 In order for two companies to trade at the same revenue multiple, the projected profit margins should look similar over time (e.g. you can't use Chanel to value Michael Kors because even though they're in the same industry and have similar business model- their profit margins are way different.)
 
-Bodegas, Restaurants are traded at price/sales. 
+Bodegas, Restaurants, Consulting Company or companies that have little to no inventory are traded at price/sales. 
 
 **2. EV/EBITDA Multiple:** will give us an estimate of the firm's enterprise value (EV.) 
 
@@ -365,6 +454,111 @@ The only difference is how we calculate that EV: instead of discounting future U
 
 Note that in this class, we only compare our company to one comp not a group of them so it will just require us multiplying the comp's EV/EBITDA by our company's EBTIDA to get our company's EV and then from there it's the same as the indirect income approach where we use the EV formula to solve for our company's equity.  
 
-# Vale Equity of Firm Using Market Approach + Using EV/EBITDA to get stock price
+# Value Equity of Firm Using Market Approach + Using EV/EBITDA to get stock price
 
 <iframe src="https://www.youtube.com/embed/Uel3EIg8V5c?si=z33B5FvtKbpUNqvm&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<hr/>
+
+# 🚩 Red Flags to Look Out For 
+
+**1.** You don't want just EBITDA, you want LTM EBITDA.  
+
+**2.1** You don't want just LTM EBITDA, you want run-rate LTM EBITDA (Scrubbing EBITDA.) 
+
+**2.2.** If you acquire or divest a firm- what do we need to do to our LTM EBITDA? (Scrubbing EBITDA.)
+
+# 1 | Calculating Last Twelve Month's (LTM) Numbers 
+
+In the market trading comps approach, we deal with the EV/EBITDA ratio and it requires us to find a *year's worth* of EBITDA- not just *any* year, not the last fiscal year but the *most recent* 12 months.
+
+The only form that gives us a years worth of data is the 10-K. 
+
+<RuleBox align = "left"> 
+**Def.** The **10-K** is what we call the annual financial report that public companies are legally required to file with the SEC that contains the 12 months worth of financial data ending in their <Pop t="the month the company ends their year at">fiscal year end.</Pop>
+
+</RuleBox>
+
+The problem with the 10-K is that it gives us financial data ending in their fiscal year end (which can be any month of the year.) 
+
+E.g. So if today is April 2026 and a firm has a fiscal year ending January then if you go look up their most recent 10-K it will only give you 12 months worth of data *ending* in January but you need 12 months worth of data ending today! April!
+
+So between January and April you have missing data. 
+
+Where can you find this data? 
+
+The 10Q!
+
+<RuleBox align = "left"> 
+**Def.** The **10-Q** is what we call the quarterly financial reports that public companies are required to file with the SEC that contain the most recent financial data since the 10-K filings.
+</RuleBox>
+
+**Fact**. A financial quarter is 3 months long, but a company only files three 10-Qs per year. The fourth quarter is never filed as a 10-Q; instead, those last 3 months are rolled directly into the annual 10-K.
+
+**Fact**. It Contains not only the first quarter of this year but last year's too.  
+
+E.g. So, again, if today is April 2026 and let's say I want LTM worth of Revenue and my fiscal year ends in January. 
+
+<ul>
+    <li>**Step 1:** Start with the 10-K (+12 months worth of revenue). Take the total Revenue from the most recent 10-K ending January 2026.</li>
+    <li>**Step 2:** Add the current 10-Q (+3 months worth of revenue). Add the Revenue from the newest Q1 10-Q (Feb, Mar, Apr 2026). You now have 15 months of data.</li>
+    <li>**Step 3:** Subtract the prior year's 10-Q (-3 months worth of revenue). Subtract the Revenue from last year's Q1 10-Q (Feb, Mar, Apr 2025).</li>
+    <li>**Result:** Exactly the *last* 12 months of revenue ending April 2026 (today). You have successfully swapped out the old 3 months for the new 3 months. </li>
+</ul>
+
+<Latex formula={`\\text{LTM} = \\text{Most Recent 10-K} + \\text{Current 10-Q} - \\text{Prior Year's Matching 10-Q}`} />
+
+We did this for revenues, but if we do the same steps for every line item we need to calculate EBTIDA, we will be able to find LTM EBITDA by using the LTM components of EBITDA. 
+
+## When is the only time you don't need to find LTM for your data?
+
+If the 10-K is the most recent financial statement (meaning there hasn't been any other filings like 10Qs) then you don't need to calculate LTM values- you can just use the 12 months worth of data from the 10-K. 
+
+# 2.1 | Why we Need to Use Run-Rate Cash Flows 
+
+When valuing equity using trading comps (market approach), like EV/EBITDA for example, we rely on getting EBITDA from the books ... and not *just* EBITDA but LTM EBITDA and not *just* LTM EBITDA but LTM Run-rate EBITDA. 
+
+<RuleBox align = "left"> 
+**Def.** **Run-Rate Cash flows** are a firm's "normal," repeating cash flows, calculated by taking their reported numbers and deleting any unusual, one-time events (like a lawsuit payout or selling a factory) that won't happen again next year.
+</RuleBox>
+
+**Another Def.** A **Run-Rate Number** is a reliable and reproducible level of cash flow that you can use to serve as the true baseline for all your future projections and valuation models.
+
+If we calculated an EBITDA that takes into account restructuring charges, an impairment, a lawsuit, *and* the selling of a factory, for example, then that EBITDA is no good! 
+
+Why?
+
+Because it took into account charges that won't be happening again. 
+
+We need to use *run-rate* numbers- ones that will be accurate in the in the future, serving as a reliable baseline for what the business will actually generate going forward not numbers that were affected by one-time events. 
+
+# Calculating Run-Rate Cash Flows (Scrubbing)
+
+<RuleBox align = "left"> 
+**Def.** **Scrubbing** is the act of cleaning or *scrubbing* a financial number by removing any unusual, one-time charges or <Pop t = "makes the number bigger like selling a factory makes EBITDA higher">windfalls</Pop>, to reveal what the true number is under regular conditions. 
+</RuleBox>
+
+<ul>
+<li>**Where to find these unusual items?:** footnotes or MD&A in the financial statements or in the statement of cash flows under 'Adjustments to reconcile net earnings to total cash provided by operating activities'.</li>
+<li>You want to add back any unusual expenses.</li>
+<li>You want to subtract any unusual windfalls.</li>
+</ul>
+
+## 2.2 | What happens if there is an Acquisition or Divestiture?
+
+<ul>
+<li>If there is an <Pop t = "the selling/buying of a company">acquisition</Pop> or a <Pop t ="disposing of a business unit, subsidiary, product line or company assets">divestiture</Pop> that occurs midway through the year, then you should read the MD&A for how it was accounted for (in the U.S. under GAAP, acquisitions are accounted for using the **purchase accounting method.**) </li>
+</ul>
+
+<RuleBox align="left">
+**Def.** **Purchase Accounting** says that a company can only report the financial results of an acquired firm for the exact months it officially owned them.
+</RuleBox>
+
+E.g. You are Firm A. Your fiscal year end is December. 
+
+<ul>
+<li>**The Problem**: If you buy Firm B in September, your December 10-K will only include 4 months of their EBITDA because you've only legally owned them for 4 months. The first 8 months legally vanish. Because EBITDA represents the true earning power of the business, missing 8 months of it **makes your combined LTM EBITDA look artificially low** and severely undervalues your company's actual earning potential.</li>
+
+<li>**The Solution:** As finance majors, we don't care about the accounting timeline; we care about projecting reality. The reality is that because Firm A acquired Firm B, Firm A now has more earning power and our EBITDA should reflect that. To capture that true earning power, we simply step in and add back those missing 8 months of Firm B's EBITDA so our valuation models reflect what the combined machine will actually generate in a full, normal year.</li>
+</ul>
+

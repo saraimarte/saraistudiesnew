@@ -8,6 +8,9 @@ author: Sarai Marte
 slug: exam-2
 ---
 
+import DropDown from '@components/DropDown.astro';
+
+
 11 Accounting Questions
 
 1. accounting question what is EBITDA, ROCE, 
@@ -80,3 +83,87 @@ Traditional DCF undervalues companies because it assumes all cash flows are happ
 In Trading Comps: You look for comparable companies that are currently trading on the public stock market to see what everyday investors are paying for their shares, giving you the value of a minority stake.
 
 In Precedent Transactions: You look for comparable companies that were recently bought in M&A deals to see what acquirers actually paid to take over the whole business, giving you the value of a majority stake.
+
+
+**Cash that goes to capital providers / Rate of Return that Goes to Capital Providers**
+
+
+
+# Calculating Last Twelve Month's (LTM) Numbers 
+
+In the market trading comps approach, we deal with the EV/EBITDA ratio and it requires us to find a *year's worth* of EBITDA- not just *any* year, not the last fiscal year but the *most recent* 12 months.
+
+The only form that gives us a years worth of data is the 10-K. 
+
+<RuleBox align = "left"> 
+**Def.** The **10-K** is what we call the annual financial report that public companies are legally required to file with the SEC that contains the 12 months worth of financial data ending in their <Pop t="the month the company ends their year at">fiscal year end.</Pop>
+
+</RuleBox>
+
+The problem with the 10-K is that it gives us financial data ending in their fiscal year end (which can be any month of the year.) 
+
+E.g. So if today is April 2026 and a firm has a fiscal year ending January then if you go look up their most recent 10-K it will only give you 12 months worth of data *ending* in January but you need 12 months worth of data ending today! April!
+
+So between January and April you have missing data. 
+
+Where can you find this data? 
+
+The 10Q!
+
+<RuleBox align = "left"> 
+**Def.** The **10-Q** is what we call the quarterly financial reports that public companies are required to file with the SEC that contain the most recent financial data since the 10-K filings.
+</RuleBox>
+
+**Fact**. A financial quarter is 3 months long, but a company only files three 10-Qs per year. The fourth quarter is never filed as a 10-Q; instead, those last 3 months are rolled directly into the annual 10-K.
+
+E.g. So, again, if today is April 2026 and let's say I want LTM worth of Revenue and my fiscal year ends in January that means I can go to the most recent 10Q and get the most recent data after the 10-K was filed in January so that will it include January, February and March data (the first quarter's data) and I will add up the revenue from those months.
+
+But that's only the last 3 months worth of revenue- I need 12. 
+
+So I go to the most recent 10-K  (that has 12 months worth of data ending January) and add the revenue from there to the three month revenue I already have but that's too much! 
+
+Because that's 12 months worth of data and we already had 3 months. 
+
+We only needed 9 months worth of data. 
+
+So we have to go back to the 10Q and subtract the first 3 months of the 10-K revenue which is just the 1st quarter data last year and we end up with LTM ending April 2026 revenue!
+
+<Latex formula={`\\text{LTM} = \\text{Most Recent 10-K} + \\text{Current 10-Q} - \\text{Prior Year's Matching 10-Q}`} />
+
+In a more concise format, here are the steps: 
+
+Example: Calculating LTM Revenue in April 2026 (For a Jan. Fiscal Year End)
+
+<ul>
+    <li>**Step 1:** Start with the 10-K (+12 months). Take the total Revenue from the most recent 10-K ending January 2026.</li>
+    <li>**Step 2:** Add the current 10-Q (+3 months). Add the Revenue from the newest Q1 10-Q (Feb, Mar, Apr 2026). You now have 15 months of data.</li>
+    <li>**Step 3:** Subtract the prior year's 10-Q (-3 months). Subtract the Revenue from last year's Q1 10-Q (Feb, Mar, Apr 2025).</li>
+
+    Result = Exactly 12 months. You have successfully swapped out the old 3 months for the new 3 months, leaving you with the Last Twelve Months ending April 2026.
+
+</ul>
+
+
+
+
+
+## What happens if there is an Acquisition or Divestiture?
+
+<ul>
+<li>If there is an <Pop t = "the selling/buying of a company">acquisition</Pop> or a <Pop t ="disposing of a business unit, subsidiary, product line or company assets">divestiture</Pop> that occurs midway through the year, then you should read the MD&A for how it was accounted for (in the U.S. under GAAP, acquisitions are accounted for using the **purchase accounting method.**) </li>
+<li>If you have to find LTM numbers, you would </li>
+</ul>
+
+<RuleBox align="left">
+Def. Purchase Accounting dictates that a company can only report the financial results of an acquired firm for the exact months it officially owned them.
+</RuleBox>
+
+For example, if you are Firm A and you buy Firm B in September, assuming you have a December fiscal year-end, you will report only 4 months worth of Firm's B financial results when December comes but you *won't* be able to claim the first 8 months of Firm's B financial results because those results were generated *before* you acquired the firm. So at the end of the day, even if Firm B made $50M that year, your official December 10-K will only show the portion of that money made during those final 4 months.
+
+Now, that's accounting, but we're finance majors and we want annualized numbers not half done numbers. We want the last 12 months of EBITDA for example, **purchase accounting method makes EBITDA lower than it is** so it forces us fiance majors to step in and make an adjustment by adding back those missing 8 months of EBITDA, so we can capture the true, 12-month run-rate of the combined firms as if we had owned them since day one of the fiscal year, giving us a realistic baseline to actually value the company.
+
+The idea is that it's not the norm to have 4 months of EBITDA for firm B so you don't want to carry that assumptions into future years when doing valuation. 
+
+
+<DropDown title = "If Unlevered Free Cash Flow belongs to all capital providers but isn't always fully distributed to them, why do we value the firm based on its capacity to pay (UFCF) rather than just the cash it actually pays out?">
+</DropDown>
