@@ -1,0 +1,209 @@
+---
+layout: '@layouts/Blog.astro'
+title: Chapter 13 | Equity Market (Draft)
+pubDate: 2026-04-18T00:00:00Z 
+updatedDate: 2026-04-18T00:00:00Z 
+draft: false
+author: Sarai Marte
+slug: chapter-13
+---
+
+import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
+import Section from '@components/Section.astro';
+
+# The <Pop t = "stock">Equity</Pop> Market Structure 
+
+The stock market consists of two markets: 
+
+<ul>
+    <li>**Primary Market:** The company (the issuer) sells new shares of stock directly to investors for the first time to raise capital.</li>
+    <li>**Secondary Market:** This is where investors trade shares they already own with other investors. Most people who 'buy stock' are buying it here. In this market, the buyers and sellers are represented by a broker (e.g. Fidelity, Charles Schwab, Vanguard, etc.)</li>
+</ul>
+
+The secondary market serves two major purposes:
+
+<ul>
+    <li>**Marketability:**</li> it ensures if you buy a share today, you aren't stuck with it forever- you can sell it to someone else whenever you want.
+    <li>**Share Valuation:** by having thousands of people buying and selling, the market discovers what the stock is actually worth at any given second.</li>
+</ul>
+
+# The Equity Market Statistics 
+
+<RuleBox>
+**Def.** **Market capitalization** is the total dollar market value of a company's outstanding shares of stock. 
+</RuleBox>
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 800px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Exchange</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Market Cap</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Known For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">NYSE</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">~$27-28 Trillion</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Large-cap stocks; Traditional floor</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">NASDAQ</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">~$24-25 Trillion</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Tech stocks; Electronic trading</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Shanghai</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">~$6-7 Trillion</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">A-shares; State-Owned Enterprises</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Japan (JPX)</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">~$6 Trillion</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Major Asian market presence</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Hong Kong</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">~$5 Trillion</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Gateway to China</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+# Market Liquidity 
+
+<RuleBox>
+**Def.** A **liquid stock market** is one in which investors can buy and sell stocks quickly at close to the current quoted prices.   
+</RuleBox>
+
+We can measure how liquid a market is several ways: 
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 800px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 200px;">Category</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Detailed Measures</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Primary Measures</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Bid-ask spread, Market depth, Trading volume, Transaction speed, Price impact</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Specific Metrics</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Bid-ask spread size, Transaction costs, Execution costs or Depth Metrics: Order book depth, Size of trades possible, Without price impact</td>
+      </tr>
+    
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Resilience</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Price recovery speed, Market impact, Return to equilibrium</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Volume Measures</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Daily trading volume, Turnover ratio, Number of trades, Average trade size, Block trade capacity</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Time Measures</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Execution speed, Settlement time, Time between trades, Market hours, Order fill time</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+# Market Concentration 
+
+<RuleBox>
+**Def.** A **Concentrated Market** is one where a relatively small number of companies account for a large percentage of the total market capitalization.  
+</RuleBox>
+
+<ul>
+    <li>**A way to measure stock market concentration** is by using the ratio: market capitalization of the largest 10 companies / total market cap. </li>
+</ul>
+
+
+# Trading and Costs
+
+# More on the Secondary Market 
+
+## Types of Orders
+
+Again, in the secondary market, the buyers and sellers are represented by a broker (e.g. Fidelity, Charles Schwab, Vanguard, etc.)
+
+Orders submitted to the broker can be either a: 
+
+<ul>
+    <li>**Market Order:** allows you to put in an order to buy or sell shares at whatever the market price is right now. </li>
+    <li>**Limit Order:** allows you to put in an order to buy or sell shares at whatever the market price is as long as it doesn't violate the limit you set.</li>
+</ul>
+
+E.g. Apple is currently trading around $190. You want to buy 1 share of apple.  
+
+<ul>
+    <li>**Market Order:** You tell the broker, "Buy me 1 share of Apple now." You get the share immediately at whatever the market price is once the order goes through (e.g., $190.05).</li>
+
+    <li>**Limit Order:** You tell the broker, "Buy me 1 share of Apple only if the price hits $185." Your order sits and waits. If Apple never drops to $185, you don't buy the share and you might miss the opportunity because it could have dropped to $186 which is still a lower price but because you set the limit at $185, it won't buy it and then the price may go up to $200 and you missed the opportunity to buy at $186.</li>
+</ul>
+
+## How Orders are Proccessed / The Players in the Market 
+
+A broker (like Fidelity) just passes orders to either a dealer or an agency. 
+
+Two types of trading mechanisms: 
+
+<ul>
+    <li>A **Dealer** (e.g. NASDAQ) owns the stock themselves so they can fulfill your buy or sell order using their own inventory.</li>
+    <li>An **Agency** (e.g. NYSE) does not own the sock but have agents that will match your buy order with a sell order from another investor.</li>
+</ul>
+
+Note that exchanges can operate as dealers or agencies. 
+
+# Market Consolidations and Mergers 
+
+The main idea here is that the global stock market is moving away from many small, national exchanges toward a few massive, merged international powerhouses in order to be efficient and increase reach of international stocks. 
+
+For example, in 2000, the Amsterdam, Brussels, and Paris exchanges merged to form Euronext.
+
+Then, Euronext acquired Lisbon, Irish and Oslo exchanges. 
+
+Finally, in 2007, the NYSE acquired Euronext. 
+
+# Trading in International Equities
+
+<RuleBox>
+**Def.** **Cross-listing** refers to a firm listing its equity shares on one or more foreign exchanges in addition to its home country stock exchange.
+</RuleBox>
+
+A prime example is Toyota, which is a Japanese firm that cross-lists its shares on the New York Stock Exchange (NYSE) to access U.S. investors.
+
+## Why Companies Cross-List
+
+<ul>
+
+<li>Expand the investor base for a firm's stock</li>
+<li>Establish name recognition of the company</li>
+<li>Expose the firm to more investor and consumer groups</li>
+<li>Signal improved corporate governance</li>
+<li>Mitigate the possibility of a hostile takeover</li>
+
+</ul>
+
+## Cross-Border Investing Tools  (Ways to list your shares in another country)
+
+**1. Yankee Stock:** Foreign stock sold directly to US investors, denominated in USD, and following strict US SEC/GAAP rules.  
+
+**2. ADRs (American Depository Receipts):** A receipt representing shares of a foreign stock held in a bank. This is a faster, cheaper way for foreign firms to list in the US.  
+
+**3. GRS (Global Registered Shares):** Shares that can be traded and settled on any exchange in the world (fully fungible).
+
+# Currency Risk [soon]
+
+International Return != Local Return
+
+# International Equity Market Benchmarks [soon]
+# iShares MSCI [soon]
+# Factors Affecting International Equity Return [soon]
