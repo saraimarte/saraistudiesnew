@@ -1,9 +1,9 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Chapter 14 | Swap Market
-pubDate: 2026-02-02T00:00:00Z 
-updatedDate: 2026-02-02T00:00:00Z 
-draft: true
+title: Chapter 14 | Swap Market (Draft)
+pubDate: 2026-04-20T00:00:00Z 
+updatedDate: 2026-04-20T00:00:00Z 
+draft: false
 author: Sarai Marte
 slug: chapter-14
 ---
@@ -11,4 +11,156 @@ slug: chapter-14
 import RuleBox from '@components/Rule.astro';
 import Pop from '@components/Pop.astro';
 import Section from '@components/Section.astro';
+import Solution from '@components/Solution.astro';
 
+
+# What is a Swap?
+
+<RuleBox>
+**Def.** A **Swap** is a custom agreement between two parties to trade cash flows with each other over a set period of time.
+</RuleBox>
+
+# Types of Swaps
+
+There are two types of swaps: Interest Rate and Currency Swaps. 
+
+<RuleBox align = "left">
+**Def.** An **Interest Rate Swap** is a contract between two parties that agree to swap interest rates. 
+
+Note that both interest rates have to be in the same currency.
+</RuleBox>
+
+<RuleBox>
+**Def.** A **Currency Swap** is a contract between two parties that agree to swap principal amounts in different currencies and interest payments (e.g. fixed, float)
+</RuleBox>
+
+# Swap Market Statistics
+
+<ul>
+    <li>The interest rate swap market is about 10 times larger than the currency swap market.</li>
+    <li>The U.S. dollar, Euro, Japanese yen, British pound, and Canadian dollar dominate the global swap market.</li>
+    <li>The swap market dropped off a few years ago due to Dodd-Frank regulations (which required more reporting, documentation, and code compression), but it has since recovered to previous highs.</li>
+</ul>
+
+# The Swap Bank  
+
+<RuleBox>
+**Def.** A **Swap Bank** is a generic term used to describe a financial institution that facilitates swaps between counterparties. 
+</RuleBox>
+
+<ul>
+    <li>Swap Banks can be international commercial bank, investment bank, merchant bank, or independent operator.</li>
+</ul> 
+
+**A swap bank can either serve as a broker or a dealer.**
+
+<ul>
+   <li>As a broker, the swap bank matches the counterparties but does not take on any risk of the swap.</li>
+   <li>As a dealer, the swap bank actually takes the other side of the trade, taking it into their own inventory until they can lay it off on someone else. They do assume risk.</li>
+</ul> 
+
+# Swap Market Quotations  
+
+Note: "against" means "exchanged for"
+
+## What is SOFR?
+
+The market convention in regards to quoting interest rate swaps is to quote against a local standard reference in the same currency. 
+
+Every major currency has its own metric that measures the cost of money in that specific currency.
+
+<ul>
+    <li>In the U.S., the standard reference is SOFR (Secured Overnight Financing Rate.)</li>
+
+    <li> In Europe, the standard reference is EURIBOR (Euro Interbank Offered Rate).</li>
+
+    <li> In Japan, it's TONA (Tokyo Overnight Average Rate).</li>
+</ul> 
+
+E.g. For example, a Swap Bank in an interest rate swap will quote two prices to lock in a profit (this is called the bid-ask spread):
+
+<ul>
+    <li><b>The Buy Price (The Bid):</b> The bank agrees to <b>pay</b> a fixed rate of 6.60% against receiving the floating SOFR.</li>
+    <li><b>The Sell Price (The Ask):</b> The bank agrees to <b>receive</b> a higher fixed rate of 6.70% against paying the floating SOFR.</li>
+</ul>
+
+**The Takeaway:** The bank forces a gap between what it collects (6.70%) and what it pays out (6.60%). That 0.10% difference is the bank's guaranteed fee for setting up the trade.
+
+# Interest Rate Swaps: Quotes and Basic Fixed vs. Floating [soon]
+
+## Quality Spread Differential (QSD) Calculations
+
+<RuleBox align = "left">
+**Def.** **Quality Spread Differential (QSD)** is the total amount of money saved by doing the swap.
+
+QSD = (Difference in Fixed Rates) - (Difference in Floating Rates)
+
+**The Rule:** If the QSD is positive, the swap makes sense. If it's zero or negative, the swap is useless.
+
+</RuleBox>
+
+## Practice
+
+**1.** Bank A (a AAA-rated international bank) and Company B (a BBB-rated U.S. company) are considering entering into an interest rate swap. You are provided with the following borrowing rates for each counterparty:
+
+<ul>
+    <li>**Bank A:** Can issue 5-year fixed-rate debt at 10.00% or 5-year floating-rate debt at SOFR + 0.72%.</li>
+    <li>**Company B:** Can issue 5-year fixed-rate debt at 11.25% or 5-year floating-rate debt at SOFR + 1.22%.</li>
+</ul>
+
+Calculate the Quality Spread Differential (QSD) for this potential swap.
+
+<Solution>
+</Solution>
+
+**2.** Bank X, a AAA-rated financial institution, and Company Y, a BB-rated manufacturing firm, are exploring a potential interest rate swap. Bank X can secure 5-year fixed-rate debt at 6.50% or floating-rate debt at SOFR + 0.50%. Meanwhile, Company Y can issue 5-year fixed-rate debt at 8.20% or floating-rate debt at SOFR + 1.10%. Based on these borrowing costs, calculate the Quality Spread Differential (QSD) for this potential swap.
+
+<Solution>
+</Solution>
+
+# Currency Swaps: Functions, Quotations, and Participants  [soon]
+
+## Advanced Swap Calculations [soon]
+
+**1. Interest Rate Swap Cash Flows**
+
+Company A and Company B enter a 1-year interest rate swap with a notional amount of €10 Million and quarterly payments. 
+<ul>
+    <li>Company A agrees to pay a fixed rate of 2.0% (annualized) and receive a floating rate tied to EURIBOR.</li>
+    <li>Company B agrees to pay the floating EURIBOR and receive the fixed 2.0%.</li>
+</ul>
+
+In Quarter 2, the annualized EURIBOR rate is 1.8%.
+
+<ul>
+    <li>What is the fixed payment amount for Q2?</li>
+    <li>What is the floating payment amount for Q2?</li>
+    <li>What is the net payment, and who pays whom (Does A pay B, or does B pay A)?</li>
+</ul>
+
+<Solution>
+</Solution>
+
+**2. Currency Swap Cash Flows**
+
+Company A (in Europe) and Company B (in the US) enter a 5-year currency swap.
+<ul>
+    <li>Notionals: €10 Million and $11 Million.</li>
+    <li>Interest: Company A pays 4.5% annually in USD; Company B pays 3.0% annually in EUR.</li>
+</ul>
+
+Outline the exact cash flows (giving the amount, currency, and whether it is an inflow or outflow) for Company A at these three stages:
+<ul>
+    <li>At Inception (Year 0): What principal do they give, and what do they get?</li>
+    <li>Annual Interest (Years 1-4): What interest do they pay, and what do they receive?</li>
+    <li>At Maturity (Year 5): What principal and interest do they swap to close the deal?</li>
+</ul>
+
+<Solution>
+</Solution>
+
+# Variations of Basic Interest Rate and Currency Swaps  [soon]
+
+# Risks of Interest Rate and Currency Swaps  [soon]
+
+# Is the Swap Market Efficient?    [soon]

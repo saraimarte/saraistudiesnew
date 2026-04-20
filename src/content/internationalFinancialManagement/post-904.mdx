@@ -1,8 +1,8 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Chapter 13 | Equity Market (Draft)
+title: Chapter 13 | Equity Market
 pubDate: 2026-04-18T00:00:00Z 
-updatedDate: 2026-04-18T00:00:00Z 
+updatedDate: 2026-04-19T00:00:00Z 
 draft: false
 author: Sarai Marte
 slug: chapter-13
@@ -11,6 +11,8 @@ slug: chapter-13
 import RuleBox from '@components/Rule.astro';
 import Pop from '@components/Pop.astro';
 import Section from '@components/Section.astro';
+import Latex from '@components/Latex.astro';
+
 
 # The <Pop t = "stock">Equity</Pop> Market Structure 
 
@@ -126,8 +128,6 @@ We can measure how liquid a market is several ways:
 </ul>
 
 
-# Trading and Costs
-
 # More on the Secondary Market 
 
 ## Types of Orders
@@ -149,7 +149,7 @@ E.g. Apple is currently trading around $190. You want to buy 1 share of apple.
     <li>**Limit Order:** You tell the broker, "Buy me 1 share of Apple only if the price hits $185." Your order sits and waits. If Apple never drops to $185, you don't buy the share and you might miss the opportunity because it could have dropped to $186 which is still a lower price but because you set the limit at $185, it won't buy it and then the price may go up to $200 and you missed the opportunity to buy at $186.</li>
 </ul>
 
-## How Orders are Proccessed / The Players in the Market 
+## How Orders are Processed / The Players in the Market 
 
 A broker (like Fidelity) just passes orders to either a dealer or an agency. 
 
@@ -194,16 +194,247 @@ A prime example is Toyota, which is a Japanese firm that cross-lists its shares 
 
 ## Cross-Border Investing Tools  (Ways to list your shares in another country)
 
-**1. Yankee Stock:** Foreign stock sold directly to US investors, denominated in USD, and following strict US SEC/GAAP rules.  
+**1. Foreign Stock (Yankee Stock if in America):** Foreign stock sold directly to US investors, denominated in USD, and following strict US SEC/GAAP rules (same idea as Yankee Bond but for Stocks.)
 
-**2. ADRs (American Depository Receipts):** A receipt representing shares of a foreign stock held in a bank. This is a faster, cheaper way for foreign firms to list in the US.  
+**2. Depository Receipts (American Depository Receipts/ADRs if listed in America):** A receipt representing shares of a foreign stock held in a bank. This is a faster, cheaper way for foreign firms to list in the US.  
+ 
+**Types of ADRs**
 
-**3. GRS (Global Registered Shares):** Shares that can be traded and settled on any exchange in the world (fully fungible).
+There are two types of American Depository Receipts.
 
-# Currency Risk [soon]
+<RuleBox>
+**Def.** A **Sponsored ADR** is created by a bank at the specific request of the foreign company that issued the underlying security. This is the only type of ADR that is allowed to be listed on major U.S. stock exchanges like the NYSE or NASDAQ.
 
-International Return != Local Return
+OR The foreign company wants to be in the U.S. They hire the U.S. bank, sign the paperwork, and agree to follow U.S. rules so they can trade on big exchanges like the NYSE.
 
-# International Equity Market Benchmarks [soon]
-# iShares MSCI [soon]
-# Factors Affecting International Equity Return [soon]
+</RuleBox>
+
+<RuleBox>
+**Def.** An **Unsponsored ADR** is created at the request of a U.S. investment bank without the direct involvement or consent of the foreign issuing firm. Because the company isn't involved, these can only trade "Over-the-Counter" (OTC) and not on major exchanges.
+
+OR The foreign company doesn't care about the U.S. market. However, a U.S. investment bank sees that Americans want the stock, so the bank creates the receipts on its own without the company's help. These can't trade on big exchanges.
+</RuleBox>
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 1100px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 180px;">The Big Question</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Level 1</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Level 2</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Level 3</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Rule 144A</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">What is the goal?</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Unlisted program; usually used to establish a presence without raising new cash.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Listed on an exchange to increase visibility/liquidity, but not raising new cash.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">The issuer floats a public offering of new equity in the U.S. to raise capital.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">A private placement of equity used to raise capital from elite institutions.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Is the company involved?</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Only level that can be Unsponsored. Often created by banks without company help.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Sponsored. Created at the specific request of the foreign company.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Sponsored. High level of company involvement to sell new shares.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Sponsored. Direct private agreement between issuer and large buyers.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Where do they trade?</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">OTC (Over-the-Counter); they cannot trade on major exchanges.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Major U.S. exchanges like NASDAQ or NYSE.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Major U.S. exchanges like NASDAQ or NYSE.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">U.S. Private Placement; limited to "QIBs" (Qualified Institutional Buyers).</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">What SEC forms are needed?</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Form F-6.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Form F-6.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">More intense: Forms F-1, F-3, or F-4.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">None. Bypasses standard registration.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">What are the annual reporting rules?</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Exempt under Rule 12g3-2(b).</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Form 20-F annually; must partially reconcile to U.S. GAAP.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Form 20-F annually; must partially reconcile to U.S. GAAP.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Exempt under Rule 12g3-2(b).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Benefits of ADRs**
+
+<ul>
+  <li>Denominated in dollars</li>
+  <li>Trade on a US exchange</li>
+  <li>Purchased through a regular broker</li>
+  <li>Dividends received on the underlying shares are converted to dollars by the custodian</li>
+  <li>Trades clear in one business day</li>
+  <li>ADRs (except Rule 144A issues) are registered securities that provide for the protection of ownership rights</li>
+</ul>
+
+**3. Global Registered Shares (GRS):** Shares that can be traded and settled on any exchange in the world. 
+
+# International Equity Market Benchmarks 
+
+There are ways we can measure how a particular country's stock market is performing:
+
+MSCI (Morgan Stanley Capital International): This is the primary source for national stock market performance data.
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 700px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 200px;">Benchmark</th>
+        <th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">What it Tracks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">MSCI World Index</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Tracks large and mid-cap stocks across 23 developed countries. </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">MSCI EAFE Index</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Covers Europe, Australasia, and the Far East (developed markets outside the US/Canada).</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">MSCI Emerging Markets Index</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Tracks 25 countries that are growing quickly but aren't fully "developed" yet (like Brazil or India).</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">MSCI Frontier Markets Index</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Covers 28 countries that are in the earliest stages of market development.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; text-align: left; vertical-align: top;">Regional Indexes</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">Specific groups like the Nordic Countries Index, Pacific Index, or European Index.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+# iShares MSCI 
+
+<RuleBox>
+**Def.** An **Exchange-Traded Fund (ETF)** is a security that tracks an index (like a list of foreign stocks) but trades on a stock exchange like a single stock. It allows you to buy a diversified basket of investments in one go.
+</RuleBox>
+
+<RuleBox>
+**Def.** **iShares** MSCI are Exchange-Traded Funds (ETFs) managed by <Pop t = "the world's largest asset manager">BlackRock</Pop> that are designed to track the performance of various MSCI stock indexes. They trade on major U.S. exchanges (NYSE and AMEX), offering investors a low-cost, simplified way to hold a diversified portfolio of international stocks.
+</RuleBox>
+
+
+Imagine you want to buy snacks from 50 different countries.
+
+<ul>
+    <li>**The Hard Way:** You have to fly to each country, find a grocery store, and buy one snack at a time. This is expensive and takes forever.</li>
+
+    <li>**The ETF Way:** You go to a local store and buy one pre-packaged gift basket that already contains one snack from each of those 50 countries.</li>
+</ul>
+
+Buying that one basket is like buying an ETF. You own a little piece of everything inside it with just one purchase.
+
+In this chapter, the snacks are the international stocks listed on an MSCI Index.
+
+MSCI makes the list of what should be in the basket (the Index).
+
+BlackRock (most known for their iShares) builds the physical basket (the ETF) and sells it to you.
+
+You can buy or sell it at any time during the day, just like you would buy a single share of Apple or Toyota.
+
+The price of the basket goes up or down based on how the snacks (the international stocks) inside are doing.
+
+# Factors Affecting International Equity Return
+
+**1. Macroecnomic Factors:** interest rates and unemployment rate can affect on stock return but it tends to have a more localized impact than international.   
+
+**2. Exchange Rates/Currency Risk:** low corelation between exchange rates and stock returns but still positive. Emerging markets are affected the most by exchange rates.  
+
+**3. Industry Factors:** any risks on a particular industry can affect return on stock. The affect is more prevalent in developed markets and less prevalent in emerging markets.  
+
+**4. Market Factors:** these involve specific stock traits like Size (market cap), Value (cheapness), and Momentum (recent price trends). Research shows strong <Pop t = "how much extra return investors get for buying cheap stocks instead of expensive ones.">value premiums</Pop> globally and strong momentum returns everywhere except Japan. 
+
+**5. Country Specific Risk:** this refers to Political Risk, such as the possibility of a local government taking over (expropriating) assets, changing tax policies, or restricting your ability to move currency out of the country.
+ 
+**6. Imperfect Exchange Rate Risk Hedging:** It is very difficult to perfectly protect (hedge) your investment from currency swings because stock returns are variable. Since you don't know exactly what your profit will be, you can't know exactly how much currency protection to buy.
+
+# Calculating Return on Equity 
+
+**Key Idea:** International Return (r<sub>For</sub>) ≠ Local Return (r<sub>Dom</sub>) 
+
+<Latex formula={`1 + r_{Dom} = (1 + r_{For}) \\times \\frac{E_1}{E_0}`} />
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+<table style="width: 100%; min-width: 600px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+<thead>
+<tr style="background-color: #edf2f7;">
+<th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top; width: 120px;">Symbol</th>
+<th style="padding: 12px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: top;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold; text-align: left; vertical-align: top;">r<sub>Dom</sub></td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Return on Foreign Investment in **Dom**estic Currency</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold; text-align: left; vertical-align: top;">r<sub>For</sub></td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Return on Foreign Investment in **For**eign Currency</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold; text-align: left; vertical-align: top;">E<sub>0</sub></td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Original Exchange Rate</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-weight: bold; text-align: left; vertical-align: top;">E<sub>1</sub></td>
+<td style="padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top;">Ending Exchange Rate</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+We can solve the formula for each component: 
+
+<Latex formula={`r_{Dom} = (1 + r_{For}) \\left( \\frac{E_1}{E_0} \\right) - 1`} />
+<Latex formula={`r_{For} = (1 + r_{Dom}) \\left( \\frac{E_0}{E_1} \\right) - 1`} />
+<Latex formula={`E_1 = E_0 \\left( \\frac{1 + r_{Dom}}{1 + r_{For}} \\right)`} />
+<Latex formula={`E_0 = E_1 \\left( \\frac{1 + r_{For}}{1 + r_{Dom}} \\right)`} />
+
+## Practice 
+
+**1.** As a US investor, you invest in a Japanese security and earn 12%. Calculate the return in US dollars using the following data:
+
+Original exchange rate: 1 Japanese Yen (¥)=$0.0065
+
+Ending exchange rate: 1 Japanese Yen (¥)=$0.0070
+
+**2.** As a Japanese investor, you invest in a U.S. security and earn 12%. Calculate the return in Japanese Yen using the following data:
+
+Original exchange rate: $1=¥153.85 (Calculated as 1/0.0065)
+
+Ending exchange rate: $1=¥142.86 (Calculated as 1/0.0070)
+
+**3.** As a US investor, you invested in a Mexican security. You know that the Peso exchange rate stayed flat at 0.05 per USD for both the beginning and the end of the year. If your final return in US dollars was 15%, what was the return of the actual stock in Mexico?
+
+**4.** As a US investor, you invest in a British security and earn 10%. The original exchange rate was 2.00 Dollars per Pound. If your final return in US dollars was 21%, what was the ending exchange rate?
+
+**5.** As a US investor, you earn 5% in a Canadian stock. The ending exchange rate is 0.80 Dollars per Canadian Dollar. If your total return in US dollars was actually 0%, what was the original exchange rate at the start of the year?
+
+**6.** You earned 20% on a foreign stock, but after converting the money back to USD, your total return was only 8%. By what percentage did the foreign currency change against the dollar?
+
+**7.** As a US investor, you invested in a Japanese security. At the beginning of the year, you had an initial USD investment of 10,000. On the date of investment, you obtained Japanese Yen at an initial rate of 0.0065 USD per Yen, investing 1,538,462 Yen. Over the year, the investment grows by 12%. At the end of the year, the Yen weakens against the USD, and the ending exchange rate becomes 0.0060 USD per Yen. Calculate the final return in USD.
+
+**8.** As a US investor, you invested in a French security. Find the domestic return using the following data:
+
+<ul>
+    <li>Initial USD per EUR = 1.10 → $11,000</li>
+    <li>Invests 10,000 EUR in French stocks</li>
+    <li>After 1 year: Investment grows 15% → 11,500 EUR</li>
+    <li>EUR weakens / USD strengthens to 1.05/ EUR</li>
+</ul>
