@@ -5,3 +5,7 @@
 https://www.youtube.com/watch?v=b-kFWP9a2tw&t=500s
 https://www.youtube.com/watch?v=8isr1lrr9Sc
 
+-fix premiere stretching videos  
+- fix premiere now allowing you to remove transcript 
+- fix vs code not showing image dimensions 
+- how to make icons on saraistudies 

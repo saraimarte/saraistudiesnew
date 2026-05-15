@@ -1,0 +1,142 @@
+---
+import Main from '@layouts/MainLayout.astro';
+const pathHome =  './';
+
+const folderPath1 = "../../toolbox";
+const folderPath2 = "../../rankings";
+const folderPath3 = "../../graduation";
+
+import File from '@components/File.astro';
+import Section from '@components/Section.astro';
+import ImageMd from "@components/ImageMd.astro";
+
+import img1 from "@images/0/email.png";
+import img2 from "@images/0/options.png";
+import img3 from "@images/0/dates.png";
+
+---
+
+<!--newPath -->
+
+<Main  folderPath1= {folderPath1} folderPath2 = {folderPath2} folderPath3 = {folderPath3} pathHome = {pathHome} >
+
+<h2>Graduation FAQ (RBS Version)</h2>
+
+All this information is my experience for the Class of 2026. Some items might be subject to change. 
+
+<File link = "https://scarletknights.com/sports/2026/1/13/2026-convocation-ticket-information" title = "Official Grad FAQ"></File>
+
+<Section t = "Where and when do I pick up my regalia?">
+You will get an email to get your regalia for commencement and it will look something like this:
+
+<ImageMd img={img1} alt="">
+</ImageMd>
+
+The email will contain a link (blue button) that will bring you to a website that will let you order your regalia and allow you to choose how you will receive it. 
+
+<ImageMd img={img2} alt="">
+</ImageMd>
+
+Note: The email tells you when to pick up the regalia if you choose to have it delivered to Barnes and Noble Bookstore. For the class of 2026, that was April 1-2 10 a.m. to 6 p.m. 
+
+</Section>
+
+
+<Section t = "Can I pick up my friend's regalia from B&N?">
+Yes. Once it's your turn you can ask if you can pick up your friends regalia and they will give you an email address that your friend has to send an email to such as this "This is [friends name]. I confirm that [Your Name] can pick up my regalia on [current date and time]." You will also have to show your friend's id (a picture of it is fine.) You will also need to show your friend's regalia order confirmation number.
+</Section>
+
+
+<Section t = "What is the difference between Convocation and Commencement?">
+
+Each school has their own convocation for their graduating students and commencement is for all graduating students at Rutgers. 
+
+Convocation you walk across the stage, commencement you don't. 
+
+Personally, I will not be going to commencement and I don't know anybody who is. 
+
+</Section>
+
+<Section t = "Where do I find out when/where my convocation is?">
+
+All convocations are at Jersey Mikes Arena. 
+
+In the <a href = "https://scarletknights.com/sports/2026/1/13/2026-convocation-ticket-information">General Grad FAQ page</a>, they will have a chart with dates on when each school's convocation is and when the tickets for each convocation is available. 
+
+<ImageMd img={img3} alt="Class of 2026 Example">
+</ImageMd>
+
+</Section>
+
+
+<Section t = "How do I get my guest tickets?">
+
+You have to install the Scarlet Knight app on your phone and your tickets will be there. 
+
+<File link = "https://apps.apple.com/us/app/scarlet-knights/id1265228084" title = "Scarlet Knights App (App Store)"></File>
+<File link = "https://play.google.com/store/apps/details?id=com.fnoex.fan.rutgers&pli=1" title = "Scarlet Knights App (Google Play)"></File>
+
+</Section>
+
+
+<Section t = "What is the difference between your General Admission ticket and your stage pass?">
+
+You need your general admission ticket to get into the stadium (this will be 1 of your tickets in the Scarlet Knights app. You will know it's yours because it won't allow you to transfer it.)
+
+You need your stage pass to get into the ground floor (where all graduates sit), they just look at it, they don't scan it. 
+
+Once the walking the stage phase of the ceremony starts, in order to walk onto the stage you have to scan your stage pass because that will announce your name automatically as you walk across the stage. 
+
+You get the stage pass in Tassel. 
+
+</Section>
+
+
+
+<Section t = "How do I get my general admission ticket?">
+
+You have to install the Scarlet Knight app on your phone and it will be 1 of your tickets that you won't be able to transfer. Add it to your wallet. It's how you'll get into the stadium. 
+
+<File link = "https://apps.apple.com/us/app/scarlet-knights/id1265228084" title = "Scarlet Knights App (App Store)"></File>
+<File link = "https://play.google.com/store/apps/details?id=com.fnoex.fan.rutgers&pli=1" title = "Scarlet Knights App (Google Play)"></File>
+
+</Section>
+
+<Section t = "How do I get my stage pass?">
+
+Login to Tassel from your computer (mobile didn't work for me) and add to wallet, you can email the tickets to yourself and open the email on your phone and add to wallet from there. 
+
+<File link = "https://rutgers.tassel.com/login" title = "Tassel"></File>
+
+You need your stage pass to walk the stage with your name shown on the screen.
+
+</Section>
+
+
+
+
+
+
+</Main>
+
+<style>
+    .title{
+        font-weight: 600;
+	    font-size:1.5em;			
+    }
+
+    ul{
+        margin:0px 20px;
+    }
+
+    li{
+        margin-bottom:5px;
+    }
+    a{
+        color:black;
+    }
+
+    h2{
+        margin: 10px 0 10px 0;
+    }
+</style>

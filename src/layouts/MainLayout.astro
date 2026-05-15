@@ -8,7 +8,8 @@ const {folderPath1, folderPath2, folderPath3} = Astro.props;
 
 import folderIcon1 from '../../public/folderIcons/toolbox.png';
 import folderIcon2 from '../../public/folderIcons/rankings.png';
-import folderIcon3 from '../../public/folderIcons/ratings.png';
+import folderIcon3 from '../../public/folderIcons/graduation.png';
+
 
 ---
 <html lang="en">
@@ -32,6 +33,11 @@ import folderIcon3 from '../../public/folderIcons/ratings.png';
             <a data-pagefind-ignore href = {folderPath1} id = "folder1" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
                 <img src = {folderIcon1.src} alt = "toolbox"></>
                 <p class = "label"> toolbox </p>
+            </a>
+
+               <a data-pagefind-ignore href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
+                <img src = {folderIcon3.src} alt = "graduation"></>
+                <p class = "label"> graduation </p>
             </a>
             
             <div x-show="!closedScreen" class="screen" >
