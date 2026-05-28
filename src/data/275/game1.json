@@ -8,11 +8,11 @@
       "answers": ["Indirect", "Fixed"]
     },
     {
-      "name": "Total cost of sause for a pizza store",
+      "name": "Total cost of sauce for a pizza store",
       "answers": ["Direct", "Variable"]
     },
     {
-      "name": "Cost per unit of sause for a pizza store",
+      "name": "Cost per unit of sauce for a pizza store",
       "answers": ["Direct", "Fixed"]
     }
   ]
