@@ -9,34 +9,30 @@ const {folderPath1, folderPath2, folderPath3} = Astro.props;
 import folderIcon1 from '../../public/folderIcons/toolbox.png';
 import folderIcon2 from '../../public/folderIcons/rankings.png';
 import folderIcon3 from '../../public/folderIcons/graduation.png';
-
-
 ---
 <html lang="en">
-	<head>
-
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" user-scalable=no />
-		<meta name="generator" content={Astro.generator} />
-		<title>sarai studies</title>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" user-scalable=no />
+        <meta name="generator" content={Astro.generator} />
+        <title>sarai studies</title>
         <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
         <link rel = "stylesheet" href = "/prism-holi-theme.css"/>
         <script src="/pagefind/pagefind-ui.js" is:inline></script>          
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.css" integrity="sha384-NFTC4wvyQKLwuJ8Ez9AvPNBv8zcC2XaQzXSMvtORKw28BdJbB2QE8Ka+OyrIHcQJ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-z9arB7KJHppq8kK9AESncXcQd/KXIMMPiCrAdxfFpp+5QU438lgBE7UFGbk+gljP" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-
     </head> 
-	<body>
+    <body>
         <div x-data="{closedScreen:false}" class="container" >
             <a data-pagefind-ignore href = {folderPath1} id = "folder1" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
-                <img src = {folderIcon1.src} alt = "toolbox"></>
+                <img src = {folderIcon1.src} alt = "toolbox" />
                 <p class = "label"> toolbox </p>
             </a>
 
-               <a data-pagefind-ignore href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
-                <img src = {folderIcon3.src} alt = "graduation"></>
+            <a data-pagefind-ignore href = {folderPath3} id = "folder3" class = "folder myLink" x-bind:class = "{'folderVisible': !closedScreen}">
+                <img src = {folderIcon3.src} alt = "graduation" />
                 <p class = "label"> graduation </p>
             </a>
             
@@ -46,15 +42,11 @@ import folderIcon3 from '../../public/folderIcons/graduation.png';
                     <slot></slot>
                 </div>
             </div>
-
-		</div>
+        </div>
         <BottomNav></BottomNav>
-
-<PowerOff></PowerOff>
+        <PowerOff></PowerOff>
     </body>
     
-
-
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
     <script type="module">
@@ -65,89 +57,69 @@ import folderIcon3 from '../../public/folderIcons/graduation.png';
         import 'https://cdn.interactjs.io/v1.9.20/dev-tools/index.js'
         import interact from 'https://cdn.interactjs.io/v1.9.20/interactjs/index.js'
     
-        // target elements with the "draggable" class
         interact('.folder')
             .draggable({
-                // enable inertial throwing
                 inertia: true,
-                // keep the element within the area of its parent
                 modifiers: [
                     interact.modifiers.restrictRect({
                         restriction: 'parent',
-                        endOnly: false // this makes it so that the folder can only be dragged on the blue screen and not further than the bottom nav
+                        endOnly: false 
                     })
                 ],
-                // enable autoScroll
                 autoScroll: true,
-    
                 listeners: {
-                    // call this function on every dragmove event
                     move: dragMoveListener
                 }
             })
     
         function dragMoveListener(event) {
             var target = event.target
-            // keep the dragged position in the data-x/data-y attributes
             var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
             var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
     
-            // translate the element
             target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
     
-            // update the position attributes
             target.setAttribute('data-x', x)
             target.setAttribute('data-y', y)
         }
 
         document.addEventListener('dblclick', function (event) {
-            // Prevent the default behavior of the double click
             event.preventDefault();
             var target = event.target;
     
-            // If the double click is on a folder, navigate to its link
             if (target.classList.contains('folder')) {
                 window.location.href = target.getAttribute('data-href');
             }
         });
-        document.getElementById('navItem').addEventListener('click', function () {
-        const visibleFolders = document.querySelectorAll('.folderVisible');
 
-        visibleFolders.forEach((folder, index) => {
-            setTimeout(() => {
-                folder.style.display = 'flex';
-                folder.style.top = `${(index + 0.2) * 100}px`; // Adjust the value to control the vertical spacing
-            }, 10 * (index + 1)); // Delay each folder's appearance
+        document.getElementById('navItem').addEventListener('click', function () {
+            const visibleFolders = document.querySelectorAll('.folderVisible');
+
+            visibleFolders.forEach((folder, index) => {
+                setTimeout(() => {
+                    folder.style.display = 'flex';
+                    folder.style.top = `${(index + 0.2) * 100}px`; 
+                }, 10 * (index + 1)); 
             });
         });
-
     </script>
     
+  <script>
+        var links = document.querySelectorAll('.myLink');
+        links.forEach(function(link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
 
-<script>
-    //Problem: I would drag the desktop folder and once i let go it would take me to it's page but I didn't want to go to the page just by dragging it. I wanted to go to the page if and only if I double click on the icon.
-    //Solution: this
-    // Get all elements with the class 'myLink'
-    var links = document.querySelectorAll('.myLink');
-    links.forEach(function(link) {
-        link.addEventListener('click', function (event) {
-            // Prevent the default behavior of the link on a single click
-            event.preventDefault();
+            link.addEventListener('dblclick', function (event) {
+                const target = event.currentTarget as HTMLElement;
+                if (target) {
+                    window.location.href = target.getAttribute('href') || '';
+                }
+            });
         });
-
-        link.addEventListener('dblclick', function () {
-            // Handle the double-click action, for example, open the link
-            window.location.href = this.getAttribute('href');
-        });
-    });
-
-    
-</script>
-
-
+    </script>
 </html>
-
-
 
 <style>
     .folder{
@@ -180,37 +152,31 @@ import folderIcon3 from '../../public/folderIcons/graduation.png';
         user-select: none;
         touch-action: none;
     }
-
- 
 </style>
 
-
-
 <style>
-  
     html{
         background: url('/012024r2.png');
         background-size: cover;
     }
     
     body{
-        min-height: 80svh; /* nvm0*/
+        min-height: 80svh; 
         height:100svh; 
         width:100%;
         overflow-y: hidden;
         display: flex;
         flex-direction: column;
         justify-content:flex-end;
-        
     }
 
-	.container{
+    .container{
         height:92%;
         width:100%;
         padding:20px 20px 20px 20px;
+    }
 
-	}
-	.screen{
+    .screen{
         background-color: white;
         display:grid;
         grid-template-columns: 100%;
@@ -223,34 +189,22 @@ import folderIcon3 from '../../public/folderIcons/graduation.png';
         grid-gap:1em;
         height:100%;
         overflow: auto;
-
-        
-	}
+    }
     
     .content{
         display: flex;
         flex-direction: column;
         width: 100%;
         padding: 20px 20px;
-        /* This is the part that makes it scrollable */
         overflow-y: auto;
-        /*scrollbar-width:none; */
         scrollbar-color: rgb(145, 202, 204) white;
         font-size:15px;
-        
-
-    }
-	
-    
-/*once it reaches 768px desktop (desktop)*/
-@media only screen and (min-width:768px){
-    .content{
-        margin: 0 auto;
-        max-width:800px;
     }
     
-}
-
-    
-
+    @media only screen and (min-width:768px){
+        .content{
+            margin: 0 auto;
+            max-width:800px;
+        }
+    }
 </style>

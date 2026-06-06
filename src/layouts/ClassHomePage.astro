@@ -1,5 +1,17 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  pageTitle: string;
+  allArticles: CollectionEntry<any>[];
+  className: string;
+  fullClassTitle: string;
+  folderPath1?: string;
+  folderPath2?: string;
+  folderPath3?: string;
+  pathHome: string;
+}
 
 const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPath2, folderPath3, pathHome} = Astro.props;
 ---
@@ -9,62 +21,54 @@ const {pageTitle, allArticles, className, fullClassTitle, folderPath1, folderPat
     <h1 data-pagefind-meta="title" class = "title">{fullClassTitle}</h1>
 
     <ol data-pagefind-ignore >
-      {allArticles.map(article => (
+      {allArticles.map((article: any) => (
         <li>
           <a href={`/${className}/${article.slug}`}>{article.data.title}</a>
         </li>
       ))}
     </ol>
-    
   </div>
 </MainLayout>
 
 <style>
-
-    a{
-        color:black;
-        font-family: var(--primaryFont);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-size:20px;
-    }
-    ol{
-        margin:20px 40px;
-        line-height: 2em;
-        display:flex;
-        flex-direction: column;
-        gap:0.4em;
-    }
-
+  a {
+    color: black;
+    font-family: var(--primaryFont);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 20px;
+  }
   
-    .title{
-      font-size: 1.3rem;
-      margin: 10px 10px;
-    }
+  ol {
+    margin: 20px 40px;
+    line-height: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin: 10px 10px;
+  }
    
-  
-  .title, ol, a{
+  .title, ol, a {
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
     font-style: normal;
   }
 
-
-@media (max-width: 768px) {
-  .title, ol, a{
+  @media (max-width: 768px) {
+    .title, ol, a {
       font-size: 1rem;
     }
-  .title{
-    margin: 10px 0;
-
+    
+    .title {
+      margin: 10px 0;
+    }
+    
+    ol {
+      margin: 20px 30px;
+    }
   }
-  ol{
-    margin:20px 30px;
-
-  }
-
-}
-
 </style>
-
-
