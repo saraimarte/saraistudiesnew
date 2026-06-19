@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/Blog.astro'
-title: Lecture 1 | Intro to Networking
+title: Lecture 1 | Intro to Computer Networking
 pubDate: 2026-06-04T00:00:00Z 
 updatedDate: 2026-06-04T00:00:00Z 
 draft: true
@@ -9,6 +9,7 @@ slug: lecture-1
 ---
 
 import RuleBox from '@components/Rule.astro';
+import Pop from '@components/Pop.astro';
 
 <RuleBox>
 **Def.** A **network** is a system of links that interconnects nodes in order to move information between nodes.
@@ -30,7 +31,9 @@ There are different types of networks:
 In this class, we focus only on the Inter*net*.
 
 <RuleBox align = "left">
-**Def.** An **internet** is a network of networks. 
+**Def.** An **internet** is a generic term for any network of networks. 
+
+Connects a specific set of devices or smaller networks.
 
 (From a discrete 2 perspective, it's just a graph of graphs.)
 
@@ -38,8 +41,9 @@ In this class, we focus only on the Inter*net*.
 
 <RuleBox align = "left">
 **Def.** The **Internet** is a global internet managed by a language that's based on the IP protocol. 
-</RuleBox>
 
+Connects millions of private and public networks worldwide. 
+</RuleBox>
 
 <RuleBox align = "left">
 **Def.** The **IP Protocol** is a set of rules allowing entirely different computer networks to communicate with one another.
@@ -50,4 +54,147 @@ In this class, we focus only on the Inter*net*.
 </RuleBox>
 
 The Internet started as a research experiment called **ARPANET** in the 1960s that would link university and military researchers to test a new way of communication.  
+
+# Characteristics of the Internet 
+
+**1. <Pop t = "the ability of different systems, devices, or applications to connect, communicate, and exchange data securely and effectively.">Interoperability</Pop> is the Internet's most important goal so to enforce interoperability, the Internet is a <Pop t = "a type of architecture where different independent entities work together as a single unit.">Federated System</Pop>**
+
+<ul>
+    <li> where the different independent entities are <Pop t = "entities that provide internet service (like Optimum, Verizon, etc.)"> Internet Service Providers.</Pop></li>
+</ul>
+
+**2. The Internet is diverse and dynamic**
+
+There are different types of...
+
+<ul>
+    <li><Pop t = "the time it takes for data to be received">Communication latency</Pop> (microseconds to seconds.)</li>
+    
+    <li><Pop t = "maximum amount of data that can flow through the network connection/link/edge per second">Bandwidth</Pop> (1Kbits/second to 100 Gigabits/second)</li>
+    
+    <li><Pop t = "the % of data packets that fail to reach their destination">Packet loss</Pop> (0-90%)</li>    
+    
+    <li><Pop t = "the material in which network edges/links are made of">Technology</Pop> (optical, wireless, satellite, copper.)</li>
+   
+    <li><Pop t = "the physical hardware connected to the network edge (so a network node)">Endpoint Devices</Pop> (sensors cell phones, datacenters, supercomputers.)</li>    
+   
+    <li>Applications (social networking, file transfer, skype, live TV, gaming, remote medicine)</li>
+   
+    <li>Users (the governing, governed, operators, malicious, addicted, gamers, etc.)</li>
+</ul>
+
+**3. The Internet is prone to failure**
+
+<ul>
+    <li>To send data through a network, *all* components along a path must work correctly (software, firewall, links, endpoint devices, human operators etc.) </li>
+    <li>*Any* part of the Internet might fail.</li>
+</ul>
+
+# What are Network Applications?
+
+<RuleBox align = "left">
+**Def.** The **Network Applications** are applications that run on different end systems in a network (e.g. Canvas, Zoom, Bloomberg, Web Servers.)
+</RuleBox>
+
+## Application Considerations 
+
+When designing an application there are two main events to take into account. First, the input from the application to the network, and second, the output from the network back to the application. 
+
+Within these events, there are factors to consider. 
+
+**1. Input from the application to the network**
+
+<ul>
+    <li><Pop t = "how much data can flow over the network per unit of time">Traffic data rate</Pop></li>
+    <li><Pop t = "the fluctuation of data flows">Traffic pattern</Pop> (bursty flow (text messages) or fixed/steady flow (Netflix Video Streaming))</li>
+    <li><Pop t = "the intended destination of the network data">Traffic Target</Pop>(<Pop t = "multiple destinations">multipoint</Pop> or single destination, mobile or fixed)</li>
+</ul>
+
+**2. Output from the network back to the application.**
+
+<ul>
+  <li><Pop t = "how tolerant an application is to data being held up in transit.">Delay Sensitivity</Pop></li>
+  <li><Pop t = "how affected the application is by missing data">Loss Sensitivity</Pop></li>
+  <li><Pop t = "if device or user is moving around">Mobility,</Pop><Pop t = "where the sender or receiver are">location,</Pop> <Pop t = "if data is being sent or received by multiple endpoints">multicast</Pop> sensitivity</li>
+</ul>
+
+# Examples 
+
+<div style="width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid #e2e8f0; -webkit-overflow-scrolling: touch;">
+  <table style="width: 100%; min-width: 1000px; border-collapse: collapse; background-color: #f4f7f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; table-layout: auto;">
+    <thead>
+      <tr style="background-color: #edf2f7;">
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom; width: 180px;">Application Considerations</th>
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom;">Reliable File Transfer</th>
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom;">Remote Login</th>
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom;">Network Audio</th>
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom;">Network Video</th>
+        <th style="padding: 12px; height: 100px; border-bottom: 2px solid #cbd5e1; text-align: left; vertical-align: bottom;">Web</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; vertical-align: top;">Bandwidth</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Depends heavily on the file size and the user's connection speed">Varies</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Only transmits small amounts of data like keystrokes and text updates">Low</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Digitized audio samples require minimal network capacity">Low</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Transmitting high-resolution frames continuously requires massive capacity">High</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Depends entirely on whether fetching simple text or large multimedia assets">Varies</Pop></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; vertical-align: top;">Traffic Pattern</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Data is sent all at once in a large spike until the file transfer is complete">Bursty</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Data is only transmitted sporadically when the user types or clicks">Bursty</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Requires a continuous, regular flow of digitized audio samples">Steady</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Variable bitrates from compression algorithms cause flow fluctuations">Bursty</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Short user request followed by a potentially large server response, then idle">Bursty</Pop></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; vertical-align: top;">Traffic Target</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Can be sent to a single receiver or distributed to multiple clients">Point-to-point / Multipoint</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Direct, secure connection between one user terminal and one server">Point-to-point</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Can be a 1-on-1 call or a group voice conference">Point-to-point / Multipoint</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Often broadcasted or streamed to many simultaneous viewers">Multipoint</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Direct request and response between one browser and one server">Point-to-point</Pop></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; vertical-align: top;">Loss Sensitivity</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Cannot tolerate any missing data; the file will corrupt">Sensitive</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Commands cannot lose characters or they will fail">Sensitive</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Minor drops are usually unnoticeable to the human ear">Tolerant</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Tolerance depends on how the compression algorithm handles missing frames">Tolerant</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Minor elements (like an image) can fail safely without breaking the whole page">Tolerant</Pop></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-weight: bold; vertical-align: top;">Delay Sensitivity</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="File transfers can wait; timing does not impact the final file">Tolerant</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Subject to tight interactive constraints; lag makes typing impossible">Highly Sensitive</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Requires consistent arrival times; highly sensitive to jitter (delay variance) causing stuttering">Sensitive</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Depends on level of interactivity (e.g., live calls are sensitive, pre-recorded streaming is tolerant)">Sensitive</Pop></td>
+        <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;"><Pop t="Needs quick load times to satisfy human attention spans">Sensitive</Pop></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+# Ideas 
+
+1.Determine if an action would have bursty or fixed data traffic pattern? 
+
+# What is the problem?
+
+# Global Network 
+To measure performance of  the  sysem 
+
+Structure 
+Metric 
+Failure Modes 
+Functions 
+
+
+# Network Structure 
+
+<ul>
+    <li></li>
+</ul>
 
